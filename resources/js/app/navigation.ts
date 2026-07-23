@@ -5,7 +5,7 @@ type NavigationModule = {
 };
 
 const modules = import.meta.glob<NavigationModule>(
-    '../modules/*/navigation.ts',
+    '../modules/**/navigation.ts',
     { eager: true },
 );
 

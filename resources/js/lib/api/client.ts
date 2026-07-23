@@ -78,6 +78,47 @@ async function request<T>(
     return json as T;
 }
 
+async function requestForm<T>(
+    method: string,
+    path: string,
+    formData: FormData,
+): Promise<T> {
+    const headers: Record<string, string> = {
+        Accept: 'application/json',
+    };
+
+    const xsrfToken = readCookie('XSRF-TOKEN');
+
+    if (xsrfToken) {
+        headers['X-XSRF-TOKEN'] = xsrfToken;
+    }
+
+    // PHP can't parse multipart bodies on PUT/PATCH requests, so this is
+    // sent as a real POST with Laravel's `_method` spoofing field — the
+    // same convention Laravel's own form helpers use for file uploads.
+    if (method !== 'POST') {
+        formData.append('_method', method);
+    }
+
+    const response = await fetch(`/api/v1${path}`, {
+        method: 'POST',
+        headers,
+        credentials: 'same-origin',
+        body: formData,
+    });
+
+    const json = await response.json().catch(() => null);
+
+    if (!response.ok) {
+        throw new ApiRequestError(
+            json ?? { success: false, message: response.statusText },
+            response.status,
+        );
+    }
+
+    return json as T;
+}
+
 export const apiClient = {
     get: <T>(path: string) => request<T>('GET', path),
     post: <T>(path: string, body?: unknown) =>
@@ -87,4 +128,6 @@ export const apiClient = {
     patch: <T>(path: string, body?: unknown) =>
         request<T>('PATCH', path, body ?? {}),
     delete: <T>(path: string) => request<T>('DELETE', path),
+    putForm: <T>(path: string, formData: FormData) =>
+        requestForm<T>('PUT', path, formData),
 };

@@ -216,7 +216,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
-export const show = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -231,7 +231,7 @@ show.definition = {
  * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
-show.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+show.url = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { membership: args }
     }
@@ -264,7 +264,7 @@ show.url = (args: { membership: number | { id: number } } | [membership: number 
  * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
-show.get = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -273,7 +273,7 @@ show.get = (args: { membership: number | { id: number } } | [membership: number 
  * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
-show.head = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
@@ -283,7 +283,7 @@ show.head = (args: { membership: number | { id: number } } | [membership: number
  * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
-    const showForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const showForm = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: show.url(args, options),
         method: 'get',
     })
@@ -293,7 +293,7 @@ show.head = (args: { membership: number | { id: number } } | [membership: number
  * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
-        showForm.get = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.get = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, options),
             method: 'get',
         })
@@ -302,7 +302,7 @@ show.head = (args: { membership: number | { id: number } } | [membership: number
  * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
-        showForm.head = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.head = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -318,7 +318,7 @@ show.head = (args: { membership: number | { id: number } } | [membership: number
  * @see app/Modules/Membership/Controllers/MembershipFreezeController.php:15
  * @route '/memberships/{membership}/freeze'
  */
-export const freeze = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+export const freeze = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: freeze.url(args, options),
     method: 'patch',
 })
@@ -333,7 +333,7 @@ freeze.definition = {
  * @see app/Modules/Membership/Controllers/MembershipFreezeController.php:15
  * @route '/memberships/{membership}/freeze'
  */
-freeze.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+freeze.url = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { membership: args }
     }
@@ -366,7 +366,7 @@ freeze.url = (args: { membership: number | { id: number } } | [membership: numbe
  * @see app/Modules/Membership/Controllers/MembershipFreezeController.php:15
  * @route '/memberships/{membership}/freeze'
  */
-freeze.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+freeze.patch = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: freeze.url(args, options),
     method: 'patch',
 })
@@ -376,7 +376,7 @@ freeze.patch = (args: { membership: number | { id: number } } | [membership: num
  * @see app/Modules/Membership/Controllers/MembershipFreezeController.php:15
  * @route '/memberships/{membership}/freeze'
  */
-    const freezeForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const freezeForm = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: freeze.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PATCH',
@@ -391,7 +391,7 @@ freeze.patch = (args: { membership: number | { id: number } } | [membership: num
  * @see app/Modules/Membership/Controllers/MembershipFreezeController.php:15
  * @route '/memberships/{membership}/freeze'
  */
-        freezeForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        freezeForm.patch = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: freeze.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -407,7 +407,7 @@ freeze.patch = (args: { membership: number | { id: number } } | [membership: num
  * @see app/Modules/Membership/Controllers/MembershipResumeController.php:14
  * @route '/memberships/{membership}/resume'
  */
-export const resume = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+export const resume = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: resume.url(args, options),
     method: 'patch',
 })
@@ -422,7 +422,7 @@ resume.definition = {
  * @see app/Modules/Membership/Controllers/MembershipResumeController.php:14
  * @route '/memberships/{membership}/resume'
  */
-resume.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+resume.url = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { membership: args }
     }
@@ -455,7 +455,7 @@ resume.url = (args: { membership: number | { id: number } } | [membership: numbe
  * @see app/Modules/Membership/Controllers/MembershipResumeController.php:14
  * @route '/memberships/{membership}/resume'
  */
-resume.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+resume.patch = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: resume.url(args, options),
     method: 'patch',
 })
@@ -465,7 +465,7 @@ resume.patch = (args: { membership: number | { id: number } } | [membership: num
  * @see app/Modules/Membership/Controllers/MembershipResumeController.php:14
  * @route '/memberships/{membership}/resume'
  */
-    const resumeForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const resumeForm = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: resume.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PATCH',
@@ -480,7 +480,7 @@ resume.patch = (args: { membership: number | { id: number } } | [membership: num
  * @see app/Modules/Membership/Controllers/MembershipResumeController.php:14
  * @route '/memberships/{membership}/resume'
  */
-        resumeForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        resumeForm.patch = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: resume.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -496,7 +496,7 @@ resume.patch = (args: { membership: number | { id: number } } | [membership: num
  * @see app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
  * @route '/memberships/{membership}/suspend'
  */
-export const suspend = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+export const suspend = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: suspend.url(args, options),
     method: 'patch',
 })
@@ -511,7 +511,7 @@ suspend.definition = {
  * @see app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
  * @route '/memberships/{membership}/suspend'
  */
-suspend.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+suspend.url = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { membership: args }
     }
@@ -544,7 +544,7 @@ suspend.url = (args: { membership: number | { id: number } } | [membership: numb
  * @see app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
  * @route '/memberships/{membership}/suspend'
  */
-suspend.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+suspend.patch = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: suspend.url(args, options),
     method: 'patch',
 })
@@ -554,7 +554,7 @@ suspend.patch = (args: { membership: number | { id: number } } | [membership: nu
  * @see app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
  * @route '/memberships/{membership}/suspend'
  */
-    const suspendForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const suspendForm = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: suspend.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PATCH',
@@ -569,7 +569,7 @@ suspend.patch = (args: { membership: number | { id: number } } | [membership: nu
  * @see app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
  * @route '/memberships/{membership}/suspend'
  */
-        suspendForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        suspendForm.patch = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: suspend.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -585,7 +585,7 @@ suspend.patch = (args: { membership: number | { id: number } } | [membership: nu
  * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
-export const cancel = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+export const cancel = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: cancel.url(args, options),
     method: 'patch',
 })
@@ -600,7 +600,7 @@ cancel.definition = {
  * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
-cancel.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+cancel.url = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { membership: args }
     }
@@ -633,7 +633,7 @@ cancel.url = (args: { membership: number | { id: number } } | [membership: numbe
  * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
-cancel.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+cancel.patch = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: cancel.url(args, options),
     method: 'patch',
 })
@@ -643,7 +643,7 @@ cancel.patch = (args: { membership: number | { id: number } } | [membership: num
  * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
-    const cancelForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const cancelForm = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: cancel.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PATCH',
@@ -658,7 +658,7 @@ cancel.patch = (args: { membership: number | { id: number } } | [membership: num
  * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
-        cancelForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        cancelForm.patch = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: cancel.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -674,7 +674,7 @@ cancel.patch = (args: { membership: number | { id: number } } | [membership: num
  * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
-export const reactivate = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+export const reactivate = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: reactivate.url(args, options),
     method: 'patch',
 })
@@ -689,7 +689,7 @@ reactivate.definition = {
  * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
-reactivate.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+reactivate.url = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { membership: args }
     }
@@ -722,7 +722,7 @@ reactivate.url = (args: { membership: number | { id: number } } | [membership: n
  * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
-reactivate.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+reactivate.patch = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: reactivate.url(args, options),
     method: 'patch',
 })
@@ -732,7 +732,7 @@ reactivate.patch = (args: { membership: number | { id: number } } | [membership:
  * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
-    const reactivateForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const reactivateForm = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: reactivate.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PATCH',
@@ -747,7 +747,7 @@ reactivate.patch = (args: { membership: number | { id: number } } | [membership:
  * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
-        reactivateForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        reactivateForm.patch = (args: { membership: string | number | { id: string | number } } | [membership: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: reactivate.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',

@@ -14,6 +14,7 @@ export type NavItem = {
     permission?: string;
     order?: number;
     group?: string;
+    children?: NavItem[];
 };
 
 export type ModuleNavigation = NavItem | NavItem[];

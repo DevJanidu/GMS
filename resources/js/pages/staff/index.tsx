@@ -65,7 +65,7 @@ export default function StaffIndex() {
                 <div className="flex items-center justify-between gap-4">
                     <Heading title="Staff" description="Manage your team" />
                     <Button asChild>
-                        <Link href="/staff/create">Invite staff</Link>
+                        <Link href="/staff/create">Add staff</Link>
                     </Button>
                 </div>
 

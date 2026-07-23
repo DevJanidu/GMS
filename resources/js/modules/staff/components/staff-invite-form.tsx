@@ -19,11 +19,25 @@ import type { Role } from '@/modules/roles/types';
 import type { InviteStaffValues } from '../types';
 import { BranchPicker } from './branch-picker';
 
-type StaffInviteFormProps = {
-    onSubmit: (values: Partial<InviteStaffValues>) => Promise<unknown>;
+export type StaffInvitePreviewValues = {
+    name: string;
+    email: string;
+    jobTitle: string;
+    phone: string;
+    role: Role | null;
+    branches: Branch[];
+    primaryBranchId: number | null;
 };
 
-export function StaffInviteForm({ onSubmit }: StaffInviteFormProps) {
+type StaffInviteFormProps = {
+    onSubmit: (values: Partial<InviteStaffValues>) => Promise<unknown>;
+    onValuesChange?: (values: StaffInvitePreviewValues) => void;
+};
+
+export function StaffInviteForm({
+    onSubmit,
+    onValuesChange,
+}: StaffInviteFormProps) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [jobTitle, setJobTitle] = useState('');
@@ -41,6 +55,31 @@ export function StaffInviteForm({ onSubmit }: StaffInviteFormProps) {
         rolesApi.list().then((response) => setRoles(response.data));
         branchesApi.list().then((response) => setBranches(response.data));
     }, []);
+
+    useEffect(() => {
+        onValuesChange?.({
+            name,
+            email,
+            jobTitle,
+            phone,
+            role: roles.find((role) => role.id === roleId) ?? null,
+            branches: branches.filter((branch) =>
+                branchIds.includes(branch.id),
+            ),
+            primaryBranchId,
+        });
+    }, [
+        name,
+        email,
+        jobTitle,
+        phone,
+        roleId,
+        branchIds,
+        primaryBranchId,
+        roles,
+        branches,
+        onValuesChange,
+    ]);
 
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
@@ -149,7 +188,7 @@ export function StaffInviteForm({ onSubmit }: StaffInviteFormProps) {
             </div>
 
             <Button type="submit" disabled={processing}>
-                Send invitation
+                Add staff
             </Button>
         </form>
     );

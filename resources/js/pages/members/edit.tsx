@@ -41,7 +41,7 @@ export default function EditMember({
         <>
             <Head title={`Edit ${member.full_name}`} />
 
-            <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6 p-4">
+            <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6">
                 <div>
                     <h1 className="text-xl font-semibold tracking-tight">
                         Edit {member.full_name}

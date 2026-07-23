@@ -158,3 +158,14 @@
 .dark .MuiChartsAxis-tick {
     stroke: var(--muted-foreground) !important;
 }
+
+/* Keep autofilled inputs on the glassmorphism auth card readable: browsers
+   force their own light background + dark text on autofill, which clashes
+   with the transparent/white-text styling of that card. */
+.auth-glass-card input:-webkit-autofill,
+.auth-glass-card input:-webkit-autofill:hover,
+.auth-glass-card input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.05) inset;
+    transition: background-color 9999s ease-in-out 0s;
+}

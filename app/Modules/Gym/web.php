@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-Route::middleware(['auth', 'verified', 'tenant'])->group(function () {
-    Route::inertia('settings/gym', 'settings/gym')->name('settings.gym');
-});
+// The gym profile no longer has its own page — it's surfaced as a section
+// on Settings > Profile (see resources/js/pages/settings/profile.tsx),
+// backed by the JSON API routes in routes.php.

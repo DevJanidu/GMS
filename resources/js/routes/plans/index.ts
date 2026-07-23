@@ -216,7 +216,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
-export const show = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -231,7 +231,7 @@ show.definition = {
  * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
-show.url = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+show.url = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { plan: args }
     }
@@ -264,7 +264,7 @@ show.url = (args: { plan: string | number | { id: string | number } } | [plan: s
  * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
-show.get = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -273,7 +273,7 @@ show.get = (args: { plan: string | number | { id: string | number } } | [plan: s
  * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
-show.head = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
@@ -283,7 +283,7 @@ show.head = (args: { plan: string | number | { id: string | number } } | [plan: 
  * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
-    const showForm = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const showForm = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: show.url(args, options),
         method: 'get',
     })
@@ -293,7 +293,7 @@ show.head = (args: { plan: string | number | { id: string | number } } | [plan: 
  * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
-        showForm.get = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.get = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, options),
             method: 'get',
         })
@@ -302,7 +302,7 @@ show.head = (args: { plan: string | number | { id: string | number } } | [plan: 
  * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
-        showForm.head = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.head = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -318,7 +318,7 @@ show.head = (args: { plan: string | number | { id: string | number } } | [plan: 
  * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
-export const edit = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -333,7 +333,7 @@ edit.definition = {
  * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
-edit.url = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+edit.url = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { plan: args }
     }
@@ -366,7 +366,7 @@ edit.url = (args: { plan: string | number | { id: string | number } } | [plan: s
  * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
-edit.get = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -375,7 +375,7 @@ edit.get = (args: { plan: string | number | { id: string | number } } | [plan: s
  * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
-edit.head = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -385,7 +385,7 @@ edit.head = (args: { plan: string | number | { id: string | number } } | [plan: 
  * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
-    const editForm = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const editForm = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: edit.url(args, options),
         method: 'get',
     })
@@ -395,7 +395,7 @@ edit.head = (args: { plan: string | number | { id: string | number } } | [plan: 
  * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
-        editForm.get = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.get = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, options),
             method: 'get',
         })
@@ -404,7 +404,7 @@ edit.head = (args: { plan: string | number | { id: string | number } } | [plan: 
  * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
-        editForm.head = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        editForm.head = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: edit.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -420,7 +420,7 @@ edit.head = (args: { plan: string | number | { id: string | number } } | [plan: 
  * @see app/Http/Controllers/PlanController.php:92
  * @route '/plans/{plan}'
  */
-export const update = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -435,7 +435,7 @@ update.definition = {
  * @see app/Http/Controllers/PlanController.php:92
  * @route '/plans/{plan}'
  */
-update.url = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { plan: args }
     }
@@ -468,7 +468,7 @@ update.url = (args: { plan: string | number | { id: string | number } } | [plan:
  * @see app/Http/Controllers/PlanController.php:92
  * @route '/plans/{plan}'
  */
-update.put = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -478,7 +478,7 @@ update.put = (args: { plan: string | number | { id: string | number } } | [plan:
  * @see app/Http/Controllers/PlanController.php:92
  * @route '/plans/{plan}'
  */
-    const updateForm = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -493,7 +493,7 @@ update.put = (args: { plan: string | number | { id: string | number } } | [plan:
  * @see app/Http/Controllers/PlanController.php:92
  * @route '/plans/{plan}'
  */
-        updateForm.put = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -509,7 +509,7 @@ update.put = (args: { plan: string | number | { id: string | number } } | [plan:
  * @see app/Http/Controllers/PlanCloneController.php:12
  * @route '/plans/{plan}/clone'
  */
-export const clone = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const clone = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: clone.url(args, options),
     method: 'post',
 })
@@ -524,7 +524,7 @@ clone.definition = {
  * @see app/Http/Controllers/PlanCloneController.php:12
  * @route '/plans/{plan}/clone'
  */
-clone.url = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+clone.url = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { plan: args }
     }
@@ -557,7 +557,7 @@ clone.url = (args: { plan: string | number | { id: string | number } } | [plan: 
  * @see app/Http/Controllers/PlanCloneController.php:12
  * @route '/plans/{plan}/clone'
  */
-clone.post = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+clone.post = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: clone.url(args, options),
     method: 'post',
 })
@@ -567,7 +567,7 @@ clone.post = (args: { plan: string | number | { id: string | number } } | [plan:
  * @see app/Http/Controllers/PlanCloneController.php:12
  * @route '/plans/{plan}/clone'
  */
-    const cloneForm = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const cloneForm = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: clone.url(args, options),
         method: 'post',
     })
@@ -577,7 +577,7 @@ clone.post = (args: { plan: string | number | { id: string | number } } | [plan:
  * @see app/Http/Controllers/PlanCloneController.php:12
  * @route '/plans/{plan}/clone'
  */
-        cloneForm.post = (args: { plan: string | number | { id: string | number } } | [plan: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        cloneForm.post = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: clone.url(args, options),
             method: 'post',
         })

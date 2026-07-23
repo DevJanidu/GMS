@@ -52,7 +52,7 @@ export default function CreatePlan({ branches }: { branches: BranchOption[] }) {
         <>
             <Head title="Create plan" />
 
-            <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6 p-4">
+            <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6">
                 <div>
                     <h1 className="text-xl font-semibold tracking-tight">
                         Create plan

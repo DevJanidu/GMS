@@ -61,7 +61,7 @@ export default function MembersIndex({
         <>
             <Head title="Members" />
 
-            <div className="flex flex-1 flex-col gap-6 p-4">
+            <div className="flex flex-1 flex-col gap-6">
                 <div className="flex items-center justify-between gap-4">
                     <div>
                         <h1 className="text-xl font-semibold tracking-tight">
@@ -180,7 +180,16 @@ export default function MembersIndex({
                                             {member.member_number}
                                         </Link>
                                     </TableCell>
-                                    <TableCell>{member.full_name}</TableCell>
+                                    <TableCell>
+                                        <Link
+                                            href={MemberController.show.url({
+                                                member: member.id,
+                                            })}
+                                            className="hover:underline"
+                                        >
+                                            {member.full_name}
+                                        </Link>
+                                    </TableCell>
                                     <TableCell className="text-muted-foreground">
                                         {member.email ?? member.phone ?? '—'}
                                     </TableCell>

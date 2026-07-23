@@ -107,7 +107,7 @@ class MemberController extends Controller
 
         return Inertia::render('members/show', [
             'member' => (new MemberResource($member))->resolve(),
-            'documents' => MemberDocumentResource::collection($member->documents),
+            'documents' => MemberDocumentResource::collection($member->documents)->resolve(),
         ]);
     }
 
