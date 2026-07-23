@@ -1,0 +1,43 @@
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+auth.json
+*.pem
+*.p12
+*.pfx
+
+# PHP / Laravel dependencies and generated files
+/vendor/
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+/storage/*.key
+/storage/pail/
+/public/build/
+/public/hot
+/public/storage
+
+# JavaScript dependencies and logs
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Test and analysis caches
+/.phpunit.cache/
+.phpunit.result.cache
+/.phpstan.cache/
+
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
+
+# IDE and operating-system files
+/.idea/
+/.vscode/
+/.fleet/
+.DS_Store
+Thumbs.db
+
