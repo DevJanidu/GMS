@@ -5,11 +5,14 @@ use App\Models\Permission;
 use App\Models\Role;
 use App\Models\Tenant;
 use App\Models\User;
+use App\Modules\Billing\Events\PaymentCompleted;
+use App\Modules\Billing\Events\PaymentRefunded;
 use App\Modules\Billing\Models\BillingEvent;
 use App\Modules\Billing\Models\Invoice;
 use App\Modules\Billing\Models\Payment;
 use App\Modules\Billing\Models\Refund;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use Tests\Concerns\InteractsWithPermissions;
 
@@ -134,6 +137,8 @@ it('makes invoice creation idempotent and rejects reuse with different input', f
 });
 
 it('records partial installment and split payments with receipts', function () {
+    Event::fake([PaymentCompleted::class]);
+
     [, $branch, $user] = billingActor([
         'billing.invoices.create',
         'billing.payments.record',
@@ -162,6 +167,8 @@ it('records partial installment and split payments with receipts', function () {
         ->and($invoice->balance_due_cents)->toBe(0)
         ->and(Payment::query()->count())->toBe(3)
         ->and($invoice->receipts()->count())->toBe(3);
+
+    Event::assertDispatchedTimes(PaymentCompleted::class, 3);
 });
 
 it('replays a payment idempotently and rejects overpayment', function () {
@@ -188,6 +195,8 @@ it('replays a payment idempotently and rejects overpayment', function () {
 });
 
 it('processes partial and full refunds without changing original payments', function () {
+    Event::fake([PaymentRefunded::class]);
+
     [, $branch, $user] = billingActor([
         'billing.invoices.create',
         'billing.payments.record',
@@ -219,6 +228,8 @@ it('processes partial and full refunds without changing original payments', func
         ->and($invoice->amount_paid_cents)->toBe(11000)
         ->and($invoice->amount_refunded_cents)->toBe(11000)
         ->and($invoice->balance_due_cents)->toBe(11000);
+
+    Event::assertDispatchedTimes(PaymentRefunded::class, 2);
 });
 
 it('prevents mutation or deletion of payment history', function () {

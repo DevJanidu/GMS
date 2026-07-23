@@ -3,6 +3,8 @@
 namespace App\Modules\Billing\Services;
 
 use App\Modules\Billing\Events\BillingEventPublished;
+use App\Modules\Billing\Events\PaymentCompleted;
+use App\Modules\Billing\Events\PaymentRefunded;
 use App\Modules\Billing\Models\BillingEvent;
 use App\Modules\Billing\Models\Invoice;
 use App\Modules\Billing\Models\Payment;
@@ -38,9 +40,42 @@ class BillingEventStore
                 $event->branch_id,
                 $event->payload,
             ));
+            $this->publishTypedEvent($event);
             BillingEvent::withoutGlobalScopes()->whereKey($event->id)->update(['published_at' => now()]);
         });
 
         return $event;
+    }
+
+    private function publishTypedEvent(BillingEvent $event): void
+    {
+        $occurredAt = $event->occurred_at->toIso8601String();
+
+        match ($event->event_type) {
+            'PaymentCompleted' => PaymentCompleted::dispatch(
+                eventId: $event->event_id,
+                occurredAt: $occurredAt,
+                tenantId: $event->tenant_id,
+                branchId: $event->branch_id,
+                paymentId: $event->aggregate_id,
+                invoiceId: (int) $event->payload['invoice_id'],
+                amountCents: (int) $event->payload['amount_cents'],
+                method: (string) $event->payload['method'],
+                receiptId: isset($event->payload['receipt_id'])
+                    ? (int) $event->payload['receipt_id']
+                    : null,
+            ),
+            'PaymentRefunded' => PaymentRefunded::dispatch(
+                eventId: $event->event_id,
+                occurredAt: $occurredAt,
+                tenantId: $event->tenant_id,
+                branchId: $event->branch_id,
+                refundId: $event->aggregate_id,
+                paymentId: (int) $event->payload['payment_id'],
+                invoiceId: (int) $event->payload['invoice_id'],
+                amountCents: (int) $event->payload['amount_cents'],
+            ),
+            default => null,
+        };
     }
 }
