@@ -25,9 +25,16 @@ class MembershipFactory extends Factory
 
         return [
             'tenant_id' => Tenant::factory(),
-            'branch_id' => Branch::factory(),
-            'member_id' => Member::factory(),
-            'plan_id' => Plan::factory(),
+            'branch_id' => fn (array $attributes) => Branch::factory()->create([
+                'tenant_id' => $attributes['tenant_id'],
+            ])->id,
+            'member_id' => fn (array $attributes) => Member::factory()->create([
+                'tenant_id' => $attributes['tenant_id'],
+                'branch_id' => $attributes['branch_id'],
+            ])->id,
+            'plan_id' => fn (array $attributes) => Plan::factory()->create([
+                'tenant_id' => $attributes['tenant_id'],
+            ])->id,
             'plan_name_snapshot' => 'Gold Membership',
             'plan_price_snapshot' => 49.99,
             'plan_joining_fee_snapshot' => 0,

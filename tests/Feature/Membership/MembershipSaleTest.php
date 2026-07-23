@@ -5,6 +5,10 @@ use App\Models\Branch;
 use App\Models\Member;
 use App\Models\Plan;
 use App\Models\Tenant;
+use App\Models\User;
+use App\Modules\Billing\Models\Invoice;
+use App\Modules\Billing\Models\Payment;
+use App\Modules\Billing\Models\Receipt;
 use App\Modules\Membership\Enums\MembershipStatus;
 use App\Modules\Membership\Models\Membership;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -49,6 +53,14 @@ it('sells a membership to an existing member with an immediate start date', func
     expect($membership->grace_ends_on->toDateString())->toBe(now()->addMonth()->addDays(5)->toDateString());
     expect($membership->invoice_id)->not->toBeNull();
     expect($membership->events()->count())->toBe(2); // created + activated
+
+    $invoice = Invoice::query()->findOrFail($membership->invoice_id);
+    expect($invoice->membership_id)->toBe($membership->id)
+        ->and($invoice->grand_total_cents)->toBe(7000)
+        ->and($invoice->amount_paid_cents)->toBe(7000)
+        ->and($invoice->balance_due_cents)->toBe(0)
+        ->and(Payment::query()->where('invoice_id', $invoice->id)->value('amount_cents'))->toBe(7000)
+        ->and(Receipt::query()->where('invoice_id', $invoice->id)->exists())->toBeTrue();
 });
 
 it('sells a membership with a future start date as pending', function () {
@@ -136,7 +148,7 @@ it('returns a 404 for a membership belonging to another tenant', function () {
 
 it('requires permission to sell a membership', function () {
     $tenant = Tenant::factory()->create();
-    $user = \App\Models\User::factory()->create(['tenant_id' => $tenant->id]);
+    $user = User::factory()->create(['tenant_id' => $tenant->id]);
     $branch = Branch::factory()->for($tenant)->create();
     $member = Member::factory()->for($tenant)->create();
     $plan = Plan::factory()->for($tenant)->create();
