@@ -1,5 +1,6 @@
 import { usePage } from '@inertiajs/react';
 import type { ReactNode } from 'react';
+import type { PermissionRequirement } from '@/lib/permissions/can';
 import { can } from '@/lib/permissions/can';
 
 export function PermissionGate({
@@ -7,7 +8,7 @@ export function PermissionGate({
     children,
     fallback = null,
 }: {
-    permission: string;
+    permission: PermissionRequirement;
     children: ReactNode;
     fallback?: ReactNode;
 }) {

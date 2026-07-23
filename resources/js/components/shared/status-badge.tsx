@@ -14,15 +14,54 @@ const tones: Record<StatusTone, string> = {
     neutral: 'border-border bg-muted text-muted-foreground',
 };
 
+/**
+ * Common status strings across modules mapped to a tone, so callers don't
+ * each re-derive "active is green, expired is red" from scratch. Falls back
+ * to `neutral` for anything unrecognized — pass `tone` explicitly to
+ * override.
+ */
+const STATUS_TONES: Record<string, StatusTone> = {
+    active: 'success',
+    paid: 'success',
+    completed: 'success',
+    approved: 'success',
+    inactive: 'neutral',
+    pending: 'warning',
+    expiring: 'warning',
+    'expiring-soon': 'warning',
+    frozen: 'warning',
+    suspended: 'danger',
+    expired: 'danger',
+    archived: 'neutral',
+    cancelled: 'danger',
+    canceled: 'danger',
+    rejected: 'danger',
+    failed: 'danger',
+    refunded: 'info',
+};
+
+export function toneForStatus(status: string): StatusTone {
+    return STATUS_TONES[status.toLowerCase()] ?? 'neutral';
+}
+
 export function StatusBadge({
     children,
-    tone = 'neutral',
+    tone,
+    status,
     className,
-}: React.ComponentProps<typeof Badge> & { tone?: StatusTone }) {
+    ...props
+}: Omit<React.ComponentProps<typeof Badge>, 'variant'> & {
+    tone?: StatusTone;
+    /** Convenience: infer the tone from a known status string instead of passing `tone` explicitly. */
+    status?: string;
+}) {
+    const resolvedTone = tone ?? (status ? toneForStatus(status) : 'neutral');
+
     return (
         <Badge
             variant="outline"
-            className={cn('rounded-full', tones[tone], className)}
+            className={cn('rounded-full', tones[resolvedTone], className)}
+            {...props}
         >
             {children}
         </Badge>

@@ -16,6 +16,7 @@ class RoleSeeder extends Seeder
         $this->systemRole('owner', 'Owner', $allSlugs);
 
         $this->systemRole('manager', 'Manager', [
+            'dashboard.view', 'dashboard.financials.view',
             'gym.view',
             'branches.view', 'branches.update',
             'staff.view', 'staff.create', 'staff.update', 'staff.suspend', 'staff.assign-branches',
@@ -23,6 +24,7 @@ class RoleSeeder extends Seeder
         ]);
 
         $this->systemRole('front-desk', 'Front Desk', [
+            'dashboard.view',
             'branches.view',
             'staff.view',
         ]);

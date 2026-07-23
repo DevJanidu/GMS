@@ -14,6 +14,10 @@ class PermissionCatalog
     public static function all(): array
     {
         return [
+            'Dashboard' => [
+                'dashboard.view' => 'View the dashboard',
+                'dashboard.financials.view' => 'View dashboard revenue and outstanding-balance figures',
+            ],
             'Gym' => [
                 'gym.view' => 'View gym settings',
                 'gym.update' => 'Update gym settings',

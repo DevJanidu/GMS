@@ -30,6 +30,37 @@ it('lets the owner role bypass every gate check', function () {
     expect($user->can('anything.at.all'))->toBeTrue();
 });
 
+it('reports a wildcard permission slug for the owner role', function () {
+    $user = User::factory()->create();
+    $ownerRole = Role::factory()->system()->create(['slug' => 'owner']);
+    $user->roles()->attach($ownerRole);
+
+    expect($user->permissionSlugs())->toBe(['*']);
+});
+
+it('reports the union of permission slugs across a non-owner user roles', function () {
+    $user = User::factory()->create();
+    $roleA = Role::factory()->create();
+    $roleB = Role::factory()->create();
+    $viewPermission = Permission::factory()->create(['slug' => 'branches.view']);
+    $updatePermission = Permission::factory()->create(['slug' => 'branches.update']);
+
+    $roleA->permissions()->attach($viewPermission);
+    $roleB->permissions()->attach([$viewPermission->id, $updatePermission->id]);
+    $user->roles()->attach([$roleA->id, $roleB->id]);
+
+    expect($user->permissionSlugs())->toEqualCanonicalizing([
+        'branches.view',
+        'branches.update',
+    ]);
+});
+
+it('reports no permission slugs for a user with no roles', function () {
+    $user = User::factory()->create();
+
+    expect($user->permissionSlugs())->toBe([]);
+});
+
 it('scopes visible roles to a tenant plus global system roles', function () {
     $tenantA = Tenant::factory()->create();
     $tenantB = Tenant::factory()->create();

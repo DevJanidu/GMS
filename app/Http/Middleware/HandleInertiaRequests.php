@@ -35,11 +35,17 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $user = $request->user();
+
         return [
             ...parent::share($request),
             'name' => config('app.name'),
             'auth' => [
-                'user' => $request->user(),
+                // `permissions` isn't a column, so it never round-trips through
+                // Inertia's normal model serialization on its own — the frontend
+                // permission gate (resources/js/lib/permissions/can.ts) needs it
+                // attached explicitly to know what a non-owner user can see.
+                'user' => $user ? [...$user->toArray(), 'permissions' => $user->permissionSlugs()] : null,
             ],
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
         ];

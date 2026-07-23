@@ -8,4 +8,5 @@ export const navigation: ModuleNavigation = {
     icon: LayoutDashboard,
     order: 10,
     group: 'Overview',
+    permission: 'dashboard.view',
 };
