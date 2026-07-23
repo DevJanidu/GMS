@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Scope;
  * Restricts all queries for a tenant-owned model to the tenant resolved
  * for the current request. No-op when no tenant context is bound
  * (e.g. console commands, tests that opt out).
+ *
+ * @implements Scope<Model>
  */
 class TenantScope implements Scope
 {
