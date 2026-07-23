@@ -57,6 +57,13 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Create plans', 'slug' => 'plans.create', 'group' => 'plans'],
             ['name' => 'Update plans', 'slug' => 'plans.update', 'group' => 'plans'],
             ['name' => 'Delete plans', 'slug' => 'plans.delete', 'group' => 'plans'],
+            ['name' => 'View memberships', 'slug' => 'memberships.view', 'group' => 'memberships'],
+            ['name' => 'Sell memberships', 'slug' => 'memberships.sell', 'group' => 'memberships'],
+            ['name' => 'Renew memberships', 'slug' => 'memberships.renew', 'group' => 'memberships'],
+            ['name' => 'Freeze memberships', 'slug' => 'memberships.freeze', 'group' => 'memberships'],
+            ['name' => 'Suspend memberships', 'slug' => 'memberships.suspend', 'group' => 'memberships'],
+            ['name' => 'Cancel memberships', 'slug' => 'memberships.cancel', 'group' => 'memberships'],
+            ['name' => 'Reactivate memberships', 'slug' => 'memberships.reactivate', 'group' => 'memberships'],
         ])->each(fn (array $permission) => Permission::firstOrCreate(['slug' => $permission['slug']], $permission));
     }
 }

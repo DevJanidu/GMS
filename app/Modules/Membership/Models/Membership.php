@@ -7,39 +7,106 @@ use App\Models\Concerns\BelongsToTenant;
 use App\Models\Member;
 use App\Models\Plan;
 use App\Models\User;
+use App\Modules\Membership\Enums\MembershipStatus;
+use Carbon\CarbonImmutable;
+use Database\Factories\MembershipFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use RuntimeException;
 
+/**
+ * @property int $id
+ * @property int $tenant_id
+ * @property int $branch_id
+ * @property int $member_id
+ * @property int|null $plan_id
+ * @property string $plan_name_snapshot
+ * @property string $plan_price_snapshot
+ * @property string $plan_joining_fee_snapshot
+ * @property int $plan_duration_value_snapshot
+ * @property string $plan_duration_unit_snapshot
+ * @property array<string, mixed>|null $plan_access_rules_snapshot
+ * @property CarbonImmutable $starts_on
+ * @property CarbonImmutable $expires_on
+ * @property int $grace_days
+ * @property CarbonImmutable $grace_ends_on
+ * @property MembershipStatus $status
+ * @property int|null $previous_membership_id
+ * @property int|null $sold_by
+ * @property CarbonImmutable|null $sold_at
+ * @property int|null $invoice_id
+ * @property CarbonImmutable|null $freeze_started_on
+ * @property CarbonImmutable|null $freeze_resumes_on
+ * @property int $frozen_days_used
+ * @property CarbonImmutable|null $suspended_at
+ * @property string|null $suspension_reason
+ * @property CarbonImmutable|null $cancelled_at
+ * @property string|null $cancellation_reason
+ * @property CarbonImmutable|null $expiring_notified_at
+ * @property CarbonImmutable|null $expired_at
+ * @property string|null $notes
+ * @property int|null $created_by
+ */
+#[Fillable([
+    'tenant_id', 'branch_id', 'member_id', 'plan_id',
+    'plan_name_snapshot', 'plan_price_snapshot', 'plan_joining_fee_snapshot',
+    'plan_duration_value_snapshot', 'plan_duration_unit_snapshot', 'plan_access_rules_snapshot',
+    'starts_on', 'expires_on', 'grace_days', 'grace_ends_on', 'status',
+    'previous_membership_id', 'sold_by', 'sold_at', 'invoice_id',
+    'freeze_started_on', 'freeze_resumes_on', 'frozen_days_used',
+    'suspended_at', 'suspension_reason', 'cancelled_at', 'cancellation_reason',
+    'expiring_notified_at', 'expired_at', 'notes', 'created_by',
+])]
 class Membership extends Model
 {
-    use BelongsToTenant;
+    /** @use HasFactory<MembershipFactory> */
+    use BelongsToTenant, HasFactory;
 
-    protected $fillable = [
-        'tenant_id', 'member_id', 'plan_id', 'branch_id', 'renewed_from_id',
-        'membership_number', 'status', 'currency', 'plan_price', 'joining_fee',
-        'discount_amount', 'tax_amount', 'total_amount', 'starts_on', 'ends_on',
-        'grace_ends_on', 'sold_at', 'activated_at', 'terminated_at',
-        'plan_snapshot', 'access_rules_snapshot', 'created_by',
-    ];
+    protected static function newFactory(): MembershipFactory
+    {
+        return MembershipFactory::new();
+    }
+
+    protected static function booted(): void
+    {
+        // Membership history must never be destroyed — statuses only ever
+        // move forward through the lifecycle (cancel/expire instead of
+        // delete), so historical reporting always reconciles.
+        static::deleting(function () {
+            throw new RuntimeException('Memberships cannot be deleted; cancel or let it expire instead.');
+        });
+    }
 
     protected function casts(): array
     {
         return [
-            'plan_price' => 'decimal:2',
-            'joining_fee' => 'decimal:2',
-            'discount_amount' => 'decimal:2',
-            'tax_amount' => 'decimal:2',
-            'total_amount' => 'decimal:2',
+            'status' => MembershipStatus::class,
+            'plan_price_snapshot' => 'decimal:2',
+            'plan_joining_fee_snapshot' => 'decimal:2',
+            'plan_access_rules_snapshot' => 'array',
             'starts_on' => 'date',
-            'ends_on' => 'date',
+            'expires_on' => 'date',
             'grace_ends_on' => 'date',
             'sold_at' => 'datetime',
-            'activated_at' => 'datetime',
-            'terminated_at' => 'datetime',
-            'plan_snapshot' => 'array',
-            'access_rules_snapshot' => 'array',
+            'freeze_started_on' => 'date',
+            'freeze_resumes_on' => 'date',
+            'suspended_at' => 'datetime',
+            'cancelled_at' => 'datetime',
+            'expiring_notified_at' => 'datetime',
+            'expired_at' => 'datetime',
         ];
+    }
+
+    /**
+     * @return BelongsTo<Branch, $this>
+     */
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class);
     }
 
     /**
@@ -59,19 +126,29 @@ class Membership extends Model
     }
 
     /**
-     * @return BelongsTo<Branch, $this>
+     * @return BelongsTo<Membership, $this>
      */
-    public function branch(): BelongsTo
+    public function previousMembership(): BelongsTo
     {
-        return $this->belongsTo(Branch::class);
+        return $this->belongsTo(self::class, 'previous_membership_id');
     }
 
     /**
-     * @return BelongsTo<self, $this>
+     * The membership that renewed this one, if any.
+     *
+     * @return HasOne<Membership, $this>
      */
-    public function renewedFrom(): BelongsTo
+    public function renewal(): HasOne
     {
-        return $this->belongsTo(self::class, 'renewed_from_id');
+        return $this->hasOne(self::class, 'previous_membership_id');
+    }
+
+    /**
+     * @return BelongsTo<User, $this>
+     */
+    public function soldBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'sold_by');
     }
 
     /**
@@ -83,18 +160,26 @@ class Membership extends Model
     }
 
     /**
-     * @return HasMany<MembershipStatusHistory, $this>
+     * @return HasMany<MembershipEvent, $this>
      */
-    public function statusHistory(): HasMany
+    public function events(): HasMany
     {
-        return $this->hasMany(MembershipStatusHistory::class);
+        return $this->hasMany(MembershipEvent::class)->orderByDesc('occurred_at')->orderByDesc('id');
     }
 
-    /**
-     * @return HasMany<MembershipFreeze, $this>
-     */
-    public function freezes(): HasMany
+    public function hasForwardRenewal(): bool
     {
-        return $this->hasMany(MembershipFreeze::class);
+        return $this->relationLoaded('renewal')
+            ? $this->renewal !== null
+            : $this->renewal()->exists();
+    }
+
+    public function isInGracePeriod(?CarbonImmutable $at = null): bool
+    {
+        $today = ($at ?? CarbonImmutable::now())->startOfDay();
+
+        return $this->status === MembershipStatus::Active
+            && $today->greaterThan($this->expires_on)
+            && ! $today->greaterThan($this->grace_ends_on);
     }
 }
