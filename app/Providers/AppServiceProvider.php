@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Tenancy\Services\BranchContext;
+use App\Tenancy\Services\TenantContext;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(TenantContext::class);
+        $this->app->singleton(BranchContext::class);
     }
 
     /**
