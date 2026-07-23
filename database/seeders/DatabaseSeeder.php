@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Branch;
+use App\Models\Permission;
+use App\Models\Role;
 use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -34,5 +36,27 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user->branches()->attach($branch, ['is_primary' => true]);
+
+        // Owner bypasses every Gate check (see AuthorizationServiceProvider),
+        // so it needs no explicit permissions to unblock the demo account.
+        // Full role/permission management belongs to the Staff & RBAC module;
+        // these rows only keep every module's policies satisfiable until then.
+        $owner = Role::firstOrCreate(
+            ['tenant_id' => null, 'slug' => 'owner'],
+            ['name' => 'Owner', 'is_system' => true],
+        );
+
+        $user->roles()->syncWithoutDetaching([$owner->id]);
+
+        collect([
+            ['name' => 'View members', 'slug' => 'members.view', 'group' => 'members'],
+            ['name' => 'Create members', 'slug' => 'members.create', 'group' => 'members'],
+            ['name' => 'Update members', 'slug' => 'members.update', 'group' => 'members'],
+            ['name' => 'Archive members', 'slug' => 'members.archive', 'group' => 'members'],
+            ['name' => 'View plans', 'slug' => 'plans.view', 'group' => 'plans'],
+            ['name' => 'Create plans', 'slug' => 'plans.create', 'group' => 'plans'],
+            ['name' => 'Update plans', 'slug' => 'plans.update', 'group' => 'plans'],
+            ['name' => 'Delete plans', 'slug' => 'plans.delete', 'group' => 'plans'],
+        ])->each(fn (array $permission) => Permission::firstOrCreate(['slug' => $permission['slug']], $permission));
     }
 }

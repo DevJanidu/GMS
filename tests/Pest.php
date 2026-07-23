@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Role;
+use App\Models\Tenant;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -47,4 +50,23 @@ expect()->extend('toBeOne', function () {
 function something()
 {
     // ..
+}
+
+/**
+ * A user with the tenant-wide "owner" role, which bypasses every Gate
+ * check (see AuthorizationServiceProvider). Used across module tests so
+ * each one doesn't have to seed granular permissions just to act.
+ */
+function ownerFor(Tenant $tenant): User
+{
+    $user = User::factory()->create(['tenant_id' => $tenant->id]);
+
+    $owner = Role::firstOrCreate(
+        ['tenant_id' => null, 'slug' => 'owner'],
+        ['name' => 'Owner', 'is_system' => true],
+    );
+
+    $user->roles()->attach($owner);
+
+    return $user;
 }

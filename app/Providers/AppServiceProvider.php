@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Plan;
+use App\Observers\PlanObserver;
 use App\Tenancy\Services\BranchContext;
 use App\Tenancy\Services\TenantContext;
 use Carbon\CarbonImmutable;
@@ -27,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
+
+        Plan::observe(PlanObserver::class);
     }
 
     /**
