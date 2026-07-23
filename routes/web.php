@@ -9,7 +9,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 require __DIR__.'/settings.php';
-
-foreach ((glob(app_path('Modules/*/web.php')) ?: []) as $moduleWebRoutes) {
-    require $moduleWebRoutes;
-}
+require __DIR__.'/members.php';
+require __DIR__.'/plans.php';

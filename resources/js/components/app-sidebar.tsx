@@ -13,15 +13,22 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { navigation as membersNavigation } from '@/modules/members/navigation';
+import { navigation as plansNavigation } from '@/modules/plans/navigation';
 import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
 
+// TODO(ui-shell): replace this hand-maintained list with the permission-aware,
+// auto-loaded module navigation described in SRS Rule 4 once it lands. See
+// INTEGRATION_NOTES.md.
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
         href: dashboard(),
         icon: LayoutGrid,
     },
+    membersNavigation,
+    plansNavigation,
 ];
 
 const footerNavItems: NavItem[] = [
