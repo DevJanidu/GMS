@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Modules\AccessControl\Policies\RolePolicy;
 use App\Modules\Branch\Policies\BranchPolicy;
 use App\Modules\Gym\Support\GymProfileGate;
+use App\Modules\Membership\Models\Membership;
+use App\Modules\Membership\Policies\MembershipPolicy;
 use App\Modules\Staff\Policies\StaffPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -25,6 +27,7 @@ class AuthorizationServiceProvider extends ServiceProvider
         Branch::class => BranchPolicy::class,
         Role::class => RolePolicy::class,
         User::class => StaffPolicy::class,
+        Membership::class => MembershipPolicy::class,
     ];
 
     public function boot(): void
