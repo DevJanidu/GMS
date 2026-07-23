@@ -11,14 +11,25 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarSeparator,
 } from '@/components/ui/sidebar';
 import { can } from '@/lib/permissions/can';
 import { dashboard } from '@/routes';
 
 export function AppSidebar() {
     const { auth } = usePage().props;
-    const navigation = getModuleNavigation().filter((item) =>
-        can(auth.user, item.permission),
+    const navigation = getModuleNavigation()
+        .filter((item) => can(auth.user, item.permission))
+        .map((item) => ({
+            ...item,
+            children: item.children?.filter((child) =>
+                can(auth.user, child.permission),
+            ),
+        }));
+
+    const mainItems = navigation.filter((item) => item.group !== 'settings');
+    const settingsItems = navigation.filter(
+        (item) => item.group === 'settings',
     );
 
     return (
@@ -36,7 +47,12 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={navigation} />
+                <NavMain items={mainItems} />
+
+                <div className="mt-auto">
+                    <SidebarSeparator className="mx-0" />
+                    <NavMain items={settingsItems} label="Settings" />
+                </div>
             </SidebarContent>
 
             <SidebarFooter>

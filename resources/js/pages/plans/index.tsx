@@ -57,7 +57,7 @@ export default function PlansIndex({
         <>
             <Head title="Plans" />
 
-            <div className="flex flex-1 flex-col gap-6 p-4">
+            <div className="flex flex-1 flex-col gap-6">
                 <div className="flex items-center justify-between gap-4">
                     <div>
                         <h1 className="text-xl font-semibold tracking-tight">

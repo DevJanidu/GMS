@@ -9,6 +9,7 @@ use App\Modules\Gym\Resources\GymProfileResource;
 use App\Shared\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GymProfileController extends Controller
 {
@@ -24,7 +25,17 @@ class GymProfileController extends Controller
     public function update(UpdateGymProfileRequest $request): JsonResponse
     {
         $profile = $this->profileFor($request);
-        $profile->update($request->validated());
+        $data = collect($request->validated())->except('logo')->all();
+
+        if ($request->hasFile('logo')) {
+            if ($profile->logo_path) {
+                Storage::disk('public')->delete($profile->logo_path);
+            }
+
+            $data['logo_path'] = $request->file('logo')->store('gym/logos', 'public') ?: null;
+        }
+
+        $profile->update($data);
 
         return ApiResponse::success(
             (new GymProfileResource($profile->load('tenant')))->resolve(),

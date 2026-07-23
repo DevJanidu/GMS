@@ -1,6 +1,7 @@
 export type GymProfile = {
     legal_name: string | null;
     logo_path: string | null;
+    logo_url: string | null;
     address: string | null;
     city: string | null;
     country: string | null;
@@ -26,4 +27,5 @@ export type GymProfileFormValues = {
     tax_id: string;
     website: string;
     description: string;
+    logo: File | null;
 };

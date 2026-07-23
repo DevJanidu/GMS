@@ -1,12 +1,13 @@
 import type { ReactNode } from 'react';
 import { ErrorState } from '@/components/shared/error-state';
 import { PermissionGate } from '@/components/shared/permission-gate';
+import type { PermissionRequirement } from '@/lib/permissions/can';
 
 export function ProtectedRoute({
     permission,
     children,
 }: {
-    permission: string;
+    permission: PermissionRequirement;
     children: ReactNode;
 }) {
     return (

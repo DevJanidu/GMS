@@ -3,6 +3,8 @@
 use App\Models\Tenant;
 use App\Modules\Gym\Models\GymProfile;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Tests\Concerns\InteractsWithPermissions;
 
 uses(RefreshDatabase::class, InteractsWithPermissions::class);
@@ -40,6 +42,39 @@ it('updates gym settings', function () {
     $response->assertJsonPath('data.legal_name', 'Iron Paradise LLC');
 
     expect(GymProfile::where('tenant_id', $tenant->id)->first()->contact_email)->toBe('hello@ironparadise.gym');
+});
+
+it('uploads and replaces the gym logo', function () {
+    Storage::fake('public');
+
+    $tenant = Tenant::factory()->create();
+    $user = $this->userWithPermissions($tenant, ['gym.update']);
+
+    $first = UploadedFile::fake()->image('logo.png');
+
+    $response = $this->actingAs($user)->post('/api/v1/gym/profile', [
+        '_method' => 'PUT',
+        'legal_name' => 'Iron Paradise',
+        'logo' => $first,
+    ]);
+
+    $response->assertOk();
+    $firstPath = GymProfile::where('tenant_id', $tenant->id)->first()->logo_path;
+
+    expect($firstPath)->not->toBeNull();
+    Storage::disk('public')->assertExists($firstPath);
+    expect($response->json('data.logo_url'))->toContain($firstPath);
+
+    $second = UploadedFile::fake()->image('new-logo.png');
+
+    $this->actingAs($user)->post('/api/v1/gym/profile', [
+        '_method' => 'PUT',
+        'legal_name' => 'Iron Paradise',
+        'logo' => $second,
+    ])->assertOk();
+
+    Storage::disk('public')->assertMissing($firstPath);
+    expect(GymProfile::where('tenant_id', $tenant->id)->first()->logo_path)->not->toBe($firstPath);
 });
 
 it('keeps gym profiles isolated per tenant', function () {

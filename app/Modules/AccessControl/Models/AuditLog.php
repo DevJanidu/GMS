@@ -2,6 +2,7 @@
 
 namespace App\Modules\AccessControl\Models;
 
+use App\Models\Branch;
 use App\Models\Concerns\BelongsToTenant;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
@@ -9,7 +10,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-#[Fillable(['tenant_id', 'actor_id', 'action', 'auditable_type', 'auditable_id', 'changes'])]
+#[Fillable([
+    'tenant_id', 'branch_id', 'actor_id', 'request_id', 'ip_address', 'user_agent',
+    'action', 'auditable_type', 'auditable_id', 'changes', 'before_values',
+    'after_values', 'context',
+])]
 class AuditLog extends Model
 {
     use BelongsToTenant;
@@ -20,8 +25,19 @@ class AuditLog extends Model
     {
         return [
             'changes' => 'array',
+            'before_values' => 'array',
+            'after_values' => 'array',
+            'context' => 'array',
             'created_at' => 'datetime',
         ];
+    }
+
+    /**
+     * @return BelongsTo<Branch, $this>
+     */
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class);
     }
 
     /**

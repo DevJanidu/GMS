@@ -1,357 +1,401 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import { BarChart } from '@mui/x-charts/BarChart';
-import { LineChart } from '@mui/x-charts/LineChart';
 import {
-    Activity,
-    AlertTriangle,
     CalendarClock,
     CircleDollarSign,
-    CreditCard,
-    DoorOpen,
-    MoreHorizontal,
+    RefreshCw,
+    UserMinus,
     UserPlus,
     Users,
     WalletCards,
 } from 'lucide-react';
+import { useState } from 'react';
+import { ActivityTimeline } from '@/components/shared/activity-timeline';
+import { BranchFilter } from '@/components/shared/branch-filter';
+import { CurrencyDisplay } from '@/components/shared/currency-display';
 import { DataTable } from '@/components/shared/data-table';
 import type { DataTableColumn } from '@/components/shared/data-table';
+import { DateRangePicker } from '@/components/shared/date-range-picker';
+import type { DateRange } from '@/components/shared/date-range-picker';
+import { ErrorState } from '@/components/shared/error-state';
 import { PageHeader } from '@/components/shared/page-header';
+import { PageLoading } from '@/components/shared/page-loading';
+import { ProtectedRoute } from '@/components/shared/protected-route';
 import { StatusBadge } from '@/components/shared/status-badge';
 import { Button } from '@/components/ui/button';
+import { Spinner } from '@/components/ui/spinner';
 import { DashboardCard } from '@/modules/dashboard/components/dashboard-card';
+import { SectionBoundary } from '@/modules/dashboard/components/section-boundary';
 import { StatCard } from '@/modules/dashboard/components/stat-card';
+import { useDashboardFilters } from '@/modules/dashboard/hooks/use-dashboard-filters';
+import { useDashboardSummary } from '@/modules/dashboard/hooks/use-dashboard-summary';
 import { dashboard } from '@/routes';
+import { index as membersIndex } from '@/routes/members';
 
-type Payment = {
+type RecentPayment = {
     id: string;
     member: string;
     plan: string;
-    amount: string;
-    status: 'Paid' | 'Pending';
+    amount: number;
+    status: string;
 };
 
-const payments: Payment[] = [
-    {
-        id: 'INV-1048',
-        member: 'Nethmi Perera',
-        plan: 'Annual Pro',
-        amount: 'LKR 48,000',
-        status: 'Paid',
-    },
-    {
-        id: 'INV-1047',
-        member: 'Dilan Fernando',
-        plan: 'Monthly Plus',
-        amount: 'LKR 6,500',
-        status: 'Paid',
-    },
-    {
-        id: 'INV-1046',
-        member: 'Amaya Silva',
-        plan: 'Quarterly',
-        amount: 'LKR 16,500',
-        status: 'Pending',
-    },
-    {
-        id: 'INV-1045',
-        member: 'Ravindu Jayasekara',
-        plan: 'Monthly Plus',
-        amount: 'LKR 6,500',
-        status: 'Paid',
-    },
-];
+function defaultRange(): DateRange {
+    const to = new Date();
+    const from = new Date();
+    from.setDate(from.getDate() - 30);
 
-const paymentColumns: DataTableColumn<Payment>[] = [
-    {
-        key: 'member',
-        header: 'Member',
-        cell: (row) => (
-            <div>
-                <p className="font-medium">{row.member}</p>
-                <p className="text-muted-foreground text-xs">{row.id}</p>
-            </div>
-        ),
-    },
-    { key: 'plan', header: 'Plan', cell: (row) => row.plan },
-    {
-        key: 'amount',
-        header: 'Amount',
-        className: 'text-right',
-        cell: (row) => <span className="font-medium">{row.amount}</span>,
-    },
-    {
-        key: 'status',
-        header: 'Status',
-        cell: (row) => (
-            <StatusBadge tone={row.status === 'Paid' ? 'success' : 'warning'}>
-                {row.status}
-            </StatusBadge>
-        ),
-    },
-];
+    return {
+        from: from.toISOString().slice(0, 10),
+        to: to.toISOString().slice(0, 10),
+    };
+}
 
-const activityItems = [
-    {
-        title: 'New member joined',
-        detail: 'Nethmi Perera · Annual Pro',
-        time: '8 min ago',
-        icon: UserPlus,
-    },
-    {
-        title: 'Payment received',
-        detail: 'LKR 6,500 · Dilan Fernando',
-        time: '24 min ago',
-        icon: CreditCard,
-    },
-    {
-        title: 'Membership renewed',
-        detail: 'Ravindu Jayasekara · Monthly Plus',
-        time: '1 hr ago',
-        icon: CalendarClock,
-    },
-    {
-        title: 'Member checked in',
-        detail: 'Amaya Silva · Colombo Central',
-        time: '2 hrs ago',
-        icon: DoorOpen,
-    },
-];
+function formatRelativeTime(iso: string | null): string {
+    if (!iso) {
+        return '';
+    }
+
+    const diffMs = Date.now() - new Date(iso).getTime();
+    const minutes = Math.round(diffMs / 60000);
+
+    if (minutes < 1) {
+        return 'Just now';
+    }
+
+    if (minutes < 60) {
+        return `${minutes} min ago`;
+    }
+
+    const hours = Math.round(minutes / 60);
+
+    if (hours < 24) {
+        return `${hours} hr${hours > 1 ? 's' : ''} ago`;
+    }
+
+    const days = Math.round(hours / 24);
+
+    return `${days} day${days > 1 ? 's' : ''} ago`;
+}
+
+function DashboardContent() {
+    const { filters } = useDashboardFilters();
+    const [branchId, setBranchId] = useState<number | null>(null);
+    const [range, setRange] = useState<DateRange>(defaultRange());
+
+    const { summary, isLoading, error, refetch } = useDashboardSummary({
+        branchId,
+        dateFrom: range.from,
+        dateTo: range.to,
+    });
+
+    const currency = summary?.meta.currency ?? 'USD';
+
+    const paymentColumns: DataTableColumn<RecentPayment>[] = [
+        {
+            key: 'member',
+            header: 'Member',
+            cell: (row) => (
+                <div>
+                    <p className="font-medium">{row.member}</p>
+                    <p className="text-muted-foreground text-xs">{row.id}</p>
+                </div>
+            ),
+        },
+        { key: 'plan', header: 'Plan', cell: (row) => row.plan },
+        {
+            key: 'amount',
+            header: 'Amount',
+            className: 'text-right',
+            cell: (row) => (
+                <CurrencyDisplay
+                    amount={row.amount}
+                    currency={currency}
+                    className="font-medium"
+                />
+            ),
+        },
+        {
+            key: 'status',
+            header: 'Status',
+            cell: (row) => (
+                <StatusBadge status={row.status}>{row.status}</StatusBadge>
+            ),
+        },
+    ];
+
+    if (isLoading && !summary) {
+        return <PageLoading />;
+    }
+
+    if (error && !summary) {
+        return (
+            <main className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col gap-6 p-4 sm:p-6">
+                <ErrorState description={error} onRetry={refetch} />
+            </main>
+        );
+    }
+
+    if (!summary) {
+        return null;
+    }
+
+    return (
+        <main className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col gap-6 p-4 sm:p-6">
+            <PageHeader
+                title="Good afternoon, Admin"
+                description="Here's what's happening across your gym today."
+                actions={
+                    <div className="flex flex-wrap items-center gap-2">
+                        {isLoading && <Spinner />}
+                        <BranchFilter
+                            branches={filters?.branches ?? []}
+                            value={branchId}
+                            onChange={setBranchId}
+                        />
+                        <DateRangePicker value={range} onChange={setRange} />
+                        <Button
+                            variant="outline"
+                            size="icon"
+                            aria-label="Refresh dashboard"
+                            onClick={refetch}
+                        >
+                            <RefreshCw />
+                        </Button>
+                    </div>
+                }
+            />
+
+            <section
+                className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6"
+                aria-label="Gym overview"
+            >
+                {summary.members.active.status === 'available' ? (
+                    <StatCard
+                        label="Active members"
+                        value={summary.members.active.data.count.toLocaleString()}
+                        icon={Users}
+                        href={membersIndex({ query: { status: 'active' } }).url}
+                    />
+                ) : (
+                    <StatCard
+                        label="Active members"
+                        icon={Users}
+                        state={summary.members.active.status}
+                        message={summary.members.active.message}
+                    />
+                )}
+
+                {summary.members.new.status === 'available' ? (
+                    <StatCard
+                        label="New members"
+                        value={summary.members.new.data.count.toLocaleString()}
+                        helper={`Joined ${summary.meta.dateFrom} – ${summary.meta.dateTo}`}
+                        icon={UserPlus}
+                        tone="emerald"
+                        href={membersIndex().url}
+                    />
+                ) : (
+                    <StatCard
+                        label="New members"
+                        icon={UserPlus}
+                        tone="emerald"
+                        state={summary.members.new.status}
+                        message={summary.members.new.message}
+                    />
+                )}
+
+                {summary.members.expiring.status === 'available' ? (
+                    <StatCard
+                        label="Expiring memberships"
+                        value={summary.members.expiring.data.count.toLocaleString()}
+                        icon={CalendarClock}
+                        tone="amber"
+                    />
+                ) : (
+                    <StatCard
+                        label="Expiring memberships"
+                        icon={CalendarClock}
+                        tone="amber"
+                        state={summary.members.expiring.status}
+                        message={summary.members.expiring.message}
+                    />
+                )}
+
+                {summary.members.expired.status === 'available' ? (
+                    <StatCard
+                        label="Expired members"
+                        value={summary.members.expired.data.count.toLocaleString()}
+                        icon={UserMinus}
+                        tone="amber"
+                    />
+                ) : (
+                    <StatCard
+                        label="Expired members"
+                        icon={UserMinus}
+                        tone="amber"
+                        state={summary.members.expired.status}
+                        message={summary.members.expired.message}
+                    />
+                )}
+
+                {summary.financials.revenue.status === 'available' ? (
+                    <StatCard
+                        label="Revenue"
+                        value={new Intl.NumberFormat(undefined, {
+                            style: 'currency',
+                            currency,
+                            maximumFractionDigits: 0,
+                        }).format(summary.financials.revenue.data.amount)}
+                        icon={CircleDollarSign}
+                        tone="emerald"
+                    />
+                ) : (
+                    <StatCard
+                        label="Revenue"
+                        icon={CircleDollarSign}
+                        tone="emerald"
+                        state={summary.financials.revenue.status}
+                        message={summary.financials.revenue.message}
+                    />
+                )}
+
+                {summary.financials.outstanding.status === 'available' ? (
+                    <StatCard
+                        label="Outstanding"
+                        value={new Intl.NumberFormat(undefined, {
+                            style: 'currency',
+                            currency,
+                            maximumFractionDigits: 0,
+                        }).format(summary.financials.outstanding.data.amount)}
+                        icon={WalletCards}
+                        tone="amber"
+                    />
+                ) : (
+                    <StatCard
+                        label="Outstanding"
+                        icon={WalletCards}
+                        tone="amber"
+                        state={summary.financials.outstanding.status}
+                        message={summary.financials.outstanding.message}
+                    />
+                )}
+            </section>
+
+            <section className="grid gap-4 xl:grid-cols-[minmax(0,1.45fr)_minmax(22rem,1fr)]">
+                <DashboardCard
+                    title="Renewal summary"
+                    description="Upcoming renewals across the selected range"
+                >
+                    <SectionBoundary section={summary.renewalSummary}>
+                        {(data) => (
+                            <div className="grid grid-cols-3 gap-4 text-center">
+                                <div>
+                                    <p className="text-2xl font-bold">{data.renewed}</p>
+                                    <p className="text-muted-foreground text-xs">Renewed</p>
+                                </div>
+                                <div>
+                                    <p className="text-2xl font-bold">{data.dueSoon}</p>
+                                    <p className="text-muted-foreground text-xs">Due soon</p>
+                                </div>
+                                <div>
+                                    <p className="text-2xl font-bold">{data.overdue}</p>
+                                    <p className="text-muted-foreground text-xs">Overdue</p>
+                                </div>
+                            </div>
+                        )}
+                    </SectionBoundary>
+                </DashboardCard>
+
+                <DashboardCard
+                    title="Branch comparison"
+                    description="Active members by branch"
+                    action={
+                        <Button variant="ghost" size="sm" asChild>
+                            <Link href="/branches">View branches</Link>
+                        </Button>
+                    }
+                >
+                    <SectionBoundary section={summary.branchComparison}>
+                        {(items) =>
+                            items.length === 0 ? (
+                                <p className="text-muted-foreground py-8 text-center text-sm">
+                                    No branches in scope for this filter.
+                                </p>
+                            ) : (
+                                <div className="h-64 w-full">
+                                    <BarChart
+                                        xAxis={[
+                                            {
+                                                scaleType: 'band',
+                                                data: items.map((item) => item.branchName),
+                                            },
+                                        ]}
+                                        series={[
+                                            {
+                                                data: items.map((item) => item.activeMembers),
+                                                label: 'Active members',
+                                                color: 'var(--chart-2)',
+                                            },
+                                        ]}
+                                        yAxis={[{ width: 42 }]}
+                                        grid={{ horizontal: true }}
+                                        borderRadius={5}
+                                        margin={{ top: 20, right: 10, bottom: 20, left: 0 }}
+                                    />
+                                </div>
+                            )
+                        }
+                    </SectionBoundary>
+                </DashboardCard>
+            </section>
+
+            <section className="grid gap-4 xl:grid-cols-[minmax(0,1.45fr)_minmax(22rem,1fr)]">
+                <DashboardCard
+                    title="Recent payments"
+                    description="Latest payments received across branches in scope"
+                >
+                    <SectionBoundary section={summary.recentPayments}>
+                        {(data) => (
+                            <DataTable
+                                columns={paymentColumns}
+                                rows={data.items}
+                                getRowKey={(row) => row.id}
+                            />
+                        )}
+                    </SectionBoundary>
+                </DashboardCard>
+
+                <DashboardCard
+                    title="Recent activity"
+                    description="Latest operational events"
+                >
+                    <SectionBoundary section={summary.recentActivity}>
+                        {(items) => (
+                            <ActivityTimeline
+                                items={items.map((item, index) => ({
+                                    id: index,
+                                    title: item.title,
+                                    detail: item.detail,
+                                    timeLabel: formatRelativeTime(item.occurredAt),
+                                }))}
+                            />
+                        )}
+                    </SectionBoundary>
+                </DashboardCard>
+            </section>
+        </main>
+    );
+}
 
 export default function DashboardPage() {
     return (
         <>
             <Head title="Dashboard" />
-            <main className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col gap-6 p-4 sm:p-6">
-                <PageHeader
-                    title="Good afternoon, Admin"
-                    description="Here’s what’s happening across Pulse Fitness today."
-                    actions={
-                        <Button variant="outline" size="sm">
-                            <CalendarClock />
-                            Jul 1 – Jul 23
-                        </Button>
-                    }
-                />
-
-                <section
-                    className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6"
-                    aria-label="Gym overview"
-                >
-                    <StatCard
-                        label="Active members"
-                        value="1,248"
-                        helper="+8.2% from last month"
-                        trend="up"
-                        icon={Users}
-                    />
-                    <StatCard
-                        label="New members"
-                        value="86"
-                        helper="18 joined this week"
-                        trend="up"
-                        icon={UserPlus}
-                        tone="emerald"
-                    />
-                    <StatCard
-                        label="Today's attendance"
-                        value="312"
-                        helper="62% of daily average"
-                        icon={Activity}
-                        tone="blue"
-                    />
-                    <StatCard
-                        label="Expiring soon"
-                        value="29"
-                        helper="Within the next 7 days"
-                        icon={CalendarClock}
-                        tone="amber"
-                    />
-                    <StatCard
-                        label="Monthly revenue"
-                        value="LKR 2.4M"
-                        helper="+12.4% from last month"
-                        trend="up"
-                        icon={CircleDollarSign}
-                        tone="emerald"
-                    />
-                    <StatCard
-                        label="Outstanding"
-                        value="LKR 184K"
-                        helper="Across 34 invoices"
-                        trend="down"
-                        icon={WalletCards}
-                        tone="amber"
-                    />
-                </section>
-
-                <section className="grid gap-4 xl:grid-cols-[minmax(0,1.45fr)_minmax(22rem,1fr)]">
-                    <DashboardCard
-                        title="Revenue overview"
-                        description="Monthly collections for the last six months"
-                        action={<StatusBadge tone="success">+12.4%</StatusBadge>}
-                    >
-                        <div className="h-72 w-full">
-                            <LineChart
-                                xAxis={[
-                                    {
-                                        scaleType: 'point',
-                                        data: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-                                    },
-                                ]}
-                                series={[
-                                    {
-                                        data: [1.58, 1.76, 1.69, 2.08, 2.14, 2.4],
-                                        label: 'Revenue (LKR millions)',
-                                        color: 'var(--chart-1)',
-                                        area: true,
-                                        showMark: false,
-                                    },
-                                ]}
-                                yAxis={[{ width: 42 }]}
-                                grid={{ horizontal: true }}
-                                margin={{ top: 20, right: 20, bottom: 20, left: 0 }}
-                            />
-                        </div>
-                    </DashboardCard>
-
-                    <DashboardCard
-                        title="Branch comparison"
-                        description="Active members by location"
-                    >
-                        <div className="h-72 w-full">
-                            <BarChart
-                                xAxis={[
-                                    {
-                                        scaleType: 'band',
-                                        data: ['Colombo', 'Kandy', 'Galle', 'Negombo'],
-                                    },
-                                ]}
-                                series={[
-                                    {
-                                        data: [486, 312, 254, 196],
-                                        label: 'Active members',
-                                        color: 'var(--chart-2)',
-                                    },
-                                ]}
-                                yAxis={[{ width: 42 }]}
-                                grid={{ horizontal: true }}
-                                borderRadius={5}
-                                margin={{ top: 20, right: 10, bottom: 20, left: 0 }}
-                            />
-                        </div>
-                    </DashboardCard>
-                </section>
-
-                <section className="grid gap-4 xl:grid-cols-[minmax(0,1.45fr)_minmax(22rem,1fr)]">
-                    <DashboardCard
-                        title="Recent payments"
-                        description="Latest payments received across all branches"
-                        action={
-                            <Button variant="ghost" size="sm">
-                                View all
-                            </Button>
-                        }
-                    >
-                        <DataTable
-                            columns={paymentColumns}
-                            rows={payments}
-                            getRowKey={(row) => row.id}
-                        />
-                    </DashboardCard>
-
-                    <DashboardCard
-                        title="Recent activity"
-                        description="Latest operational events"
-                        action={
-                            <Button
-                                variant="ghost"
-                                size="icon"
-                                aria-label="Activity options"
-                            >
-                                <MoreHorizontal />
-                            </Button>
-                        }
-                    >
-                        <div className="space-y-5">
-                            {activityItems.map((item) => (
-                                <div
-                                    key={`${item.title}-${item.time}`}
-                                    className="flex gap-3"
-                                >
-                                    <div className="bg-muted flex size-9 shrink-0 items-center justify-center rounded-full">
-                                        <item.icon className="size-4 text-primary" />
-                                    </div>
-                                    <div className="min-w-0 flex-1">
-                                        <p className="text-sm font-medium">
-                                            {item.title}
-                                        </p>
-                                        <p className="text-muted-foreground truncate text-xs">
-                                            {item.detail}
-                                        </p>
-                                    </div>
-                                    <span className="text-muted-foreground shrink-0 text-[11px]">
-                                        {item.time}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    </DashboardCard>
-                </section>
-
-                <DashboardCard
-                    title="System alerts"
-                    description="Items that may need your attention"
-                >
-                    <div className="grid gap-3 md:grid-cols-3">
-                        <AlertItem
-                            title="29 memberships expire soon"
-                            detail="Send reminders before the next renewal window."
-                            tone="warning"
-                        />
-                        <AlertItem
-                            title="34 outstanding invoices"
-                            detail="LKR 184,000 is currently pending collection."
-                            tone="danger"
-                        />
-                        <AlertItem
-                            title="All branches operational"
-                            detail="No service interruptions reported today."
-                            tone="success"
-                        />
-                    </div>
-                </DashboardCard>
-            </main>
+            <ProtectedRoute permission="dashboard.view">
+                <DashboardContent />
+            </ProtectedRoute>
         </>
-    );
-}
-
-function AlertItem({
-    title,
-    detail,
-    tone,
-}: {
-    title: string;
-    detail: string;
-    tone: 'success' | 'warning' | 'danger';
-}) {
-    return (
-        <div className="bg-muted/35 flex gap-3 rounded-xl border p-4">
-            <AlertTriangle
-                className={
-                    tone === 'success'
-                        ? 'size-5 shrink-0 text-emerald-500'
-                        : tone === 'warning'
-                          ? 'size-5 shrink-0 text-orange-500'
-                          : 'size-5 shrink-0 text-red-500'
-                }
-            />
-            <div>
-                <p className="text-sm font-semibold">{title}</p>
-                <p className="text-muted-foreground mt-1 text-xs leading-relaxed">
-                    {detail}
-                </p>
-            </div>
-        </div>
     );
 }
 

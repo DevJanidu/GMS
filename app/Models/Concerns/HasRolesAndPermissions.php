@@ -46,4 +46,26 @@ trait HasRolesAndPermissions
     {
         return $this->branches()->whereKey($branchId)->exists();
     }
+
+    /**
+     * Permission slugs this user effectively holds, for consumption by the
+     * frontend permission gate. The "owner" role bypasses every check (see
+     * AuthorizationServiceProvider), so it is represented as a wildcard
+     * rather than the full permission list.
+     *
+     * @return list<string>
+     */
+    public function permissionSlugs(): array
+    {
+        if ($this->hasRole('owner')) {
+            return ['*'];
+        }
+
+        return array_values($this->roles()
+            ->with('permissions')
+            ->get()
+            ->flatMap(fn ($role) => $role->permissions->pluck('slug'))
+            ->unique()
+            ->all());
+    }
 }

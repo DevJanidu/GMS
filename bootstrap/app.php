@@ -14,12 +14,29 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
+        // Without this, routes/api.php (and every module's routes.php it
+        // loads) is never registered at all — every /api/v1/* endpoint
+        // 404s, including on a fresh checkout with no route cache to mask
+        // it. `api:` here applies the framework's default `api` middleware
+        // group and `/api` prefix, combining with the `Route::prefix('v1')`
+        // already inside routes/api.php to give the `/api/v1/...` paths
+        // every module (and the frontend API client) already assumes.
         api: __DIR__.'/../routes/api.php',
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->encryptCookies(except: ['appearance', 'sidebar_state']);
+
+        // Every module's frontend API client (resources/js/lib/api/client.ts)
+        // authenticates via the session cookie + XSRF header, not a bearer
+        // token — `auth:sanctum` on api.php only accepts that for requests
+        // Sanctum recognizes as coming from the SPA itself. Without this,
+        // every /api/v1/* route 401s for the browser even with a valid
+        // logged-in session (confirmed manually: the `dashboard` Inertia
+        // page authenticates fine, but /api/v1/dashboard/summary didn't,
+        // until this was added).
+        $middleware->statefulApi();
 
         $middleware->web(append: [
             HandleAppearance::class,

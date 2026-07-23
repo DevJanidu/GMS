@@ -1,4 +1,5 @@
-import { Bell, Building2, Dumbbell, Moon, Search, Sun } from 'lucide-react';
+import { Bell, Building2, Moon, Search, Sun } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,23 +12,37 @@ import {
 } from '@/components/ui/select';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { useAppearance } from '@/hooks/use-appearance';
+import { branchesApi } from '@/modules/branches/api/branches';
+import type { Branch } from '@/modules/branches/types';
 import type { BreadcrumbItem as BreadcrumbItemType } from '@/types';
+
+const ALL_BRANCHES = 'all';
 
 export function AppSidebarHeader({
     breadcrumbs = [],
 }: {
     breadcrumbs?: BreadcrumbItemType[];
 }) {
+    const [branches, setBranches] = useState<Branch[]>([]);
+    const [selectedBranch, setSelectedBranch] = useState(ALL_BRANCHES);
+
+    useEffect(() => {
+        branchesApi
+            .list({ status: 'active' })
+            .then((response) => setBranches(response.data))
+            .catch(() => setBranches([]));
+    }, []);
+
     return (
         <header className="flex h-16 shrink-0 items-center justify-between gap-3 border-b border-sidebar-border/50 bg-background/90 px-4 backdrop-blur transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-14 sm:px-6">
-            <div className="flex min-w-0 items-center gap-2">
+            <div className="flex min-w-0 flex-1 items-center gap-2">
                 <SidebarTrigger className="-ml-1" />
                 <div className="hidden sm:block">
                     <Breadcrumbs breadcrumbs={breadcrumbs} />
                 </div>
             </div>
-            <div className="flex flex-1 items-center justify-end gap-2">
-                <div className="relative hidden w-full max-w-xs lg:block">
+            <div className="hidden flex-1 justify-center lg:flex">
+                <div className="relative w-full max-w-xs">
                     <Search className="text-muted-foreground absolute top-1/2 left-3 size-4 -translate-y-1/2" />
                     <Input
                         className="bg-muted/50 h-9 pl-9"
@@ -35,31 +50,31 @@ export function AppSidebarHeader({
                         aria-label="Global search"
                     />
                 </div>
-                <Select defaultValue="pulse">
+            </div>
+            <div className="flex flex-1 items-center justify-end gap-2">
+                <Select
+                    value={selectedBranch}
+                    onValueChange={setSelectedBranch}
+                >
                     <SelectTrigger
-                        className="hidden w-36 xl:flex"
-                        aria-label="Select tenant"
-                    >
-                        <Dumbbell className="size-4 text-primary" />
-                        <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="pulse">Pulse Fitness</SelectItem>
-                        <SelectItem value="demo">Demo Gym</SelectItem>
-                    </SelectContent>
-                </Select>
-                <Select defaultValue="colombo">
-                    <SelectTrigger
-                        className="hidden w-44 md:flex"
+                        className="hidden w-60 md:flex"
                         aria-label="Select branch"
                     >
                         <Building2 className="size-4 text-emerald-500" />
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="colombo">Colombo Central</SelectItem>
-                        <SelectItem value="kandy">Kandy City</SelectItem>
-                        <SelectItem value="all">All branches</SelectItem>
+                        <SelectItem value={ALL_BRANCHES}>
+                            All branches
+                        </SelectItem>
+                        {branches.map((branch) => (
+                            <SelectItem
+                                key={branch.id}
+                                value={String(branch.id)}
+                            >
+                                {branch.name}
+                            </SelectItem>
+                        ))}
                     </SelectContent>
                 </Select>
                 <ThemeButton />
