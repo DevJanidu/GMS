@@ -1,17 +1,14 @@
 import { Head, Link } from '@inertiajs/react';
-import { BarChart } from '@mui/x-charts/BarChart';
 import {
-    CalendarClock,
     CircleDollarSign,
     RefreshCw,
-    UserMinus,
     UserPlus,
     Users,
     WalletCards,
 } from 'lucide-react';
 import { useState } from 'react';
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 import { ActivityTimeline } from '@/components/shared/activity-timeline';
-import { BranchFilter } from '@/components/shared/branch-filter';
 import { CurrencyDisplay } from '@/components/shared/currency-display';
 import { DataTable } from '@/components/shared/data-table';
 import type { DataTableColumn } from '@/components/shared/data-table';
@@ -23,11 +20,16 @@ import { PageLoading } from '@/components/shared/page-loading';
 import { ProtectedRoute } from '@/components/shared/protected-route';
 import { StatusBadge } from '@/components/shared/status-badge';
 import { Button } from '@/components/ui/button';
+import type { ChartConfig } from '@/components/ui/chart';
+import {
+    ChartContainer,
+    ChartTooltip,
+    ChartTooltipContent,
+} from '@/components/ui/chart';
 import { Spinner } from '@/components/ui/spinner';
 import { DashboardCard } from '@/modules/dashboard/components/dashboard-card';
 import { SectionBoundary } from '@/modules/dashboard/components/section-boundary';
 import { StatCard } from '@/modules/dashboard/components/stat-card';
-import { useDashboardFilters } from '@/modules/dashboard/hooks/use-dashboard-filters';
 import { useDashboardSummary } from '@/modules/dashboard/hooks/use-dashboard-summary';
 import { dashboard } from '@/routes';
 import { index as membersIndex } from '@/routes/members';
@@ -39,6 +41,13 @@ type RecentPayment = {
     amount: number;
     status: string;
 };
+
+const branchChartConfig = {
+    activeMembers: {
+        label: 'Active members',
+        color: 'var(--chart-2)',
+    },
+} satisfies ChartConfig;
 
 function defaultRange(): DateRange {
     const to = new Date();
@@ -79,12 +88,9 @@ function formatRelativeTime(iso: string | null): string {
 }
 
 function DashboardContent() {
-    const { filters } = useDashboardFilters();
-    const [branchId, setBranchId] = useState<number | null>(null);
     const [range, setRange] = useState<DateRange>(defaultRange());
 
     const { summary, isLoading, error, refetch } = useDashboardSummary({
-        branchId,
         dateFrom: range.from,
         dateTo: range.to,
     });
@@ -98,7 +104,7 @@ function DashboardContent() {
             cell: (row) => (
                 <div>
                     <p className="font-medium">{row.member}</p>
-                    <p className="text-muted-foreground text-xs">{row.id}</p>
+                    <p className="text-xs text-muted-foreground">{row.id}</p>
                 </div>
             ),
         },
@@ -148,11 +154,6 @@ function DashboardContent() {
                 actions={
                     <div className="flex flex-wrap items-center gap-2">
                         {isLoading && <Spinner />}
-                        <BranchFilter
-                            branches={filters?.branches ?? []}
-                            value={branchId}
-                            onChange={setBranchId}
-                        />
                         <DateRangePicker value={range} onChange={setRange} />
                         <Button
                             variant="outline"
@@ -167,7 +168,7 @@ function DashboardContent() {
             />
 
             <section
-                className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6"
+                className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4"
                 aria-label="Gym overview"
             >
                 {summary.members.active.status === 'available' ? (
@@ -190,7 +191,6 @@ function DashboardContent() {
                     <StatCard
                         label="New members"
                         value={summary.members.new.data.count.toLocaleString()}
-                        helper={`Joined ${summary.meta.dateFrom} – ${summary.meta.dateTo}`}
                         icon={UserPlus}
                         tone="emerald"
                         href={membersIndex().url}
@@ -202,40 +202,6 @@ function DashboardContent() {
                         tone="emerald"
                         state={summary.members.new.status}
                         message={summary.members.new.message}
-                    />
-                )}
-
-                {summary.members.expiring.status === 'available' ? (
-                    <StatCard
-                        label="Expiring memberships"
-                        value={summary.members.expiring.data.count.toLocaleString()}
-                        icon={CalendarClock}
-                        tone="amber"
-                    />
-                ) : (
-                    <StatCard
-                        label="Expiring memberships"
-                        icon={CalendarClock}
-                        tone="amber"
-                        state={summary.members.expiring.status}
-                        message={summary.members.expiring.message}
-                    />
-                )}
-
-                {summary.members.expired.status === 'available' ? (
-                    <StatCard
-                        label="Expired members"
-                        value={summary.members.expired.data.count.toLocaleString()}
-                        icon={UserMinus}
-                        tone="amber"
-                    />
-                ) : (
-                    <StatCard
-                        label="Expired members"
-                        icon={UserMinus}
-                        tone="amber"
-                        state={summary.members.expired.status}
-                        message={summary.members.expired.message}
                     />
                 )}
 
@@ -291,16 +257,28 @@ function DashboardContent() {
                         {(data) => (
                             <div className="grid grid-cols-3 gap-4 text-center">
                                 <div>
-                                    <p className="text-2xl font-bold">{data.renewed}</p>
-                                    <p className="text-muted-foreground text-xs">Renewed</p>
+                                    <p className="text-2xl font-bold">
+                                        {data.renewed}
+                                    </p>
+                                    <p className="text-xs text-muted-foreground">
+                                        Renewed
+                                    </p>
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold">{data.dueSoon}</p>
-                                    <p className="text-muted-foreground text-xs">Due soon</p>
+                                    <p className="text-2xl font-bold">
+                                        {data.dueSoon}
+                                    </p>
+                                    <p className="text-xs text-muted-foreground">
+                                        Due soon
+                                    </p>
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold">{data.overdue}</p>
-                                    <p className="text-muted-foreground text-xs">Overdue</p>
+                                    <p className="text-2xl font-bold">
+                                        {data.overdue}
+                                    </p>
+                                    <p className="text-xs text-muted-foreground">
+                                        Overdue
+                                    </p>
                                 </div>
                             </div>
                         )}
@@ -319,31 +297,53 @@ function DashboardContent() {
                     <SectionBoundary section={summary.branchComparison}>
                         {(items) =>
                             items.length === 0 ? (
-                                <p className="text-muted-foreground py-8 text-center text-sm">
+                                <p className="py-8 text-center text-sm text-muted-foreground">
                                     No branches in scope for this filter.
                                 </p>
                             ) : (
-                                <div className="h-64 w-full">
+                                <ChartContainer
+                                    config={branchChartConfig}
+                                    className="h-64 w-full"
+                                >
                                     <BarChart
-                                        xAxis={[
-                                            {
-                                                scaleType: 'band',
-                                                data: items.map((item) => item.branchName),
-                                            },
-                                        ]}
-                                        series={[
-                                            {
-                                                data: items.map((item) => item.activeMembers),
-                                                label: 'Active members',
-                                                color: 'var(--chart-2)',
-                                            },
-                                        ]}
-                                        yAxis={[{ width: 42 }]}
-                                        grid={{ horizontal: true }}
-                                        borderRadius={5}
-                                        margin={{ top: 20, right: 10, bottom: 20, left: 0 }}
-                                    />
-                                </div>
+                                        accessibilityLayer
+                                        data={items.map((item) => ({
+                                            branch: item.branchName,
+                                            activeMembers: item.activeMembers,
+                                        }))}
+                                        margin={{
+                                            top: 8,
+                                            right: 8,
+                                            left: 0,
+                                            bottom: 0,
+                                        }}
+                                    >
+                                        <CartesianGrid vertical={false} />
+                                        <XAxis
+                                            dataKey="branch"
+                                            tickLine={false}
+                                            tickMargin={10}
+                                            axisLine={false}
+                                        />
+                                        <YAxis
+                                            width={32}
+                                            tickLine={false}
+                                            axisLine={false}
+                                            allowDecimals={false}
+                                        />
+                                        <ChartTooltip
+                                            cursor={false}
+                                            content={
+                                                <ChartTooltipContent indicator="line" />
+                                            }
+                                        />
+                                        <Bar
+                                            dataKey="activeMembers"
+                                            fill="var(--color-activeMembers)"
+                                            radius={[6, 6, 0, 0]}
+                                        />
+                                    </BarChart>
+                                </ChartContainer>
                             )
                         }
                     </SectionBoundary>
@@ -377,7 +377,9 @@ function DashboardContent() {
                                     id: index,
                                     title: item.title,
                                     detail: item.detail,
-                                    timeLabel: formatRelativeTime(item.occurredAt),
+                                    timeLabel: formatRelativeTime(
+                                        item.occurredAt,
+                                    ),
                                 }))}
                             />
                         )}

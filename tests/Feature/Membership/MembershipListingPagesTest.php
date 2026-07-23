@@ -99,6 +99,7 @@ it('shows renewal dashboard stats', function () {
         ->has('stats.in_grace_period')
         ->has('stats.expired')
         ->has('stats.active')
+        ->where('recent_renewals', [])
     );
 });
 

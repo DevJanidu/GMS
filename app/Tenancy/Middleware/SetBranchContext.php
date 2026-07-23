@@ -2,6 +2,7 @@
 
 namespace App\Tenancy\Middleware;
 
+use App\Models\Branch;
 use App\Tenancy\Services\BranchContext;
 use Closure;
 use Illuminate\Http\Request;
@@ -25,14 +26,27 @@ class SetBranchContext
         }
 
         $requestedBranchId = $request->header('X-Branch-Id') ?? $request->query('branch_id');
+        $isOwner = $user->hasRole('owner');
 
         if ($requestedBranchId) {
-            $branch = $user->branches()->whereKey($requestedBranchId)->first();
+            $branch = $isOwner
+                ? Branch::query()
+                    ->where('tenant_id', $user->tenant_id)
+                    ->whereKey($requestedBranchId)
+                    ->first()
+                : $user->branches()->whereKey($requestedBranchId)->first();
 
             abort_if($branch === null, 403, 'You are not assigned to this branch.');
         } else {
             $branch = $user->branches()->wherePivot('is_primary', true)->first()
                 ?? $user->branches()->first();
+
+            if ($branch === null && $isOwner) {
+                $branch = Branch::query()
+                    ->where('tenant_id', $user->tenant_id)
+                    ->orderBy('id')
+                    ->first();
+            }
         }
 
         $this->branchContext->set($branch);

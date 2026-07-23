@@ -58,3 +58,14 @@ it('rejects a branch header for a branch the user is not assigned to', function 
 
     $response->assertForbidden();
 });
+
+it('defaults an owner without branch assignments to a branch in their tenant', function () {
+    $tenant = Tenant::factory()->create();
+    $owner = ownerFor($tenant);
+    $branch = Branch::factory()->for($tenant)->create();
+
+    $this->actingAs($owner)
+        ->get('/__test/branch-probe')
+        ->assertOk()
+        ->assertJson(['branch_id' => $branch->id]);
+});

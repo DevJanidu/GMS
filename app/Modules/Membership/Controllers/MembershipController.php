@@ -82,8 +82,8 @@ class MembershipController extends Controller
     {
         $data = $request->validated();
 
-        $member = Member::query()->findOrFail($data['member_id']);
-        $plan = Plan::query()->findOrFail($data['plan_id']);
+        $member = Member::query()->findOrFail($request->integer('member_id'));
+        $plan = Plan::query()->findOrFail($request->integer('plan_id'));
         $branchId = $data['branch_id'] ?? app(BranchContext::class)->id() ?? $member->branch_id;
 
         if (! $branchId) {

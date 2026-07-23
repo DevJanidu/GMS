@@ -32,7 +32,7 @@ class RenewalDashboardController extends Controller
                     ->latest()
                     ->limit(10)
                     ->get(),
-            ),
+            )->resolve(),
         ]);
     }
 }

@@ -31,8 +31,8 @@ class FreezeMembershipAction
             $from = $membership->status;
 
             $membership->status = MembershipStatus::Frozen;
-            $membership->freeze_started_on = now()->toDateString();
-            $membership->freeze_resumes_on = $resumesOn?->toDateString();
+            $membership->freeze_started_on = CarbonImmutable::now()->startOfDay();
+            $membership->freeze_resumes_on = $resumesOn;
             $membership->save();
 
             $this->eventRecorder->record(

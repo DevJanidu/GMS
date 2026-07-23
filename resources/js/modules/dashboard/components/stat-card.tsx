@@ -12,8 +12,7 @@ const iconTone: Record<StatCardTone, string> = {
         'bg-emerald-50 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400',
     blue: 'bg-blue-50 text-blue-600 dark:bg-blue-950 dark:text-blue-400',
     amber: 'bg-amber-50 text-amber-600 dark:bg-amber-950 dark:text-amber-400',
-    violet:
-        'bg-violet-50 text-violet-600 dark:bg-violet-950 dark:text-violet-400',
+    violet: 'bg-violet-50 text-violet-600 dark:bg-violet-950 dark:text-violet-400',
 };
 
 type StatCardBaseProps = {
@@ -42,12 +41,14 @@ export function StatCard(props: StatCardReadyProps | StatCardUnavailableProps) {
 
     const body: ReactNode = isReady ? (
         <>
-            <p className="text-muted-foreground text-sm font-medium">{label}</p>
-            <p className="mt-2 text-2xl font-bold tracking-tight">
+            <p className="text-base font-medium text-muted-foreground">
+                {label}
+            </p>
+            <p className="mt-3 text-3xl font-bold tracking-tight">
                 {props.value}
             </p>
             {props.helper && (
-                <div className="text-muted-foreground mt-4 flex items-center gap-1.5 text-xs">
+                <div className="mt-4 flex items-center gap-1.5 text-xs text-muted-foreground">
                     {props.trend === 'up' && (
                         <ArrowUpRight className="size-3.5 text-emerald-600" />
                     )}
@@ -60,8 +61,10 @@ export function StatCard(props: StatCardReadyProps | StatCardUnavailableProps) {
         </>
     ) : (
         <>
-            <p className="text-muted-foreground text-sm font-medium">{label}</p>
-            <p className="text-muted-foreground mt-3 flex items-center gap-1.5 text-xs leading-relaxed">
+            <p className="text-base font-medium text-muted-foreground">
+                {label}
+            </p>
+            <p className="mt-4 flex items-center gap-1.5 text-sm leading-relaxed text-muted-foreground">
                 {props.state === 'restricted' ? (
                     <Lock className="size-3.5 shrink-0" />
                 ) : (
@@ -75,15 +78,20 @@ export function StatCard(props: StatCardReadyProps | StatCardUnavailableProps) {
     const card = (
         <Card
             className={cn(
-                'gap-4 overflow-hidden py-5',
+                'min-h-36 gap-4 overflow-hidden py-6',
                 href && 'transition-colors hover:bg-muted/40',
             )}
         >
-            <CardContent className="px-5">
-                <div className="flex items-start justify-between gap-3">
+            <CardContent className="flex flex-1 px-6">
+                <div className="flex w-full items-center justify-between gap-4">
                     <div className="min-w-0">{body}</div>
-                    <div className={cn('shrink-0 rounded-xl p-2.5', iconTone[tone])}>
-                        <Icon className="size-5" />
+                    <div
+                        className={cn(
+                            'shrink-0 rounded-2xl p-3.5',
+                            iconTone[tone],
+                        )}
+                    >
+                        <Icon className="size-6" />
                     </div>
                 </div>
             </CardContent>
@@ -92,7 +100,10 @@ export function StatCard(props: StatCardReadyProps | StatCardUnavailableProps) {
 
     if (href && isReady) {
         return (
-            <Link href={href} className="focus-visible:ring-ring block rounded-xl outline-none focus-visible:ring-2">
+            <Link
+                href={href}
+                className="block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
                 {card}
             </Link>
         );

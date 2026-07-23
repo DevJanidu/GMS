@@ -88,13 +88,13 @@ export function initializeTheme(): void {
 }
 
 export function useAppearance(): UseAppearanceReturn {
-    // Both snapshots read the same module-level value — `initializeTheme()`
-    // resolves it synchronously before Inertia's first render, so there's
-    // no "server" value to diverge from and no hydration mismatch risk.
     const appearance: Appearance = useSyncExternalStore(
         subscribe,
         () => currentAppearance,
-        () => currentAppearance,
+        // SSR has no reliable access to the browser's system preference.
+        // React also uses this fixed value for hydration, then switches to
+        // the localStorage-backed client snapshot immediately afterwards.
+        () => 'light',
     );
 
     const resolvedAppearance: ResolvedAppearance = isDarkMode(appearance)

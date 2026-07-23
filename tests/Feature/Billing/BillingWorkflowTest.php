@@ -72,6 +72,35 @@ function createBillingInvoice(object $test, $user, Branch $branch, array $overri
     return Invoice::query()->latest('id')->firstOrFail();
 }
 
+it('serves the billing browser pages through Inertia', function () {
+    [, $branch, $user] = billingActor(['billing.invoices.view', 'billing.invoices.create']);
+
+    $this->actingAs($user)
+        ->get('/billing/invoices')
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page->component('billing/invoices'));
+
+    $this->actingAs($user)
+        ->get('/billing/invoices/create')
+        ->assertOk()
+        ->assertInertia(fn ($page) => $page
+            ->component('billing/invoices/create')
+            ->where('branchId', $branch->id)
+        );
+});
+
+it('allows an owner to list invoices without a user branch assignment', function () {
+    $tenant = Tenant::factory()->create();
+    $branch = Branch::factory()->for($tenant)->create();
+    $owner = ownerFor($tenant);
+
+    $this->actingAs($owner)
+        ->getJson('/api/v1/billing/invoices')
+        ->assertOk()
+        ->assertJsonPath('success', true)
+        ->assertJsonPath('data', []);
+});
+
 it('creates an accurately calculated branch-scoped invoice and durable event', function () {
     [$tenant, $branch, $user] = billingActor(['billing.invoices.create']);
 

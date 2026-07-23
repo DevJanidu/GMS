@@ -6,21 +6,27 @@ use App\Enums\MemberStatus;
 use App\Models\Branch;
 use App\Models\Member;
 use App\Models\User;
+use App\Modules\Billing\Enums\InvoiceStatus;
+use App\Modules\Billing\Models\Invoice;
+use App\Modules\Billing\Models\Payment;
+use App\Modules\Membership\Enums\MembershipStatus;
+use App\Modules\Membership\Models\Membership;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Collection;
 
 /**
- * Aggregates dashboard read-models from data this worktree is allowed to
- * touch directly (members, branches). Membership and billing figures
- * (revenue, outstanding balances, recent payments, renewals, expiring/
- * expired memberships) have no published contract yet in this baseline —
- * see INTEGRATION_NOTES.md. Those sections are returned with a
- * `pending_integration` status instead of invented numbers or direct
- * queries against another module's tables.
+ * Aggregates dashboard read-models. Member/branch figures are queried
+ * directly (owned by this worktree); membership and billing figures are
+ * read from the `Membership`/`Billing` modules' own tables now that both
+ * have landed on `dev` (see INTEGRATION_NOTES.md's "Action needed at Phase
+ * 2 integration merge" note) — this service still never writes to those
+ * tables, only reads.
  */
 class DashboardMetricsService
 {
     private const DEFAULT_RANGE_DAYS = 30;
+
+    private const RECENT_PAYMENTS_LIMIT = 6;
 
     /**
      * @param  array<string, mixed>  $filters
@@ -33,9 +39,7 @@ class DashboardMetricsService
         $branchIds = $this->resolveBranchScope($user, $filters['branch_id'] ?? null);
         $canViewFinancials = $this->canViewFinancials($user);
 
-        $pendingIntegrationReason = 'Membership and billing data is not yet available. '
-            .'The Phase 2 membership-lifecycle and billing-payments worktrees have not published '
-            .'their APIs or domain events yet — see INTEGRATION_NOTES.md.';
+        $restrictedFinancials = ['status' => 'restricted', 'message' => 'You do not have permission to view financial data.'];
 
         return [
             'meta' => [
@@ -55,28 +59,32 @@ class DashboardMetricsService
                     'data' => ['count' => $this->newMemberCount($branchIds, $dateFrom, $dateTo)],
                 ],
                 'expiring' => [
-                    'status' => 'pending_integration',
-                    'message' => $pendingIntegrationReason,
+                    'status' => 'available',
+                    'data' => ['count' => $this->expiringMembershipCount($branchIds)],
                 ],
                 'expired' => [
-                    'status' => 'pending_integration',
-                    'message' => $pendingIntegrationReason,
+                    'status' => 'available',
+                    'data' => ['count' => $this->expiredMembershipCount($branchIds)],
                 ],
             ],
             'financials' => [
-                'revenue' => $this->restrictedOrPending($canViewFinancials, $pendingIntegrationReason),
-                'outstanding' => $this->restrictedOrPending($canViewFinancials, $pendingIntegrationReason),
+                'revenue' => $canViewFinancials
+                    ? ['status' => 'available', 'data' => ['amount' => $this->revenue($branchIds, $dateFrom, $dateTo)]]
+                    : $restrictedFinancials,
+                'outstanding' => $canViewFinancials
+                    ? ['status' => 'available', 'data' => ['amount' => $this->outstandingBalance($branchIds)]]
+                    : $restrictedFinancials,
             ],
             'recentPayments' => $canViewFinancials
-                ? ['status' => 'pending_integration', 'message' => $pendingIntegrationReason]
-                : ['status' => 'restricted', 'message' => 'You do not have permission to view financial data.'],
+                ? ['status' => 'available', 'data' => ['items' => $this->recentPayments($branchIds)]]
+                : $restrictedFinancials,
             'renewalSummary' => [
-                'status' => 'pending_integration',
-                'message' => $pendingIntegrationReason,
+                'status' => 'available',
+                'data' => $this->renewalSummary($branchIds, $dateFrom, $dateTo),
             ],
             'branchComparison' => [
                 'status' => 'available',
-                'data' => $this->branchComparison($branchIds),
+                'data' => $this->branchComparison($branchIds, $dateFrom, $dateTo, $canViewFinancials),
             ],
             'recentActivity' => [
                 'status' => 'available',
@@ -177,7 +185,12 @@ class DashboardMetricsService
      * @param  Collection<int, int>  $branchIds
      * @return list<array<string, mixed>>
      */
-    private function branchComparison(Collection $branchIds): array
+    private function branchComparison(
+        Collection $branchIds,
+        CarbonImmutable $dateFrom,
+        CarbonImmutable $dateTo,
+        bool $canViewFinancials,
+    ): array
     {
         $activeCounts = Member::query()
             ->whereIn('branch_id', $branchIds)
@@ -185,6 +198,15 @@ class DashboardMetricsService
             ->selectRaw('branch_id, count(*) as active_count')
             ->groupBy('branch_id')
             ->pluck('active_count', 'branch_id');
+
+        $revenueByBranch = $canViewFinancials
+            ? Payment::query()
+                ->whereIn('branch_id', $branchIds)
+                ->whereBetween('paid_at', [$dateFrom->startOfDay(), $dateTo->endOfDay()])
+                ->selectRaw('branch_id, sum(amount_cents) as total_cents')
+                ->groupBy('branch_id')
+                ->pluck('total_cents', 'branch_id')
+            : collect();
 
         return array_values(Branch::query()
             ->whereIn('id', $branchIds)
@@ -194,9 +216,120 @@ class DashboardMetricsService
                 'branchId' => $branch->id,
                 'branchName' => $branch->name,
                 'activeMembers' => (int) ($activeCounts[$branch->id] ?? 0),
-                'revenue' => null,
+                'revenue' => $canViewFinancials
+                    ? ((int) ($revenueByBranch[$branch->id] ?? 0)) / 100
+                    : null,
             ])
             ->all());
+    }
+
+    /**
+     * @param  Collection<int, int>  $branchIds
+     */
+    private function expiringMembershipCount(Collection $branchIds): int
+    {
+        $today = CarbonImmutable::now()->startOfDay();
+        $threshold = $today->addDays((int) config('membership.expiring_soon_within_days'));
+
+        return Membership::query()
+            ->whereIn('branch_id', $branchIds)
+            ->where('status', MembershipStatus::Active)
+            ->whereDate('expires_on', '>=', $today->toDateString())
+            ->whereDate('expires_on', '<=', $threshold->toDateString())
+            ->whereDoesntHave('renewal')
+            ->count();
+    }
+
+    /**
+     * @param  Collection<int, int>  $branchIds
+     */
+    private function expiredMembershipCount(Collection $branchIds): int
+    {
+        return Membership::query()
+            ->whereIn('branch_id', $branchIds)
+            ->where('status', MembershipStatus::Expired)
+            ->count();
+    }
+
+    /**
+     * @param  Collection<int, int>  $branchIds
+     */
+    private function revenue(Collection $branchIds, CarbonImmutable $dateFrom, CarbonImmutable $dateTo): float
+    {
+        $totalCents = Payment::query()
+            ->whereIn('branch_id', $branchIds)
+            ->whereBetween('paid_at', [$dateFrom->startOfDay(), $dateTo->endOfDay()])
+            ->sum('amount_cents');
+
+        return ((int) $totalCents) / 100;
+    }
+
+    /**
+     * @param  Collection<int, int>  $branchIds
+     */
+    private function outstandingBalance(Collection $branchIds): float
+    {
+        $totalCents = Invoice::query()
+            ->whereIn('branch_id', $branchIds)
+            ->whereNotIn('status', [InvoiceStatus::Void, InvoiceStatus::Paid, InvoiceStatus::Refunded])
+            ->sum('balance_due_cents');
+
+        return ((int) $totalCents) / 100;
+    }
+
+    /**
+     * @param  Collection<int, int>  $branchIds
+     * @return list<array<string, mixed>>
+     */
+    private function recentPayments(Collection $branchIds): array
+    {
+        return array_values(Payment::query()
+            ->whereIn('branch_id', $branchIds)
+            ->with(['invoice.member', 'invoice.items'])
+            ->latest('paid_at')
+            ->limit(self::RECENT_PAYMENTS_LIMIT)
+            ->get()
+            ->map(fn (Payment $payment) => [
+                'id' => $payment->public_id,
+                'member' => $payment->invoice->member?->fullName() ?? '—',
+                'plan' => optional($payment->invoice->items->first())->description ?? '—',
+                'amount' => $payment->amount_cents / 100,
+                'status' => $payment->invoice->status->value,
+            ])
+            ->all());
+    }
+
+    /**
+     * @param  Collection<int, int>  $branchIds
+     * @return array<string, int>
+     */
+    private function renewalSummary(Collection $branchIds, CarbonImmutable $dateFrom, CarbonImmutable $dateTo): array
+    {
+        $today = CarbonImmutable::now()->startOfDay();
+
+        $renewed = Membership::query()
+            ->whereIn('branch_id', $branchIds)
+            ->whereNotNull('previous_membership_id')
+            ->whereBetween('sold_at', [$dateFrom->startOfDay(), $dateTo->endOfDay()])
+            ->count();
+
+        $dueSoon = Membership::query()
+            ->whereIn('branch_id', $branchIds)
+            ->where('status', MembershipStatus::Active)
+            ->whereDate('expires_on', '>=', $today->toDateString())
+            ->whereDate('expires_on', '<=', $dateTo->toDateString())
+            ->whereDoesntHave('renewal')
+            ->count();
+
+        $overdue = Membership::query()
+            ->whereIn('branch_id', $branchIds)
+            ->where('status', MembershipStatus::Active)
+            ->whereDate('expires_on', '<', $today->toDateString())
+            ->whereDate('grace_ends_on', '>=', $today->toDateString())
+            ->whereDoesntHave('renewal')
+            ->count();
+
+        return ['renewed' => $renewed, 'dueSoon' => $dueSoon, 'overdue' => $overdue];
     }
 
     /**
@@ -218,18 +351,6 @@ class DashboardMetricsService
                 'occurredAt' => $member->created_at?->toIso8601String(),
             ])
             ->all());
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    private function restrictedOrPending(bool $canViewFinancials, string $pendingReason): array
-    {
-        if (! $canViewFinancials) {
-            return ['status' => 'restricted', 'message' => 'You do not have permission to view financial data.'];
-        }
-
-        return ['status' => 'pending_integration', 'message' => $pendingReason];
     }
 
     /**

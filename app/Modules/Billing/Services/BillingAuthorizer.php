@@ -18,7 +18,7 @@ class BillingAuthorizer
         if ($invoice && (int) $invoice->tenant_id !== (int) $user->tenant_id) {
             throw new AuthorizationException('The invoice belongs to another tenant.');
         }
-        if ($targetBranch && ! $user->isAssignedToBranch($targetBranch)) {
+        if ($targetBranch && ! $user->hasRole('owner') && ! $user->isAssignedToBranch($targetBranch)) {
             throw new AuthorizationException('The invoice belongs to an unassigned branch.');
         }
     }

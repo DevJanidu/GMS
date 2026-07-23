@@ -1,2 +1,2 @@
 # Dashboard and reports
-- use this libabry to add charts for dashboard and reports @mui/x-charts
+- Use the shadcn chart component with Recharts for dashboard and report charts.

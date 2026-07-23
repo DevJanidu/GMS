@@ -41,24 +41,26 @@ it('reports real active and new member counts for an owner', function () {
     $response->assertJsonPath('data.meta.currency', 'USD');
 });
 
-it('marks membership and billing sections as pending integration', function () {
+it('reports real membership and billing sections now that both modules have landed', function () {
     $tenant = Tenant::factory()->create();
     $owner = $this->ownerUser($tenant);
 
     $response = $this->actingAs($owner)->getJson('/api/v1/dashboard/summary');
 
     $response->assertOk();
-    $response->assertJsonPath('data.members.expiring.status', 'pending_integration');
-    $response->assertJsonPath('data.members.expired.status', 'pending_integration');
-    $response->assertJsonPath('data.renewalSummary.status', 'pending_integration');
-    $response->assertJsonPath('data.financials.revenue.status', 'pending_integration');
-    $response->assertJsonPath('data.financials.outstanding.status', 'pending_integration');
-    $response->assertJsonPath('data.recentPayments.status', 'pending_integration');
+    $response->assertJsonPath('data.members.expiring.status', 'available');
+    $response->assertJsonPath('data.members.expired.status', 'available');
+    $response->assertJsonPath('data.renewalSummary.status', 'available');
+    $response->assertJsonPath('data.financials.revenue.status', 'available');
+    $response->assertJsonPath('data.financials.outstanding.status', 'available');
+    $response->assertJsonPath('data.recentPayments.status', 'available');
 });
 
 it('restricts financial sections for a user without dashboard.financials.view', function () {
     $tenant = Tenant::factory()->create();
+    $branch = Branch::factory()->for($tenant)->create();
     $user = $this->userWithPermissions($tenant, ['dashboard.view']);
+    $user->branches()->attach($branch, ['is_primary' => true]);
 
     $response = $this->actingAs($user)->getJson('/api/v1/dashboard/summary');
 
@@ -66,6 +68,7 @@ it('restricts financial sections for a user without dashboard.financials.view', 
     $response->assertJsonPath('data.financials.revenue.status', 'restricted');
     $response->assertJsonPath('data.financials.outstanding.status', 'restricted');
     $response->assertJsonPath('data.recentPayments.status', 'restricted');
+    $response->assertJsonPath('data.branchComparison.data.0.revenue', null);
 });
 
 it('grants financial sections for a user with dashboard.financials.view', function () {
@@ -75,8 +78,8 @@ it('grants financial sections for a user with dashboard.financials.view', functi
     $response = $this->actingAs($user)->getJson('/api/v1/dashboard/summary');
 
     $response->assertOk();
-    $response->assertJsonPath('data.financials.revenue.status', 'pending_integration');
-    $response->assertJsonPath('data.recentPayments.status', 'pending_integration');
+    $response->assertJsonPath('data.financials.revenue.status', 'available');
+    $response->assertJsonPath('data.recentPayments.status', 'available');
 });
 
 it('rejects a branch filter the user is not assigned to', function () {

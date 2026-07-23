@@ -33,7 +33,7 @@ class MembershipRenewalController extends Controller
     {
         $data = $request->validated();
 
-        $plan = Plan::query()->findOrFail($data['plan_id']);
+        $plan = Plan::query()->findOrFail($request->integer('plan_id'));
 
         $renewed = $action->execute(
             current: $membership,
