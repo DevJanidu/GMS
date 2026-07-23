@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Branch;
+use App\Models\Role;
 use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -17,6 +18,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            PermissionSeeder::class,
+            RoleSeeder::class,
+        ]);
+
         $tenant = Tenant::factory()->create([
             'name' => 'Demo Gym',
             'slug' => 'demo-gym',
@@ -34,5 +40,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user->branches()->attach($branch, ['is_primary' => true]);
+        $user->roles()->attach(Role::query()->whereNull('tenant_id')->where('slug', 'owner')->first());
     }
 }

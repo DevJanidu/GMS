@@ -4,6 +4,7 @@ namespace App\Actions\Fortify;
 
 use App\Concerns\PasswordValidationRules;
 use App\Concerns\ProfileValidationRules;
+use App\Models\Role;
 use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -34,12 +35,20 @@ class CreateNewUser implements CreatesNewUsers
                 'slug' => Str::slug($input['name']).'-'.Str::random(6),
             ]);
 
-            return User::create([
+            $user = User::create([
                 'tenant_id' => $tenant->id,
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'password' => $input['password'],
             ]);
+
+            $ownerRole = Role::query()->whereNull('tenant_id')->where('slug', 'owner')->first();
+
+            if ($ownerRole) {
+                $user->roles()->attach($ownerRole);
+            }
+
+            return $user;
         });
     }
 }

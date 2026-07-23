@@ -9,3 +9,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 require __DIR__.'/settings.php';
+
+foreach ((glob(app_path('Modules/*/web.php')) ?: []) as $moduleWebRoutes) {
+    require $moduleWebRoutes;
+}
