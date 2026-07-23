@@ -78,3 +78,90 @@ membership's start date even after the plan's current price changes.
   added ad hoc in the seeder. Worktree 2's role/permission management UI
   should treat these as the canonical slugs for this module rather than
   inventing new ones.
+
+---
+
+# Phase 2 Worktree 3 — Billing integration requirements
+
+The Phase 2 baseline does not contain the published shared contracts or shared
+domain events listed in `SRS.md`. This branch intentionally does not add
+competing definitions under `app/Shared/**`. Billing internals use integer
+minor units and expose narrow services that can be adapted when the canonical
+DTOs and method signatures are merged.
+
+## Exact contract bindings required during integration
+
+Add adapters in the integration merge after the real shared interfaces/DTOs
+exist, then register these bindings in the shared application provider:
+
+```php
+$this->app->bind(
+    \App\Shared\Contracts\InvoiceCreator::class,
+    \App\Modules\Billing\Integration\SharedInvoiceCreatorAdapter::class,
+);
+$this->app->bind(
+    \App\Shared\Contracts\PaymentRecorder::class,
+    \App\Modules\Billing\Integration\SharedPaymentRecorderAdapter::class,
+);
+$this->app->bind(
+    \App\Shared\Contracts\ReceiptGenerator::class,
+    \App\Modules\Billing\Integration\SharedReceiptGeneratorAdapter::class,
+);
+```
+
+The adapters must delegate without duplicating financial logic:
+
+- `SharedInvoiceCreatorAdapter` maps the canonical membership invoice DTO to
+  `InvoiceCreatorService::create()`. Required values are `branch_id`,
+  `member_id`, optional `membership_id`, ISO currency, item descriptions,
+  quantities and unit prices converted to cents, discount type/value (fixed
+  cents or percentage basis points), tax basis points, joining-fee cents,
+  optional dates/notes, caller ID, and an idempotency key. Return the invoice
+  ID/public ID/number, grand-total cents, paid cents, and balance cents in the
+  canonical result DTO.
+- `SharedPaymentRecorderAdapter` maps the canonical payment DTO to
+  `PaymentRecorderService::record(Invoice $invoice, array $data)`. It must pass
+  amount cents, one of `cash|card|bank_transfer|online`, reference, metadata,
+  paid-at time, actor ID, and the caller's idempotency key. Return the immutable
+  payment and generated receipt identifiers in the canonical result DTO.
+- `SharedReceiptGeneratorAdapter` resolves the immutable payment and delegates
+  to `ReceiptGeneratorService::generate()`. Receipt generation is already
+  idempotent through the unique `payment_id`.
+
+Do not make Billing depend on Membership models. `membership_id` is an opaque,
+nullable published identifier and deliberately has no foreign key until the
+integration merge can confirm the canonical membership table/key.
+
+## Exact shared event bridge required
+
+Billing writes a transactional outbox row and dispatches
+`App\Modules\Billing\Events\BillingEventPublished` only after commit. Add one
+integration listener which maps these event types to the canonical shared
+events, preserving `eventId` as the downstream idempotency key:
+
+- `InvoiceCreated` → shared `InvoiceCreated`
+- `PaymentCompleted` → shared `PaymentCompleted`
+- `PaymentRefunded` → shared `PaymentRefunded`
+
+`InvoiceVoided` remains a billing-specific outbox event unless a canonical
+shared equivalent is added. The listener must not dispatch membership events
+or modify membership records.
+
+## Required foundation/shell wiring
+
+These shared-file edits were not made because they belong to other worktrees:
+
+1. `bootstrap/app.php` currently omits `api: __DIR__.'/../routes/api.php'` from
+   `withRouting(...)`. Add it so the existing module API auto-loader discovers
+   `app/Modules/Billing/routes.php`.
+2. Run `App\Modules\Billing\Database\Seeders\BillingPermissionSeeder` from the
+   shared `DatabaseSeeder`, and add its ten slugs to the shared permission
+   catalogue/matrix. The exact slugs are the `PERMISSIONS` keys in that seeder.
+3. The current Inertia shell has no module route auto-loader. Load
+   `resources/js/modules/billing/routes.tsx` in the shell router and
+   `resources/js/modules/billing/navigation.ts` in the permission-aware
+   navigation loader. Route parameters must be passed to page components as
+   numeric `invoiceId`/`receiptId`; create-invoice must receive the active
+   numeric `branchId`.
+4. Preserve the `tenant` and `branch` middleware on every billing API route and
+   send the shell's active branch as `X-Branch-Id`.
