@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MemberRegistered;
 use App\Http\Requests\Members\StoreMemberRequest;
 use App\Http\Requests\Members\UpdateMemberRequest;
 use App\Http\Resources\MemberDocumentResource;
@@ -12,6 +13,8 @@ use App\Services\Members\DuplicateMemberFinder;
 use App\Services\Members\MemberNumberGenerator;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -92,7 +95,21 @@ class MemberController extends Controller
             $member->photo_path = $request->file('photo')->store('members/photos', 'public') ?: null;
         }
 
-        $member->save();
+        DB::transaction(function () use ($member): void {
+            $member->save();
+
+            $eventId = (string) Str::uuid();
+            $occurredAt = now()->toImmutable()->toIso8601String();
+
+            DB::afterCommit(fn () => MemberRegistered::dispatch(
+                eventId: $eventId,
+                occurredAt: $occurredAt,
+                tenantId: $member->tenant_id,
+                branchId: $member->branch_id,
+                memberId: $member->id,
+                registeredBy: $member->created_by,
+            ));
+        });
 
         Inertia::flash('toast', ['type' => 'success', 'message' => "Member {$member->fullName()} registered."]);
 

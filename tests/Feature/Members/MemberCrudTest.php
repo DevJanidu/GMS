@@ -1,10 +1,12 @@
 <?php
 
+use App\Events\MemberRegistered;
 use App\Models\Member;
 use App\Models\Tenant;
 use App\Services\Members\MemberNumberGenerator;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Storage;
 
 uses(RefreshDatabase::class);
@@ -26,6 +28,8 @@ it('lists members scoped to the current tenant', function () {
 });
 
 it('registers a new member and generates a tenant-scoped member number', function () {
+    Event::fake([MemberRegistered::class]);
+
     $tenant = Tenant::factory()->create(['slug' => 'iron-gym']);
     $user = ownerFor($tenant);
 
@@ -44,6 +48,13 @@ it('registers a new member and generates a tenant-scoped member number', functio
     expect($member->member_number)->toStartWith('IRON-');
     expect($member->status->value)->toBe('active');
     expect($member->created_by)->toBe($user->id);
+
+    Event::assertDispatched(MemberRegistered::class, fn (MemberRegistered $event) => $event->tenantId === $tenant->id
+        && $event->branchId === null
+        && $event->memberId === $member->id
+        && $event->registeredBy === $user->id
+        && $event->eventId !== ''
+        && $event->occurredAt !== '');
 });
 
 it('issues sequential member numbers per tenant independently', function () {
