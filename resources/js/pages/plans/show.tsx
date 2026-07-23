@@ -1,9 +1,25 @@
 import { Head, Link, router } from '@inertiajs/react';
-import { CopyIcon, PencilIcon } from 'lucide-react';
+import {
+    Building2,
+    Clock,
+    CopyIcon,
+    Dumbbell,
+    Gift,
+    PauseCircle,
+    PencilIcon,
+} from 'lucide-react';
 import PlanCloneController from '@/actions/App/Http/Controllers/PlanCloneController';
 import PlanController from '@/actions/App/Http/Controllers/PlanController';
 import PlanStatusController from '@/actions/App/Http/Controllers/PlanStatusController';
+import { DetailRow } from '@/components/detail-row';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card';
 import {
     Table,
     TableBody,
@@ -29,11 +45,16 @@ export default function ShowPlan({ plan }: { plan: Plan }) {
         router.post(PlanCloneController.store.url({ plan: plan.id }));
     }
 
+    const branchesLabel = plan.available_at_all_branches
+        ? 'All branches'
+        : (plan.branches ?? []).map((branch) => branch.name).join(', ') ||
+          null;
+
     return (
         <>
             <Head title={plan.name} />
 
-            <div className="flex flex-1 flex-col gap-6 p-4">
+            <div className="flex flex-1 flex-col gap-6">
                 <div className="flex items-start justify-between gap-4">
                     <div>
                         <div className="flex items-center gap-3">
@@ -84,64 +105,137 @@ export default function ShowPlan({ plan }: { plan: Plan }) {
                     />
                 </div>
 
-                <div className="rounded-xl border p-4">
-                    <h2 className="mb-2 text-sm font-medium">
-                        Branch availability
-                    </h2>
-                    {plan.available_at_all_branches ? (
-                        <p className="text-sm text-muted-foreground">
-                            Available at all branches.
-                        </p>
-                    ) : plan.branches && plan.branches.length > 0 ? (
-                        <ul className="flex flex-wrap gap-2 text-sm">
-                            {plan.branches.map((branch) => (
-                                <li
-                                    key={branch.id}
-                                    className="rounded-md bg-muted px-2 py-1"
-                                >
-                                    {branch.name}
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p className="text-sm text-muted-foreground">
-                            No branches assigned yet.
-                        </p>
-                    )}
-                </div>
-
-                <div className="rounded-xl border">
-                    <div className="p-4 pb-0">
-                        <h2 className="text-sm font-medium">Price history</h2>
+                <div className="grid gap-6 lg:grid-cols-3">
+                    <div className="lg:col-span-2">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Price history</CardTitle>
+                            </CardHeader>
+                            <CardContent className="px-0 pt-0">
+                                <Table>
+                                    <TableHeader>
+                                        <TableRow>
+                                            <TableHead>Price</TableHead>
+                                            <TableHead>Joining fee</TableHead>
+                                            <TableHead>
+                                                Effective from
+                                            </TableHead>
+                                            <TableHead>
+                                                Effective until
+                                            </TableHead>
+                                        </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                        {(plan.price_history ?? []).length ===
+                                            0 && (
+                                            <TableRow>
+                                                <TableCell
+                                                    colSpan={4}
+                                                    className="text-center text-sm text-muted-foreground"
+                                                >
+                                                    No price changes yet.
+                                                </TableCell>
+                                            </TableRow>
+                                        )}
+                                        {(plan.price_history ?? []).map(
+                                            (entry) => (
+                                                <TableRow key={entry.id}>
+                                                    <TableCell>
+                                                        $
+                                                        {entry.price.toFixed(
+                                                            2,
+                                                        )}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        $
+                                                        {entry.joining_fee.toFixed(
+                                                            2,
+                                                        )}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {entry.effective_from}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {entry.effective_until ??
+                                                            'Current'}
+                                                    </TableCell>
+                                                </TableRow>
+                                            ),
+                                        )}
+                                    </TableBody>
+                                </Table>
+                            </CardContent>
+                        </Card>
                     </div>
-                    <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead>Price</TableHead>
-                                <TableHead>Joining fee</TableHead>
-                                <TableHead>Effective from</TableHead>
-                                <TableHead>Effective until</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {(plan.price_history ?? []).map((entry) => (
-                                <TableRow key={entry.id}>
-                                    <TableCell>
-                                        ${entry.price.toFixed(2)}
-                                    </TableCell>
-                                    <TableCell>
-                                        ${entry.joining_fee.toFixed(2)}
-                                    </TableCell>
-                                    <TableCell>
-                                        {entry.effective_from}
-                                    </TableCell>
-                                    <TableCell>
-                                        {entry.effective_until ?? 'Current'}
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
+
+                    <div className="lg:col-span-1">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Details</CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                                <DetailRow
+                                    icon={<Building2 className="size-4" />}
+                                    label="Branch availability"
+                                    value={branchesLabel}
+                                />
+                                <DetailRow
+                                    icon={<Clock className="size-4" />}
+                                    label="Duration"
+                                    value={`${plan.duration_value} ${plan.duration_unit}`}
+                                />
+                                <DetailRow
+                                    icon={<Gift className="size-4" />}
+                                    label="Guest passes per month"
+                                    value={
+                                        plan.access_rules
+                                            .guest_passes_per_month != null
+                                            ? String(
+                                                  plan.access_rules
+                                                      .guest_passes_per_month,
+                                              )
+                                            : null
+                                    }
+                                />
+                                <DetailRow
+                                    icon={<PauseCircle className="size-4" />}
+                                    label="Freeze days allowed"
+                                    value={
+                                        plan.access_rules
+                                            .freeze_days_allowed != null
+                                            ? String(
+                                                  plan.access_rules
+                                                      .freeze_days_allowed,
+                                              )
+                                            : null
+                                    }
+                                />
+                                <div className="flex items-start gap-3 text-sm">
+                                    <span className="mt-0.5 shrink-0 text-muted-foreground">
+                                        <Dumbbell className="size-4" />
+                                    </span>
+                                    <div className="min-w-0">
+                                        <p className="text-xs text-muted-foreground">
+                                            Classes included
+                                        </p>
+                                        <Badge
+                                            variant={
+                                                plan.access_rules
+                                                    .classes_included
+                                                    ? 'secondary'
+                                                    : 'outline'
+                                            }
+                                        >
+                                            {plan.access_rules
+                                                .classes_included
+                                                ? 'Included'
+                                                : 'Not included'}
+                                        </Badge>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
                 </div>
             </div>
         </>

@@ -121,7 +121,7 @@ export default function DashboardPage() {
     return (
         <>
             <Head title="Dashboard" />
-            <main className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col gap-6 p-4 sm:p-6">
+            <main className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col gap-6">
                 <PageHeader
                     title="Good afternoon, Admin"
                     description="Here’s what’s happening across Pulse Fitness today."

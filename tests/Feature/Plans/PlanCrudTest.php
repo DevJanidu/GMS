@@ -72,6 +72,21 @@ it('activates and deactivates a plan', function () {
     expect($plan->fresh()->status->value)->toBe('active');
 });
 
+it('shows a plan with its price history as a plain array', function () {
+    $tenant = Tenant::factory()->create();
+    $user = ownerFor($tenant);
+    $plan = Plan::factory()->for($tenant)->create(['price' => 50]);
+
+    $response = $this->actingAs($user)->get(route('plans.show', $plan));
+
+    $response->assertOk();
+    $response->assertInertia(fn ($page) => $page
+        ->component('plans/show')
+        ->has('plan.price_history', 1)
+        ->where('plan.price_history.0.price', 50)
+    );
+});
+
 it('returns a 404 for a plan belonging to another tenant', function () {
     $tenant = Tenant::factory()->create();
     $user = ownerFor($tenant);

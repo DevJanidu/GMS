@@ -1,10 +1,34 @@
 import { Head, Link, router, useForm } from '@inertiajs/react';
-import { FileIcon, PencilIcon, TrashIcon } from 'lucide-react';
+import {
+    Building2,
+    Cake,
+    Calendar,
+    FileIcon,
+    Mail,
+    MapPin,
+    PencilIcon,
+    Phone,
+    ShieldAlert,
+    StickyNote,
+    TrashIcon,
+    User as UserIcon,
+    VenusAndMars,
+} from 'lucide-react';
 import type { FormEvent } from 'react';
 import MemberController from '@/actions/App/Http/Controllers/MemberController';
 import MemberDocumentController from '@/actions/App/Http/Controllers/MemberDocumentController';
 import MemberStatusController from '@/actions/App/Http/Controllers/MemberStatusController';
+import { DetailRow } from '@/components/detail-row';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import {
     Select,
     SelectContent,
@@ -12,7 +36,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { MemberStatusBadge } from '@/modules/members/components/member-status-badge';
 import type {
     Member,
@@ -20,6 +43,13 @@ import type {
     MemberStatus,
 } from '@/modules/members/types';
 import type { BreadcrumbItem } from '@/types';
+
+const GENDER_LABELS: Record<string, string> = {
+    male: 'Male',
+    female: 'Female',
+    other: 'Other',
+    prefer_not_to_say: 'Prefer not to say',
+};
 
 export default function ShowMember({
     member,
@@ -63,25 +93,30 @@ export default function ShowMember({
         );
     }
 
+    const emergencyContact = member.emergency_contact_name
+        ? `${member.emergency_contact_name} (${member.emergency_contact_phone ?? '—'})`
+        : null;
+
     return (
         <>
             <Head title={member.full_name} />
 
-            <div className="flex flex-1 flex-col gap-6 p-4">
-                <div className="flex items-start justify-between gap-4">
+            <div className="flex flex-1 flex-col gap-6">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div className="flex items-center gap-4">
-                        {member.photo_url ? (
-                            <img
-                                src={member.photo_url}
-                                alt={member.full_name}
-                                className="size-16 rounded-full object-cover"
-                            />
-                        ) : (
-                            <div className="flex size-16 items-center justify-center rounded-full bg-muted text-lg font-medium">
+                        <Avatar className="size-16 border">
+                            {member.photo_url && (
+                                <AvatarImage
+                                    src={member.photo_url}
+                                    alt={member.full_name}
+                                    className="object-cover"
+                                />
+                            )}
+                            <AvatarFallback className="text-lg font-medium">
                                 {member.first_name[0]}
                                 {member.last_name[0]}
-                            </div>
-                        )}
+                            </AvatarFallback>
+                        </Avatar>
                         <div>
                             <h1 className="text-xl font-semibold tracking-tight">
                                 {member.full_name}
@@ -89,8 +124,14 @@ export default function ShowMember({
                             <p className="text-sm text-muted-foreground">
                                 Member #{member.member_number}
                             </p>
-                            <div className="mt-1">
+                            <div className="mt-1 flex flex-wrap items-center gap-2">
                                 <MemberStatusBadge status={member.status} />
+                                {member.branch && (
+                                    <span className="inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-xs font-medium text-muted-foreground">
+                                        <Building2 className="size-3" />
+                                        {member.branch.name}
+                                    </span>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -128,140 +169,175 @@ export default function ShowMember({
                     </div>
                 </div>
 
-                <Tabs defaultValue="overview">
-                    <TabsList>
-                        <TabsTrigger value="overview">Overview</TabsTrigger>
-                        <TabsTrigger value="documents">
-                            Documents ({documents.length})
-                        </TabsTrigger>
-                        <TabsTrigger value="history">History</TabsTrigger>
-                    </TabsList>
-
-                    <TabsContent value="overview" className="mt-4">
-                        <dl className="grid gap-x-8 gap-y-4 rounded-xl border p-4 sm:grid-cols-2">
-                            <Field label="Email" value={member.email} />
-                            <Field label="Phone" value={member.phone} />
-                            <Field label="Gender" value={member.gender} />
-                            <Field
-                                label="Date of birth"
-                                value={member.date_of_birth}
-                            />
-                            <Field label="Address" value={member.address} />
-                            <Field label="Branch" value={member.branch?.name} />
-                            <Field
-                                label="Emergency contact"
-                                value={
-                                    member.emergency_contact_name
-                                        ? `${member.emergency_contact_name} (${member.emergency_contact_phone ?? '—'})`
-                                        : null
-                                }
-                            />
-                            <Field label="Joined" value={member.joined_at} />
-                            <Field label="Notes" value={member.notes} />
-                        </dl>
-                    </TabsContent>
-
-                    <TabsContent value="documents" className="mt-4 space-y-4">
-                        <form
-                            onSubmit={uploadDocument}
-                            className="flex flex-wrap items-end gap-3 rounded-xl border p-4"
-                        >
-                            <div className="grid gap-2">
-                                <label
-                                    htmlFor="document_name"
-                                    className="text-sm font-medium"
+                <div className="grid gap-6 lg:grid-cols-3">
+                    <div className="space-y-6 lg:col-span-2">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>
+                                    Documents ({documents.length})
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                                <form
+                                    onSubmit={uploadDocument}
+                                    className="flex flex-wrap items-end gap-3 rounded-xl border p-4"
                                 >
-                                    Document name
-                                </label>
-                                <input
-                                    id="document_name"
-                                    className="h-9 rounded-md border border-input bg-transparent px-3 text-sm"
-                                    value={uploadForm.data.name}
-                                    onChange={(e) =>
-                                        uploadForm.setData(
-                                            'name',
-                                            e.target.value,
-                                        )
-                                    }
-                                    placeholder="e.g. ID card"
-                                />
-                            </div>
-                            <div className="grid gap-2">
-                                <label
-                                    htmlFor="document_file"
-                                    className="text-sm font-medium"
-                                >
-                                    File
-                                </label>
-                                <input
-                                    id="document_file"
-                                    type="file"
-                                    onChange={(e) =>
-                                        uploadForm.setData(
-                                            'file',
-                                            e.target.files?.[0] ?? null,
-                                        )
-                                    }
-                                />
-                            </div>
-                            <Button
-                                type="submit"
-                                disabled={uploadForm.processing}
-                            >
-                                Upload
-                            </Button>
-                        </form>
-
-                        <div className="divide-y rounded-xl border">
-                            {documents.length === 0 && (
-                                <p className="p-4 text-sm text-muted-foreground">
-                                    No documents uploaded yet.
-                                </p>
-                            )}
-                            {documents.map((document) => (
-                                <div
-                                    key={document.id}
-                                    className="flex items-center justify-between gap-3 p-3"
-                                >
-                                    <a
-                                        href={document.url}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="flex items-center gap-2 text-sm hover:underline"
-                                    >
-                                        <FileIcon className="size-4 text-muted-foreground" />
-                                        {document.name}
-                                    </a>
+                                    <div className="grid gap-2">
+                                        <Label htmlFor="document_name">
+                                            Document name
+                                        </Label>
+                                        <Input
+                                            id="document_name"
+                                            value={uploadForm.data.name}
+                                            onChange={(e) =>
+                                                uploadForm.setData(
+                                                    'name',
+                                                    e.target.value,
+                                                )
+                                            }
+                                            placeholder="e.g. ID card"
+                                        />
+                                    </div>
+                                    <div className="grid gap-2">
+                                        <Label htmlFor="document_file">
+                                            File
+                                        </Label>
+                                        <Input
+                                            id="document_file"
+                                            type="file"
+                                            onChange={(e) =>
+                                                uploadForm.setData(
+                                                    'file',
+                                                    e.target.files?.[0] ??
+                                                        null,
+                                                )
+                                            }
+                                        />
+                                    </div>
                                     <Button
-                                        variant="ghost"
-                                        size="icon"
-                                        onClick={() => deleteDocument(document)}
+                                        type="submit"
+                                        disabled={uploadForm.processing}
                                     >
-                                        <TrashIcon className="size-4" />
+                                        Upload
                                     </Button>
-                                </div>
-                            ))}
-                        </div>
-                    </TabsContent>
+                                </form>
 
-                    <TabsContent value="history" className="mt-4">
-                        <p className="rounded-xl border p-4 text-sm text-muted-foreground">
-                            Membership and payment history will appear here once
-                            the membership module is available.
-                        </p>
-                    </TabsContent>
-                </Tabs>
+                                <div className="divide-y rounded-xl border">
+                                    {documents.length === 0 && (
+                                        <p className="p-4 text-sm text-muted-foreground">
+                                            No documents uploaded yet.
+                                        </p>
+                                    )}
+                                    {documents.map((document) => (
+                                        <div
+                                            key={document.id}
+                                            className="flex items-center justify-between gap-3 p-3"
+                                        >
+                                            <a
+                                                href={document.url}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="flex items-center gap-2 text-sm hover:underline"
+                                            >
+                                                <FileIcon className="size-4 text-muted-foreground" />
+                                                {document.name}
+                                            </a>
+                                            <Button
+                                                variant="ghost"
+                                                size="icon"
+                                                onClick={() =>
+                                                    deleteDocument(document)
+                                                }
+                                            >
+                                                <TrashIcon className="size-4" />
+                                            </Button>
+                                        </div>
+                                    ))}
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>History</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-sm text-muted-foreground">
+                                    Membership and payment history will
+                                    appear here once the membership module is
+                                    available.
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </div>
+
+                    <div className="lg:col-span-1">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Details</CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                                <DetailRow
+                                    icon={<Mail className="size-4" />}
+                                    label="Email"
+                                    value={member.email}
+                                />
+                                <DetailRow
+                                    icon={<Phone className="size-4" />}
+                                    label="Phone"
+                                    value={member.phone}
+                                />
+                                <DetailRow
+                                    icon={<VenusAndMars className="size-4" />}
+                                    label="Gender"
+                                    value={
+                                        member.gender
+                                            ? (GENDER_LABELS[member.gender] ??
+                                              member.gender)
+                                            : null
+                                    }
+                                />
+                                <DetailRow
+                                    icon={<Cake className="size-4" />}
+                                    label="Date of birth"
+                                    value={member.date_of_birth}
+                                />
+                                <DetailRow
+                                    icon={<MapPin className="size-4" />}
+                                    label="Address"
+                                    value={member.address}
+                                />
+                                <DetailRow
+                                    icon={<Building2 className="size-4" />}
+                                    label="Branch"
+                                    value={member.branch?.name ?? null}
+                                />
+                                <DetailRow
+                                    icon={<ShieldAlert className="size-4" />}
+                                    label="Emergency contact"
+                                    value={emergencyContact}
+                                />
+                                <DetailRow
+                                    icon={<Calendar className="size-4" />}
+                                    label="Joined"
+                                    value={member.joined_at}
+                                />
+                                <DetailRow
+                                    icon={<StickyNote className="size-4" />}
+                                    label="Notes"
+                                    value={member.notes}
+                                />
+                                <DetailRow
+                                    icon={<UserIcon className="size-4" />}
+                                    label="Registered"
+                                    value={member.created_at}
+                                />
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
             </div>
         </>
-    );
-}
-
-function Field({ label, value }: { label: string; value?: string | null }) {
-    return (
-        <div>
-            <dt className="text-xs text-muted-foreground">{label}</dt>
-            <dd className="text-sm">{value || '—'}</dd>
-        </div>
     );
 }
 

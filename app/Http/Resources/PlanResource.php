@@ -25,7 +25,10 @@ class PlanResource extends JsonResource
             'joining_fee' => (float) $this->joining_fee,
             'duration_value' => $this->duration_value,
             'duration_unit' => $this->duration_unit->value,
-            'access_rules' => $this->access_rules ?: [],
+            // Cast to object so an empty rule set encodes as JSON `{}`
+            // rather than `[]` — PHP can't otherwise distinguish the two
+            // for an empty array, but the frontend expects an object.
+            'access_rules' => (object) ($this->access_rules ?: []),
             'available_at_all_branches' => $this->available_at_all_branches,
             'status' => $this->status->value,
             'cloned_from_id' => $this->cloned_from_id,
@@ -33,7 +36,9 @@ class PlanResource extends JsonResource
                 'id' => $branch->id,
                 'name' => $branch->name,
             ])),
-            'price_history' => PlanPriceHistoryResource::collection($this->whenLoaded('priceHistory')),
+            'price_history' => $this->whenLoaded('priceHistory', fn () => $this->priceHistory
+                ->map(fn ($entry) => (new PlanPriceHistoryResource($entry))->resolve())
+                ->all()),
             'created_at' => $this->created_at?->toIso8601String(),
         ];
     }

@@ -104,6 +104,28 @@ it('changes a member status and stamps archived_at when archiving', function () 
     expect($member->archived_at)->not->toBeNull();
 });
 
+it('shows a member with their documents as a plain array', function () {
+    $tenant = Tenant::factory()->create();
+    $user = ownerFor($tenant);
+    $member = Member::factory()->for($tenant)->create();
+    $member->documents()->create([
+        'tenant_id' => $tenant->id,
+        'name' => 'ID card',
+        'file_path' => 'members/documents/id-card.pdf',
+        'mime_type' => 'application/pdf',
+        'size' => 1024,
+    ]);
+
+    $response = $this->actingAs($user)->get(route('members.show', $member));
+
+    $response->assertOk();
+    $response->assertInertia(fn ($page) => $page
+        ->component('members/show')
+        ->has('documents', 1)
+        ->where('documents.0.name', 'ID card')
+    );
+});
+
 it('returns a 404 when a member belongs to another tenant', function () {
     $tenant = Tenant::factory()->create();
     $user = ownerFor($tenant);

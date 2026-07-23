@@ -16,6 +16,12 @@ export type Auth = {
     user: User;
 };
 
+export type GymSummary = {
+    name: string;
+    description: string | null;
+    logoUrl: string | null;
+} | null;
+
 /* @chisel-passkeys */
 export type Passkey = {
     id: number;

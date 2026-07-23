@@ -26,6 +26,7 @@ class UpdateGymProfileRequest extends FormRequest
             'tax_id' => ['nullable', 'string', 'max:100'],
             'website' => ['nullable', 'url', 'max:255'],
             'description' => ['nullable', 'string', 'max:2000'],
+            'logo' => ['nullable', 'image', 'max:4096'],
         ];
     }
 }

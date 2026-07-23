@@ -23,14 +23,14 @@ function isSmallerThanBreakpoint(): boolean {
     return mql?.matches ?? false;
 }
 
-function getServerSnapshot(): boolean {
-    return false;
-}
-
 export function useIsMobile(): boolean {
+    // Both snapshots read the same live media query — there's no true
+    // server render here, and hardcoding a "server" default of `false`
+    // caused a mismatch (and the resulting error) for anyone actually on
+    // a narrow viewport on first render.
     return useSyncExternalStore(
         mediaQueryListener,
         isSmallerThanBreakpoint,
-        getServerSnapshot,
+        isSmallerThanBreakpoint,
     );
 }
