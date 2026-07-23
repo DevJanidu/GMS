@@ -1,0 +1,92 @@
+[     449ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:20987
+[ 1539647ms] [VERBOSE] [DOM] Password forms should have (optionally hidden) username fields for accessibility: (More info: https://goo.gl/9p2vKq) %o @ http://127.0.0.1:8000/user/confirm-password:0
+[ 1679123ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:20987
+[ 1679525ms] Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <AppLayout errors={{}} name="Pulse GMS" auth={{...}} sidebarOpen={true} breadcrumbs={[...]}>
+      <AppSidebarLayout breadcrumbs={[...]}>
+        <AppShell variant="sidebar">
+          <SidebarProvider defaultOpen={true}>
+            <div data-slot="sidebar-wr..." style={{...}} className="group/side...">
+              <AppSidebar>
+              <AppContent variant="sidebar" className="overflow-x...">
+                <SidebarInset className="overflow-x...">
+                  <main data-slot="sidebar-inset" className="bg-backgro...">
+                    <AppSidebarHeader breadcrumbs={[...]}>
+                      <header className="flex h-16 ...">
+                        <div>
+                        <div className="flex flex-...">
+                          <div>
+                          <Select>
+                          <Select>
+                          <ThemeButton>
+                            <Button variant="ghost" size="icon" onClick={function t0} aria-label="Switch to ...">
+                              <button
+                                data-slot="button"
+                                className={"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-m..."}
+                                onClick={function t0}
++                               aria-label="Switch to light mode"
+-                               aria-label="Switch to dark mode"
+                              >
+                                <Sun>
+                                  <svg
+                                    ref={null}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width={24}
+                                    height={24}
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={2}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
++                                   className="lucide lucide-sun"
+-                                   className="lucide lucide-moon"
+                                  >
++                                   <circle cx="12" cy="12" r="4">
+-                                   <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z">
+                                    ...
+                          ...
+                    ...
+
+    at throwOnHydrationMismatch (http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:9620:51)
+    at beginWork (http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:12852:914)
+    at runWithFiberInDEV (http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:7503:66)
+    at performUnitOfWork (http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:15081:92)
+    at workLoopSync (http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:14977:37)
+    at renderRootSync (http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:14961:6)
+    at performWorkOnRoot (http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:14609:181)
+    at performWorkOnRootViaSchedulerTask (http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:15711:4)
+    at MessagePort.performWorkUntilDeadline (http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:6688:38)
+[ 1686325ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5173/node_modules/.vite/deps/@inertiajs_react.js?v=ac1e322d:20987
+[ 2995285ms] [ERROR] Failed to load resource: the server responded with a status of 409 (Conflict) @ http://127.0.0.1:8000/login:0
+[ 2995648ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 2996602ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 2997282ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 2997930ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 2998055ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 2998209ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 2998849ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 2999080ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 2999267ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 2999657ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 2999854ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 2999989ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 3000306ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 3022993ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 3029754ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 3048594ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 3063849ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 3074119ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987
+[ 3114477ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://[::1]:5174/node_modules/.vite/deps/@inertiajs_react.js?v=8ed24610:20987

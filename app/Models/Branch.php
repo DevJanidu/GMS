@@ -9,11 +9,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-#[Fillable(['tenant_id', 'name', 'code', 'address', 'phone', 'email', 'status'])]
+#[Fillable(['tenant_id', 'name', 'code', 'address', 'phone', 'email', 'status', 'opening_hours'])]
 class Branch extends Model
 {
     /** @use HasFactory<BranchFactory> */
     use BelongsToTenant, HasFactory;
+
+    protected function casts(): array
+    {
+        return [
+            'opening_hours' => 'array',
+        ];
+    }
 
     /**
      * @return BelongsToMany<User, $this>
