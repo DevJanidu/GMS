@@ -9,6 +9,7 @@ auth.json
 
 # PHP / Laravel dependencies and generated files
 /vendor/
+/vendor-shared/
 /bootstrap/cache/*
 !/bootstrap/cache/.gitignore
 /storage/*.key
