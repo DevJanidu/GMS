@@ -136,7 +136,7 @@ return new class extends Migration
             $table->timestamp('attempted_at');
 
             $table->unique(['delivery_id', 'attempt_number']);
-            $table->index(['tenant_id', 'status', 'attempted_at']);
+            $table->index(['tenant_id', 'status', 'attempted_at'], 'notification_delivery_attempts_tenant_status_idx');
         });
     }
 

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('actor_id')->nullable()->constrained('users')->nullOnDelete();
             $table->json('metadata')->nullable();
             $table->timestamps();
-            $table->index(['tenant_id', 'event_type', 'effective_at']);
+            $table->index(['tenant_id', 'event_type', 'effective_at'], 'membership_status_histories_tenant_event_effective_idx');
             $table->index(['membership_id', 'effective_at']);
         });
 
