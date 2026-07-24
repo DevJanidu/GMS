@@ -77,3 +77,13 @@ export type DashboardFilters = {
         dateTo: string;
     };
 };
+
+export type Phase3OperationalSnapshot = {
+    todayAttendance: number;
+    presentMembers: number;
+    failedNotifications: number;
+    peakPeriods: {
+        label: string;
+        attendanceCount: number;
+    }[];
+};

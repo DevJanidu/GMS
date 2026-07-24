@@ -1,6 +1,9 @@
 import { Head, Link } from '@inertiajs/react';
 import {
     CircleDollarSign,
+    BellRing,
+    CalendarCheck,
+    Clock3,
     RefreshCw,
     UserPlus,
     Users,
@@ -31,6 +34,7 @@ import { DashboardCard } from '@/modules/dashboard/components/dashboard-card';
 import { SectionBoundary } from '@/modules/dashboard/components/section-boundary';
 import { StatCard } from '@/modules/dashboard/components/stat-card';
 import { useDashboardSummary } from '@/modules/dashboard/hooks/use-dashboard-summary';
+import { useOperationalDashboard } from '@/modules/dashboard/hooks/use-operational-dashboard';
 import { dashboard } from '@/routes';
 import { index as membersIndex } from '@/routes/members';
 
@@ -93,6 +97,11 @@ function DashboardContent() {
     const { summary, isLoading, error, refetch } = useDashboardSummary({
         dateFrom: range.from,
         dateTo: range.to,
+    });
+    const operational = useOperationalDashboard({
+        dateFrom: range.from,
+        dateTo: range.to,
+        branchId: null,
     });
 
     const currency = summary?.meta.currency ?? 'USD';
@@ -247,6 +256,88 @@ function DashboardContent() {
                     />
                 )}
             </section>
+
+            <section
+                className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4"
+                aria-label="Today's operations"
+            >
+                {operational.snapshot ? (
+                    <>
+                        <StatCard
+                            label="Today's attendance"
+                            value={operational.snapshot.todayAttendance.toLocaleString()}
+                            icon={CalendarCheck}
+                            tone="emerald"
+                        />
+                        <StatCard
+                            label="Currently present"
+                            value={operational.snapshot.presentMembers.toLocaleString()}
+                            icon={Users}
+                            tone="blue"
+                        />
+                        <StatCard
+                            label="Peak periods"
+                            value={operational.snapshot.peakPeriods.length.toLocaleString()}
+                            icon={Clock3}
+                            tone="violet"
+                        />
+                        <StatCard
+                            label="Failed notifications"
+                            value={operational.snapshot.failedNotifications.toLocaleString()}
+                            icon={BellRing}
+                            tone="amber"
+                        />
+                    </>
+                ) : (
+                    [CalendarCheck, Users, Clock3, BellRing].map(
+                        (Icon, index) => (
+                            <StatCard
+                                key={index}
+                                label={
+                                    [
+                                        "Today's attendance",
+                                        'Currently present',
+                                        'Peak periods',
+                                        'Failed notifications',
+                                    ][index]
+                                }
+                                icon={Icon}
+                                state="pending_integration"
+                                message={
+                                    operational.loading
+                                        ? 'Loading operational data…'
+                                        : (operational.error ??
+                                          'Operational API unavailable.')
+                                }
+                            />
+                        ),
+                    )
+                )}
+            </section>
+
+            {operational.snapshot &&
+                operational.snapshot.peakPeriods.length > 0 && (
+                    <DashboardCard
+                        title="Peak attendance periods"
+                        description="Busiest periods in the selected range"
+                    >
+                        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                            {operational.snapshot.peakPeriods.map((period) => (
+                                <div
+                                    key={period.label}
+                                    className="rounded-xl border p-4"
+                                >
+                                    <p className="text-sm text-muted-foreground">
+                                        {period.label}
+                                    </p>
+                                    <p className="mt-1 text-xl font-bold">
+                                        {period.attendanceCount}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </DashboardCard>
+                )}
 
             <section className="grid gap-4 xl:grid-cols-[minmax(0,1.45fr)_minmax(22rem,1fr)]">
                 <DashboardCard
