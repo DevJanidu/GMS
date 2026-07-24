@@ -4,6 +4,7 @@ namespace App\Modules\Attendance\Models;
 
 use App\Models\Branch;
 use App\Models\Concerns\BelongsToTenant;
+use App\Modules\Attendance\Enums\AttendanceMode;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -19,6 +20,7 @@ class AttendanceSetting extends Model
     protected function casts(): array
     {
         return [
+            'mode' => AttendanceMode::class,
             'allow_manual_entry' => 'boolean',
             'manager_override_required' => 'boolean',
             'visit_limit_rules' => 'array',

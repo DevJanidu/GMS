@@ -6,10 +6,13 @@ use App\Models\Branch;
 use App\Models\Concerns\BelongsToTenant;
 use App\Models\Member;
 use App\Models\User;
+use App\Modules\Attendance\Enums\AttendanceSource;
+use App\Modules\Attendance\Enums\AttendanceStatus;
 use App\Modules\Membership\Models\Membership;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use LogicException;
 
 class AttendanceRecord extends Model
 {
@@ -17,13 +20,26 @@ class AttendanceRecord extends Model
 
     protected $fillable = [
         'tenant_id', 'branch_id', 'member_id', 'membership_id', 'qr_credential_id',
-        'request_id', 'status', 'source', 'checked_in_at', 'checked_out_at',
+        'request_id', 'request_hash', 'status', 'open_presence_key', 'source', 'checked_in_at', 'checked_out_at',
         'device_id', 'recorded_by', 'override_by', 'override_reason', 'metadata',
     ];
 
     protected function casts(): array
     {
-        return ['checked_in_at' => 'datetime', 'checked_out_at' => 'datetime', 'metadata' => 'array'];
+        return [
+            'status' => AttendanceStatus::class,
+            'source' => AttendanceSource::class,
+            'checked_in_at' => 'datetime',
+            'checked_out_at' => 'datetime',
+            'metadata' => 'array',
+        ];
+    }
+
+    protected static function booted(): void
+    {
+        static::deleting(fn () => throw new LogicException(
+            'Attendance records cannot be deleted; reverse the record instead.',
+        ));
     }
 
     /**

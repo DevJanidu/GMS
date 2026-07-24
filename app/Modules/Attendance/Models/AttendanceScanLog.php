@@ -6,9 +6,11 @@ use App\Models\Branch;
 use App\Models\Concerns\BelongsToTenant;
 use App\Models\Member;
 use App\Models\User;
+use App\Modules\Attendance\Enums\AttendanceSource;
 use App\Modules\Membership\Models\Membership;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use LogicException;
 
 class AttendanceScanLog extends Model
 {
@@ -18,13 +20,23 @@ class AttendanceScanLog extends Model
 
     protected $fillable = [
         'tenant_id', 'branch_id', 'member_id', 'membership_id', 'attendance_record_id',
-        'request_id', 'result', 'reason_code', 'reason', 'source', 'device_id',
+        'request_id', 'request_hash', 'result', 'reason_code', 'reason', 'source', 'device_id',
         'scanned_by', 'context', 'scanned_at',
     ];
 
     protected function casts(): array
     {
-        return ['context' => 'array', 'scanned_at' => 'datetime'];
+        return [
+            'source' => AttendanceSource::class,
+            'context' => 'array',
+            'scanned_at' => 'datetime',
+        ];
+    }
+
+    protected static function booted(): void
+    {
+        static::updating(fn () => throw new LogicException('Attendance scan logs are append-only.'));
+        static::deleting(fn () => throw new LogicException('Attendance scan logs are append-only.'));
     }
 
     /**

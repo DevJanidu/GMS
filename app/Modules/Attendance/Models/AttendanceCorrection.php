@@ -6,6 +6,7 @@ use App\Models\Concerns\BelongsToTenant;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use LogicException;
 
 class AttendanceCorrection extends Model
 {
@@ -14,13 +15,19 @@ class AttendanceCorrection extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'tenant_id', 'attendance_record_id', 'correction_type', 'before_values',
+        'tenant_id', 'attendance_record_id', 'request_id', 'request_hash', 'correction_type', 'before_values',
         'after_values', 'reason', 'corrected_by', 'corrected_at',
     ];
 
     protected function casts(): array
     {
         return ['before_values' => 'array', 'after_values' => 'array', 'corrected_at' => 'datetime'];
+    }
+
+    protected static function booted(): void
+    {
+        static::updating(fn () => throw new LogicException('Attendance corrections are append-only.'));
+        static::deleting(fn () => throw new LogicException('Attendance corrections are append-only.'));
     }
 
     /**
