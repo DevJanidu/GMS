@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\MemberStatusController::update
- * @see app/Http/Controllers/MemberStatusController.php:13
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberStatusController.php:13
  * @route '/members/{member}/status'
  */
 export const update = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -16,7 +16,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\MemberStatusController::update
- * @see app/Http/Controllers/MemberStatusController.php:13
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberStatusController.php:13
  * @route '/members/{member}/status'
  */
 update.url = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ update.url = (args: { member: number | { id: number } } | [member: number | { id
 
 /**
 * @see \App\Http\Controllers\MemberStatusController::update
- * @see app/Http/Controllers/MemberStatusController.php:13
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberStatusController.php:13
  * @route '/members/{member}/status'
  */
 update.patch = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -59,7 +59,7 @@ update.patch = (args: { member: number | { id: number } } | [member: number | { 
 
     /**
 * @see \App\Http\Controllers\MemberStatusController::update
- * @see app/Http/Controllers/MemberStatusController.php:13
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberStatusController.php:13
  * @route '/members/{member}/status'
  */
     const updateForm = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -74,7 +74,7 @@ update.patch = (args: { member: number | { id: number } } | [member: number | { 
 
             /**
 * @see \App\Http\Controllers\MemberStatusController::update
- * @see app/Http/Controllers/MemberStatusController.php:13
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberStatusController.php:13
  * @route '/members/{member}/status'
  */
         updateForm.patch = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

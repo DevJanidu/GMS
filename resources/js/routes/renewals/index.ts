@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 import reminders from './reminders'
 /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::dashboard
- * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -17,7 +17,7 @@ dashboard.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::dashboard
- * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -26,7 +26,7 @@ dashboard.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::dashboard
- * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::dashboard
- * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::dashboard
- * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
     const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::dashboard
- * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
         dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -64,7 +64,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::dashboard
- * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
         dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -80,7 +80,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     dashboard.form = dashboardForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiringController::expiring
- * @see app/Modules/Membership/Controllers/MembershipExpiringController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiringController.php:16
  * @route '/renewals/expiring'
  */
 export const expiring = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -95,7 +95,7 @@ expiring.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiringController::expiring
- * @see app/Modules/Membership/Controllers/MembershipExpiringController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiringController.php:16
  * @route '/renewals/expiring'
  */
 expiring.url = (options?: RouteQueryOptions) => {
@@ -104,7 +104,7 @@ expiring.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiringController::expiring
- * @see app/Modules/Membership/Controllers/MembershipExpiringController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiringController.php:16
  * @route '/renewals/expiring'
  */
 expiring.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -113,7 +113,7 @@ expiring.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiringController::expiring
- * @see app/Modules/Membership/Controllers/MembershipExpiringController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiringController.php:16
  * @route '/renewals/expiring'
  */
 expiring.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -123,7 +123,7 @@ expiring.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiringController::expiring
- * @see app/Modules/Membership/Controllers/MembershipExpiringController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiringController.php:16
  * @route '/renewals/expiring'
  */
     const expiringForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -133,7 +133,7 @@ expiring.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiringController::expiring
- * @see app/Modules/Membership/Controllers/MembershipExpiringController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiringController.php:16
  * @route '/renewals/expiring'
  */
         expiringForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -142,7 +142,7 @@ expiring.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiringController::expiring
- * @see app/Modules/Membership/Controllers/MembershipExpiringController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiringController.php:16
  * @route '/renewals/expiring'
  */
         expiringForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -158,7 +158,7 @@ expiring.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     expiring.form = expiringForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::expired
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
 export const expired = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -173,7 +173,7 @@ expired.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::expired
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
 expired.url = (options?: RouteQueryOptions) => {
@@ -182,7 +182,7 @@ expired.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::expired
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
 expired.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -191,7 +191,7 @@ expired.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::expired
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
 expired.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -201,7 +201,7 @@ expired.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::expired
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
     const expiredForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -211,7 +211,7 @@ expired.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::expired
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
         expiredForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -220,7 +220,7 @@ expired.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::expired
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
         expiredForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -236,7 +236,7 @@ expired.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     expired.form = expiredForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipGraceController::grace
- * @see app/Modules/Membership/Controllers/MembershipGraceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipGraceController.php:16
  * @route '/renewals/grace'
  */
 export const grace = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -251,7 +251,7 @@ grace.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipGraceController::grace
- * @see app/Modules/Membership/Controllers/MembershipGraceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipGraceController.php:16
  * @route '/renewals/grace'
  */
 grace.url = (options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ grace.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipGraceController::grace
- * @see app/Modules/Membership/Controllers/MembershipGraceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipGraceController.php:16
  * @route '/renewals/grace'
  */
 grace.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ grace.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Membership\Controllers\MembershipGraceController::grace
- * @see app/Modules/Membership/Controllers/MembershipGraceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipGraceController.php:16
  * @route '/renewals/grace'
  */
 grace.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ grace.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipGraceController::grace
- * @see app/Modules/Membership/Controllers/MembershipGraceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipGraceController.php:16
  * @route '/renewals/grace'
  */
     const graceForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ grace.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipGraceController::grace
- * @see app/Modules/Membership/Controllers/MembershipGraceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipGraceController.php:16
  * @route '/renewals/grace'
  */
         graceForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ grace.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Membership\Controllers\MembershipGraceController::grace
- * @see app/Modules/Membership/Controllers/MembershipGraceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipGraceController.php:16
  * @route '/renewals/grace'
  */
         graceForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

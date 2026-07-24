@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::show
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:14
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:14
  * @route '/api/v1/staff/invitations/{user}'
  */
 export const show = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ show.definition = {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::show
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:14
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:14
  * @route '/api/v1/staff/invitations/{user}'
  */
 show.url = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ show.url = (args: { user: number | { id: number } } | [user: number | { id: numb
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::show
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:14
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:14
  * @route '/api/v1/staff/invitations/{user}'
  */
 show.get = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -58,7 +58,7 @@ show.get = (args: { user: number | { id: number } } | [user: number | { id: numb
 })
 /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::show
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:14
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:14
  * @route '/api/v1/staff/invitations/{user}'
  */
 show.head = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -68,7 +68,7 @@ show.head = (args: { user: number | { id: number } } | [user: number | { id: num
 
     /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::show
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:14
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:14
  * @route '/api/v1/staff/invitations/{user}'
  */
     const showForm = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -78,7 +78,7 @@ show.head = (args: { user: number | { id: number } } | [user: number | { id: num
 
             /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::show
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:14
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:14
  * @route '/api/v1/staff/invitations/{user}'
  */
         showForm.get = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -87,7 +87,7 @@ show.head = (args: { user: number | { id: number } } | [user: number | { id: num
         })
             /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::show
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:14
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:14
  * @route '/api/v1/staff/invitations/{user}'
  */
         showForm.head = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -103,7 +103,7 @@ show.head = (args: { user: number | { id: number } } | [user: number | { id: num
     show.form = showForm
 /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::accept
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:24
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:24
  * @route '/api/v1/staff/invitations/{user}/accept'
  */
 export const accept = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -118,7 +118,7 @@ accept.definition = {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::accept
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:24
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:24
  * @route '/api/v1/staff/invitations/{user}/accept'
  */
 accept.url = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -151,7 +151,7 @@ accept.url = (args: { user: number | { id: number } } | [user: number | { id: nu
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::accept
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:24
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:24
  * @route '/api/v1/staff/invitations/{user}/accept'
  */
 accept.post = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -161,7 +161,7 @@ accept.post = (args: { user: number | { id: number } } | [user: number | { id: n
 
     /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::accept
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:24
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:24
  * @route '/api/v1/staff/invitations/{user}/accept'
  */
     const acceptForm = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -171,7 +171,7 @@ accept.post = (args: { user: number | { id: number } } | [user: number | { id: n
 
             /**
 * @see \App\Modules\Staff\Controllers\StaffInvitationController::accept
- * @see app/Modules/Staff/Controllers/StaffInvitationController.php:24
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffInvitationController.php:24
  * @route '/api/v1/staff/invitations/{user}/accept'
  */
         acceptForm.post = (args: { user: number | { id: number } } | [user: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

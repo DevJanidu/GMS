@@ -19,6 +19,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 require __DIR__.'/settings.php';
 require __DIR__.'/members.php';
 require __DIR__.'/plans.php';
+require __DIR__.'/reports.php';
+require __DIR__.'/notifications.php';
 
 foreach ((glob(app_path('Modules/*/web.php')) ?: []) as $moduleWebRoutes) {
     require $moduleWebRoutes;

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \App\Modules\Billing\Controllers\CollectionSummaryController::__invoke
- * @see app/Modules/Billing/Controllers/CollectionSummaryController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/CollectionSummaryController.php:17
  * @route '/api/v1/billing/collection-summary'
  */
 export const summary = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ summary.definition = {
 
 /**
 * @see \App\Modules\Billing\Controllers\CollectionSummaryController::__invoke
- * @see app/Modules/Billing/Controllers/CollectionSummaryController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/CollectionSummaryController.php:17
  * @route '/api/v1/billing/collection-summary'
  */
 summary.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ summary.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Billing\Controllers\CollectionSummaryController::__invoke
- * @see app/Modules/Billing/Controllers/CollectionSummaryController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/CollectionSummaryController.php:17
  * @route '/api/v1/billing/collection-summary'
  */
 summary.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ summary.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Billing\Controllers\CollectionSummaryController::__invoke
- * @see app/Modules/Billing/Controllers/CollectionSummaryController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/CollectionSummaryController.php:17
  * @route '/api/v1/billing/collection-summary'
  */
 summary.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ summary.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Billing\Controllers\CollectionSummaryController::__invoke
- * @see app/Modules/Billing/Controllers/CollectionSummaryController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/CollectionSummaryController.php:17
  * @route '/api/v1/billing/collection-summary'
  */
     const summaryForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ summary.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Billing\Controllers\CollectionSummaryController::__invoke
- * @see app/Modules/Billing/Controllers/CollectionSummaryController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/CollectionSummaryController.php:17
  * @route '/api/v1/billing/collection-summary'
  */
         summaryForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ summary.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Billing\Controllers\CollectionSummaryController::__invoke
- * @see app/Modules/Billing/Controllers/CollectionSummaryController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/CollectionSummaryController.php:17
  * @route '/api/v1/billing/collection-summary'
  */
         summaryForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

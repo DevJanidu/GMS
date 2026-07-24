@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
 export const show = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ show.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
 show.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ show.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
 show.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ show.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
 show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
     const showForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
         showForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
         showForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

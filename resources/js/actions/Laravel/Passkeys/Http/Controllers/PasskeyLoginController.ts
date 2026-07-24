@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::index
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
  * @route '/passkeys/login/options'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::index
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
  * @route '/passkeys/login/options'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::index
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
  * @route '/passkeys/login/options'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::index
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
  * @route '/passkeys/login/options'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::index
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
  * @route '/passkeys/login/options'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::index
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
  * @route '/passkeys/login/options'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::index
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:27
  * @route '/passkeys/login/options'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::store
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:43
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:43
  * @route '/passkeys/login'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -94,7 +94,7 @@ store.definition = {
 
 /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::store
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:43
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:43
  * @route '/passkeys/login'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::store
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:43
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:43
  * @route '/passkeys/login'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -113,7 +113,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::store
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:43
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:43
  * @route '/passkeys/login'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -123,7 +123,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \Laravel\Passkeys\Http\Controllers\PasskeyLoginController::store
- * @see vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:43
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/passkeys/src/Http/Controllers/PasskeyLoginController.php:43
  * @route '/passkeys/login'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

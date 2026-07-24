@@ -4,6 +4,7 @@ import billing from './billing'
 import branches from './branches'
 import dashboard from './dashboard'
 import gym from './gym'
+import memberPortal from './member-portal'
 import staff from './staff'
 const api = {
     permissions: Object.assign(permissions, permissions),
@@ -12,6 +13,7 @@ billing: Object.assign(billing, billing),
 branches: Object.assign(branches, branches),
 dashboard: Object.assign(dashboard, dashboard),
 gym: Object.assign(gym, gym),
+memberPortal: Object.assign(memberPortal, memberPortal),
 staff: Object.assign(staff, staff),
 }
 

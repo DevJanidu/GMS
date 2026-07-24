@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedPasswordStatusController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
  * @route '/user/confirmed-password-status'
  */
 export const show = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ show.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedPasswordStatusController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
  * @route '/user/confirmed-password-status'
  */
 show.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ show.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedPasswordStatusController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
  * @route '/user/confirmed-password-status'
  */
 show.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ show.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedPasswordStatusController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
  * @route '/user/confirmed-password-status'
  */
 show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedPasswordStatusController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
  * @route '/user/confirmed-password-status'
  */
     const showForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedPasswordStatusController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
  * @route '/user/confirmed-password-status'
  */
         showForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedPasswordStatusController::show
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedPasswordStatusController.php:17
  * @route '/user/confirmed-password-status'
  */
         showForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

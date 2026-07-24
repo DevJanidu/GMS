@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../wayfinder'
 /**
 * @see \App\Modules\Membership\Controllers\MembershipReminderController::store
- * @see app/Modules/Membership/Controllers/MembershipReminderController.php:22
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReminderController.php:22
  * @route '/renewals/reminders'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ store.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipReminderController::store
- * @see app/Modules/Membership/Controllers/MembershipReminderController.php:22
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReminderController.php:22
  * @route '/renewals/reminders'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipReminderController::store
- * @see app/Modules/Membership/Controllers/MembershipReminderController.php:22
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReminderController.php:22
  * @route '/renewals/reminders'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -35,7 +35,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipReminderController::store
- * @see app/Modules/Membership/Controllers/MembershipReminderController.php:22
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReminderController.php:22
  * @route '/renewals/reminders'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -45,7 +45,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipReminderController::store
- * @see app/Modules/Membership/Controllers/MembershipReminderController.php:22
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReminderController.php:22
  * @route '/renewals/reminders'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
