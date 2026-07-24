@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 import loginDf2c2a from './login'
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController::login
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
  * @route '/two-factor-challenge'
  */
 export const login = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -17,7 +17,7 @@ login.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController::login
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
  * @route '/two-factor-challenge'
  */
 login.url = (options?: RouteQueryOptions) => {
@@ -26,7 +26,7 @@ login.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController::login
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
  * @route '/two-factor-challenge'
  */
 login.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ login.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController::login
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
  * @route '/two-factor-challenge'
  */
 login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController::login
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
  * @route '/two-factor-challenge'
  */
     const loginForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController::login
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
  * @route '/two-factor-challenge'
  */
         loginForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -64,7 +64,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController::login
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticatedSessionController.php:41
  * @route '/two-factor-challenge'
  */
         loginForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -80,7 +80,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     login.form = loginForm
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController::enable
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:21
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:21
  * @route '/user/two-factor-authentication'
  */
 export const enable = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -95,7 +95,7 @@ enable.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController::enable
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:21
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:21
  * @route '/user/two-factor-authentication'
  */
 enable.url = (options?: RouteQueryOptions) => {
@@ -104,7 +104,7 @@ enable.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController::enable
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:21
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:21
  * @route '/user/two-factor-authentication'
  */
 enable.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -114,7 +114,7 @@ enable.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController::enable
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:21
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:21
  * @route '/user/two-factor-authentication'
  */
     const enableForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -124,7 +124,7 @@ enable.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController::enable
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:21
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:21
  * @route '/user/two-factor-authentication'
  */
         enableForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -135,7 +135,7 @@ enable.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     enable.form = enableForm
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedTwoFactorAuthenticationController::confirm
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedTwoFactorAuthenticationController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedTwoFactorAuthenticationController.php:19
  * @route '/user/confirmed-two-factor-authentication'
  */
 export const confirm = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -150,7 +150,7 @@ confirm.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedTwoFactorAuthenticationController::confirm
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedTwoFactorAuthenticationController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedTwoFactorAuthenticationController.php:19
  * @route '/user/confirmed-two-factor-authentication'
  */
 confirm.url = (options?: RouteQueryOptions) => {
@@ -159,7 +159,7 @@ confirm.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedTwoFactorAuthenticationController::confirm
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedTwoFactorAuthenticationController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedTwoFactorAuthenticationController.php:19
  * @route '/user/confirmed-two-factor-authentication'
  */
 confirm.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -169,7 +169,7 @@ confirm.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedTwoFactorAuthenticationController::confirm
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedTwoFactorAuthenticationController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedTwoFactorAuthenticationController.php:19
  * @route '/user/confirmed-two-factor-authentication'
  */
     const confirmForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -179,7 +179,7 @@ confirm.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\ConfirmedTwoFactorAuthenticationController::confirm
- * @see vendor/laravel/fortify/src/Http/Controllers/ConfirmedTwoFactorAuthenticationController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/ConfirmedTwoFactorAuthenticationController.php:19
  * @route '/user/confirmed-two-factor-authentication'
  */
         confirmForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -190,7 +190,7 @@ confirm.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     confirm.form = confirmForm
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController::disable
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:35
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:35
  * @route '/user/two-factor-authentication'
  */
 export const disable = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -205,7 +205,7 @@ disable.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController::disable
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:35
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:35
  * @route '/user/two-factor-authentication'
  */
 disable.url = (options?: RouteQueryOptions) => {
@@ -214,7 +214,7 @@ disable.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController::disable
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:35
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:35
  * @route '/user/two-factor-authentication'
  */
 disable.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -224,7 +224,7 @@ disable.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController::disable
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:35
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:35
  * @route '/user/two-factor-authentication'
  */
     const disableForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -239,7 +239,7 @@ disable.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController::disable
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:35
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorAuthenticationController.php:35
  * @route '/user/two-factor-authentication'
  */
         disableForm.delete = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -255,7 +255,7 @@ disable.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     disable.form = disableForm
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::qrCode
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
 export const qrCode = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -270,7 +270,7 @@ qrCode.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::qrCode
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
 qrCode.url = (options?: RouteQueryOptions) => {
@@ -279,7 +279,7 @@ qrCode.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::qrCode
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
 qrCode.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -288,7 +288,7 @@ qrCode.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::qrCode
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
 qrCode.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -298,7 +298,7 @@ qrCode.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::qrCode
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
     const qrCodeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -308,7 +308,7 @@ qrCode.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::qrCode
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
         qrCodeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -317,7 +317,7 @@ qrCode.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController::qrCode
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorQrCodeController.php:16
  * @route '/user/two-factor-qr-code'
  */
         qrCodeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -333,7 +333,7 @@ qrCode.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     qrCode.form = qrCodeForm
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::secretKey
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
  * @route '/user/two-factor-secret-key'
  */
 export const secretKey = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -348,7 +348,7 @@ secretKey.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::secretKey
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
  * @route '/user/two-factor-secret-key'
  */
 secretKey.url = (options?: RouteQueryOptions) => {
@@ -357,7 +357,7 @@ secretKey.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::secretKey
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
  * @route '/user/two-factor-secret-key'
  */
 secretKey.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -366,7 +366,7 @@ secretKey.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::secretKey
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
  * @route '/user/two-factor-secret-key'
  */
 secretKey.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -376,7 +376,7 @@ secretKey.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::secretKey
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
  * @route '/user/two-factor-secret-key'
  */
     const secretKeyForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -386,7 +386,7 @@ secretKey.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::secretKey
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
  * @route '/user/two-factor-secret-key'
  */
         secretKeyForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -395,7 +395,7 @@ secretKey.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController::secretKey
- * @see vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/TwoFactorSecretKeyController.php:17
  * @route '/user/two-factor-secret-key'
  */
         secretKeyForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -411,7 +411,7 @@ secretKey.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     secretKey.form = secretKeyForm
 /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::recoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
  * @route '/user/two-factor-recovery-codes'
  */
 export const recoveryCodes = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -426,7 +426,7 @@ recoveryCodes.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::recoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
  * @route '/user/two-factor-recovery-codes'
  */
 recoveryCodes.url = (options?: RouteQueryOptions) => {
@@ -435,7 +435,7 @@ recoveryCodes.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::recoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
  * @route '/user/two-factor-recovery-codes'
  */
 recoveryCodes.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -444,7 +444,7 @@ recoveryCodes.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::recoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
  * @route '/user/two-factor-recovery-codes'
  */
 recoveryCodes.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -454,7 +454,7 @@ recoveryCodes.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::recoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
  * @route '/user/two-factor-recovery-codes'
  */
     const recoveryCodesForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -464,7 +464,7 @@ recoveryCodes.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::recoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
  * @route '/user/two-factor-recovery-codes'
  */
         recoveryCodesForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -473,7 +473,7 @@ recoveryCodes.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
         })
             /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::recoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:19
  * @route '/user/two-factor-recovery-codes'
  */
         recoveryCodesForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -489,7 +489,7 @@ recoveryCodes.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
     recoveryCodes.form = recoveryCodesForm
 /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::regenerateRecoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:38
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:38
  * @route '/user/two-factor-recovery-codes'
  */
 export const regenerateRecoveryCodes = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -504,7 +504,7 @@ regenerateRecoveryCodes.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::regenerateRecoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:38
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:38
  * @route '/user/two-factor-recovery-codes'
  */
 regenerateRecoveryCodes.url = (options?: RouteQueryOptions) => {
@@ -513,7 +513,7 @@ regenerateRecoveryCodes.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::regenerateRecoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:38
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:38
  * @route '/user/two-factor-recovery-codes'
  */
 regenerateRecoveryCodes.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -523,7 +523,7 @@ regenerateRecoveryCodes.post = (options?: RouteQueryOptions): RouteDefinition<'p
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::regenerateRecoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:38
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:38
  * @route '/user/two-factor-recovery-codes'
  */
     const regenerateRecoveryCodesForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -533,7 +533,7 @@ regenerateRecoveryCodes.post = (options?: RouteQueryOptions): RouteDefinition<'p
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\RecoveryCodeController::regenerateRecoveryCodes
- * @see vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:38
+ * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/RecoveryCodeController.php:38
  * @route '/user/two-factor-recovery-codes'
  */
         regenerateRecoveryCodesForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

@@ -3,10 +3,10 @@ import { dashboard } from '@/routes';
 import type { ModuleNavigation } from '@/types';
 
 export const navigation: ModuleNavigation = {
-    title: 'Dashboard',
+    title: 'Operational Dashboard',
     href: dashboard(),
     icon: LayoutDashboard,
     order: 10,
-    group: 'Overview',
+    group: 'Dashboard',
     permission: 'dashboard.view',
 };

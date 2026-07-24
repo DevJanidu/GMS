@@ -12,6 +12,12 @@ class MemberPortalAccount extends Model
 {
     use BelongsToTenant;
 
+    public const STATUS_ACTIVE = 'active';
+
+    public const STATUS_INVITED = 'invited';
+
+    public const STATUS_SUSPENDED = 'suspended';
+
     protected $fillable = [
         'tenant_id', 'member_id', 'user_id', 'status', 'invited_at',
         'activated_at', 'last_login_at', 'suspended_at',
@@ -41,5 +47,12 @@ class MemberPortalAccount extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function isActive(): bool
+    {
+        return $this->status === self::STATUS_ACTIVE
+            && $this->user_id !== null
+            && $this->suspended_at === null;
     }
 }

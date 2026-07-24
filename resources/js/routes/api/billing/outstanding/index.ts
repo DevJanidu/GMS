@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \App\Modules\Billing\Controllers\OutstandingBalanceController::__invoke
- * @see app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
  * @route '/api/v1/billing/outstanding-balances'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Modules\Billing\Controllers\OutstandingBalanceController::__invoke
- * @see app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
  * @route '/api/v1/billing/outstanding-balances'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Billing\Controllers\OutstandingBalanceController::__invoke
- * @see app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
  * @route '/api/v1/billing/outstanding-balances'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Billing\Controllers\OutstandingBalanceController::__invoke
- * @see app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
  * @route '/api/v1/billing/outstanding-balances'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Billing\Controllers\OutstandingBalanceController::__invoke
- * @see app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
  * @route '/api/v1/billing/outstanding-balances'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Billing\Controllers\OutstandingBalanceController::__invoke
- * @see app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
  * @route '/api/v1/billing/outstanding-balances'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Billing\Controllers\OutstandingBalanceController::__invoke
- * @see app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/OutstandingBalanceController.php:16
  * @route '/api/v1/billing/outstanding-balances'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

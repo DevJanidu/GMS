@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::index
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::index
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::index
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::index
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::index
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::index
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Membership\Controllers\MembershipExpiredController::index
- * @see app/Modules/Membership/Controllers/MembershipExpiredController.php:16
+ * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipExpiredController.php:16
  * @route '/renewals/expired'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
