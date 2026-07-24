@@ -1,5 +1,8 @@
 import { Link, usePage } from '@inertiajs/react';
-import { getModuleNavigation } from '@/app/navigation';
+import {
+    filterNavigationForUser,
+    getModuleNavigation,
+} from '@/app/navigation';
 import AppLogo from '@/components/app-logo';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -13,19 +16,14 @@ import {
     SidebarMenuItem,
     SidebarSeparator,
 } from '@/components/ui/sidebar';
-import { can } from '@/lib/permissions/can';
 import { dashboard } from '@/routes';
 
 export function AppSidebar() {
     const { auth } = usePage().props;
-    const navigation = getModuleNavigation()
-        .filter((item) => can(auth.user, item.permission))
-        .map((item) => ({
-            ...item,
-            children: item.children?.filter((child) =>
-                can(auth.user, child.permission),
-            ),
-        }));
+    const navigation = filterNavigationForUser(
+        getModuleNavigation(),
+        auth.user,
+    );
 
     const mainItems = navigation.filter((item) => item.group !== 'settings');
     const settingsItems = navigation.filter(
