@@ -506,3 +506,115 @@ will never modify a notification/report controller directly (SRS Rule 6).
   regeneration noise with no logic change — expect the same thing to
   happen to Billing's/Attendance's generated files once this branch merges
   and someone rebuilds.
+
+---
+
+# Phase 3 Worktree 3 — Notifications, Reports, Exports and Audit
+
+Branch `phase-3/notifications-reports`. Backend lives in
+`app/Modules/{Notification,Report,Audit}/**` plus the narrow, plan-approved
+exception `app/Modules/AccessControl/{Models/AuditLog.php,Services/AuditLogger.php}`.
+Frontend lives in `resources/js/modules/{notifications,reports/api,exports,audit}/**`
+and `resources/js/pages/{notifications,exports,audit}/**` (excluding
+`notifications/components/**` and `notifications/pages/member-notifications/**`,
+which are Worktree 1's).
+
+## Required global wiring (not done here — shared files, per plan section 14.2)
+
+1. **`bootstrap/providers.php` — must add two providers.** Neither
+   `NotificationServiceProvider` nor `ReportServiceProvider` is registered
+   there. Without this, `NotificationDispatcher`/`NotificationTemplateRenderer`/
+   `ReportQuery`/`ExportGenerator` never bind, the `MembershipNotificationListener`/
+   `BillingNotificationListener`/`ScalarDomainNotificationListener` event
+   listeners never attach (so notifications silently never fire in production),
+   and `reports:expire-exports` never registers as a console command. Tests
+   pass today only because each test file's `beforeEach()` calls
+   `$this->app->register(...)` directly — this is invisible outside the test
+   suite. Add both:
+   ```php
+   App\Modules\Notification\Providers\NotificationServiceProvider::class,
+   App\Modules\Report\Providers\ReportServiceProvider::class,
+   ```
+2. **`routes/console.php` — schedule the export-expiry command.** Add
+   something like `Schedule::command('reports:expire-exports')->daily();`
+   (analogous to the existing `membership:process-expiry` entry). Nothing
+   currently expires/cleans up completed exports outside a manual
+   `php artisan reports:expire-exports` invocation or the dedicated test.
+3. **`app/Modules/AccessControl/Support/PermissionCatalog.php` + system role
+   seeding** — none of this worktree's permission slugs exist there yet
+   (verified: zero matches for `notifications.`/`reports.`/`exports.`/`audit.`
+   in that file). Every permission check in this worktree's controllers uses
+   `hasPermission()` directly (not a Gate ability name), so nothing 500s
+   without the catalogue entries — but no non-owner role can pass any of
+   these checks until the exact slugs below (see the handoff's "Permissions"
+   section) are added and assigned to appropriate system roles.
+4. **Wayfinder regeneration.** Running `npm run build` in this worktree
+   regenerated ~65 pre-existing files under `resources/js/actions/**` and
+   `resources/js/routes/**` (pure noise — same phenomenon Worktree 2 already
+   documented above) plus new generated files for this worktree's own new
+   routes. Both were reverted/removed before committing, per precedent —
+   regenerate once, after all three branches merge.
+
+## Environment quirks specific to this worktree
+
+- **`vendor/` is a directory junction to `../GMSv1/vendor`** (disk-saving,
+  shared across the three Phase 3 worktrees). Plain `php artisan test`
+  (and Pest's own bootstrap) fatals with an invalid-namespace error because
+  Pest derives a PHP namespace from the absolute worktree path, and separately
+  because Composer's classmap-based autoloader resolves `App\*`/`Tests\*`
+  classes to their *real* (junction-resolved) path — i.e. `GMSv1`'s copies —
+  not this worktree's edited files. `tests/worktree-pest.php` (committed,
+  under `tests/`) works around both: it boots Pest's `Kernel` directly and
+  remaps every classmap entry that resolves under the shared vendor root back
+  to this worktree, plus re-registers `App\`, `Database\Factories\`,
+  `Database\Seeders\` and `Tests\` as PSR-4 roots pointing here. Use it for
+  every test invocation in this worktree:
+  ```powershell
+  php tests/worktree-pest.php tests/Feature/Notification tests/Feature/Report tests/Feature/Export tests/Feature/Audit
+  php tests/worktree-pest.php tests/            # full suite
+  ```
+  During this session the junction itself was found broken (replaced by a
+  partially-populated real directory missing `vendor/autoload.php` and
+  `vendor/composer/autoload_real.php`/`ClassLoader.php`/etc. — cause unknown,
+  not caused by any command run here) and was restored with
+  `Remove-Item vendor -Recurse -Force; New-Item -ItemType Junction -Path vendor -Target ../GMSv1/vendor`.
+  If `php tests/worktree-pest.php` starts failing with
+  `Failed opening required '.../vendor/autoload.php'`, re-run that repair
+  first before assuming it's a code regression.
+- Composer's real-path autoloading issue above also affects `composer run
+  types:check` (Larastan) and any plain `php artisan` command for classes
+  that exist in **both** worktrees under the same name (i.e. anything on the
+  shared Phase 2 baseline) — they may silently resolve against `GMSv1`'s copy
+  instead of this worktree's edits. It does **not** appear to affect
+  Larastan's analysis of files that exist only in this worktree (this
+  worktree's own new Notification/Report/Audit files): fixing a real bug in
+  one of them and re-running `phpstan analyse` scoped to that file
+  immediately reflected the fix, confirming Larastan parsed the local copy
+  for direct analysis targets. Residual risk is limited to cross-module type
+  inference (e.g. resolving `Invoice`/`Payment`/`Membership` relationship
+  types owned by other modules). The two durable fixes, if this becomes a
+  real problem at integration: wrap every non-Pest command the same way
+  `worktree-pest.php` does, or replace the junction with a real local install
+  (`Remove-Item vendor -Recurse -Force; composer install --no-interaction --prefer-dist`
+  — resolves from Composer's local package cache, no network needed).
+- `.env`/`APP_KEY` were missing at the start of this session (only
+  `.env.example` existed) and were created/generated before most of this
+  session's work; a fresh clone of this worktree needs the same
+  (`cp .env.example .env && php artisan key:generate`) or the full suite's
+  encryption-dependent tests (session/CSRF/login, none of them owned by this
+  worktree) fail with `MissingAppKeyException`.
+
+## Report filter/export path notes
+
+`DatabaseReportQuery`'s private aggregation methods (`membershipSummary`,
+`memberships`, `attendanceByDay`, `peakHours`, `memberFrequency`, `sales`,
+`collections`, `outstanding`) return `Illuminate\Support\Collection`s whose
+literal array-shape types are narrower than the `array<string, mixed>` this
+class's own docblocks/the `ReportQuery`/`ExportGenerator` interfaces declare.
+Larastan (level 7) flags this as a non-covariant generic mismatch on every
+one of those methods — it is not a runtime bug (all 230 backend tests pass,
+including reconciliation assertions against Billing's integer-minor-unit
+ledgers), just an overly strict interaction between PHPStan's Collection
+generics and this codebase's `array<string, mixed>` convention for row
+shapes. See the handoff's "Known limitations" for the full list of
+`composer run types:check` findings left undone and why.

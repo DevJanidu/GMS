@@ -2,6 +2,7 @@
 
 namespace App\Modules\Notification\Models;
 
+use App\Models\Branch;
 use App\Models\Concerns\BelongsToTenant;
 use App\Models\Member;
 use Illuminate\Database\Eloquent\Model;
@@ -13,7 +14,7 @@ class NotificationDelivery extends Model
     use BelongsToTenant;
 
     protected $fillable = [
-        'tenant_id', 'notification_id', 'template_id', 'rule_id', 'announcement_id',
+        'tenant_id', 'branch_id', 'notification_id', 'template_id', 'rule_id', 'announcement_id',
         'member_id', 'channel', 'recipient', 'provider', 'provider_message_id',
         'status', 'attempt_count', 'idempotency_key', 'scheduled_at', 'sent_at',
         'delivered_at', 'failed_at', 'failure_reason', 'payload',
@@ -28,6 +29,12 @@ class NotificationDelivery extends Model
             'delivered_at' => 'datetime',
             'failed_at' => 'datetime',
         ];
+    }
+
+    /** @return BelongsTo<Branch, $this> */
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class);
     }
 
     /**
