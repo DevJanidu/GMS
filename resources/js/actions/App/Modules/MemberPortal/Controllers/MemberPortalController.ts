@@ -785,6 +785,229 @@ notifications.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
         })
     
     notifications.form = notificationsForm
-const MemberPortalController = { dashboard, profile, updateProfile, qrCard, membership, payments, receipts, receipt, attendance, notifications }
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationRead
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/{notification}/read'
+ */
+export const markNotificationRead = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+    url: markNotificationRead.url(args, options),
+    method: 'patch',
+})
+
+markNotificationRead.definition = {
+    methods: ["patch"],
+    url: '/api/v1/member-portal/notifications/{notification}/read',
+} satisfies RouteDefinition<["patch"]>
+
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationRead
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/{notification}/read'
+ */
+markNotificationRead.url = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { notification: args }
+    }
+
+    
+    if (Array.isArray(args)) {
+        args = {
+                    notification: args[0],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        notification: args.notification,
+                }
+
+    return markNotificationRead.definition.url
+            .replace('{notification}', parsedArgs.notification.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationRead
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/{notification}/read'
+ */
+markNotificationRead.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+    url: markNotificationRead.url(args, options),
+    method: 'patch',
+})
+
+    /**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationRead
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/{notification}/read'
+ */
+    const markNotificationReadForm = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: markNotificationRead.url(args, {
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'PATCH',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationRead
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/{notification}/read'
+ */
+        markNotificationReadForm.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: markNotificationRead.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PATCH',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    markNotificationRead.form = markNotificationReadForm
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationUnread
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/{notification}/unread'
+ */
+export const markNotificationUnread = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+    url: markNotificationUnread.url(args, options),
+    method: 'patch',
+})
+
+markNotificationUnread.definition = {
+    methods: ["patch"],
+    url: '/api/v1/member-portal/notifications/{notification}/unread',
+} satisfies RouteDefinition<["patch"]>
+
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationUnread
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/{notification}/unread'
+ */
+markNotificationUnread.url = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { notification: args }
+    }
+
+    
+    if (Array.isArray(args)) {
+        args = {
+                    notification: args[0],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        notification: args.notification,
+                }
+
+    return markNotificationUnread.definition.url
+            .replace('{notification}', parsedArgs.notification.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationUnread
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/{notification}/unread'
+ */
+markNotificationUnread.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+    url: markNotificationUnread.url(args, options),
+    method: 'patch',
+})
+
+    /**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationUnread
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/{notification}/unread'
+ */
+    const markNotificationUnreadForm = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: markNotificationUnread.url(args, {
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'PATCH',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationUnread
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/{notification}/unread'
+ */
+        markNotificationUnreadForm.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: markNotificationUnread.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PATCH',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    markNotificationUnread.form = markNotificationUnreadForm
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllNotificationsRead
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/mark-all-read'
+ */
+export const markAllNotificationsRead = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: markAllNotificationsRead.url(options),
+    method: 'post',
+})
+
+markAllNotificationsRead.definition = {
+    methods: ["post"],
+    url: '/api/v1/member-portal/notifications/mark-all-read',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllNotificationsRead
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/mark-all-read'
+ */
+markAllNotificationsRead.url = (options?: RouteQueryOptions) => {
+    return markAllNotificationsRead.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllNotificationsRead
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/mark-all-read'
+ */
+markAllNotificationsRead.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: markAllNotificationsRead.url(options),
+    method: 'post',
+})
+
+    /**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllNotificationsRead
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/mark-all-read'
+ */
+    const markAllNotificationsReadForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: markAllNotificationsRead.url(options),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllNotificationsRead
+ * @see [unknown]:0
+ * @route '/api/v1/member-portal/notifications/mark-all-read'
+ */
+        markAllNotificationsReadForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: markAllNotificationsRead.url(options),
+            method: 'post',
+        })
+    
+    markAllNotificationsRead.form = markAllNotificationsReadForm
+const MemberPortalController = { dashboard, profile, updateProfile, qrCard, membership, payments, receipts, receipt, attendance, notifications, markNotificationRead, markNotificationUnread, markAllNotificationsRead }
 
 export default MemberPortalController

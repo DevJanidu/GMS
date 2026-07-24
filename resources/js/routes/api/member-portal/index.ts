@@ -1,6 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../wayfinder'
 import profile from './profile'
 import receipts from './receipts'
+import notifications1ce82a from './notifications'
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::dashboard
  * @see [unknown]:0
@@ -477,7 +478,7 @@ membership: Object.assign(membership, membership),
 payments: Object.assign(payments, payments),
 receipts: Object.assign(receipts, receipts),
 attendance: Object.assign(attendance, attendance),
-notifications: Object.assign(notifications, notifications),
+notifications: Object.assign(notifications, notifications1ce82a),
 }
 
 export default memberPortal
