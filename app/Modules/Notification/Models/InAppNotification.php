@@ -2,6 +2,7 @@
 
 namespace App\Modules\Notification\Models;
 
+use App\Models\Branch;
 use App\Models\Concerns\BelongsToTenant;
 use App\Models\Member;
 use App\Models\User;
@@ -17,7 +18,7 @@ class InAppNotification extends Model
     protected $table = 'notifications';
 
     protected $fillable = [
-        'id', 'tenant_id', 'member_id', 'user_id', 'type', 'title', 'body',
+        'id', 'tenant_id', 'branch_id', 'member_id', 'user_id', 'type', 'title', 'body',
         'data', 'scheduled_at', 'read_at', 'cancelled_at',
     ];
 
@@ -29,6 +30,12 @@ class InAppNotification extends Model
             'read_at' => 'datetime',
             'cancelled_at' => 'datetime',
         ];
+    }
+
+    /** @return BelongsTo<Branch, $this> */
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class);
     }
 
     /**

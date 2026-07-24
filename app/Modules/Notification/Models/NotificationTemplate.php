@@ -2,6 +2,7 @@
 
 namespace App\Modules\Notification\Models;
 
+use App\Models\Branch;
 use App\Models\Concerns\BelongsToTenant;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -13,13 +14,19 @@ class NotificationTemplate extends Model
     use BelongsToTenant;
 
     protected $fillable = [
-        'tenant_id', 'name', 'key', 'channel', 'locale', 'subject', 'body',
+        'tenant_id', 'branch_id', 'name', 'key', 'channel', 'locale', 'subject', 'body',
         'variables', 'status', 'created_by',
     ];
 
     protected function casts(): array
     {
         return ['variables' => 'array'];
+    }
+
+    /** @return BelongsTo<Branch, $this> */
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class);
     }
 
     /**

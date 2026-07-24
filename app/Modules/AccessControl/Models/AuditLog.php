@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 #[Fillable([
     'tenant_id', 'branch_id', 'actor_id', 'request_id', 'ip_address', 'user_agent',
-    'action', 'auditable_type', 'auditable_id', 'changes', 'before_values',
+    'action', 'auditable_type', 'auditable_id', 'entity_identifier', 'changes', 'before_values',
     'after_values', 'context',
 ])]
 class AuditLog extends Model
@@ -20,6 +20,12 @@ class AuditLog extends Model
     use BelongsToTenant;
 
     public const UPDATED_AT = null;
+
+    protected static function booted(): void
+    {
+        static::updating(fn () => throw new \LogicException('Audit logs are append-only and cannot be updated.'));
+        static::deleting(fn () => throw new \LogicException('Audit logs are append-only and cannot be deleted.'));
+    }
 
     protected function casts(): array
     {
