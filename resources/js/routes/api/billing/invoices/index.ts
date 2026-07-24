@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:19
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:19
  * @route '/api/v1/billing/invoices'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:19
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:19
  * @route '/api/v1/billing/invoices'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:19
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:19
  * @route '/api/v1/billing/invoices'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:19
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:19
  * @route '/api/v1/billing/invoices'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:19
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:19
  * @route '/api/v1/billing/invoices'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:19
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:19
  * @route '/api/v1/billing/invoices'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:19
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:19
  * @route '/api/v1/billing/invoices'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:46
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:46
  * @route '/api/v1/billing/invoices'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -94,7 +94,7 @@ store.definition = {
 
 /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:46
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:46
  * @route '/api/v1/billing/invoices'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:46
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:46
  * @route '/api/v1/billing/invoices'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -113,7 +113,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:46
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:46
  * @route '/api/v1/billing/invoices'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -123,7 +123,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:46
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:46
  * @route '/api/v1/billing/invoices'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -134,7 +134,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:64
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:64
  * @route '/api/v1/billing/invoices/{invoice}'
  */
 export const show = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -149,7 +149,7 @@ show.definition = {
 
 /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:64
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:64
  * @route '/api/v1/billing/invoices/{invoice}'
  */
 show.url = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -182,7 +182,7 @@ show.url = (args: { invoice: number | { id: number } } | [invoice: number | { id
 
 /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:64
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:64
  * @route '/api/v1/billing/invoices/{invoice}'
  */
 show.get = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -191,7 +191,7 @@ show.get = (args: { invoice: number | { id: number } } | [invoice: number | { id
 })
 /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:64
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:64
  * @route '/api/v1/billing/invoices/{invoice}'
  */
 show.head = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -201,7 +201,7 @@ show.head = (args: { invoice: number | { id: number } } | [invoice: number | { i
 
     /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:64
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:64
  * @route '/api/v1/billing/invoices/{invoice}'
  */
     const showForm = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -211,7 +211,7 @@ show.head = (args: { invoice: number | { id: number } } | [invoice: number | { i
 
             /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:64
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:64
  * @route '/api/v1/billing/invoices/{invoice}'
  */
         showForm.get = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -220,7 +220,7 @@ show.head = (args: { invoice: number | { id: number } } | [invoice: number | { i
         })
             /**
 * @see \App\Modules\Billing\Controllers\InvoiceController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/InvoiceController.php:64
+ * @see app/Modules/Billing/Controllers/InvoiceController.php:64
  * @route '/api/v1/billing/invoices/{invoice}'
  */
         showForm.head = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -236,7 +236,7 @@ show.head = (args: { invoice: number | { id: number } } | [invoice: number | { i
     show.form = showForm
 /**
 * @see \App\Modules\Billing\Controllers\VoidInvoiceController::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/VoidInvoiceController.php:18
+ * @see app/Modules/Billing/Controllers/VoidInvoiceController.php:18
  * @route '/api/v1/billing/invoices/{invoice}/void'
  */
 export const voidMethod = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -251,7 +251,7 @@ voidMethod.definition = {
 
 /**
 * @see \App\Modules\Billing\Controllers\VoidInvoiceController::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/VoidInvoiceController.php:18
+ * @see app/Modules/Billing/Controllers/VoidInvoiceController.php:18
  * @route '/api/v1/billing/invoices/{invoice}/void'
  */
 voidMethod.url = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -284,7 +284,7 @@ voidMethod.url = (args: { invoice: number | { id: number } } | [invoice: number 
 
 /**
 * @see \App\Modules\Billing\Controllers\VoidInvoiceController::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/VoidInvoiceController.php:18
+ * @see app/Modules/Billing/Controllers/VoidInvoiceController.php:18
  * @route '/api/v1/billing/invoices/{invoice}/void'
  */
 voidMethod.post = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -294,7 +294,7 @@ voidMethod.post = (args: { invoice: number | { id: number } } | [invoice: number
 
     /**
 * @see \App\Modules\Billing\Controllers\VoidInvoiceController::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/VoidInvoiceController.php:18
+ * @see app/Modules/Billing/Controllers/VoidInvoiceController.php:18
  * @route '/api/v1/billing/invoices/{invoice}/void'
  */
     const voidMethodForm = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -304,7 +304,7 @@ voidMethod.post = (args: { invoice: number | { id: number } } | [invoice: number
 
             /**
 * @see \App\Modules\Billing\Controllers\VoidInvoiceController::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/VoidInvoiceController.php:18
+ * @see app/Modules/Billing/Controllers/VoidInvoiceController.php:18
  * @route '/api/v1/billing/invoices/{invoice}/void'
  */
         voidMethodForm.post = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

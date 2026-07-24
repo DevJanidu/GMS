@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\MemberDocumentController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberDocumentController.php:13
+ * @see app/Http/Controllers/MemberDocumentController.php:13
  * @route '/members/{member}/documents'
  */
 export const store = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\MemberDocumentController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberDocumentController.php:13
+ * @see app/Http/Controllers/MemberDocumentController.php:13
  * @route '/members/{member}/documents'
  */
 store.url = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ store.url = (args: { member: number | { id: number } } | [member: number | { id:
 
 /**
 * @see \App\Http\Controllers\MemberDocumentController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberDocumentController.php:13
+ * @see app/Http/Controllers/MemberDocumentController.php:13
  * @route '/members/{member}/documents'
  */
 store.post = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -59,7 +59,7 @@ store.post = (args: { member: number | { id: number } } | [member: number | { id
 
     /**
 * @see \App\Http\Controllers\MemberDocumentController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberDocumentController.php:13
+ * @see app/Http/Controllers/MemberDocumentController.php:13
  * @route '/members/{member}/documents'
  */
     const storeForm = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -69,7 +69,7 @@ store.post = (args: { member: number | { id: number } } | [member: number | { id
 
             /**
 * @see \App\Http\Controllers\MemberDocumentController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberDocumentController.php:13
+ * @see app/Http/Controllers/MemberDocumentController.php:13
  * @route '/members/{member}/documents'
  */
         storeForm.post = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -80,7 +80,7 @@ store.post = (args: { member: number | { id: number } } | [member: number | { id
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\MemberDocumentController::destroy
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberDocumentController.php:31
+ * @see app/Http/Controllers/MemberDocumentController.php:31
  * @route '/members/{member}/documents/{document}'
  */
 export const destroy = (args: { member: number | { id: number }, document: number | { id: number } } | [member: number | { id: number }, document: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -95,7 +95,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\MemberDocumentController::destroy
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberDocumentController.php:31
+ * @see app/Http/Controllers/MemberDocumentController.php:31
  * @route '/members/{member}/documents/{document}'
  */
 destroy.url = (args: { member: number | { id: number }, document: number | { id: number } } | [member: number | { id: number }, document: number | { id: number } ], options?: RouteQueryOptions) => {
@@ -125,7 +125,7 @@ destroy.url = (args: { member: number | { id: number }, document: number | { id:
 
 /**
 * @see \App\Http\Controllers\MemberDocumentController::destroy
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberDocumentController.php:31
+ * @see app/Http/Controllers/MemberDocumentController.php:31
  * @route '/members/{member}/documents/{document}'
  */
 destroy.delete = (args: { member: number | { id: number }, document: number | { id: number } } | [member: number | { id: number }, document: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -135,7 +135,7 @@ destroy.delete = (args: { member: number | { id: number }, document: number | { 
 
     /**
 * @see \App\Http\Controllers\MemberDocumentController::destroy
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberDocumentController.php:31
+ * @see app/Http/Controllers/MemberDocumentController.php:31
  * @route '/members/{member}/documents/{document}'
  */
     const destroyForm = (args: { member: number | { id: number }, document: number | { id: number } } | [member: number | { id: number }, document: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -150,7 +150,7 @@ destroy.delete = (args: { member: number | { id: number }, document: number | { 
 
             /**
 * @see \App\Http\Controllers\MemberDocumentController::destroy
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/MemberDocumentController.php:31
+ * @see app/Http/Controllers/MemberDocumentController.php:31
  * @route '/members/{member}/documents/{document}'
  */
         destroyForm.delete = (args: { member: number | { id: number }, document: number | { id: number } } | [member: number | { id: number }, document: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

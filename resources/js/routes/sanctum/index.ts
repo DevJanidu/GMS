@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 /**
 * @see \Laravel\Sanctum\Http\Controllers\CsrfCookieController::csrfCookie
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
+ * @see vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
  * @route '/sanctum/csrf-cookie'
  */
 export const csrfCookie = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ csrfCookie.definition = {
 
 /**
 * @see \Laravel\Sanctum\Http\Controllers\CsrfCookieController::csrfCookie
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
+ * @see vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
  * @route '/sanctum/csrf-cookie'
  */
 csrfCookie.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ csrfCookie.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Sanctum\Http\Controllers\CsrfCookieController::csrfCookie
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
+ * @see vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
  * @route '/sanctum/csrf-cookie'
  */
 csrfCookie.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ csrfCookie.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Laravel\Sanctum\Http\Controllers\CsrfCookieController::csrfCookie
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
+ * @see vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
  * @route '/sanctum/csrf-cookie'
  */
 csrfCookie.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ csrfCookie.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Laravel\Sanctum\Http\Controllers\CsrfCookieController::csrfCookie
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
+ * @see vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
  * @route '/sanctum/csrf-cookie'
  */
     const csrfCookieForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ csrfCookie.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Laravel\Sanctum\Http\Controllers\CsrfCookieController::csrfCookie
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
+ * @see vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
  * @route '/sanctum/csrf-cookie'
  */
         csrfCookieForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ csrfCookie.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Laravel\Sanctum\Http\Controllers\CsrfCookieController::csrfCookie
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
+ * @see vendor/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php:17
  * @route '/sanctum/csrf-cookie'
  */
         csrfCookieForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\PlanCloneController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanCloneController.php:12
+ * @see app/Http/Controllers/PlanCloneController.php:12
  * @route '/plans/{plan}/clone'
  */
 export const store = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\PlanCloneController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanCloneController.php:12
+ * @see app/Http/Controllers/PlanCloneController.php:12
  * @route '/plans/{plan}/clone'
  */
 store.url = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ store.url = (args: { plan: number | { id: number } } | [plan: number | { id: num
 
 /**
 * @see \App\Http\Controllers\PlanCloneController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanCloneController.php:12
+ * @see app/Http/Controllers/PlanCloneController.php:12
  * @route '/plans/{plan}/clone'
  */
 store.post = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -59,7 +59,7 @@ store.post = (args: { plan: number | { id: number } } | [plan: number | { id: nu
 
     /**
 * @see \App\Http\Controllers\PlanCloneController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanCloneController.php:12
+ * @see app/Http/Controllers/PlanCloneController.php:12
  * @route '/plans/{plan}/clone'
  */
     const storeForm = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -69,7 +69,7 @@ store.post = (args: { plan: number | { id: number } } | [plan: number | { id: nu
 
             /**
 * @see \App\Http\Controllers\PlanCloneController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanCloneController.php:12
+ * @see app/Http/Controllers/PlanCloneController.php:12
  * @route '/plans/{plan}/clone'
  */
         storeForm.post = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

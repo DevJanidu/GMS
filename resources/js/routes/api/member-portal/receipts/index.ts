@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::index
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::index
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::index
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::index
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::index
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::index
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::index
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
 export const show = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -94,7 +94,7 @@ show.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
 show.url = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -122,7 +122,7 @@ show.url = (args: { receipt: string | number } | [receipt: string | number ] | s
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
 show.get = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -131,7 +131,7 @@ show.get = (args: { receipt: string | number } | [receipt: string | number ] | s
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
 show.head = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -141,7 +141,7 @@ show.head = (args: { receipt: string | number } | [receipt: string | number ] | 
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
     const showForm = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -151,7 +151,7 @@ show.head = (args: { receipt: string | number } | [receipt: string | number ] | 
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
         showForm.get = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -160,7 +160,7 @@ show.head = (args: { receipt: string | number } | [receipt: string | number ] | 
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
         showForm.head = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

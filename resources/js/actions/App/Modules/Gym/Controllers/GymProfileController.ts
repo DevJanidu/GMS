@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:16
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:16
  * @route '/api/v1/gym/profile'
  */
 export const show = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ show.definition = {
 
 /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:16
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:16
  * @route '/api/v1/gym/profile'
  */
 show.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ show.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:16
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:16
  * @route '/api/v1/gym/profile'
  */
 show.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ show.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:16
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:16
  * @route '/api/v1/gym/profile'
  */
 show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:16
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:16
  * @route '/api/v1/gym/profile'
  */
     const showForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:16
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:16
  * @route '/api/v1/gym/profile'
  */
         showForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:16
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:16
  * @route '/api/v1/gym/profile'
  */
         showForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     show.form = showForm
 /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:25
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:25
  * @route '/api/v1/gym/profile'
  */
 export const update = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -94,7 +94,7 @@ update.definition = {
 
 /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:25
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:25
  * @route '/api/v1/gym/profile'
  */
 update.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ update.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:25
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:25
  * @route '/api/v1/gym/profile'
  */
 update.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -113,7 +113,7 @@ update.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
 
     /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:25
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:25
  * @route '/api/v1/gym/profile'
  */
     const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -128,7 +128,7 @@ update.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
 
             /**
 * @see \App\Modules\Gym\Controllers\GymProfileController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Gym/Controllers/GymProfileController.php:25
+ * @see app/Modules/Gym/Controllers/GymProfileController.php:25
  * @route '/api/v1/gym/profile'
  */
         updateForm.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

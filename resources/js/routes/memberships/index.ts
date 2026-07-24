@@ -2,7 +2,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 import renew from './renew'
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:23
+ * @see app/Modules/Membership/Controllers/MembershipController.php:23
  * @route '/memberships'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -17,7 +17,7 @@ index.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:23
+ * @see app/Modules/Membership/Controllers/MembershipController.php:23
  * @route '/memberships'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -26,7 +26,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:23
+ * @see app/Modules/Membership/Controllers/MembershipController.php:23
  * @route '/memberships'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:23
+ * @see app/Modules/Membership/Controllers/MembershipController.php:23
  * @route '/memberships'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:23
+ * @see app/Modules/Membership/Controllers/MembershipController.php:23
  * @route '/memberships'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:23
+ * @see app/Modules/Membership/Controllers/MembershipController.php:23
  * @route '/memberships'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -64,7 +64,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Membership\Controllers\MembershipController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:23
+ * @see app/Modules/Membership/Controllers/MembershipController.php:23
  * @route '/memberships'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -80,7 +80,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:57
+ * @see app/Modules/Membership/Controllers/MembershipController.php:57
  * @route '/memberships/create'
  */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -95,7 +95,7 @@ create.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:57
+ * @see app/Modules/Membership/Controllers/MembershipController.php:57
  * @route '/memberships/create'
  */
 create.url = (options?: RouteQueryOptions) => {
@@ -104,7 +104,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:57
+ * @see app/Modules/Membership/Controllers/MembershipController.php:57
  * @route '/memberships/create'
  */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -113,7 +113,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:57
+ * @see app/Modules/Membership/Controllers/MembershipController.php:57
  * @route '/memberships/create'
  */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -123,7 +123,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:57
+ * @see app/Modules/Membership/Controllers/MembershipController.php:57
  * @route '/memberships/create'
  */
     const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -133,7 +133,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:57
+ * @see app/Modules/Membership/Controllers/MembershipController.php:57
  * @route '/memberships/create'
  */
         createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -142,7 +142,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Membership\Controllers\MembershipController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:57
+ * @see app/Modules/Membership/Controllers/MembershipController.php:57
  * @route '/memberships/create'
  */
         createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -158,7 +158,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:81
+ * @see app/Modules/Membership/Controllers/MembershipController.php:81
  * @route '/memberships'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -173,7 +173,7 @@ store.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:81
+ * @see app/Modules/Membership/Controllers/MembershipController.php:81
  * @route '/memberships'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -182,7 +182,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:81
+ * @see app/Modules/Membership/Controllers/MembershipController.php:81
  * @route '/memberships'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -192,7 +192,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:81
+ * @see app/Modules/Membership/Controllers/MembershipController.php:81
  * @route '/memberships'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -202,7 +202,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:81
+ * @see app/Modules/Membership/Controllers/MembershipController.php:81
  * @route '/memberships'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -213,7 +213,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
 export const show = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -228,7 +228,7 @@ show.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
 show.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -261,7 +261,7 @@ show.url = (args: { membership: number | { id: number } } | [membership: number 
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
 show.get = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -270,7 +270,7 @@ show.get = (args: { membership: number | { id: number } } | [membership: number 
 })
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
 show.head = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -280,7 +280,7 @@ show.head = (args: { membership: number | { id: number } } | [membership: number
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
     const showForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -290,7 +290,7 @@ show.head = (args: { membership: number | { id: number } } | [membership: number
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
         showForm.get = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -299,7 +299,7 @@ show.head = (args: { membership: number | { id: number } } | [membership: number
         })
             /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:113
  * @route '/memberships/{membership}'
  */
         showForm.head = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -315,7 +315,7 @@ show.head = (args: { membership: number | { id: number } } | [membership: number
     show.form = showForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipFreezeController::freeze
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipFreezeController.php:15
+ * @see app/Modules/Membership/Controllers/MembershipFreezeController.php:15
  * @route '/memberships/{membership}/freeze'
  */
 export const freeze = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -330,7 +330,7 @@ freeze.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipFreezeController::freeze
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipFreezeController.php:15
+ * @see app/Modules/Membership/Controllers/MembershipFreezeController.php:15
  * @route '/memberships/{membership}/freeze'
  */
 freeze.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -363,7 +363,7 @@ freeze.url = (args: { membership: number | { id: number } } | [membership: numbe
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipFreezeController::freeze
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipFreezeController.php:15
+ * @see app/Modules/Membership/Controllers/MembershipFreezeController.php:15
  * @route '/memberships/{membership}/freeze'
  */
 freeze.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -373,7 +373,7 @@ freeze.patch = (args: { membership: number | { id: number } } | [membership: num
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipFreezeController::freeze
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipFreezeController.php:15
+ * @see app/Modules/Membership/Controllers/MembershipFreezeController.php:15
  * @route '/memberships/{membership}/freeze'
  */
     const freezeForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -388,7 +388,7 @@ freeze.patch = (args: { membership: number | { id: number } } | [membership: num
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipFreezeController::freeze
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipFreezeController.php:15
+ * @see app/Modules/Membership/Controllers/MembershipFreezeController.php:15
  * @route '/memberships/{membership}/freeze'
  */
         freezeForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -404,7 +404,7 @@ freeze.patch = (args: { membership: number | { id: number } } | [membership: num
     freeze.form = freezeForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipResumeController::resume
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipResumeController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipResumeController.php:14
  * @route '/memberships/{membership}/resume'
  */
 export const resume = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -419,7 +419,7 @@ resume.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipResumeController::resume
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipResumeController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipResumeController.php:14
  * @route '/memberships/{membership}/resume'
  */
 resume.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -452,7 +452,7 @@ resume.url = (args: { membership: number | { id: number } } | [membership: numbe
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipResumeController::resume
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipResumeController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipResumeController.php:14
  * @route '/memberships/{membership}/resume'
  */
 resume.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -462,7 +462,7 @@ resume.patch = (args: { membership: number | { id: number } } | [membership: num
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipResumeController::resume
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipResumeController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipResumeController.php:14
  * @route '/memberships/{membership}/resume'
  */
     const resumeForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -477,7 +477,7 @@ resume.patch = (args: { membership: number | { id: number } } | [membership: num
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipResumeController::resume
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipResumeController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipResumeController.php:14
  * @route '/memberships/{membership}/resume'
  */
         resumeForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -493,7 +493,7 @@ resume.patch = (args: { membership: number | { id: number } } | [membership: num
     resume.form = resumeForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipSuspensionController::suspend
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
  * @route '/memberships/{membership}/suspend'
  */
 export const suspend = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -508,7 +508,7 @@ suspend.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipSuspensionController::suspend
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
  * @route '/memberships/{membership}/suspend'
  */
 suspend.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -541,7 +541,7 @@ suspend.url = (args: { membership: number | { id: number } } | [membership: numb
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipSuspensionController::suspend
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
  * @route '/memberships/{membership}/suspend'
  */
 suspend.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -551,7 +551,7 @@ suspend.patch = (args: { membership: number | { id: number } } | [membership: nu
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipSuspensionController::suspend
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
  * @route '/memberships/{membership}/suspend'
  */
     const suspendForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -566,7 +566,7 @@ suspend.patch = (args: { membership: number | { id: number } } | [membership: nu
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipSuspensionController::suspend
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipSuspensionController.php:14
  * @route '/memberships/{membership}/suspend'
  */
         suspendForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -582,7 +582,7 @@ suspend.patch = (args: { membership: number | { id: number } } | [membership: nu
     suspend.form = suspendForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipCancellationController::cancel
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipCancellationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
 export const cancel = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -597,7 +597,7 @@ cancel.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipCancellationController::cancel
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipCancellationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
 cancel.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -630,7 +630,7 @@ cancel.url = (args: { membership: number | { id: number } } | [membership: numbe
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipCancellationController::cancel
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipCancellationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
 cancel.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -640,7 +640,7 @@ cancel.patch = (args: { membership: number | { id: number } } | [membership: num
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipCancellationController::cancel
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipCancellationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
     const cancelForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -655,7 +655,7 @@ cancel.patch = (args: { membership: number | { id: number } } | [membership: num
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipCancellationController::cancel
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipCancellationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
         cancelForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -671,7 +671,7 @@ cancel.patch = (args: { membership: number | { id: number } } | [membership: num
     cancel.form = cancelForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipReactivationController::reactivate
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReactivationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
 export const reactivate = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -686,7 +686,7 @@ reactivate.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipReactivationController::reactivate
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReactivationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
 reactivate.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -719,7 +719,7 @@ reactivate.url = (args: { membership: number | { id: number } } | [membership: n
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipReactivationController::reactivate
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReactivationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
 reactivate.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -729,7 +729,7 @@ reactivate.patch = (args: { membership: number | { id: number } } | [membership:
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipReactivationController::reactivate
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReactivationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
     const reactivateForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -744,7 +744,7 @@ reactivate.patch = (args: { membership: number | { id: number } } | [membership:
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipReactivationController::reactivate
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReactivationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
         reactivateForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

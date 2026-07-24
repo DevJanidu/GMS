@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\PlanStatusController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanStatusController.php:14
+ * @see app/Http/Controllers/PlanStatusController.php:14
  * @route '/plans/{plan}/status'
  */
 export const update = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -16,7 +16,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\PlanStatusController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanStatusController.php:14
+ * @see app/Http/Controllers/PlanStatusController.php:14
  * @route '/plans/{plan}/status'
  */
 update.url = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ update.url = (args: { plan: number | { id: number } } | [plan: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\PlanStatusController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanStatusController.php:14
+ * @see app/Http/Controllers/PlanStatusController.php:14
  * @route '/plans/{plan}/status'
  */
 update.patch = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -59,7 +59,7 @@ update.patch = (args: { plan: number | { id: number } } | [plan: number | { id: 
 
     /**
 * @see \App\Http\Controllers\PlanStatusController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanStatusController.php:14
+ * @see app/Http/Controllers/PlanStatusController.php:14
  * @route '/plans/{plan}/status'
  */
     const updateForm = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -74,7 +74,7 @@ update.patch = (args: { plan: number | { id: number } } | [plan: number | { id: 
 
             /**
 * @see \App\Http\Controllers\PlanStatusController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanStatusController.php:14
+ * @see app/Http/Controllers/PlanStatusController.php:14
  * @route '/plans/{plan}/status'
  */
         updateForm.patch = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

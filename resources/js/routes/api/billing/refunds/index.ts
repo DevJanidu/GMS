@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Modules\Billing\Controllers\RefundController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:19
+ * @see app/Modules/Billing/Controllers/RefundController.php:19
  * @route '/api/v1/billing/payments/{payment}/refunds'
  */
 export const store = (args: { payment: number | { id: number } } | [payment: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ store.definition = {
 
 /**
 * @see \App\Modules\Billing\Controllers\RefundController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:19
+ * @see app/Modules/Billing/Controllers/RefundController.php:19
  * @route '/api/v1/billing/payments/{payment}/refunds'
  */
 store.url = (args: { payment: number | { id: number } } | [payment: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ store.url = (args: { payment: number | { id: number } } | [payment: number | { i
 
 /**
 * @see \App\Modules\Billing\Controllers\RefundController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:19
+ * @see app/Modules/Billing/Controllers/RefundController.php:19
  * @route '/api/v1/billing/payments/{payment}/refunds'
  */
 store.post = (args: { payment: number | { id: number } } | [payment: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -59,7 +59,7 @@ store.post = (args: { payment: number | { id: number } } | [payment: number | { 
 
     /**
 * @see \App\Modules\Billing\Controllers\RefundController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:19
+ * @see app/Modules/Billing/Controllers/RefundController.php:19
  * @route '/api/v1/billing/payments/{payment}/refunds'
  */
     const storeForm = (args: { payment: number | { id: number } } | [payment: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -69,7 +69,7 @@ store.post = (args: { payment: number | { id: number } } | [payment: number | { 
 
             /**
 * @see \App\Modules\Billing\Controllers\RefundController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:19
+ * @see app/Modules/Billing/Controllers/RefundController.php:19
  * @route '/api/v1/billing/payments/{payment}/refunds'
  */
         storeForm.post = (args: { payment: number | { id: number } } | [payment: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -80,7 +80,7 @@ store.post = (args: { payment: number | { id: number } } | [payment: number | { 
     store.form = storeForm
 /**
 * @see \App\Modules\Billing\Controllers\RefundController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:39
+ * @see app/Modules/Billing/Controllers/RefundController.php:39
  * @route '/api/v1/billing/refunds/{refund}'
  */
 export const show = (args: { refund: number | { id: number } } | [refund: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -95,7 +95,7 @@ show.definition = {
 
 /**
 * @see \App\Modules\Billing\Controllers\RefundController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:39
+ * @see app/Modules/Billing/Controllers/RefundController.php:39
  * @route '/api/v1/billing/refunds/{refund}'
  */
 show.url = (args: { refund: number | { id: number } } | [refund: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -128,7 +128,7 @@ show.url = (args: { refund: number | { id: number } } | [refund: number | { id: 
 
 /**
 * @see \App\Modules\Billing\Controllers\RefundController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:39
+ * @see app/Modules/Billing/Controllers/RefundController.php:39
  * @route '/api/v1/billing/refunds/{refund}'
  */
 show.get = (args: { refund: number | { id: number } } | [refund: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -137,7 +137,7 @@ show.get = (args: { refund: number | { id: number } } | [refund: number | { id: 
 })
 /**
 * @see \App\Modules\Billing\Controllers\RefundController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:39
+ * @see app/Modules/Billing/Controllers/RefundController.php:39
  * @route '/api/v1/billing/refunds/{refund}'
  */
 show.head = (args: { refund: number | { id: number } } | [refund: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -147,7 +147,7 @@ show.head = (args: { refund: number | { id: number } } | [refund: number | { id:
 
     /**
 * @see \App\Modules\Billing\Controllers\RefundController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:39
+ * @see app/Modules/Billing/Controllers/RefundController.php:39
  * @route '/api/v1/billing/refunds/{refund}'
  */
     const showForm = (args: { refund: number | { id: number } } | [refund: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ show.head = (args: { refund: number | { id: number } } | [refund: number | { id:
 
             /**
 * @see \App\Modules\Billing\Controllers\RefundController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:39
+ * @see app/Modules/Billing/Controllers/RefundController.php:39
  * @route '/api/v1/billing/refunds/{refund}'
  */
         showForm.get = (args: { refund: number | { id: number } } | [refund: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -166,7 +166,7 @@ show.head = (args: { refund: number | { id: number } } | [refund: number | { id:
         })
             /**
 * @see \App\Modules\Billing\Controllers\RefundController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/RefundController.php:39
+ * @see app/Modules/Billing/Controllers/RefundController.php:39
  * @route '/api/v1/billing/refunds/{refund}'
  */
         showForm.head = (args: { refund: number | { id: number } } | [refund: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../../wayfinder'
 /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Membership\Controllers\RenewalDashboardController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/RenewalDashboardController.php:17
+ * @see app/Modules/Membership/Controllers/RenewalDashboardController.php:17
  * @route '/renewals'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../wayfinder'
 /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
  * @route '/login'
  */
 export const login = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ login.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
  * @route '/login'
  */
 login.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ login.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
  * @route '/login'
  */
 login.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ login.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
  * @route '/login'
  */
 login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
  * @route '/login'
  */
     const loginForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
  * @route '/login'
  */
         loginForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::login
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:47
  * @route '/login'
  */
         loginForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     login.form = loginForm
 /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::logout
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:100
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:100
  * @route '/logout'
  */
 export const logout = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -94,7 +94,7 @@ logout.definition = {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::logout
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:100
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:100
  * @route '/logout'
  */
 logout.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ logout.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::logout
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:100
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:100
  * @route '/logout'
  */
 logout.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -113,7 +113,7 @@ logout.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::logout
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:100
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:100
  * @route '/logout'
  */
     const logoutForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -123,7 +123,7 @@ logout.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::logout
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:100
+ * @see vendor/laravel/fortify/src/Http/Controllers/AuthenticatedSessionController.php:100
  * @route '/logout'
  */
         logoutForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -205,7 +205,7 @@ home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     home.form = homeForm
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -220,7 +220,7 @@ dashboard.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -229,7 +229,7 @@ dashboard.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -238,7 +238,7 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -248,7 +248,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
     const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -258,7 +258,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
         dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -267,7 +267,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
         dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../../wayfinder'
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
 export const show = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ show.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
 show.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ show.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
 show.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ show.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
 show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
     const showForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
         showForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::show
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
         showForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     show.form = showForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::update
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:58
  * @route '/api/v1/member-portal/profile'
  */
 export const update = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -94,7 +94,7 @@ update.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::update
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:58
  * @route '/api/v1/member-portal/profile'
  */
 update.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ update.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::update
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:58
  * @route '/api/v1/member-portal/profile'
  */
 update.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -113,7 +113,7 @@ update.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::update
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:58
  * @route '/api/v1/member-portal/profile'
  */
     const updateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -128,7 +128,7 @@ update.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::update
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:58
  * @route '/api/v1/member-portal/profile'
  */
         updateForm.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

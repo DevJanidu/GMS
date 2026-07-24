@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::dashboard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:29
  * @route '/api/v1/member-portal/dashboard'
  */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ dashboard.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::dashboard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:29
  * @route '/api/v1/member-portal/dashboard'
  */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ dashboard.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::dashboard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:29
  * @route '/api/v1/member-portal/dashboard'
  */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::dashboard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:29
  * @route '/api/v1/member-portal/dashboard'
  */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::dashboard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:29
  * @route '/api/v1/member-portal/dashboard'
  */
     const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::dashboard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:29
  * @route '/api/v1/member-portal/dashboard'
  */
         dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::dashboard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:29
  * @route '/api/v1/member-portal/dashboard'
  */
         dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     dashboard.form = dashboardForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::profile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
 export const profile = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -94,7 +94,7 @@ profile.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::profile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
 profile.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ profile.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::profile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
 profile.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -112,7 +112,7 @@ profile.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::profile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
 profile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -122,7 +122,7 @@ profile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::profile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
     const profileForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -132,7 +132,7 @@ profile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::profile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
         profileForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -141,7 +141,7 @@ profile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::profile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:51
  * @route '/api/v1/member-portal/profile'
  */
         profileForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ profile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     profile.form = profileForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::updateProfile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:58
  * @route '/api/v1/member-portal/profile'
  */
 export const updateProfile = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -172,7 +172,7 @@ updateProfile.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::updateProfile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:58
  * @route '/api/v1/member-portal/profile'
  */
 updateProfile.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ updateProfile.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::updateProfile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:58
  * @route '/api/v1/member-portal/profile'
  */
 updateProfile.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -191,7 +191,7 @@ updateProfile.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::updateProfile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:58
  * @route '/api/v1/member-portal/profile'
  */
     const updateProfileForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -206,7 +206,7 @@ updateProfile.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::updateProfile
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:58
  * @route '/api/v1/member-portal/profile'
  */
         updateProfileForm.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -222,7 +222,7 @@ updateProfile.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     updateProfile.form = updateProfileForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::qrCard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:70
  * @route '/api/v1/member-portal/qr-card'
  */
 export const qrCard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -237,7 +237,7 @@ qrCard.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::qrCard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:70
  * @route '/api/v1/member-portal/qr-card'
  */
 qrCard.url = (options?: RouteQueryOptions) => {
@@ -246,7 +246,7 @@ qrCard.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::qrCard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:70
  * @route '/api/v1/member-portal/qr-card'
  */
 qrCard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -255,7 +255,7 @@ qrCard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::qrCard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:70
  * @route '/api/v1/member-portal/qr-card'
  */
 qrCard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -265,7 +265,7 @@ qrCard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::qrCard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:70
  * @route '/api/v1/member-portal/qr-card'
  */
     const qrCardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -275,7 +275,7 @@ qrCard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::qrCard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:70
  * @route '/api/v1/member-portal/qr-card'
  */
         qrCardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -284,7 +284,7 @@ qrCard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::qrCard
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:70
  * @route '/api/v1/member-portal/qr-card'
  */
         qrCardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -300,7 +300,7 @@ qrCard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     qrCard.form = qrCardForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::membership
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:75
  * @route '/api/v1/member-portal/membership'
  */
 export const membership = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -315,7 +315,7 @@ membership.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::membership
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:75
  * @route '/api/v1/member-portal/membership'
  */
 membership.url = (options?: RouteQueryOptions) => {
@@ -324,7 +324,7 @@ membership.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::membership
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:75
  * @route '/api/v1/member-portal/membership'
  */
 membership.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -333,7 +333,7 @@ membership.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::membership
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:75
  * @route '/api/v1/member-portal/membership'
  */
 membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -343,7 +343,7 @@ membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::membership
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:75
  * @route '/api/v1/member-portal/membership'
  */
     const membershipForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -353,7 +353,7 @@ membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::membership
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:75
  * @route '/api/v1/member-portal/membership'
  */
         membershipForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -362,7 +362,7 @@ membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::membership
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:75
  * @route '/api/v1/member-portal/membership'
  */
         membershipForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -378,7 +378,7 @@ membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     membership.form = membershipForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::payments
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:86
  * @route '/api/v1/member-portal/payments'
  */
 export const payments = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -393,7 +393,7 @@ payments.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::payments
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:86
  * @route '/api/v1/member-portal/payments'
  */
 payments.url = (options?: RouteQueryOptions) => {
@@ -402,7 +402,7 @@ payments.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::payments
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:86
  * @route '/api/v1/member-portal/payments'
  */
 payments.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -411,7 +411,7 @@ payments.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::payments
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:86
  * @route '/api/v1/member-portal/payments'
  */
 payments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -421,7 +421,7 @@ payments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::payments
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:86
  * @route '/api/v1/member-portal/payments'
  */
     const paymentsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -431,7 +431,7 @@ payments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::payments
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:86
  * @route '/api/v1/member-portal/payments'
  */
         paymentsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -440,7 +440,7 @@ payments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::payments
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:86
  * @route '/api/v1/member-portal/payments'
  */
         paymentsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -456,7 +456,7 @@ payments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     payments.form = paymentsForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipts
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
 export const receipts = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -471,7 +471,7 @@ receipts.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipts
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
 receipts.url = (options?: RouteQueryOptions) => {
@@ -480,7 +480,7 @@ receipts.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipts
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
 receipts.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -489,7 +489,7 @@ receipts.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipts
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
 receipts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -499,7 +499,7 @@ receipts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipts
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
     const receiptsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -509,7 +509,7 @@ receipts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipts
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
         receiptsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -518,7 +518,7 @@ receipts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipts
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:101
  * @route '/api/v1/member-portal/receipts'
  */
         receiptsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -534,7 +534,7 @@ receipts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     receipts.form = receiptsForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipt
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
 export const receipt = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -549,7 +549,7 @@ receipt.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipt
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
 receipt.url = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -577,7 +577,7 @@ receipt.url = (args: { receipt: string | number } | [receipt: string | number ] 
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipt
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
 receipt.get = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -586,7 +586,7 @@ receipt.get = (args: { receipt: string | number } | [receipt: string | number ] 
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipt
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
 receipt.head = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -596,7 +596,7 @@ receipt.head = (args: { receipt: string | number } | [receipt: string | number ]
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipt
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
     const receiptForm = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -606,7 +606,7 @@ receipt.head = (args: { receipt: string | number } | [receipt: string | number ]
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipt
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
         receiptForm.get = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -615,7 +615,7 @@ receipt.head = (args: { receipt: string | number } | [receipt: string | number ]
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::receipt
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:114
  * @route '/api/v1/member-portal/receipts/{receipt}'
  */
         receiptForm.head = (args: { receipt: string | number } | [receipt: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -631,7 +631,7 @@ receipt.head = (args: { receipt: string | number } | [receipt: string | number ]
     receipt.form = receiptForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::attendance
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:125
  * @route '/api/v1/member-portal/attendance'
  */
 export const attendance = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -646,7 +646,7 @@ attendance.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::attendance
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:125
  * @route '/api/v1/member-portal/attendance'
  */
 attendance.url = (options?: RouteQueryOptions) => {
@@ -655,7 +655,7 @@ attendance.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::attendance
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:125
  * @route '/api/v1/member-portal/attendance'
  */
 attendance.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -664,7 +664,7 @@ attendance.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::attendance
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:125
  * @route '/api/v1/member-portal/attendance'
  */
 attendance.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -674,7 +674,7 @@ attendance.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::attendance
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:125
  * @route '/api/v1/member-portal/attendance'
  */
     const attendanceForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -684,7 +684,7 @@ attendance.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::attendance
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:125
  * @route '/api/v1/member-portal/attendance'
  */
         attendanceForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -693,7 +693,7 @@ attendance.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::attendance
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:125
  * @route '/api/v1/member-portal/attendance'
  */
         attendanceForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -709,7 +709,7 @@ attendance.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     attendance.form = attendanceForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::notifications
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:140
  * @route '/api/v1/member-portal/notifications'
  */
 export const notifications = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -724,7 +724,7 @@ notifications.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::notifications
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:140
  * @route '/api/v1/member-portal/notifications'
  */
 notifications.url = (options?: RouteQueryOptions) => {
@@ -733,7 +733,7 @@ notifications.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::notifications
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:140
  * @route '/api/v1/member-portal/notifications'
  */
 notifications.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -742,7 +742,7 @@ notifications.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::notifications
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:140
  * @route '/api/v1/member-portal/notifications'
  */
 notifications.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -752,7 +752,7 @@ notifications.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::notifications
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:140
  * @route '/api/v1/member-portal/notifications'
  */
     const notificationsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -762,7 +762,7 @@ notifications.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::notifications
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:140
  * @route '/api/v1/member-portal/notifications'
  */
         notificationsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -771,7 +771,7 @@ notifications.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
         })
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::notifications
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:140
  * @route '/api/v1/member-portal/notifications'
  */
         notificationsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -787,7 +787,7 @@ notifications.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
     notifications.form = notificationsForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:155
  * @route '/api/v1/member-portal/notifications/{notification}/read'
  */
 export const markNotificationRead = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -802,7 +802,7 @@ markNotificationRead.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:155
  * @route '/api/v1/member-portal/notifications/{notification}/read'
  */
 markNotificationRead.url = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -830,7 +830,7 @@ markNotificationRead.url = (args: { notification: string | number } | [notificat
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:155
  * @route '/api/v1/member-portal/notifications/{notification}/read'
  */
 markNotificationRead.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -840,7 +840,7 @@ markNotificationRead.patch = (args: { notification: string | number } | [notific
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:155
  * @route '/api/v1/member-portal/notifications/{notification}/read'
  */
     const markNotificationReadForm = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -855,7 +855,7 @@ markNotificationRead.patch = (args: { notification: string | number } | [notific
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:155
  * @route '/api/v1/member-portal/notifications/{notification}/read'
  */
         markNotificationReadForm.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -871,7 +871,7 @@ markNotificationRead.patch = (args: { notification: string | number } | [notific
     markNotificationRead.form = markNotificationReadForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationUnread
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:168
  * @route '/api/v1/member-portal/notifications/{notification}/unread'
  */
 export const markNotificationUnread = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -886,7 +886,7 @@ markNotificationUnread.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationUnread
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:168
  * @route '/api/v1/member-portal/notifications/{notification}/unread'
  */
 markNotificationUnread.url = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -914,7 +914,7 @@ markNotificationUnread.url = (args: { notification: string | number } | [notific
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationUnread
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:168
  * @route '/api/v1/member-portal/notifications/{notification}/unread'
  */
 markNotificationUnread.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -924,7 +924,7 @@ markNotificationUnread.patch = (args: { notification: string | number } | [notif
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationUnread
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:168
  * @route '/api/v1/member-portal/notifications/{notification}/unread'
  */
     const markNotificationUnreadForm = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -939,7 +939,7 @@ markNotificationUnread.patch = (args: { notification: string | number } | [notif
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markNotificationUnread
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:168
  * @route '/api/v1/member-portal/notifications/{notification}/unread'
  */
         markNotificationUnreadForm.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -955,7 +955,7 @@ markNotificationUnread.patch = (args: { notification: string | number } | [notif
     markNotificationUnread.form = markNotificationUnreadForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllNotificationsRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:181
  * @route '/api/v1/member-portal/notifications/mark-all-read'
  */
 export const markAllNotificationsRead = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -970,7 +970,7 @@ markAllNotificationsRead.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllNotificationsRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:181
  * @route '/api/v1/member-portal/notifications/mark-all-read'
  */
 markAllNotificationsRead.url = (options?: RouteQueryOptions) => {
@@ -979,7 +979,7 @@ markAllNotificationsRead.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllNotificationsRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:181
  * @route '/api/v1/member-portal/notifications/mark-all-read'
  */
 markAllNotificationsRead.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -989,7 +989,7 @@ markAllNotificationsRead.post = (options?: RouteQueryOptions): RouteDefinition<'
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllNotificationsRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:181
  * @route '/api/v1/member-portal/notifications/mark-all-read'
  */
     const markAllNotificationsReadForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -999,7 +999,7 @@ markAllNotificationsRead.post = (options?: RouteQueryOptions): RouteDefinition<'
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllNotificationsRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:181
  * @route '/api/v1/member-portal/notifications/mark-all-read'
  */
         markAllNotificationsReadForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

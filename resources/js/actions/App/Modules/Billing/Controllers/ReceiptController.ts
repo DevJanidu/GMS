@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:16
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:16
  * @route '/api/v1/billing/receipts/{receipt}'
  */
 export const show = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ show.definition = {
 
 /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:16
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:16
  * @route '/api/v1/billing/receipts/{receipt}'
  */
 show.url = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ show.url = (args: { receipt: number | { id: number } } | [receipt: number | { id
 
 /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:16
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:16
  * @route '/api/v1/billing/receipts/{receipt}'
  */
 show.get = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -58,7 +58,7 @@ show.get = (args: { receipt: number | { id: number } } | [receipt: number | { id
 })
 /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:16
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:16
  * @route '/api/v1/billing/receipts/{receipt}'
  */
 show.head = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -68,7 +68,7 @@ show.head = (args: { receipt: number | { id: number } } | [receipt: number | { i
 
     /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:16
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:16
  * @route '/api/v1/billing/receipts/{receipt}'
  */
     const showForm = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -78,7 +78,7 @@ show.head = (args: { receipt: number | { id: number } } | [receipt: number | { i
 
             /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:16
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:16
  * @route '/api/v1/billing/receipts/{receipt}'
  */
         showForm.get = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -87,7 +87,7 @@ show.head = (args: { receipt: number | { id: number } } | [receipt: number | { i
         })
             /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:16
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:16
  * @route '/api/v1/billing/receipts/{receipt}'
  */
         showForm.head = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -103,7 +103,7 @@ show.head = (args: { receipt: number | { id: number } } | [receipt: number | { i
     show.form = showForm
 /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::print
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:24
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:24
  * @route '/api/v1/billing/receipts/{receipt}/print'
  */
 export const print = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -118,7 +118,7 @@ print.definition = {
 
 /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::print
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:24
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:24
  * @route '/api/v1/billing/receipts/{receipt}/print'
  */
 print.url = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -151,7 +151,7 @@ print.url = (args: { receipt: number | { id: number } } | [receipt: number | { i
 
 /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::print
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:24
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:24
  * @route '/api/v1/billing/receipts/{receipt}/print'
  */
 print.get = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -160,7 +160,7 @@ print.get = (args: { receipt: number | { id: number } } | [receipt: number | { i
 })
 /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::print
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:24
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:24
  * @route '/api/v1/billing/receipts/{receipt}/print'
  */
 print.head = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -170,7 +170,7 @@ print.head = (args: { receipt: number | { id: number } } | [receipt: number | { 
 
     /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::print
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:24
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:24
  * @route '/api/v1/billing/receipts/{receipt}/print'
  */
     const printForm = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -180,7 +180,7 @@ print.head = (args: { receipt: number | { id: number } } | [receipt: number | { 
 
             /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::print
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:24
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:24
  * @route '/api/v1/billing/receipts/{receipt}/print'
  */
         printForm.get = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -189,7 +189,7 @@ print.head = (args: { receipt: number | { id: number } } | [receipt: number | { 
         })
             /**
 * @see \App\Modules\Billing\Controllers\ReceiptController::print
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/ReceiptController.php:24
+ * @see app/Modules/Billing/Controllers/ReceiptController.php:24
  * @route '/api/v1/billing/receipts/{receipt}/print'
  */
         printForm.head = (args: { receipt: number | { id: number } } | [receipt: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

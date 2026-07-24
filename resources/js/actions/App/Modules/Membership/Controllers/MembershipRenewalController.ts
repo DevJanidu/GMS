@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:17
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:17
  * @route '/memberships/{membership}/renew'
  */
 export const create = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ create.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:17
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:17
  * @route '/memberships/{membership}/renew'
  */
 create.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ create.url = (args: { membership: number | { id: number } } | [membership: numbe
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:17
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:17
  * @route '/memberships/{membership}/renew'
  */
 create.get = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -58,7 +58,7 @@ create.get = (args: { membership: number | { id: number } } | [membership: numbe
 })
 /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:17
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:17
  * @route '/memberships/{membership}/renew'
  */
 create.head = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -68,7 +68,7 @@ create.head = (args: { membership: number | { id: number } } | [membership: numb
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:17
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:17
  * @route '/memberships/{membership}/renew'
  */
     const createForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -78,7 +78,7 @@ create.head = (args: { membership: number | { id: number } } | [membership: numb
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:17
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:17
  * @route '/memberships/{membership}/renew'
  */
         createForm.get = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -87,7 +87,7 @@ create.head = (args: { membership: number | { id: number } } | [membership: numb
         })
             /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:17
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:17
  * @route '/memberships/{membership}/renew'
  */
         createForm.head = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -103,7 +103,7 @@ create.head = (args: { membership: number | { id: number } } | [membership: numb
     create.form = createForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:32
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:32
  * @route '/memberships/{membership}/renew'
  */
 export const store = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -118,7 +118,7 @@ store.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:32
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:32
  * @route '/memberships/{membership}/renew'
  */
 store.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -151,7 +151,7 @@ store.url = (args: { membership: number | { id: number } } | [membership: number
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:32
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:32
  * @route '/memberships/{membership}/renew'
  */
 store.post = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -161,7 +161,7 @@ store.post = (args: { membership: number | { id: number } } | [membership: numbe
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:32
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:32
  * @route '/memberships/{membership}/renew'
  */
     const storeForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -171,7 +171,7 @@ store.post = (args: { membership: number | { id: number } } | [membership: numbe
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipRenewalController.php:32
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:32
  * @route '/memberships/{membership}/renew'
  */
         storeForm.post = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

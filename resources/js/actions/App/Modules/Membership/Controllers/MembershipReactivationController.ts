@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Modules\Membership\Controllers\MembershipReactivationController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReactivationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
 export const update = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -16,7 +16,7 @@ update.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipReactivationController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReactivationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
 update.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ update.url = (args: { membership: number | { id: number } } | [membership: numbe
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipReactivationController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReactivationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
 update.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -59,7 +59,7 @@ update.patch = (args: { membership: number | { id: number } } | [membership: num
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipReactivationController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReactivationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
     const updateForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -74,7 +74,7 @@ update.patch = (args: { membership: number | { id: number } } | [membership: num
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipReactivationController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipReactivationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipReactivationController.php:14
  * @route '/memberships/{membership}/reactivate'
  */
         updateForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

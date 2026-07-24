@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\PlanController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:18
+ * @see app/Http/Controllers/PlanController.php:18
  * @route '/plans'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\PlanController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:18
+ * @see app/Http/Controllers/PlanController.php:18
  * @route '/plans'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\PlanController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:18
+ * @see app/Http/Controllers/PlanController.php:18
  * @route '/plans'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\PlanController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:18
+ * @see app/Http/Controllers/PlanController.php:18
  * @route '/plans'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\PlanController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:18
+ * @see app/Http/Controllers/PlanController.php:18
  * @route '/plans'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\PlanController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:18
+ * @see app/Http/Controllers/PlanController.php:18
  * @route '/plans'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\PlanController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:18
+ * @see app/Http/Controllers/PlanController.php:18
  * @route '/plans'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Http\Controllers\PlanController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:42
+ * @see app/Http/Controllers/PlanController.php:42
  * @route '/plans/create'
  */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -94,7 +94,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\PlanController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:42
+ * @see app/Http/Controllers/PlanController.php:42
  * @route '/plans/create'
  */
 create.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\PlanController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:42
+ * @see app/Http/Controllers/PlanController.php:42
  * @route '/plans/create'
  */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -112,7 +112,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\PlanController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:42
+ * @see app/Http/Controllers/PlanController.php:42
  * @route '/plans/create'
  */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -122,7 +122,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\PlanController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:42
+ * @see app/Http/Controllers/PlanController.php:42
  * @route '/plans/create'
  */
     const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -132,7 +132,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\PlanController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:42
+ * @see app/Http/Controllers/PlanController.php:42
  * @route '/plans/create'
  */
         createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -141,7 +141,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\PlanController::create
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:42
+ * @see app/Http/Controllers/PlanController.php:42
  * @route '/plans/create'
  */
         createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\PlanController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:51
+ * @see app/Http/Controllers/PlanController.php:51
  * @route '/plans'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\PlanController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:51
+ * @see app/Http/Controllers/PlanController.php:51
  * @route '/plans'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\PlanController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:51
+ * @see app/Http/Controllers/PlanController.php:51
  * @route '/plans'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\PlanController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:51
+ * @see app/Http/Controllers/PlanController.php:51
  * @route '/plans'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\PlanController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:51
+ * @see app/Http/Controllers/PlanController.php:51
  * @route '/plans'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\PlanController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:69
+ * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
 export const show = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\PlanController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:69
+ * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
 show.url = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ show.url = (args: { plan: number | { id: number } } | [plan: number | { id: numb
 
 /**
 * @see \App\Http\Controllers\PlanController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:69
+ * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
 show.get = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ show.get = (args: { plan: number | { id: number } } | [plan: number | { id: numb
 })
 /**
 * @see \App\Http\Controllers\PlanController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:69
+ * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
 show.head = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ show.head = (args: { plan: number | { id: number } } | [plan: number | { id: num
 
     /**
 * @see \App\Http\Controllers\PlanController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:69
+ * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
     const showForm = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ show.head = (args: { plan: number | { id: number } } | [plan: number | { id: num
 
             /**
 * @see \App\Http\Controllers\PlanController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:69
+ * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
         showForm.get = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ show.head = (args: { plan: number | { id: number } } | [plan: number | { id: num
         })
             /**
 * @see \App\Http\Controllers\PlanController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:69
+ * @see app/Http/Controllers/PlanController.php:69
  * @route '/plans/{plan}'
  */
         showForm.head = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -314,7 +314,7 @@ show.head = (args: { plan: number | { id: number } } | [plan: number | { id: num
     show.form = showForm
 /**
 * @see \App\Http\Controllers\PlanController::edit
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:80
+ * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
 export const edit = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -329,7 +329,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\PlanController::edit
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:80
+ * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
 edit.url = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -362,7 +362,7 @@ edit.url = (args: { plan: number | { id: number } } | [plan: number | { id: numb
 
 /**
 * @see \App\Http\Controllers\PlanController::edit
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:80
+ * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
 edit.get = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -371,7 +371,7 @@ edit.get = (args: { plan: number | { id: number } } | [plan: number | { id: numb
 })
 /**
 * @see \App\Http\Controllers\PlanController::edit
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:80
+ * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
 edit.head = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -381,7 +381,7 @@ edit.head = (args: { plan: number | { id: number } } | [plan: number | { id: num
 
     /**
 * @see \App\Http\Controllers\PlanController::edit
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:80
+ * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
     const editForm = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -391,7 +391,7 @@ edit.head = (args: { plan: number | { id: number } } | [plan: number | { id: num
 
             /**
 * @see \App\Http\Controllers\PlanController::edit
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:80
+ * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
         editForm.get = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -400,7 +400,7 @@ edit.head = (args: { plan: number | { id: number } } | [plan: number | { id: num
         })
             /**
 * @see \App\Http\Controllers\PlanController::edit
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:80
+ * @see app/Http/Controllers/PlanController.php:80
  * @route '/plans/{plan}/edit'
  */
         editForm.head = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -416,7 +416,7 @@ edit.head = (args: { plan: number | { id: number } } | [plan: number | { id: num
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\PlanController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:92
+ * @see app/Http/Controllers/PlanController.php:92
  * @route '/plans/{plan}'
  */
 export const update = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -431,7 +431,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\PlanController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:92
+ * @see app/Http/Controllers/PlanController.php:92
  * @route '/plans/{plan}'
  */
 update.url = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -464,7 +464,7 @@ update.url = (args: { plan: number | { id: number } } | [plan: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\PlanController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:92
+ * @see app/Http/Controllers/PlanController.php:92
  * @route '/plans/{plan}'
  */
 update.put = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -474,7 +474,7 @@ update.put = (args: { plan: number | { id: number } } | [plan: number | { id: nu
 
     /**
 * @see \App\Http\Controllers\PlanController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:92
+ * @see app/Http/Controllers/PlanController.php:92
  * @route '/plans/{plan}'
  */
     const updateForm = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -489,7 +489,7 @@ update.put = (args: { plan: number | { id: number } } | [plan: number | { id: nu
 
             /**
 * @see \App\Http\Controllers\PlanController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Http/Controllers/PlanController.php:92
+ * @see app/Http/Controllers/PlanController.php:92
  * @route '/plans/{plan}'
  */
         updateForm.put = (args: { plan: number | { id: number } } | [plan: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

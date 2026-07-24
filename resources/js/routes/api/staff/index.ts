@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../wayfinder'
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:24
+ * @see app/Modules/Staff/Controllers/StaffController.php:24
  * @route '/api/v1/staff'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:24
+ * @see app/Modules/Staff/Controllers/StaffController.php:24
  * @route '/api/v1/staff'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:24
+ * @see app/Modules/Staff/Controllers/StaffController.php:24
  * @route '/api/v1/staff'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:24
+ * @see app/Modules/Staff/Controllers/StaffController.php:24
  * @route '/api/v1/staff'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Staff\Controllers\StaffController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:24
+ * @see app/Modules/Staff/Controllers/StaffController.php:24
  * @route '/api/v1/staff'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Staff\Controllers\StaffController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:24
+ * @see app/Modules/Staff/Controllers/StaffController.php:24
  * @route '/api/v1/staff'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Staff\Controllers\StaffController::index
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:24
+ * @see app/Modules/Staff/Controllers/StaffController.php:24
  * @route '/api/v1/staff'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:45
+ * @see app/Modules/Staff/Controllers/StaffController.php:45
  * @route '/api/v1/staff'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -94,7 +94,7 @@ store.definition = {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:45
+ * @see app/Modules/Staff/Controllers/StaffController.php:45
  * @route '/api/v1/staff'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:45
+ * @see app/Modules/Staff/Controllers/StaffController.php:45
  * @route '/api/v1/staff'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -113,7 +113,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Modules\Staff\Controllers\StaffController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:45
+ * @see app/Modules/Staff/Controllers/StaffController.php:45
  * @route '/api/v1/staff'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -123,7 +123,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Modules\Staff\Controllers\StaffController::store
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:45
+ * @see app/Modules/Staff/Controllers/StaffController.php:45
  * @route '/api/v1/staff'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -134,7 +134,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:91
+ * @see app/Modules/Staff/Controllers/StaffController.php:91
  * @route '/api/v1/staff/{staff}'
  */
 export const show = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -149,7 +149,7 @@ show.definition = {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:91
+ * @see app/Modules/Staff/Controllers/StaffController.php:91
  * @route '/api/v1/staff/{staff}'
  */
 show.url = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -182,7 +182,7 @@ show.url = (args: { staff: number | { id: number } } | [staff: number | { id: nu
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:91
+ * @see app/Modules/Staff/Controllers/StaffController.php:91
  * @route '/api/v1/staff/{staff}'
  */
 show.get = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -191,7 +191,7 @@ show.get = (args: { staff: number | { id: number } } | [staff: number | { id: nu
 })
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:91
+ * @see app/Modules/Staff/Controllers/StaffController.php:91
  * @route '/api/v1/staff/{staff}'
  */
 show.head = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -201,7 +201,7 @@ show.head = (args: { staff: number | { id: number } } | [staff: number | { id: n
 
     /**
 * @see \App\Modules\Staff\Controllers\StaffController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:91
+ * @see app/Modules/Staff/Controllers/StaffController.php:91
  * @route '/api/v1/staff/{staff}'
  */
     const showForm = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -211,7 +211,7 @@ show.head = (args: { staff: number | { id: number } } | [staff: number | { id: n
 
             /**
 * @see \App\Modules\Staff\Controllers\StaffController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:91
+ * @see app/Modules/Staff/Controllers/StaffController.php:91
  * @route '/api/v1/staff/{staff}'
  */
         showForm.get = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -220,7 +220,7 @@ show.head = (args: { staff: number | { id: number } } | [staff: number | { id: n
         })
             /**
 * @see \App\Modules\Staff\Controllers\StaffController::show
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:91
+ * @see app/Modules/Staff/Controllers/StaffController.php:91
  * @route '/api/v1/staff/{staff}'
  */
         showForm.head = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -236,7 +236,7 @@ show.head = (args: { staff: number | { id: number } } | [staff: number | { id: n
     show.form = showForm
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:100
+ * @see app/Modules/Staff/Controllers/StaffController.php:100
  * @route '/api/v1/staff/{staff}'
  */
 export const update = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -251,7 +251,7 @@ update.definition = {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:100
+ * @see app/Modules/Staff/Controllers/StaffController.php:100
  * @route '/api/v1/staff/{staff}'
  */
 update.url = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -284,7 +284,7 @@ update.url = (args: { staff: number | { id: number } } | [staff: number | { id: 
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:100
+ * @see app/Modules/Staff/Controllers/StaffController.php:100
  * @route '/api/v1/staff/{staff}'
  */
 update.put = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -293,7 +293,7 @@ update.put = (args: { staff: number | { id: number } } | [staff: number | { id: 
 })
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:100
+ * @see app/Modules/Staff/Controllers/StaffController.php:100
  * @route '/api/v1/staff/{staff}'
  */
 update.patch = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -303,7 +303,7 @@ update.patch = (args: { staff: number | { id: number } } | [staff: number | { id
 
     /**
 * @see \App\Modules\Staff\Controllers\StaffController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:100
+ * @see app/Modules/Staff/Controllers/StaffController.php:100
  * @route '/api/v1/staff/{staff}'
  */
     const updateForm = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -318,7 +318,7 @@ update.patch = (args: { staff: number | { id: number } } | [staff: number | { id
 
             /**
 * @see \App\Modules\Staff\Controllers\StaffController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:100
+ * @see app/Modules/Staff/Controllers/StaffController.php:100
  * @route '/api/v1/staff/{staff}'
  */
         updateForm.put = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -332,7 +332,7 @@ update.patch = (args: { staff: number | { id: number } } | [staff: number | { id
         })
             /**
 * @see \App\Modules\Staff\Controllers\StaffController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:100
+ * @see app/Modules/Staff/Controllers/StaffController.php:100
  * @route '/api/v1/staff/{staff}'
  */
         updateForm.patch = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -348,7 +348,7 @@ update.patch = (args: { staff: number | { id: number } } | [staff: number | { id
     update.form = updateForm
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::destroy
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:125
+ * @see app/Modules/Staff/Controllers/StaffController.php:125
  * @route '/api/v1/staff/{staff}'
  */
 export const destroy = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -363,7 +363,7 @@ destroy.definition = {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::destroy
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:125
+ * @see app/Modules/Staff/Controllers/StaffController.php:125
  * @route '/api/v1/staff/{staff}'
  */
 destroy.url = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -396,7 +396,7 @@ destroy.url = (args: { staff: number | { id: number } } | [staff: number | { id:
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::destroy
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:125
+ * @see app/Modules/Staff/Controllers/StaffController.php:125
  * @route '/api/v1/staff/{staff}'
  */
 destroy.delete = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -406,7 +406,7 @@ destroy.delete = (args: { staff: number | { id: number } } | [staff: number | { 
 
     /**
 * @see \App\Modules\Staff\Controllers\StaffController::destroy
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:125
+ * @see app/Modules/Staff/Controllers/StaffController.php:125
  * @route '/api/v1/staff/{staff}'
  */
     const destroyForm = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -421,7 +421,7 @@ destroy.delete = (args: { staff: number | { id: number } } | [staff: number | { 
 
             /**
 * @see \App\Modules\Staff\Controllers\StaffController::destroy
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:125
+ * @see app/Modules/Staff/Controllers/StaffController.php:125
  * @route '/api/v1/staff/{staff}'
  */
         destroyForm.delete = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -437,7 +437,7 @@ destroy.delete = (args: { staff: number | { id: number } } | [staff: number | { 
     destroy.form = destroyForm
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::suspend
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:134
+ * @see app/Modules/Staff/Controllers/StaffController.php:134
  * @route '/api/v1/staff/{staff}/suspend'
  */
 export const suspend = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -452,7 +452,7 @@ suspend.definition = {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::suspend
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:134
+ * @see app/Modules/Staff/Controllers/StaffController.php:134
  * @route '/api/v1/staff/{staff}/suspend'
  */
 suspend.url = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -485,7 +485,7 @@ suspend.url = (args: { staff: number | { id: number } } | [staff: number | { id:
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::suspend
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:134
+ * @see app/Modules/Staff/Controllers/StaffController.php:134
  * @route '/api/v1/staff/{staff}/suspend'
  */
 suspend.patch = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -495,7 +495,7 @@ suspend.patch = (args: { staff: number | { id: number } } | [staff: number | { i
 
     /**
 * @see \App\Modules\Staff\Controllers\StaffController::suspend
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:134
+ * @see app/Modules/Staff/Controllers/StaffController.php:134
  * @route '/api/v1/staff/{staff}/suspend'
  */
     const suspendForm = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -510,7 +510,7 @@ suspend.patch = (args: { staff: number | { id: number } } | [staff: number | { i
 
             /**
 * @see \App\Modules\Staff\Controllers\StaffController::suspend
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:134
+ * @see app/Modules/Staff/Controllers/StaffController.php:134
  * @route '/api/v1/staff/{staff}/suspend'
  */
         suspendForm.patch = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -526,7 +526,7 @@ suspend.patch = (args: { staff: number | { id: number } } | [staff: number | { i
     suspend.form = suspendForm
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::activate
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:147
+ * @see app/Modules/Staff/Controllers/StaffController.php:147
  * @route '/api/v1/staff/{staff}/activate'
  */
 export const activate = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -541,7 +541,7 @@ activate.definition = {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::activate
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:147
+ * @see app/Modules/Staff/Controllers/StaffController.php:147
  * @route '/api/v1/staff/{staff}/activate'
  */
 activate.url = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -574,7 +574,7 @@ activate.url = (args: { staff: number | { id: number } } | [staff: number | { id
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::activate
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:147
+ * @see app/Modules/Staff/Controllers/StaffController.php:147
  * @route '/api/v1/staff/{staff}/activate'
  */
 activate.patch = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -584,7 +584,7 @@ activate.patch = (args: { staff: number | { id: number } } | [staff: number | { 
 
     /**
 * @see \App\Modules\Staff\Controllers\StaffController::activate
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:147
+ * @see app/Modules/Staff/Controllers/StaffController.php:147
  * @route '/api/v1/staff/{staff}/activate'
  */
     const activateForm = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -599,7 +599,7 @@ activate.patch = (args: { staff: number | { id: number } } | [staff: number | { 
 
             /**
 * @see \App\Modules\Staff\Controllers\StaffController::activate
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:147
+ * @see app/Modules/Staff/Controllers/StaffController.php:147
  * @route '/api/v1/staff/{staff}/activate'
  */
         activateForm.patch = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -615,7 +615,7 @@ activate.patch = (args: { staff: number | { id: number } } | [staff: number | { 
     activate.form = activateForm
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::branches
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:158
+ * @see app/Modules/Staff/Controllers/StaffController.php:158
  * @route '/api/v1/staff/{staff}/branches'
  */
 export const branches = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -630,7 +630,7 @@ branches.definition = {
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::branches
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:158
+ * @see app/Modules/Staff/Controllers/StaffController.php:158
  * @route '/api/v1/staff/{staff}/branches'
  */
 branches.url = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -663,7 +663,7 @@ branches.url = (args: { staff: number | { id: number } } | [staff: number | { id
 
 /**
 * @see \App\Modules\Staff\Controllers\StaffController::branches
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:158
+ * @see app/Modules/Staff/Controllers/StaffController.php:158
  * @route '/api/v1/staff/{staff}/branches'
  */
 branches.put = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -673,7 +673,7 @@ branches.put = (args: { staff: number | { id: number } } | [staff: number | { id
 
     /**
 * @see \App\Modules\Staff\Controllers\StaffController::branches
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:158
+ * @see app/Modules/Staff/Controllers/StaffController.php:158
  * @route '/api/v1/staff/{staff}/branches'
  */
     const branchesForm = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -688,7 +688,7 @@ branches.put = (args: { staff: number | { id: number } } | [staff: number | { id
 
             /**
 * @see \App\Modules\Staff\Controllers\StaffController::branches
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Staff/Controllers/StaffController.php:158
+ * @see app/Modules/Staff/Controllers/StaffController.php:158
  * @route '/api/v1/staff/{staff}/branches'
  */
         branchesForm.put = (args: { staff: number | { id: number } } | [staff: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ dashboard.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ dashboard.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
     const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
         dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
         dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     dashboard.form = dashboardForm
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
 export const qrCard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -94,7 +94,7 @@ qrCard.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
 qrCard.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ qrCard.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
 qrCard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -112,7 +112,7 @@ qrCard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
 qrCard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -122,7 +122,7 @@ qrCard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
     const qrCardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -132,7 +132,7 @@ qrCard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
         qrCardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -141,7 +141,7 @@ qrCard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
         qrCardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ qrCard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     qrCard.form = qrCardForm
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
 export const membership = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -172,7 +172,7 @@ membership.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
 membership.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ membership.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
 membership.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -190,7 +190,7 @@ membership.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
 membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -200,7 +200,7 @@ membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
     const membershipForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -210,7 +210,7 @@ membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
         membershipForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -219,7 +219,7 @@ membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
         membershipForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -235,7 +235,7 @@ membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     membership.form = membershipForm
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
 export const payments = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -250,7 +250,7 @@ payments.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
 payments.url = (options?: RouteQueryOptions) => {
@@ -259,7 +259,7 @@ payments.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
 payments.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -268,7 +268,7 @@ payments.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
 payments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -278,7 +278,7 @@ payments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
     const paymentsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -288,7 +288,7 @@ payments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
         paymentsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -297,7 +297,7 @@ payments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
         paymentsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -313,7 +313,7 @@ payments.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     payments.form = paymentsForm
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
 export const receipts = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -328,7 +328,7 @@ receipts.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
 receipts.url = (options?: RouteQueryOptions) => {
@@ -337,7 +337,7 @@ receipts.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
 receipts.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -346,7 +346,7 @@ receipts.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
 receipts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -356,7 +356,7 @@ receipts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
     const receiptsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -366,7 +366,7 @@ receipts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
         receiptsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -375,7 +375,7 @@ receipts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
         receiptsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -391,7 +391,7 @@ receipts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     receipts.form = receiptsForm
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
 export const attendance = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -406,7 +406,7 @@ attendance.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
 attendance.url = (options?: RouteQueryOptions) => {
@@ -415,7 +415,7 @@ attendance.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
 attendance.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -424,7 +424,7 @@ attendance.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
 attendance.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -434,7 +434,7 @@ attendance.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
     const attendanceForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -444,7 +444,7 @@ attendance.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
         attendanceForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -453,7 +453,7 @@ attendance.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
         attendanceForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -469,7 +469,7 @@ attendance.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     attendance.form = attendanceForm
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
 export const notifications = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -484,7 +484,7 @@ notifications.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
 notifications.url = (options?: RouteQueryOptions) => {
@@ -493,7 +493,7 @@ notifications.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
 notifications.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -502,7 +502,7 @@ notifications.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
 notifications.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -512,7 +512,7 @@ notifications.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
     const notificationsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -522,7 +522,7 @@ notifications.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
         notificationsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -531,7 +531,7 @@ notifications.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
         notificationsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -547,7 +547,7 @@ notifications.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => (
     notifications.form = notificationsForm
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
 export const profile = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -562,7 +562,7 @@ profile.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
 profile.url = (options?: RouteQueryOptions) => {
@@ -571,7 +571,7 @@ profile.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
 profile.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -580,7 +580,7 @@ profile.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
 profile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -590,7 +590,7 @@ profile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
     const profileForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -600,7 +600,7 @@ profile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
         profileForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -609,7 +609,7 @@ profile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
         profileForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

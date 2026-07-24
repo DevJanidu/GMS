@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::read
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:155
  * @route '/api/v1/member-portal/notifications/{notification}/read'
  */
 export const read = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -16,7 +16,7 @@ read.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::read
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:155
  * @route '/api/v1/member-portal/notifications/{notification}/read'
  */
 read.url = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -44,7 +44,7 @@ read.url = (args: { notification: string | number } | [notification: string | nu
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::read
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:155
  * @route '/api/v1/member-portal/notifications/{notification}/read'
  */
 read.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -54,7 +54,7 @@ read.patch = (args: { notification: string | number } | [notification: string | 
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::read
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:155
  * @route '/api/v1/member-portal/notifications/{notification}/read'
  */
     const readForm = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -69,7 +69,7 @@ read.patch = (args: { notification: string | number } | [notification: string | 
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::read
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:155
  * @route '/api/v1/member-portal/notifications/{notification}/read'
  */
         readForm.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -85,7 +85,7 @@ read.patch = (args: { notification: string | number } | [notification: string | 
     read.form = readForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::unread
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:168
  * @route '/api/v1/member-portal/notifications/{notification}/unread'
  */
 export const unread = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -100,7 +100,7 @@ unread.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::unread
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:168
  * @route '/api/v1/member-portal/notifications/{notification}/unread'
  */
 unread.url = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -128,7 +128,7 @@ unread.url = (args: { notification: string | number } | [notification: string | 
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::unread
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:168
  * @route '/api/v1/member-portal/notifications/{notification}/unread'
  */
 unread.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -138,7 +138,7 @@ unread.patch = (args: { notification: string | number } | [notification: string 
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::unread
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:168
  * @route '/api/v1/member-portal/notifications/{notification}/unread'
  */
     const unreadForm = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -153,7 +153,7 @@ unread.patch = (args: { notification: string | number } | [notification: string 
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::unread
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:168
  * @route '/api/v1/member-portal/notifications/{notification}/unread'
  */
         unreadForm.patch = (args: { notification: string | number } | [notification: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -169,7 +169,7 @@ unread.patch = (args: { notification: string | number } | [notification: string 
     unread.form = unreadForm
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:181
  * @route '/api/v1/member-portal/notifications/mark-all-read'
  */
 export const markAllRead = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -184,7 +184,7 @@ markAllRead.definition = {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:181
  * @route '/api/v1/member-portal/notifications/mark-all-read'
  */
 markAllRead.url = (options?: RouteQueryOptions) => {
@@ -193,7 +193,7 @@ markAllRead.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:181
  * @route '/api/v1/member-portal/notifications/mark-all-read'
  */
 markAllRead.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -203,7 +203,7 @@ markAllRead.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:181
  * @route '/api/v1/member-portal/notifications/mark-all-read'
  */
     const markAllReadForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -213,7 +213,7 @@ markAllRead.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Modules\MemberPortal\Controllers\MemberPortalController::markAllRead
- * @see [unknown]:0
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalController.php:181
  * @route '/api/v1/member-portal/notifications/mark-all-read'
  */
         markAllReadForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

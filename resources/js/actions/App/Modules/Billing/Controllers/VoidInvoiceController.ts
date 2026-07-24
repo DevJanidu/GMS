@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Modules\Billing\Controllers\VoidInvoiceController::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/VoidInvoiceController.php:18
+ * @see app/Modules/Billing/Controllers/VoidInvoiceController.php:18
  * @route '/api/v1/billing/invoices/{invoice}/void'
  */
 const VoidInvoiceController = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ VoidInvoiceController.definition = {
 
 /**
 * @see \App\Modules\Billing\Controllers\VoidInvoiceController::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/VoidInvoiceController.php:18
+ * @see app/Modules/Billing/Controllers/VoidInvoiceController.php:18
  * @route '/api/v1/billing/invoices/{invoice}/void'
  */
 VoidInvoiceController.url = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ VoidInvoiceController.url = (args: { invoice: number | { id: number } } | [invoi
 
 /**
 * @see \App\Modules\Billing\Controllers\VoidInvoiceController::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/VoidInvoiceController.php:18
+ * @see app/Modules/Billing/Controllers/VoidInvoiceController.php:18
  * @route '/api/v1/billing/invoices/{invoice}/void'
  */
 VoidInvoiceController.post = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -59,7 +59,7 @@ VoidInvoiceController.post = (args: { invoice: number | { id: number } } | [invo
 
     /**
 * @see \App\Modules\Billing\Controllers\VoidInvoiceController::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/VoidInvoiceController.php:18
+ * @see app/Modules/Billing/Controllers/VoidInvoiceController.php:18
  * @route '/api/v1/billing/invoices/{invoice}/void'
  */
     const VoidInvoiceControllerForm = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -69,7 +69,7 @@ VoidInvoiceController.post = (args: { invoice: number | { id: number } } | [invo
 
             /**
 * @see \App\Modules\Billing\Controllers\VoidInvoiceController::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Billing/Controllers/VoidInvoiceController.php:18
+ * @see app/Modules/Billing/Controllers/VoidInvoiceController.php:18
  * @route '/api/v1/billing/invoices/{invoice}/void'
  */
         VoidInvoiceControllerForm.post = (args: { invoice: number | { id: number } } | [invoice: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

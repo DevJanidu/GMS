@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
 const Controller42a740574ecbfbac32f8cc353fc32db9 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ Controller42a740574ecbfbac32f8cc353fc32db9.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
 Controller42a740574ecbfbac32f8cc353fc32db9.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ Controller42a740574ecbfbac32f8cc353fc32db9.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
 Controller42a740574ecbfbac32f8cc353fc32db9.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ Controller42a740574ecbfbac32f8cc353fc32db9.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
 Controller42a740574ecbfbac32f8cc353fc32db9.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ Controller42a740574ecbfbac32f8cc353fc32db9.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
     const Controller42a740574ecbfbac32f8cc353fc32db9Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ Controller42a740574ecbfbac32f8cc353fc32db9.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
         Controller42a740574ecbfbac32f8cc353fc32db9Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ Controller42a740574ecbfbac32f8cc353fc32db9.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/dashboard'
  */
         Controller42a740574ecbfbac32f8cc353fc32db9Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ Controller42a740574ecbfbac32f8cc353fc32db9.head = (options?: RouteQueryOptions):
     Controller42a740574ecbfbac32f8cc353fc32db9.form = Controller42a740574ecbfbac32f8cc353fc32db9Form
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/settings/appearance'
  */
 const Controllere19ee86e9cf603ce1a59a1ec5d21dec5 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -94,7 +94,7 @@ Controllere19ee86e9cf603ce1a59a1ec5d21dec5.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/settings/appearance'
  */
 Controllere19ee86e9cf603ce1a59a1ec5d21dec5.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ Controllere19ee86e9cf603ce1a59a1ec5d21dec5.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/settings/appearance'
  */
 Controllere19ee86e9cf603ce1a59a1ec5d21dec5.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -112,7 +112,7 @@ Controllere19ee86e9cf603ce1a59a1ec5d21dec5.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/settings/appearance'
  */
 Controllere19ee86e9cf603ce1a59a1ec5d21dec5.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -122,7 +122,7 @@ Controllere19ee86e9cf603ce1a59a1ec5d21dec5.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/settings/appearance'
  */
     const Controllere19ee86e9cf603ce1a59a1ec5d21dec5Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -132,7 +132,7 @@ Controllere19ee86e9cf603ce1a59a1ec5d21dec5.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/settings/appearance'
  */
         Controllere19ee86e9cf603ce1a59a1ec5d21dec5Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -141,7 +141,7 @@ Controllere19ee86e9cf603ce1a59a1ec5d21dec5.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/settings/appearance'
  */
         Controllere19ee86e9cf603ce1a59a1ec5d21dec5Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ Controllere19ee86e9cf603ce1a59a1ec5d21dec5.head = (options?: RouteQueryOptions):
     Controllere19ee86e9cf603ce1a59a1ec5d21dec5.form = Controllere19ee86e9cf603ce1a59a1ec5d21dec5Form
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
 const Controller58ce3b21459752ee73930d924bf98aec = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -172,7 +172,7 @@ Controller58ce3b21459752ee73930d924bf98aec.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
 Controller58ce3b21459752ee73930d924bf98aec.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ Controller58ce3b21459752ee73930d924bf98aec.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
 Controller58ce3b21459752ee73930d924bf98aec.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -190,7 +190,7 @@ Controller58ce3b21459752ee73930d924bf98aec.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
 Controller58ce3b21459752ee73930d924bf98aec.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -200,7 +200,7 @@ Controller58ce3b21459752ee73930d924bf98aec.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
     const Controller58ce3b21459752ee73930d924bf98aecForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -210,7 +210,7 @@ Controller58ce3b21459752ee73930d924bf98aec.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
         Controller58ce3b21459752ee73930d924bf98aecForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -219,7 +219,7 @@ Controller58ce3b21459752ee73930d924bf98aec.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/reports'
  */
         Controller58ce3b21459752ee73930d924bf98aecForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -235,85 +235,7 @@ Controller58ce3b21459752ee73930d924bf98aec.head = (options?: RouteQueryOptions):
     Controller58ce3b21459752ee73930d924bf98aec.form = Controller58ce3b21459752ee73930d924bf98aecForm
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
- * @route '/notifications'
- */
-const Controllerd3f40fab60887a2723ab34bfa72648a2 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: Controllerd3f40fab60887a2723ab34bfa72648a2.url(options),
-    method: 'get',
-})
-
-Controllerd3f40fab60887a2723ab34bfa72648a2.definition = {
-    methods: ["get","head"],
-    url: '/notifications',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
- * @route '/notifications'
- */
-Controllerd3f40fab60887a2723ab34bfa72648a2.url = (options?: RouteQueryOptions) => {
-    return Controllerd3f40fab60887a2723ab34bfa72648a2.definition.url + queryParams(options)
-}
-
-/**
-* @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
- * @route '/notifications'
- */
-Controllerd3f40fab60887a2723ab34bfa72648a2.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: Controllerd3f40fab60887a2723ab34bfa72648a2.url(options),
-    method: 'get',
-})
-/**
-* @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
- * @route '/notifications'
- */
-Controllerd3f40fab60887a2723ab34bfa72648a2.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: Controllerd3f40fab60887a2723ab34bfa72648a2.url(options),
-    method: 'head',
-})
-
-    /**
-* @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
- * @route '/notifications'
- */
-    const Controllerd3f40fab60887a2723ab34bfa72648a2Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-        action: Controllerd3f40fab60887a2723ab34bfa72648a2.url(options),
-        method: 'get',
-    })
-
-            /**
-* @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
- * @route '/notifications'
- */
-        Controllerd3f40fab60887a2723ab34bfa72648a2Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: Controllerd3f40fab60887a2723ab34bfa72648a2.url(options),
-            method: 'get',
-        })
-            /**
-* @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
- * @route '/notifications'
- */
-        Controllerd3f40fab60887a2723ab34bfa72648a2Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: Controllerd3f40fab60887a2723ab34bfa72648a2.url({
-                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-                            _method: 'HEAD',
-                            ...(options?.query ?? options?.mergeQuery ?? {}),
-                        }
-                    }),
-            method: 'get',
-        })
-    
-    Controllerd3f40fab60887a2723ab34bfa72648a2.form = Controllerd3f40fab60887a2723ab34bfa72648a2Form
-    /**
-* @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles'
  */
 const Controllerbe1fddd12d9a311af0360a2f8bcfa1e2 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -328,7 +250,7 @@ Controllerbe1fddd12d9a311af0360a2f8bcfa1e2.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles'
  */
 Controllerbe1fddd12d9a311af0360a2f8bcfa1e2.url = (options?: RouteQueryOptions) => {
@@ -337,7 +259,7 @@ Controllerbe1fddd12d9a311af0360a2f8bcfa1e2.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles'
  */
 Controllerbe1fddd12d9a311af0360a2f8bcfa1e2.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -346,7 +268,7 @@ Controllerbe1fddd12d9a311af0360a2f8bcfa1e2.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles'
  */
 Controllerbe1fddd12d9a311af0360a2f8bcfa1e2.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -356,7 +278,7 @@ Controllerbe1fddd12d9a311af0360a2f8bcfa1e2.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles'
  */
     const Controllerbe1fddd12d9a311af0360a2f8bcfa1e2Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -366,7 +288,7 @@ Controllerbe1fddd12d9a311af0360a2f8bcfa1e2.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles'
  */
         Controllerbe1fddd12d9a311af0360a2f8bcfa1e2Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -375,7 +297,7 @@ Controllerbe1fddd12d9a311af0360a2f8bcfa1e2.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles'
  */
         Controllerbe1fddd12d9a311af0360a2f8bcfa1e2Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -391,7 +313,7 @@ Controllerbe1fddd12d9a311af0360a2f8bcfa1e2.head = (options?: RouteQueryOptions):
     Controllerbe1fddd12d9a311af0360a2f8bcfa1e2.form = Controllerbe1fddd12d9a311af0360a2f8bcfa1e2Form
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles/create'
  */
 const Controller2b043228f76c34a48ff522fa7c5b7bdf = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -406,7 +328,7 @@ Controller2b043228f76c34a48ff522fa7c5b7bdf.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles/create'
  */
 Controller2b043228f76c34a48ff522fa7c5b7bdf.url = (options?: RouteQueryOptions) => {
@@ -415,7 +337,7 @@ Controller2b043228f76c34a48ff522fa7c5b7bdf.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles/create'
  */
 Controller2b043228f76c34a48ff522fa7c5b7bdf.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -424,7 +346,7 @@ Controller2b043228f76c34a48ff522fa7c5b7bdf.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles/create'
  */
 Controller2b043228f76c34a48ff522fa7c5b7bdf.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -434,7 +356,7 @@ Controller2b043228f76c34a48ff522fa7c5b7bdf.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles/create'
  */
     const Controller2b043228f76c34a48ff522fa7c5b7bdfForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -444,7 +366,7 @@ Controller2b043228f76c34a48ff522fa7c5b7bdf.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles/create'
  */
         Controller2b043228f76c34a48ff522fa7c5b7bdfForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -453,7 +375,7 @@ Controller2b043228f76c34a48ff522fa7c5b7bdf.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/roles/create'
  */
         Controller2b043228f76c34a48ff522fa7c5b7bdfForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -469,7 +391,7 @@ Controller2b043228f76c34a48ff522fa7c5b7bdf.head = (options?: RouteQueryOptions):
     Controller2b043228f76c34a48ff522fa7c5b7bdf.form = Controller2b043228f76c34a48ff522fa7c5b7bdfForm
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches'
  */
 const Controller91064dd7859b535f70c57dcb832bd1b9 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -484,7 +406,7 @@ Controller91064dd7859b535f70c57dcb832bd1b9.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches'
  */
 Controller91064dd7859b535f70c57dcb832bd1b9.url = (options?: RouteQueryOptions) => {
@@ -493,7 +415,7 @@ Controller91064dd7859b535f70c57dcb832bd1b9.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches'
  */
 Controller91064dd7859b535f70c57dcb832bd1b9.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -502,7 +424,7 @@ Controller91064dd7859b535f70c57dcb832bd1b9.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches'
  */
 Controller91064dd7859b535f70c57dcb832bd1b9.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -512,7 +434,7 @@ Controller91064dd7859b535f70c57dcb832bd1b9.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches'
  */
     const Controller91064dd7859b535f70c57dcb832bd1b9Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -522,7 +444,7 @@ Controller91064dd7859b535f70c57dcb832bd1b9.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches'
  */
         Controller91064dd7859b535f70c57dcb832bd1b9Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -531,7 +453,7 @@ Controller91064dd7859b535f70c57dcb832bd1b9.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches'
  */
         Controller91064dd7859b535f70c57dcb832bd1b9Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -547,7 +469,7 @@ Controller91064dd7859b535f70c57dcb832bd1b9.head = (options?: RouteQueryOptions):
     Controller91064dd7859b535f70c57dcb832bd1b9.form = Controller91064dd7859b535f70c57dcb832bd1b9Form
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches/create'
  */
 const Controller4b44898bc00cc4909944eef720bbacba = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -562,7 +484,7 @@ Controller4b44898bc00cc4909944eef720bbacba.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches/create'
  */
 Controller4b44898bc00cc4909944eef720bbacba.url = (options?: RouteQueryOptions) => {
@@ -571,7 +493,7 @@ Controller4b44898bc00cc4909944eef720bbacba.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches/create'
  */
 Controller4b44898bc00cc4909944eef720bbacba.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -580,7 +502,7 @@ Controller4b44898bc00cc4909944eef720bbacba.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches/create'
  */
 Controller4b44898bc00cc4909944eef720bbacba.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -590,7 +512,7 @@ Controller4b44898bc00cc4909944eef720bbacba.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches/create'
  */
     const Controller4b44898bc00cc4909944eef720bbacbaForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -600,7 +522,7 @@ Controller4b44898bc00cc4909944eef720bbacba.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches/create'
  */
         Controller4b44898bc00cc4909944eef720bbacbaForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -609,7 +531,7 @@ Controller4b44898bc00cc4909944eef720bbacba.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/branches/create'
  */
         Controller4b44898bc00cc4909944eef720bbacbaForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -625,7 +547,7 @@ Controller4b44898bc00cc4909944eef720bbacba.head = (options?: RouteQueryOptions):
     Controller4b44898bc00cc4909944eef720bbacba.form = Controller4b44898bc00cc4909944eef720bbacbaForm
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
 const Controller1df94407191e17795b7dbc43fbcad1af = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -640,7 +562,7 @@ Controller1df94407191e17795b7dbc43fbcad1af.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
 Controller1df94407191e17795b7dbc43fbcad1af.url = (options?: RouteQueryOptions) => {
@@ -649,7 +571,7 @@ Controller1df94407191e17795b7dbc43fbcad1af.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
 Controller1df94407191e17795b7dbc43fbcad1af.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -658,7 +580,7 @@ Controller1df94407191e17795b7dbc43fbcad1af.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
 Controller1df94407191e17795b7dbc43fbcad1af.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -668,7 +590,7 @@ Controller1df94407191e17795b7dbc43fbcad1af.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
     const Controller1df94407191e17795b7dbc43fbcad1afForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -678,7 +600,7 @@ Controller1df94407191e17795b7dbc43fbcad1af.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
         Controller1df94407191e17795b7dbc43fbcad1afForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -687,7 +609,7 @@ Controller1df94407191e17795b7dbc43fbcad1af.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal'
  */
         Controller1df94407191e17795b7dbc43fbcad1afForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -703,7 +625,7 @@ Controller1df94407191e17795b7dbc43fbcad1af.head = (options?: RouteQueryOptions):
     Controller1df94407191e17795b7dbc43fbcad1af.form = Controller1df94407191e17795b7dbc43fbcad1afForm
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
 const Controllerabf0892ef3e4814b016733781c8c7874 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -718,7 +640,7 @@ Controllerabf0892ef3e4814b016733781c8c7874.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
 Controllerabf0892ef3e4814b016733781c8c7874.url = (options?: RouteQueryOptions) => {
@@ -727,7 +649,7 @@ Controllerabf0892ef3e4814b016733781c8c7874.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
 Controllerabf0892ef3e4814b016733781c8c7874.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -736,7 +658,7 @@ Controllerabf0892ef3e4814b016733781c8c7874.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
 Controllerabf0892ef3e4814b016733781c8c7874.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -746,7 +668,7 @@ Controllerabf0892ef3e4814b016733781c8c7874.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
     const Controllerabf0892ef3e4814b016733781c8c7874Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -756,7 +678,7 @@ Controllerabf0892ef3e4814b016733781c8c7874.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
         Controllerabf0892ef3e4814b016733781c8c7874Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -765,7 +687,7 @@ Controllerabf0892ef3e4814b016733781c8c7874.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/qr-card'
  */
         Controllerabf0892ef3e4814b016733781c8c7874Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -781,7 +703,7 @@ Controllerabf0892ef3e4814b016733781c8c7874.head = (options?: RouteQueryOptions):
     Controllerabf0892ef3e4814b016733781c8c7874.form = Controllerabf0892ef3e4814b016733781c8c7874Form
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
 const Controller7b24bc9781d685a9fafac1ed32344ec9 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -796,7 +718,7 @@ Controller7b24bc9781d685a9fafac1ed32344ec9.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
 Controller7b24bc9781d685a9fafac1ed32344ec9.url = (options?: RouteQueryOptions) => {
@@ -805,7 +727,7 @@ Controller7b24bc9781d685a9fafac1ed32344ec9.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
 Controller7b24bc9781d685a9fafac1ed32344ec9.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -814,7 +736,7 @@ Controller7b24bc9781d685a9fafac1ed32344ec9.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
 Controller7b24bc9781d685a9fafac1ed32344ec9.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -824,7 +746,7 @@ Controller7b24bc9781d685a9fafac1ed32344ec9.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
     const Controller7b24bc9781d685a9fafac1ed32344ec9Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -834,7 +756,7 @@ Controller7b24bc9781d685a9fafac1ed32344ec9.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
         Controller7b24bc9781d685a9fafac1ed32344ec9Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -843,7 +765,7 @@ Controller7b24bc9781d685a9fafac1ed32344ec9.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/membership'
  */
         Controller7b24bc9781d685a9fafac1ed32344ec9Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -859,7 +781,7 @@ Controller7b24bc9781d685a9fafac1ed32344ec9.head = (options?: RouteQueryOptions):
     Controller7b24bc9781d685a9fafac1ed32344ec9.form = Controller7b24bc9781d685a9fafac1ed32344ec9Form
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
 const Controllere07362f7803086fe275644a6a1cb50f2 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -874,7 +796,7 @@ Controllere07362f7803086fe275644a6a1cb50f2.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
 Controllere07362f7803086fe275644a6a1cb50f2.url = (options?: RouteQueryOptions) => {
@@ -883,7 +805,7 @@ Controllere07362f7803086fe275644a6a1cb50f2.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
 Controllere07362f7803086fe275644a6a1cb50f2.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -892,7 +814,7 @@ Controllere07362f7803086fe275644a6a1cb50f2.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
 Controllere07362f7803086fe275644a6a1cb50f2.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -902,7 +824,7 @@ Controllere07362f7803086fe275644a6a1cb50f2.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
     const Controllere07362f7803086fe275644a6a1cb50f2Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -912,7 +834,7 @@ Controllere07362f7803086fe275644a6a1cb50f2.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
         Controllere07362f7803086fe275644a6a1cb50f2Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -921,7 +843,7 @@ Controllere07362f7803086fe275644a6a1cb50f2.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/payments'
  */
         Controllere07362f7803086fe275644a6a1cb50f2Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -937,7 +859,7 @@ Controllere07362f7803086fe275644a6a1cb50f2.head = (options?: RouteQueryOptions):
     Controllere07362f7803086fe275644a6a1cb50f2.form = Controllere07362f7803086fe275644a6a1cb50f2Form
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
 const Controllerf4f083f97e5f10870e1ee8c33cec1885 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -952,7 +874,7 @@ Controllerf4f083f97e5f10870e1ee8c33cec1885.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
 Controllerf4f083f97e5f10870e1ee8c33cec1885.url = (options?: RouteQueryOptions) => {
@@ -961,7 +883,7 @@ Controllerf4f083f97e5f10870e1ee8c33cec1885.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
 Controllerf4f083f97e5f10870e1ee8c33cec1885.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -970,7 +892,7 @@ Controllerf4f083f97e5f10870e1ee8c33cec1885.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
 Controllerf4f083f97e5f10870e1ee8c33cec1885.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -980,7 +902,7 @@ Controllerf4f083f97e5f10870e1ee8c33cec1885.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
     const Controllerf4f083f97e5f10870e1ee8c33cec1885Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -990,7 +912,7 @@ Controllerf4f083f97e5f10870e1ee8c33cec1885.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
         Controllerf4f083f97e5f10870e1ee8c33cec1885Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -999,7 +921,7 @@ Controllerf4f083f97e5f10870e1ee8c33cec1885.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/receipts'
  */
         Controllerf4f083f97e5f10870e1ee8c33cec1885Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1015,7 +937,7 @@ Controllerf4f083f97e5f10870e1ee8c33cec1885.head = (options?: RouteQueryOptions):
     Controllerf4f083f97e5f10870e1ee8c33cec1885.form = Controllerf4f083f97e5f10870e1ee8c33cec1885Form
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
 const Controllerc61b260b012a2e29863862ecb4961d26 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1030,7 +952,7 @@ Controllerc61b260b012a2e29863862ecb4961d26.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
 Controllerc61b260b012a2e29863862ecb4961d26.url = (options?: RouteQueryOptions) => {
@@ -1039,7 +961,7 @@ Controllerc61b260b012a2e29863862ecb4961d26.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
 Controllerc61b260b012a2e29863862ecb4961d26.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1048,7 +970,7 @@ Controllerc61b260b012a2e29863862ecb4961d26.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
 Controllerc61b260b012a2e29863862ecb4961d26.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1058,7 +980,7 @@ Controllerc61b260b012a2e29863862ecb4961d26.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
     const Controllerc61b260b012a2e29863862ecb4961d26Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1068,7 +990,7 @@ Controllerc61b260b012a2e29863862ecb4961d26.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
         Controllerc61b260b012a2e29863862ecb4961d26Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1077,7 +999,7 @@ Controllerc61b260b012a2e29863862ecb4961d26.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/attendance'
  */
         Controllerc61b260b012a2e29863862ecb4961d26Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1093,7 +1015,7 @@ Controllerc61b260b012a2e29863862ecb4961d26.head = (options?: RouteQueryOptions):
     Controllerc61b260b012a2e29863862ecb4961d26.form = Controllerc61b260b012a2e29863862ecb4961d26Form
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
 const Controller03e7681836b6d9188552d5ed3727e35a = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1108,7 +1030,7 @@ Controller03e7681836b6d9188552d5ed3727e35a.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
 Controller03e7681836b6d9188552d5ed3727e35a.url = (options?: RouteQueryOptions) => {
@@ -1117,7 +1039,7 @@ Controller03e7681836b6d9188552d5ed3727e35a.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
 Controller03e7681836b6d9188552d5ed3727e35a.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1126,7 +1048,7 @@ Controller03e7681836b6d9188552d5ed3727e35a.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
 Controller03e7681836b6d9188552d5ed3727e35a.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1136,7 +1058,7 @@ Controller03e7681836b6d9188552d5ed3727e35a.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
     const Controller03e7681836b6d9188552d5ed3727e35aForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1146,7 +1068,7 @@ Controller03e7681836b6d9188552d5ed3727e35a.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
         Controller03e7681836b6d9188552d5ed3727e35aForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1155,7 +1077,7 @@ Controller03e7681836b6d9188552d5ed3727e35a.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/notifications'
  */
         Controller03e7681836b6d9188552d5ed3727e35aForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1171,7 +1093,7 @@ Controller03e7681836b6d9188552d5ed3727e35a.head = (options?: RouteQueryOptions):
     Controller03e7681836b6d9188552d5ed3727e35a.form = Controller03e7681836b6d9188552d5ed3727e35aForm
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
 const Controller8f83cecf547fcb21b325c5341e8888ef = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1186,7 +1108,7 @@ Controller8f83cecf547fcb21b325c5341e8888ef.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
 Controller8f83cecf547fcb21b325c5341e8888ef.url = (options?: RouteQueryOptions) => {
@@ -1195,7 +1117,7 @@ Controller8f83cecf547fcb21b325c5341e8888ef.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
 Controller8f83cecf547fcb21b325c5341e8888ef.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1204,7 +1126,7 @@ Controller8f83cecf547fcb21b325c5341e8888ef.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
 Controller8f83cecf547fcb21b325c5341e8888ef.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1214,7 +1136,7 @@ Controller8f83cecf547fcb21b325c5341e8888ef.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
     const Controller8f83cecf547fcb21b325c5341e8888efForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1224,7 +1146,7 @@ Controller8f83cecf547fcb21b325c5341e8888ef.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
         Controller8f83cecf547fcb21b325c5341e8888efForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1233,7 +1155,7 @@ Controller8f83cecf547fcb21b325c5341e8888ef.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/member-portal/profile'
  */
         Controller8f83cecf547fcb21b325c5341e8888efForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1249,7 +1171,7 @@ Controller8f83cecf547fcb21b325c5341e8888ef.head = (options?: RouteQueryOptions):
     Controller8f83cecf547fcb21b325c5341e8888ef.form = Controller8f83cecf547fcb21b325c5341e8888efForm
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff'
  */
 const Controller329fd943836cf306ed5281162dce3109 = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1264,7 +1186,7 @@ Controller329fd943836cf306ed5281162dce3109.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff'
  */
 Controller329fd943836cf306ed5281162dce3109.url = (options?: RouteQueryOptions) => {
@@ -1273,7 +1195,7 @@ Controller329fd943836cf306ed5281162dce3109.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff'
  */
 Controller329fd943836cf306ed5281162dce3109.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1282,7 +1204,7 @@ Controller329fd943836cf306ed5281162dce3109.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff'
  */
 Controller329fd943836cf306ed5281162dce3109.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1292,7 +1214,7 @@ Controller329fd943836cf306ed5281162dce3109.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff'
  */
     const Controller329fd943836cf306ed5281162dce3109Form = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1302,7 +1224,7 @@ Controller329fd943836cf306ed5281162dce3109.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff'
  */
         Controller329fd943836cf306ed5281162dce3109Form.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1311,7 +1233,7 @@ Controller329fd943836cf306ed5281162dce3109.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff'
  */
         Controller329fd943836cf306ed5281162dce3109Form.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1327,7 +1249,7 @@ Controller329fd943836cf306ed5281162dce3109.head = (options?: RouteQueryOptions):
     Controller329fd943836cf306ed5281162dce3109.form = Controller329fd943836cf306ed5281162dce3109Form
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff/create'
  */
 const Controller2774561341a3d0bccd802e7b9052b4bd = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1342,7 +1264,7 @@ Controller2774561341a3d0bccd802e7b9052b4bd.definition = {
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff/create'
  */
 Controller2774561341a3d0bccd802e7b9052b4bd.url = (options?: RouteQueryOptions) => {
@@ -1351,7 +1273,7 @@ Controller2774561341a3d0bccd802e7b9052b4bd.url = (options?: RouteQueryOptions) =
 
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff/create'
  */
 Controller2774561341a3d0bccd802e7b9052b4bd.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1360,7 +1282,7 @@ Controller2774561341a3d0bccd802e7b9052b4bd.get = (options?: RouteQueryOptions): 
 })
 /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff/create'
  */
 Controller2774561341a3d0bccd802e7b9052b4bd.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1370,7 +1292,7 @@ Controller2774561341a3d0bccd802e7b9052b4bd.head = (options?: RouteQueryOptions):
 
     /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff/create'
  */
     const Controller2774561341a3d0bccd802e7b9052b4bdForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1380,7 +1302,7 @@ Controller2774561341a3d0bccd802e7b9052b4bd.head = (options?: RouteQueryOptions):
 
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff/create'
  */
         Controller2774561341a3d0bccd802e7b9052b4bdForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1389,7 +1311,7 @@ Controller2774561341a3d0bccd802e7b9052b4bd.head = (options?: RouteQueryOptions):
         })
             /**
 * @see \Inertia\Controller::__invoke
- * @see F:/2026/projects/gym-management-system/GMSv1/vendor/inertiajs/inertia-laravel/src/Controller.php:13
+ * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
  * @route '/staff/create'
  */
         Controller2774561341a3d0bccd802e7b9052b4bdForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1413,7 +1335,6 @@ const Controller = {
     '/dashboard': Controller42a740574ecbfbac32f8cc353fc32db9,
     '/settings/appearance': Controllere19ee86e9cf603ce1a59a1ec5d21dec5,
     '/reports': Controller58ce3b21459752ee73930d924bf98aec,
-    '/notifications': Controllerd3f40fab60887a2723ab34bfa72648a2,
     '/roles': Controllerbe1fddd12d9a311af0360a2f8bcfa1e2,
     '/roles/create': Controller2b043228f76c34a48ff522fa7c5b7bdf,
     '/branches': Controller91064dd7859b535f70c57dcb832bd1b9,

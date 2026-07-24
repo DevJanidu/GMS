@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../wayfinder'
 /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::summary
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:16
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:16
  * @route '/api/v1/dashboard/summary'
  */
 export const summary = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ summary.definition = {
 
 /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::summary
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:16
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:16
  * @route '/api/v1/dashboard/summary'
  */
 summary.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ summary.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::summary
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:16
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:16
  * @route '/api/v1/dashboard/summary'
  */
 summary.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ summary.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::summary
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:16
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:16
  * @route '/api/v1/dashboard/summary'
  */
 summary.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ summary.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::summary
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:16
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:16
  * @route '/api/v1/dashboard/summary'
  */
     const summaryForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ summary.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::summary
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:16
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:16
  * @route '/api/v1/dashboard/summary'
  */
         summaryForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ summary.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::summary
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:16
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:16
  * @route '/api/v1/dashboard/summary'
  */
         summaryForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ summary.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     summary.form = summaryForm
 /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::filters
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:25
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:25
  * @route '/api/v1/dashboard/filters'
  */
 export const filters = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -94,7 +94,7 @@ filters.definition = {
 
 /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::filters
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:25
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:25
  * @route '/api/v1/dashboard/filters'
  */
 filters.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ filters.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::filters
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:25
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:25
  * @route '/api/v1/dashboard/filters'
  */
 filters.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -112,7 +112,7 @@ filters.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::filters
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:25
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:25
  * @route '/api/v1/dashboard/filters'
  */
 filters.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -122,7 +122,7 @@ filters.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::filters
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:25
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:25
  * @route '/api/v1/dashboard/filters'
  */
     const filtersForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -132,7 +132,7 @@ filters.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::filters
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:25
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:25
  * @route '/api/v1/dashboard/filters'
  */
         filtersForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -141,7 +141,7 @@ filters.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Modules\Dashboard\Controllers\DashboardController::filters
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Dashboard/Controllers/DashboardController.php:25
+ * @see app/Modules/Dashboard/Controllers/DashboardController.php:25
  * @route '/api/v1/dashboard/filters'
  */
         filtersForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

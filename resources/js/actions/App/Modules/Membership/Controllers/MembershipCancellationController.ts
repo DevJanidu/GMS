@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../../wayfinder'
 /**
 * @see \App\Modules\Membership\Controllers\MembershipCancellationController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipCancellationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
 export const update = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -16,7 +16,7 @@ update.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipCancellationController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipCancellationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
 update.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ update.url = (args: { membership: number | { id: number } } | [membership: numbe
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipCancellationController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipCancellationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
 update.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -59,7 +59,7 @@ update.patch = (args: { membership: number | { id: number } } | [membership: num
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipCancellationController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipCancellationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
     const updateForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -74,7 +74,7 @@ update.patch = (args: { membership: number | { id: number } } | [membership: num
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipCancellationController::update
- * @see F:/2026/projects/gym-management-system/GMSv1/app/Modules/Membership/Controllers/MembershipCancellationController.php:14
+ * @see app/Modules/Membership/Controllers/MembershipCancellationController.php:14
  * @route '/memberships/{membership}/cancel'
  */
         updateForm.patch = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
