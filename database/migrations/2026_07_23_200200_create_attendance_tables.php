@@ -42,7 +42,11 @@ return new class extends Migration
             $table->foreignId('tenant_id')->constrained()->cascadeOnDelete();
             $table->foreignId('branch_id')->constrained()->restrictOnDelete();
             $table->foreignId('member_id')->constrained()->restrictOnDelete();
-            $table->foreignId('membership_id')->nullable()->constrained()->nullOnDelete();
+            // The Membership module's table is created later in the shared
+            // migration history. Keep the initial column/index portable and
+            // attach the foreign key in Attendance's ordered follow-up
+            // migration once memberships exists.
+            $table->foreignId('membership_id')->nullable()->index();
             $table->foreignId('qr_credential_id')->nullable()->constrained('member_qr_credentials')->nullOnDelete();
             $table->uuid('request_id');
             $table->string('status')->default('checked_in');
@@ -67,7 +71,7 @@ return new class extends Migration
             $table->foreignId('tenant_id')->constrained()->cascadeOnDelete();
             $table->foreignId('branch_id')->constrained()->restrictOnDelete();
             $table->foreignId('member_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignId('membership_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('membership_id')->nullable()->index();
             $table->foreignId('attendance_record_id')->nullable()->constrained()->nullOnDelete();
             $table->uuid('request_id');
             $table->string('result');
