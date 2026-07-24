@@ -18,15 +18,15 @@ class MemberPortalReceiptResource extends JsonResource
             'id' => $this->public_id,
             'receipt_number' => $this->receipt_number,
             'generated_at' => $this->generated_at->toIso8601String(),
-            'currency' => $snapshot['currency'] ?? null,
-            'amount_cents' => $snapshot['amount_cents'] ?? null,
-            'method' => $snapshot['method'] ?? null,
-            'paid_at' => $snapshot['paid_at'] ?? null,
-            'items' => collect($snapshot['items'] ?? [])->map(fn (array $item) => [
-                'description' => $item['description'] ?? '',
-                'quantity' => $item['quantity'] ?? 0,
-                'unit_price_cents' => $item['unit_price_cents'] ?? 0,
-                'line_total_cents' => $item['line_total_cents'] ?? 0,
+            'currency' => $snapshot['currency'],
+            'amount_cents' => $snapshot['amount_cents'],
+            'method' => $snapshot['method'],
+            'paid_at' => $snapshot['paid_at'],
+            'items' => collect($snapshot['items'])->map(fn (array $item) => [
+                'description' => $item['description'],
+                'quantity' => $item['quantity'],
+                'unit_price_cents' => $item['unit_price_cents'],
+                'line_total_cents' => $item['line_total_cents'],
             ])->values()->all(),
         ];
     }

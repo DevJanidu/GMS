@@ -5,6 +5,7 @@ namespace App\Modules\MemberPortal\Resources;
 use App\Modules\Notification\Models\InAppNotification;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Carbon;
 
 /** @mixin InAppNotification */
 class MemberPortalNotificationResource extends JsonResource
@@ -17,7 +18,9 @@ class MemberPortalNotificationResource extends JsonResource
             'type' => $this->type,
             'title' => $this->title,
             'body' => $this->body,
-            'read_at' => $this->read_at?->toIso8601String(),
+            'read_at' => $this->read_at === null
+                ? null
+                : Carbon::parse($this->read_at)->toIso8601String(),
             'created_at' => $this->created_at?->toIso8601String(),
         ];
     }
