@@ -9,11 +9,11 @@ import type { ModuleNavigation } from '@/types';
 // keep their own permission checks so they only show up for users who can
 // access them.
 export const navigation: ModuleNavigation = {
-    title: 'Gym Settings',
+    title: 'Settings',
     href: editProfile(),
     icon: Settings2,
-    order: 999,
-    group: 'settings',
+    order: 61,
+    group: 'Administration',
     children: [
         { title: 'Profile', href: editProfile(), icon: User },
         branches,

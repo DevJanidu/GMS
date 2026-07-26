@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { NavItem, User } from '@/types';
-import { filterNavigationForUser } from './navigation';
+import { filterNavigationForUser, groupNavigationBySection } from './navigation';
 
 function user(permissions: string[]): User {
     return { permissions } as unknown as User;
@@ -49,5 +49,33 @@ describe('filterNavigationForUser', () => {
 
     it('preserves all navigation for the owner wildcard', () => {
         expect(filterNavigationForUser(items, user(['*']))).toEqual(items);
+    });
+});
+
+describe('groupNavigationBySection', () => {
+    it('buckets items under their section in the fixed section order', () => {
+        const unordered: NavItem[] = [
+            { title: 'Settings', href: '/settings', group: 'Administration' },
+            { title: 'Dashboard', href: '/dashboard', group: 'Overview' },
+            { title: 'Members', href: '/members', group: 'Member Management' },
+        ];
+
+        expect(groupNavigationBySection(unordered).map((g) => g.section)).toEqual([
+            'Overview',
+            'Member Management',
+            'Administration',
+        ]);
+    });
+
+    it('drops sections with no visible items and ignores items with no matching section', () => {
+        const items: NavItem[] = [
+            { title: 'Dashboard', href: '/dashboard', group: 'Overview' },
+            { title: 'Orphan', href: '/orphan', group: 'Unmapped' },
+        ];
+
+        const result = groupNavigationBySection(items);
+
+        expect(result).toHaveLength(1);
+        expect(result[0].section).toBe('Overview');
     });
 });

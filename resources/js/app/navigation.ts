@@ -10,6 +10,22 @@ const modules = import.meta.glob<NavigationModule>(
     { eager: true },
 );
 
+export const SIDEBAR_SECTIONS = [
+    'Overview',
+    'Member Management',
+    'Operations',
+    'Finance',
+    'Insights',
+    'Administration',
+] as const;
+
+export type SidebarSection = (typeof SIDEBAR_SECTIONS)[number];
+
+export type NavSectionGroup = {
+    section: SidebarSection;
+    items: NavItem[];
+};
+
 export function getModuleNavigation(): NavItem[] {
     return Object.values(modules)
         .flatMap(({ navigation }) =>
@@ -34,4 +50,13 @@ export function filterNavigationForUser(
             (item) =>
                 item.children === undefined || item.children.length > 0,
         );
+}
+
+export function groupNavigationBySection(
+    items: NavItem[],
+): NavSectionGroup[] {
+    return SIDEBAR_SECTIONS.map((section) => ({
+        section,
+        items: items.filter((item) => item.group === section),
+    })).filter((group) => group.items.length > 0);
 }

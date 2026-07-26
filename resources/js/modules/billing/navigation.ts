@@ -1,31 +1,24 @@
-import { ReceiptText } from 'lucide-react';
-import type { NavItem } from '@/types';
+import { FileText, ReceiptText, Wallet } from 'lucide-react';
+import type { ModuleNavigation } from '@/types';
 
-export const navigation: NavItem = {
-    title: 'Billing',
+export const navigation: ModuleNavigation = {
+    title: 'Billing & Payments',
     href: '/billing/invoices',
     icon: ReceiptText,
+    order: 40,
+    group: 'Finance',
+    children: [
+        {
+            title: 'Invoices',
+            href: '/billing/invoices',
+            icon: FileText,
+            permission: 'billing.invoices.view',
+        },
+        {
+            title: 'Payments',
+            href: '/billing/payments',
+            icon: Wallet,
+            permission: 'billing.payments.view',
+        },
+    ],
 };
-
-export const billingNavigation = [
-    {
-        title: 'Invoices',
-        href: '/billing/invoices',
-        permission: 'billing.invoices.view',
-    },
-    {
-        title: 'Payments',
-        href: '/billing/payments',
-        permission: 'billing.payments.view',
-    },
-    {
-        title: 'Outstanding',
-        href: '/billing/outstanding',
-        permission: 'billing.outstanding.view',
-    },
-    {
-        title: 'Collections',
-        href: '/billing/collections',
-        permission: 'billing.collections.view',
-    },
-];
