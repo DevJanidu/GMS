@@ -137,7 +137,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
  * @see app/Modules/Report/Controllers/ReportExportController.php:74
  * @route '/api/v1/report-exports/{reportExport}'
  */
-export const show = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -152,7 +152,7 @@ show.definition = {
  * @see app/Modules/Report/Controllers/ReportExportController.php:74
  * @route '/api/v1/report-exports/{reportExport}'
  */
-show.url = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+show.url = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { reportExport: args }
     }
@@ -185,7 +185,7 @@ show.url = (args: { reportExport: string | number | { id: string | number } } | 
  * @see app/Modules/Report/Controllers/ReportExportController.php:74
  * @route '/api/v1/report-exports/{reportExport}'
  */
-show.get = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -194,7 +194,7 @@ show.get = (args: { reportExport: string | number | { id: string | number } } | 
  * @see app/Modules/Report/Controllers/ReportExportController.php:74
  * @route '/api/v1/report-exports/{reportExport}'
  */
-show.head = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
@@ -204,7 +204,7 @@ show.head = (args: { reportExport: string | number | { id: string | number } } |
  * @see app/Modules/Report/Controllers/ReportExportController.php:74
  * @route '/api/v1/report-exports/{reportExport}'
  */
-    const showForm = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const showForm = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: show.url(args, options),
         method: 'get',
     })
@@ -214,7 +214,7 @@ show.head = (args: { reportExport: string | number | { id: string | number } } |
  * @see app/Modules/Report/Controllers/ReportExportController.php:74
  * @route '/api/v1/report-exports/{reportExport}'
  */
-        showForm.get = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.get = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, options),
             method: 'get',
         })
@@ -223,7 +223,7 @@ show.head = (args: { reportExport: string | number | { id: string | number } } |
  * @see app/Modules/Report/Controllers/ReportExportController.php:74
  * @route '/api/v1/report-exports/{reportExport}'
  */
-        showForm.head = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.head = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -239,7 +239,7 @@ show.head = (args: { reportExport: string | number | { id: string | number } } |
  * @see app/Modules/Report/Controllers/ReportExportController.php:81
  * @route '/api/v1/report-exports/{reportExport}/download'
  */
-export const download = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const download = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: download.url(args, options),
     method: 'get',
 })
@@ -254,7 +254,7 @@ download.definition = {
  * @see app/Modules/Report/Controllers/ReportExportController.php:81
  * @route '/api/v1/report-exports/{reportExport}/download'
  */
-download.url = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+download.url = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { reportExport: args }
     }
@@ -287,7 +287,7 @@ download.url = (args: { reportExport: string | number | { id: string | number } 
  * @see app/Modules/Report/Controllers/ReportExportController.php:81
  * @route '/api/v1/report-exports/{reportExport}/download'
  */
-download.get = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+download.get = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: download.url(args, options),
     method: 'get',
 })
@@ -296,7 +296,7 @@ download.get = (args: { reportExport: string | number | { id: string | number } 
  * @see app/Modules/Report/Controllers/ReportExportController.php:81
  * @route '/api/v1/report-exports/{reportExport}/download'
  */
-download.head = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+download.head = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: download.url(args, options),
     method: 'head',
 })
@@ -306,7 +306,7 @@ download.head = (args: { reportExport: string | number | { id: string | number }
  * @see app/Modules/Report/Controllers/ReportExportController.php:81
  * @route '/api/v1/report-exports/{reportExport}/download'
  */
-    const downloadForm = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const downloadForm = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: download.url(args, options),
         method: 'get',
     })
@@ -316,7 +316,7 @@ download.head = (args: { reportExport: string | number | { id: string | number }
  * @see app/Modules/Report/Controllers/ReportExportController.php:81
  * @route '/api/v1/report-exports/{reportExport}/download'
  */
-        downloadForm.get = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        downloadForm.get = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: download.url(args, options),
             method: 'get',
         })
@@ -325,7 +325,7 @@ download.head = (args: { reportExport: string | number | { id: string | number }
  * @see app/Modules/Report/Controllers/ReportExportController.php:81
  * @route '/api/v1/report-exports/{reportExport}/download'
  */
-        downloadForm.head = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        downloadForm.head = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: download.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -341,7 +341,7 @@ download.head = (args: { reportExport: string | number | { id: string | number }
  * @see app/Modules/Report/Controllers/ReportExportController.php:96
  * @route '/api/v1/report-exports/{reportExport}/retry'
  */
-export const retry = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const retry = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: retry.url(args, options),
     method: 'post',
 })
@@ -356,7 +356,7 @@ retry.definition = {
  * @see app/Modules/Report/Controllers/ReportExportController.php:96
  * @route '/api/v1/report-exports/{reportExport}/retry'
  */
-retry.url = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+retry.url = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { reportExport: args }
     }
@@ -389,7 +389,7 @@ retry.url = (args: { reportExport: string | number | { id: string | number } } |
  * @see app/Modules/Report/Controllers/ReportExportController.php:96
  * @route '/api/v1/report-exports/{reportExport}/retry'
  */
-retry.post = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+retry.post = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: retry.url(args, options),
     method: 'post',
 })
@@ -399,7 +399,7 @@ retry.post = (args: { reportExport: string | number | { id: string | number } } 
  * @see app/Modules/Report/Controllers/ReportExportController.php:96
  * @route '/api/v1/report-exports/{reportExport}/retry'
  */
-    const retryForm = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const retryForm = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: retry.url(args, options),
         method: 'post',
     })
@@ -409,7 +409,7 @@ retry.post = (args: { reportExport: string | number | { id: string | number } } 
  * @see app/Modules/Report/Controllers/ReportExportController.php:96
  * @route '/api/v1/report-exports/{reportExport}/retry'
  */
-        retryForm.post = (args: { reportExport: string | number | { id: string | number } } | [reportExport: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        retryForm.post = (args: { reportExport: string | { id: string } } | [reportExport: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: retry.url(args, options),
             method: 'post',
         })

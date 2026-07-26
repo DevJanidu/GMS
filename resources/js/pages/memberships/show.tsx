@@ -1,5 +1,6 @@
-import { Head, Link, router } from '@inertiajs/react';
+import { Head, Link, router, usePage } from '@inertiajs/react';
 import { RefreshCwIcon } from 'lucide-react';
+import type { ReactNode } from 'react';
 import MembershipCancellationController from '@/actions/App/Modules/Membership/Controllers/MembershipCancellationController';
 import MembershipController from '@/actions/App/Modules/Membership/Controllers/MembershipController';
 import MembershipFreezeController from '@/actions/App/Modules/Membership/Controllers/MembershipFreezeController';
@@ -8,6 +9,7 @@ import MembershipRenewalController from '@/actions/App/Modules/Membership/Contro
 import MembershipResumeController from '@/actions/App/Modules/Membership/Controllers/MembershipResumeController';
 import MembershipSuspensionController from '@/actions/App/Modules/Membership/Controllers/MembershipSuspensionController';
 import { ConfirmationDialog } from '@/components/shared/confirmation-dialog';
+import { CurrencyDisplay } from '@/components/shared/currency-display';
 import { Button } from '@/components/ui/button';
 import { MembershipStatusBadge } from '@/modules/memberships/components/membership-status-badge';
 import { ReasonDialog } from '@/modules/memberships/components/reason-dialog';
@@ -19,6 +21,9 @@ export default function ShowMembership({
 }: {
     membership: Membership;
 }) {
+    const { gym } = usePage().props;
+    const currency = gym?.currency ?? 'USD';
+
     function resume() {
         router.patch(
             MembershipResumeController.update.url({
@@ -165,7 +170,12 @@ export default function ShowMembership({
                     />
                     <Stat
                         label="Price"
-                        value={`$${membership.plan_price.toFixed(2)}`}
+                        value={
+                            <CurrencyDisplay
+                                amount={membership.plan_price}
+                                currency={currency}
+                            />
+                        }
                     />
                 </div>
 
@@ -239,7 +249,7 @@ export default function ShowMembership({
     );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function Stat({ label, value }: { label: string; value: ReactNode }) {
     return (
         <div className="rounded-xl border p-4">
             <p className="text-xs text-muted-foreground">{label}</p>

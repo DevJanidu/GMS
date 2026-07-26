@@ -1,5 +1,6 @@
 import type { InertiaFormProps } from '@inertiajs/react';
 import InputError from '@/components/input-error';
+import { MoneyInput } from '@/components/shared/money-input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -21,9 +22,6 @@ export type PlanFormData = {
     joining_fee: string;
     duration_value: string;
     duration_unit: string;
-    guest_passes_per_month: string;
-    freeze_days_allowed: string;
-    classes_included: boolean;
     available_at_all_branches: boolean;
     branch_ids: number[];
     status: string;
@@ -32,10 +30,12 @@ export type PlanFormData = {
 export function PlanForm({
     form,
     branches,
+    currency,
     showStatus = true,
 }: {
     form: InertiaFormProps<PlanFormData>;
     branches: BranchOption[];
+    currency: string;
     showStatus?: boolean;
 }) {
     const { data, setData, errors } = form;
@@ -75,13 +75,13 @@ export function PlanForm({
 
                 <div className="grid gap-2">
                     <Label htmlFor="price">Price</Label>
-                    <Input
+                    <MoneyInput
                         id="price"
-                        type="number"
-                        min="0"
-                        step="0.01"
-                        value={data.price}
-                        onChange={(e) => setData('price', e.target.value)}
+                        currency={currency}
+                        value={data.price === '' ? null : Number(data.price)}
+                        onChange={(value) =>
+                            setData('price', value === null ? '' : String(value))
+                        }
                         required
                     />
                     <InputError message={errors.price} />
@@ -89,13 +89,20 @@ export function PlanForm({
 
                 <div className="grid gap-2">
                     <Label htmlFor="joining_fee">Joining fee</Label>
-                    <Input
+                    <MoneyInput
                         id="joining_fee"
-                        type="number"
-                        min="0"
-                        step="0.01"
-                        value={data.joining_fee}
-                        onChange={(e) => setData('joining_fee', e.target.value)}
+                        currency={currency}
+                        value={
+                            data.joining_fee === ''
+                                ? null
+                                : Number(data.joining_fee)
+                        }
+                        onChange={(value) =>
+                            setData(
+                                'joining_fee',
+                                value === null ? '' : String(value),
+                            )
+                        }
                     />
                     <InputError message={errors.joining_fee} />
                 </div>
@@ -156,55 +163,6 @@ export function PlanForm({
                         <InputError message={errors.status} />
                     </div>
                 )}
-            </div>
-
-            <div className="space-y-3 rounded-xl border p-4">
-                <h3 className="text-sm font-medium">Access rules</h3>
-                <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="grid gap-2">
-                        <Label htmlFor="guest_passes_per_month">
-                            Guest passes / month
-                        </Label>
-                        <Input
-                            id="guest_passes_per_month"
-                            type="number"
-                            min="0"
-                            value={data.guest_passes_per_month}
-                            onChange={(e) =>
-                                setData(
-                                    'guest_passes_per_month',
-                                    e.target.value,
-                                )
-                            }
-                        />
-                    </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="freeze_days_allowed">
-                            Freeze days allowed
-                        </Label>
-                        <Input
-                            id="freeze_days_allowed"
-                            type="number"
-                            min="0"
-                            value={data.freeze_days_allowed}
-                            onChange={(e) =>
-                                setData('freeze_days_allowed', e.target.value)
-                            }
-                        />
-                    </div>
-                </div>
-                <div className="flex items-center gap-2">
-                    <Checkbox
-                        id="classes_included"
-                        checked={data.classes_included}
-                        onCheckedChange={(checked) =>
-                            setData('classes_included', checked === true)
-                        }
-                    />
-                    <Label htmlFor="classes_included">
-                        Group classes included
-                    </Label>
-                </div>
             </div>
 
             <div className="space-y-3 rounded-xl border p-4">

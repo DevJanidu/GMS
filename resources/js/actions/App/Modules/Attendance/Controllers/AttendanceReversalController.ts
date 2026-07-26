@@ -4,7 +4,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
  * @see app/Modules/Attendance/Controllers/AttendanceReversalController.php:18
  * @route '/api/v1/attendance/records/{attendanceRecord}/reversal'
  */
-export const store = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const store = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: store.url(args, options),
     method: 'post',
 })
@@ -19,7 +19,7 @@ store.definition = {
  * @see app/Modules/Attendance/Controllers/AttendanceReversalController.php:18
  * @route '/api/v1/attendance/records/{attendanceRecord}/reversal'
  */
-store.url = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+store.url = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { attendanceRecord: args }
     }
@@ -52,7 +52,7 @@ store.url = (args: { attendanceRecord: string | number | { id: string | number }
  * @see app/Modules/Attendance/Controllers/AttendanceReversalController.php:18
  * @route '/api/v1/attendance/records/{attendanceRecord}/reversal'
  */
-store.post = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+store.post = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: store.url(args, options),
     method: 'post',
 })
@@ -62,7 +62,7 @@ store.post = (args: { attendanceRecord: string | number | { id: string | number 
  * @see app/Modules/Attendance/Controllers/AttendanceReversalController.php:18
  * @route '/api/v1/attendance/records/{attendanceRecord}/reversal'
  */
-    const storeForm = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const storeForm = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: store.url(args, options),
         method: 'post',
     })
@@ -72,7 +72,7 @@ store.post = (args: { attendanceRecord: string | number | { id: string | number 
  * @see app/Modules/Attendance/Controllers/AttendanceReversalController.php:18
  * @route '/api/v1/attendance/records/{attendanceRecord}/reversal'
  */
-        storeForm.post = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        storeForm.post = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: store.url(args, options),
             method: 'post',
         })

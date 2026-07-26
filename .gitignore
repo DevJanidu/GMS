@@ -45,3 +45,6 @@ Thumbs.db
 
 # Playwright MCP session artifacts (screenshots, snapshots, console logs)
 .playwright-mcp/
+
+# Claude Code worktrees
+/.claude/worktrees/

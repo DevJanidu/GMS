@@ -1,8 +1,9 @@
-import { Head, Link, router } from '@inertiajs/react';
+import { Head, Link, router, usePage } from '@inertiajs/react';
 import { PlusIcon, SearchIcon } from 'lucide-react';
 import { useState } from 'react';
 import PlanController from '@/actions/App/Http/Controllers/PlanController';
 import { PaginationLinks } from '@/components/pagination-links';
+import { CurrencyDisplay } from '@/components/shared/currency-display';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -40,6 +41,8 @@ export default function PlansIndex({
     plans: Paginated<Plan>;
     filters: Filters;
 }) {
+    const { gym } = usePage().props;
+    const currency = gym?.currency ?? 'USD';
     const [search, setSearch] = useState(filters.search ?? '');
 
     function applyFilters(next: Partial<Filters>) {
@@ -146,7 +149,10 @@ export default function PlansIndex({
                                         </Link>
                                     </TableCell>
                                     <TableCell>
-                                        ${plan.price.toFixed(2)}
+                                        <CurrencyDisplay
+                                            amount={plan.price}
+                                            currency={currency}
+                                        />
                                     </TableCell>
                                     <TableCell>
                                         {plan.duration_value}{' '}

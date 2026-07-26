@@ -82,7 +82,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:54
  * @route '/api/v1/attendance/records/{attendanceRecord}'
  */
-export const show = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -97,7 +97,7 @@ show.definition = {
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:54
  * @route '/api/v1/attendance/records/{attendanceRecord}'
  */
-show.url = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+show.url = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { attendanceRecord: args }
     }
@@ -130,7 +130,7 @@ show.url = (args: { attendanceRecord: string | number | { id: string | number } 
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:54
  * @route '/api/v1/attendance/records/{attendanceRecord}'
  */
-show.get = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -139,7 +139,7 @@ show.get = (args: { attendanceRecord: string | number | { id: string | number } 
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:54
  * @route '/api/v1/attendance/records/{attendanceRecord}'
  */
-show.head = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
@@ -149,7 +149,7 @@ show.head = (args: { attendanceRecord: string | number | { id: string | number }
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:54
  * @route '/api/v1/attendance/records/{attendanceRecord}'
  */
-    const showForm = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const showForm = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: show.url(args, options),
         method: 'get',
     })
@@ -159,7 +159,7 @@ show.head = (args: { attendanceRecord: string | number | { id: string | number }
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:54
  * @route '/api/v1/attendance/records/{attendanceRecord}'
  */
-        showForm.get = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.get = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, options),
             method: 'get',
         })
@@ -168,7 +168,7 @@ show.head = (args: { attendanceRecord: string | number | { id: string | number }
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:54
  * @route '/api/v1/attendance/records/{attendanceRecord}'
  */
-        showForm.head = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.head = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -184,7 +184,7 @@ show.head = (args: { attendanceRecord: string | number | { id: string | number }
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:66
  * @route '/api/v1/attendance/records/{attendanceRecord}/checkout'
  */
-export const checkout = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const checkout = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: checkout.url(args, options),
     method: 'post',
 })
@@ -199,7 +199,7 @@ checkout.definition = {
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:66
  * @route '/api/v1/attendance/records/{attendanceRecord}/checkout'
  */
-checkout.url = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+checkout.url = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { attendanceRecord: args }
     }
@@ -232,7 +232,7 @@ checkout.url = (args: { attendanceRecord: string | number | { id: string | numbe
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:66
  * @route '/api/v1/attendance/records/{attendanceRecord}/checkout'
  */
-checkout.post = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+checkout.post = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: checkout.url(args, options),
     method: 'post',
 })
@@ -242,7 +242,7 @@ checkout.post = (args: { attendanceRecord: string | number | { id: string | numb
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:66
  * @route '/api/v1/attendance/records/{attendanceRecord}/checkout'
  */
-    const checkoutForm = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const checkoutForm = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: checkout.url(args, options),
         method: 'post',
     })
@@ -252,7 +252,7 @@ checkout.post = (args: { attendanceRecord: string | number | { id: string | numb
  * @see app/Modules/Attendance/Controllers/AttendanceRecordController.php:66
  * @route '/api/v1/attendance/records/{attendanceRecord}/checkout'
  */
-        checkoutForm.post = (args: { attendanceRecord: string | number | { id: string | number } } | [attendanceRecord: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        checkoutForm.post = (args: { attendanceRecord: number | { id: number } } | [attendanceRecord: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: checkout.url(args, options),
             method: 'post',
         })

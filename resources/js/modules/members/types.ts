@@ -46,3 +46,23 @@ export type BranchOption = {
     id: number;
     name: string;
 };
+
+export type MemberPayment = {
+    id: number;
+    payment_number: string;
+    amount_cents: number;
+    method: string;
+    paid_at: string;
+    currency: string;
+    invoice_id: number;
+    invoice_number: string;
+    receipt_id: number | null;
+};
+
+export type MemberPaymentHistory = {
+    summary: {
+        count: number;
+        total_paid_cents: number;
+    };
+    payments: MemberPayment[];
+};

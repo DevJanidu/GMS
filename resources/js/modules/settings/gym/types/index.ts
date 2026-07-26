@@ -28,4 +28,5 @@ export type GymProfileFormValues = {
     website: string;
     description: string;
     logo: File | null;
+    currency: string;
 };

@@ -1,5 +1,5 @@
 import { Head } from '@inertiajs/react';
-import { useForm } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import MembershipController from '@/actions/App/Modules/Membership/Controllers/MembershipController';
 import MembershipRenewalController from '@/actions/App/Modules/Membership/Controllers/MembershipRenewalController';
 import { PageHeader } from '@/components/shared/page-header';
@@ -14,6 +14,7 @@ import {
     SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { formatCurrency } from '@/lib/utils';
 import type { Membership, PlanOption } from '@/modules/memberships/types';
 import type { BreadcrumbItem } from '@/types';
 
@@ -24,6 +25,8 @@ export default function RenewMembership({
     membership: Membership;
     plans: PlanOption[];
 }) {
+    const { gym } = usePage().props;
+    const currency = gym?.currency ?? 'USD';
     const { data, setData, post, processing, errors } = useForm({
         plan_id: membership.plan_id ? String(membership.plan_id) : '',
         initial_payment: '',
@@ -76,9 +79,12 @@ export default function RenewMembership({
                                             key={plan.id}
                                             value={String(plan.id)}
                                         >
-                                            {plan.name} — $
-                                            {plan.price.toFixed(2)} /{' '}
-                                            {plan.duration_value}{' '}
+                                            {plan.name} —{' '}
+                                            {formatCurrency(
+                                                plan.price,
+                                                currency,
+                                            )}{' '}
+                                            / {plan.duration_value}{' '}
                                             {plan.duration_unit}
                                         </SelectItem>
                                     ))}
@@ -168,7 +174,10 @@ export default function RenewMembership({
                                             Plan price
                                         </dt>
                                         <dd>
-                                            ${selectedPlan.price.toFixed(2)}
+                                            {formatCurrency(
+                                                selectedPlan.price,
+                                                currency,
+                                            )}
                                         </dd>
                                     </div>
                                     <div className="flex justify-between">
@@ -176,15 +185,20 @@ export default function RenewMembership({
                                             Joining fee
                                         </dt>
                                         <dd>
-                                            $
-                                            {selectedPlan.joining_fee.toFixed(
-                                                2,
+                                            {formatCurrency(
+                                                selectedPlan.joining_fee,
+                                                currency,
                                             )}
                                         </dd>
                                     </div>
                                     <div className="flex justify-between border-t pt-2 font-medium">
                                         <dt>Total due</dt>
-                                        <dd>${total.toFixed(2)}</dd>
+                                        <dd>
+                                            {formatCurrency(
+                                                total,
+                                                currency,
+                                            )}
+                                        </dd>
                                     </div>
                                     <p className="pt-1 text-xs text-muted-foreground">
                                         New membership starts after{' '}

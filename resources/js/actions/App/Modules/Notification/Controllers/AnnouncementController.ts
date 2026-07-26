@@ -137,7 +137,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:43
  * @route '/api/v1/announcements/{announcement}'
  */
-export const show = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -152,7 +152,7 @@ show.definition = {
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:43
  * @route '/api/v1/announcements/{announcement}'
  */
-show.url = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+show.url = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { announcement: args }
     }
@@ -185,7 +185,7 @@ show.url = (args: { announcement: string | number | { id: string | number } } | 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:43
  * @route '/api/v1/announcements/{announcement}'
  */
-show.get = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -194,7 +194,7 @@ show.get = (args: { announcement: string | number | { id: string | number } } | 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:43
  * @route '/api/v1/announcements/{announcement}'
  */
-show.head = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
@@ -204,7 +204,7 @@ show.head = (args: { announcement: string | number | { id: string | number } } |
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:43
  * @route '/api/v1/announcements/{announcement}'
  */
-    const showForm = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const showForm = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: show.url(args, options),
         method: 'get',
     })
@@ -214,7 +214,7 @@ show.head = (args: { announcement: string | number | { id: string | number } } |
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:43
  * @route '/api/v1/announcements/{announcement}'
  */
-        showForm.get = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.get = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, options),
             method: 'get',
         })
@@ -223,7 +223,7 @@ show.head = (args: { announcement: string | number | { id: string | number } } |
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:43
  * @route '/api/v1/announcements/{announcement}'
  */
-        showForm.head = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.head = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -239,7 +239,7 @@ show.head = (args: { announcement: string | number | { id: string | number } } |
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:50
  * @route '/api/v1/announcements/{announcement}'
  */
-export const update = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -254,7 +254,7 @@ update.definition = {
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:50
  * @route '/api/v1/announcements/{announcement}'
  */
-update.url = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { announcement: args }
     }
@@ -287,7 +287,7 @@ update.url = (args: { announcement: string | number | { id: string | number } } 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:50
  * @route '/api/v1/announcements/{announcement}'
  */
-update.put = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -296,7 +296,7 @@ update.put = (args: { announcement: string | number | { id: string | number } } 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:50
  * @route '/api/v1/announcements/{announcement}'
  */
-update.patch = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -306,7 +306,7 @@ update.patch = (args: { announcement: string | number | { id: string | number } 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:50
  * @route '/api/v1/announcements/{announcement}'
  */
-    const updateForm = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -321,7 +321,7 @@ update.patch = (args: { announcement: string | number | { id: string | number } 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:50
  * @route '/api/v1/announcements/{announcement}'
  */
-        updateForm.put = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -335,7 +335,7 @@ update.patch = (args: { announcement: string | number | { id: string | number } 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:50
  * @route '/api/v1/announcements/{announcement}'
  */
-        updateForm.patch = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -351,7 +351,7 @@ update.patch = (args: { announcement: string | number | { id: string | number } 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:65
  * @route '/api/v1/announcements/{announcement}'
  */
-export const destroy = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -366,7 +366,7 @@ destroy.definition = {
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:65
  * @route '/api/v1/announcements/{announcement}'
  */
-destroy.url = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { announcement: args }
     }
@@ -399,7 +399,7 @@ destroy.url = (args: { announcement: string | number | { id: string | number } }
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:65
  * @route '/api/v1/announcements/{announcement}'
  */
-destroy.delete = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -409,7 +409,7 @@ destroy.delete = (args: { announcement: string | number | { id: string | number 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:65
  * @route '/api/v1/announcements/{announcement}'
  */
-    const destroyForm = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -424,7 +424,7 @@ destroy.delete = (args: { announcement: string | number | { id: string | number 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:65
  * @route '/api/v1/announcements/{announcement}'
  */
-        destroyForm.delete = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',
@@ -440,7 +440,7 @@ destroy.delete = (args: { announcement: string | number | { id: string | number 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:75
  * @route '/api/v1/announcements/{announcement}/schedule'
  */
-export const schedule = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const schedule = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: schedule.url(args, options),
     method: 'post',
 })
@@ -455,7 +455,7 @@ schedule.definition = {
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:75
  * @route '/api/v1/announcements/{announcement}/schedule'
  */
-schedule.url = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+schedule.url = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { announcement: args }
     }
@@ -488,7 +488,7 @@ schedule.url = (args: { announcement: string | number | { id: string | number } 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:75
  * @route '/api/v1/announcements/{announcement}/schedule'
  */
-schedule.post = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+schedule.post = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: schedule.url(args, options),
     method: 'post',
 })
@@ -498,7 +498,7 @@ schedule.post = (args: { announcement: string | number | { id: string | number }
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:75
  * @route '/api/v1/announcements/{announcement}/schedule'
  */
-    const scheduleForm = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const scheduleForm = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: schedule.url(args, options),
         method: 'post',
     })
@@ -508,7 +508,7 @@ schedule.post = (args: { announcement: string | number | { id: string | number }
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:75
  * @route '/api/v1/announcements/{announcement}/schedule'
  */
-        scheduleForm.post = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        scheduleForm.post = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: schedule.url(args, options),
             method: 'post',
         })
@@ -519,7 +519,7 @@ schedule.post = (args: { announcement: string | number | { id: string | number }
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:91
  * @route '/api/v1/announcements/{announcement}/cancel'
  */
-export const cancel = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const cancel = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: cancel.url(args, options),
     method: 'post',
 })
@@ -534,7 +534,7 @@ cancel.definition = {
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:91
  * @route '/api/v1/announcements/{announcement}/cancel'
  */
-cancel.url = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+cancel.url = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { announcement: args }
     }
@@ -567,7 +567,7 @@ cancel.url = (args: { announcement: string | number | { id: string | number } } 
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:91
  * @route '/api/v1/announcements/{announcement}/cancel'
  */
-cancel.post = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+cancel.post = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: cancel.url(args, options),
     method: 'post',
 })
@@ -577,7 +577,7 @@ cancel.post = (args: { announcement: string | number | { id: string | number } }
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:91
  * @route '/api/v1/announcements/{announcement}/cancel'
  */
-    const cancelForm = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const cancelForm = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: cancel.url(args, options),
         method: 'post',
     })
@@ -587,7 +587,7 @@ cancel.post = (args: { announcement: string | number | { id: string | number } }
  * @see app/Modules/Notification/Controllers/AnnouncementController.php:91
  * @route '/api/v1/announcements/{announcement}/cancel'
  */
-        cancelForm.post = (args: { announcement: string | number | { id: string | number } } | [announcement: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        cancelForm.post = (args: { announcement: number | { id: number } } | [announcement: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: cancel.url(args, options),
             method: 'post',
         })

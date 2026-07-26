@@ -8,9 +8,17 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
 import { ApiRequestError } from '@/lib/api/client';
+import { CURRENCY_OPTIONS } from '@/lib/currencies';
 import { can } from '@/lib/permissions/can';
 import { gymProfileApi } from '@/modules/settings/gym/api/gym-profile';
 import type {
@@ -30,6 +38,7 @@ const emptyValues: GymProfileFormValues = {
     website: '',
     description: '',
     logo: null,
+    currency: 'USD',
 };
 
 export function GymProfileForm() {
@@ -63,6 +72,7 @@ export function GymProfileForm() {
                     website: response.data.website ?? '',
                     description: response.data.description ?? '',
                     logo: null,
+                    currency: response.data.tenant.currency ?? 'USD',
                 });
             })
             .catch(() => setLoadError(true));
@@ -271,6 +281,39 @@ export function GymProfileForm() {
                                 }
                             />
                         </div>
+                    </div>
+
+                    <div className="grid gap-2">
+                        <Label htmlFor="currency">Currency</Label>
+                        <Select
+                            value={values.currency}
+                            onValueChange={(value) =>
+                                set('currency', value)
+                            }
+                        >
+                            <SelectTrigger id="currency" className="w-full">
+                                <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {CURRENCY_OPTIONS.map((option) => (
+                                    <SelectItem
+                                        key={option.code}
+                                        value={option.code}
+                                    >
+                                        {option.label}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                        <p className="text-xs text-muted-foreground">
+                            Used to format prices across plans, invoices, and
+                            receipts.
+                        </p>
+                        {errors.currency?.[0] && (
+                            <p className="text-sm text-destructive">
+                                {errors.currency[0]}
+                            </p>
+                        )}
                     </div>
 
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">

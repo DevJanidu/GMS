@@ -9,6 +9,7 @@ use App\Http\Resources\MemberDocumentResource;
 use App\Http\Resources\MemberResource;
 use App\Models\Branch;
 use App\Models\Member;
+use App\Modules\Membership\Resources\MembershipResource;
 use App\Services\Members\DuplicateMemberFinder;
 use App\Services\Members\MemberNumberGenerator;
 use Illuminate\Http\RedirectResponse;
@@ -116,16 +117,49 @@ class MemberController extends Controller
         return to_route('members.show', $member);
     }
 
-    public function show(Member $member): Response
+    public function show(Member $member, Request $request): Response
     {
         $this->authorize('view', $member);
 
         $member->load(['branch', 'documents.uploadedBy', 'portalAccount']);
 
+        $membership = $member->memberships()->with(['plan', 'branch'])->first();
+
+        $user = $request->user();
+        $canViewPayments = $user->hasRole('owner') || $user->hasPermission('billing.payments.view');
+
         return Inertia::render('members/show', [
             'member' => (new MemberResource($member))->resolve(),
             'documents' => MemberDocumentResource::collection($member->documents)->resolve(),
+            'membership' => $membership ? (new MembershipResource($membership))->resolve() : null,
+            'payment_history' => $canViewPayments ? $this->paymentHistoryFor($member) : null,
         ]);
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function paymentHistoryFor(Member $member): array
+    {
+        $payments = $member->payments()->with(['invoice', 'receipt'])->get();
+
+        return [
+            'summary' => [
+                'count' => $payments->count(),
+                'total_paid_cents' => $payments->sum('amount_cents'),
+            ],
+            'payments' => $payments->map(fn ($payment) => [
+                'id' => $payment->id,
+                'payment_number' => $payment->payment_number,
+                'amount_cents' => $payment->amount_cents,
+                'method' => $payment->method->value,
+                'paid_at' => $payment->paid_at->toIso8601String(),
+                'currency' => $payment->invoice->currency,
+                'invoice_id' => $payment->invoice_id,
+                'invoice_number' => $payment->invoice->invoice_number,
+                'receipt_id' => $payment->receipt?->id,
+            ])->values()->all(),
+        ];
     }
 
     public function edit(Member $member): Response

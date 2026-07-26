@@ -1,4 +1,4 @@
-import { useForm } from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import { Head } from '@inertiajs/react';
 import { useMemo, useState } from 'react';
 import MembershipController from '@/actions/App/Modules/Membership/Controllers/MembershipController';
@@ -14,6 +14,7 @@ import {
     SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { formatCurrency } from '@/lib/utils';
 import type { MemberOption, PlanOption } from '@/modules/memberships/types';
 import type { BreadcrumbItem } from '@/types';
 
@@ -25,12 +26,16 @@ const breadcrumbs: BreadcrumbItem[] = [
 export default function CreateMembership({
     members,
     plans,
+    last_created_member: lastCreatedMember,
     preselected_member_id: preselectedMemberId,
 }: {
     members: MemberOption[];
     plans: PlanOption[];
+    last_created_member: MemberOption | null;
     preselected_member_id: number | null;
 }) {
+    const { gym } = usePage().props;
+    const currency = gym?.currency ?? 'USD';
     const [memberSearch, setMemberSearch] = useState('');
 
     const { data, setData, post, processing, errors } = useForm({
@@ -51,8 +56,8 @@ export default function CreateMembership({
 
     const filteredMembers = useMemo(() => {
         if (memberSearch.trim() === '') {
-return members.slice(0, 20);
-}
+            return [];
+        }
 
         const query = memberSearch.toLowerCase();
 
@@ -117,35 +122,74 @@ return members.slice(0, 20);
                                         }
                                         placeholder="Search by name, member number or email"
                                     />
-                                    <div className="max-h-56 overflow-y-auto rounded-md border">
-                                        {filteredMembers.length === 0 && (
-                                            <p className="p-3 text-sm text-muted-foreground">
-                                                No members match your search.
-                                            </p>
-                                        )}
-                                        {filteredMembers.map((member) => (
+                                    {memberSearch.trim() === '' ? (
+                                        lastCreatedMember ? (
                                             <button
                                                 type="button"
-                                                key={member.id}
                                                 onClick={() =>
                                                     setData(
                                                         'member_id',
-                                                        String(member.id),
+                                                        String(
+                                                            lastCreatedMember.id,
+                                                        ),
                                                     )
                                                 }
-                                                className="flex w-full flex-col items-start border-b px-3 py-2 text-left text-sm last:border-b-0 hover:bg-muted"
+                                                className="flex w-full flex-col items-start rounded-md border px-3 py-2 text-left text-sm hover:bg-muted"
                                             >
+                                                <span className="text-xs font-medium text-muted-foreground">
+                                                    Just registered
+                                                </span>
                                                 <span>
-                                                    {member.full_name}
+                                                    {
+                                                        lastCreatedMember.full_name
+                                                    }
                                                 </span>
                                                 <span className="text-xs text-muted-foreground">
-                                                    {member.member_number}
-                                                    {member.email &&
-                                                        ` · ${member.email}`}
+                                                    {
+                                                        lastCreatedMember.member_number
+                                                    }
+                                                    {lastCreatedMember.email &&
+                                                        ` · ${lastCreatedMember.email}`}
                                                 </span>
                                             </button>
-                                        ))}
-                                    </div>
+                                        ) : (
+                                            <p className="p-3 text-sm text-muted-foreground">
+                                                Search by name, member number
+                                                or email to find a member.
+                                            </p>
+                                        )
+                                    ) : (
+                                        <div className="max-h-56 overflow-y-auto rounded-md border">
+                                            {filteredMembers.length === 0 && (
+                                                <p className="p-3 text-sm text-muted-foreground">
+                                                    No members match your
+                                                    search.
+                                                </p>
+                                            )}
+                                            {filteredMembers.map((member) => (
+                                                <button
+                                                    type="button"
+                                                    key={member.id}
+                                                    onClick={() =>
+                                                        setData(
+                                                            'member_id',
+                                                            String(member.id),
+                                                        )
+                                                    }
+                                                    className="flex w-full flex-col items-start border-b px-3 py-2 text-left text-sm last:border-b-0 hover:bg-muted"
+                                                >
+                                                    <span>
+                                                        {member.full_name}
+                                                    </span>
+                                                    <span className="text-xs text-muted-foreground">
+                                                        {member.member_number}
+                                                        {member.email &&
+                                                            ` · ${member.email}`}
+                                                    </span>
+                                                </button>
+                                            ))}
+                                        </div>
+                                    )}
                                 </>
                             )}
                             {errors.member_id && (
@@ -172,9 +216,12 @@ return members.slice(0, 20);
                                             key={plan.id}
                                             value={String(plan.id)}
                                         >
-                                            {plan.name} — $
-                                            {plan.price.toFixed(2)} /{' '}
-                                            {plan.duration_value}{' '}
+                                            {plan.name} —{' '}
+                                            {formatCurrency(
+                                                plan.price,
+                                                currency,
+                                            )}{' '}
+                                            / {plan.duration_value}{' '}
                                             {plan.duration_unit}
                                         </SelectItem>
                                     ))}
@@ -312,7 +359,10 @@ return members.slice(0, 20);
                                             Plan price
                                         </dt>
                                         <dd>
-                                            ${selectedPlan.price.toFixed(2)}
+                                            {formatCurrency(
+                                                selectedPlan.price,
+                                                currency,
+                                            )}
                                         </dd>
                                     </div>
                                     <div className="flex justify-between">
@@ -320,15 +370,20 @@ return members.slice(0, 20);
                                             Joining fee
                                         </dt>
                                         <dd>
-                                            $
-                                            {selectedPlan.joining_fee.toFixed(
-                                                2,
+                                            {formatCurrency(
+                                                selectedPlan.joining_fee,
+                                                currency,
                                             )}
                                         </dd>
                                     </div>
                                     <div className="flex justify-between border-t pt-2 font-medium">
                                         <dt>Total due</dt>
-                                        <dd>${total.toFixed(2)}</dd>
+                                        <dd>
+                                            {formatCurrency(
+                                                total,
+                                                currency,
+                                            )}
+                                        </dd>
                                     </div>
                                 </dl>
                             ) : (

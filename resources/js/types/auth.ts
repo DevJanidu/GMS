@@ -20,6 +20,7 @@ export type GymSummary = {
     name: string;
     description: string | null;
     logoUrl: string | null;
+    currency: string;
 } | null;
 
 /* @chisel-passkeys */

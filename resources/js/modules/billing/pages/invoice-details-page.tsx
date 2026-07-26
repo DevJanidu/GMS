@@ -1,4 +1,5 @@
 import { Head } from '@inertiajs/react';
+import { CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -152,6 +153,14 @@ export default function InvoiceDetailsPage({
                                             }
                                             onSaved={resource.reload}
                                         />
+                                    ) : resource.data.data.status ===
+                                      'paid' ? (
+                                        <div className="flex items-center gap-2 rounded-lg border border-emerald-600/30 bg-emerald-50 px-4 py-3 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400">
+                                            <CheckCircle2 className="size-5" />
+                                            <span className="text-sm font-semibold">
+                                                Fully paid
+                                            </span>
+                                        </div>
                                     ) : (
                                         <p className="text-sm text-muted-foreground">
                                             This invoice has no payable balance.

@@ -1,4 +1,4 @@
-import { Head, Link, router, useForm } from '@inertiajs/react';
+import { Head, Link, router, useForm, usePage } from '@inertiajs/react';
 import {
     Building2,
     Cake,
@@ -8,6 +8,7 @@ import {
     MapPin,
     PencilIcon,
     Phone,
+    PlusIcon,
     ShieldAlert,
     StickyNote,
     TrashIcon,
@@ -22,7 +23,9 @@ import MemberController from '@/actions/App/Http/Controllers/MemberController';
 import MemberDocumentController from '@/actions/App/Http/Controllers/MemberDocumentController';
 import MemberStatusController from '@/actions/App/Http/Controllers/MemberStatusController';
 import MemberPortalInviteController from '@/actions/App/Modules/MemberPortal/Controllers/MemberPortalInviteController';
+import MembershipController from '@/actions/App/Modules/Membership/Controllers/MembershipController';
 import { DetailRow } from '@/components/detail-row';
+import { CurrencyDisplay } from '@/components/shared/currency-display';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -41,13 +44,19 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+import { Money } from '@/modules/billing/components/money';
 import { MemberStatusBadge } from '@/modules/members/components/member-status-badge';
 import type {
     Member,
     MemberDocument,
+    MemberPaymentHistory,
     MemberPortalAccountStatus,
     MemberStatus,
 } from '@/modules/members/types';
+import { MembershipStatusBadge } from '@/modules/memberships/components/membership-status-badge';
+import type { Membership } from '@/modules/memberships/types';
+import invoices from '@/routes/billing/invoices';
+import receipts from '@/routes/billing/receipts';
 import type { BreadcrumbItem } from '@/types';
 
 const GENDER_LABELS: Record<string, string> = {
@@ -60,10 +69,17 @@ const GENDER_LABELS: Record<string, string> = {
 export default function ShowMember({
     member,
     documents,
+    membership,
+    payment_history: paymentHistory,
 }: {
     member: Member;
     documents: MemberDocument[];
+    membership: Membership | null;
+    payment_history: MemberPaymentHistory | null;
 }) {
+    const { gym } = usePage().props;
+    const currency = gym?.currency ?? 'USD';
+
     function changeStatus(status: MemberStatus) {
         router.patch(
             MemberStatusController.update.url({ member: member.id }),
@@ -285,16 +301,185 @@ export default function ShowMember({
 
                         <Card>
                             <CardHeader>
-                                <CardTitle>History</CardTitle>
+                                <CardTitle>Membership</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <p className="text-sm text-muted-foreground">
-                                    Membership and payment history will
-                                    appear here once the membership module is
-                                    available.
-                                </p>
+                                {membership ? (
+                                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                                        <div>
+                                            <div className="flex items-center gap-2">
+                                                <Link
+                                                    href={MembershipController.show.url(
+                                                        {
+                                                            membership:
+                                                                membership.id,
+                                                        },
+                                                    )}
+                                                    className="font-medium hover:underline"
+                                                >
+                                                    {membership.plan_name}
+                                                </Link>
+                                                <MembershipStatusBadge
+                                                    status={membership.status}
+                                                    inGracePeriod={
+                                                        membership.in_grace_period
+                                                    }
+                                                />
+                                            </div>
+                                            <p className="mt-1 text-sm text-muted-foreground">
+                                                <CurrencyDisplay
+                                                    amount={
+                                                        membership.plan_price
+                                                    }
+                                                    currency={currency}
+                                                />{' '}
+                                                · Expires{' '}
+                                                {membership.expires_on}
+                                            </p>
+                                        </div>
+                                        <Button variant="outline" asChild>
+                                            <Link
+                                                href={MembershipController.show.url(
+                                                    {
+                                                        membership:
+                                                            membership.id,
+                                                    },
+                                                )}
+                                            >
+                                                View membership
+                                            </Link>
+                                        </Button>
+                                    </div>
+                                ) : (
+                                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                                        <p className="text-sm text-muted-foreground">
+                                            No membership.
+                                        </p>
+                                        <Button asChild>
+                                            <Link
+                                                href={MembershipController.create.url(
+                                                    {
+                                                        query: {
+                                                            member_id:
+                                                                member.id,
+                                                        },
+                                                    },
+                                                )}
+                                            >
+                                                <PlusIcon />
+                                                Sell membership
+                                            </Link>
+                                        </Button>
+                                    </div>
+                                )}
                             </CardContent>
                         </Card>
+
+                        {paymentHistory && (
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle>Payment history</CardTitle>
+                                </CardHeader>
+                                <CardContent className="space-y-4">
+                                    <div className="flex gap-6 rounded-xl border p-4">
+                                        <div>
+                                            <p className="text-xs text-muted-foreground">
+                                                Payments made
+                                            </p>
+                                            <p className="text-lg font-semibold">
+                                                {paymentHistory.summary.count}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p className="text-xs text-muted-foreground">
+                                                Total paid
+                                            </p>
+                                            <p className="text-lg font-semibold">
+                                                <Money
+                                                    cents={
+                                                        paymentHistory.summary
+                                                            .total_paid_cents
+                                                    }
+                                                    currency={currency}
+                                                />
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="divide-y rounded-xl border">
+                                        {paymentHistory.payments.length ===
+                                            0 && (
+                                            <p className="p-4 text-sm text-muted-foreground">
+                                                No payments recorded yet.
+                                            </p>
+                                        )}
+                                        {paymentHistory.payments.map(
+                                            (payment) => (
+                                                <div
+                                                    key={payment.id}
+                                                    className="flex items-center justify-between gap-3 p-3 text-sm"
+                                                >
+                                                    <div>
+                                                        <p className="font-medium">
+                                                            <Money
+                                                                cents={
+                                                                    payment.amount_cents
+                                                                }
+                                                                currency={
+                                                                    payment.currency
+                                                                }
+                                                            />{' '}
+                                                            <span className="text-muted-foreground capitalize">
+                                                                ·{' '}
+                                                                {payment.method.replaceAll(
+                                                                    '_',
+                                                                    ' ',
+                                                                )}
+                                                            </span>
+                                                        </p>
+                                                        <p className="text-xs text-muted-foreground">
+                                                            {new Date(
+                                                                payment.paid_at,
+                                                            ).toLocaleString()}{' '}
+                                                            ·{' '}
+                                                            <Link
+                                                                href={invoices.show.url(
+                                                                    {
+                                                                        invoiceId:
+                                                                            payment.invoice_id,
+                                                                    },
+                                                                )}
+                                                                className="hover:underline"
+                                                            >
+                                                                {
+                                                                    payment.invoice_number
+                                                                }
+                                                            </Link>
+                                                            {payment.receipt_id && (
+                                                                <>
+                                                                    {' · '}
+                                                                    <Link
+                                                                        href={receipts.show.url(
+                                                                            {
+                                                                                receiptId:
+                                                                                    payment.receipt_id,
+                                                                            },
+                                                                        )}
+                                                                        className="hover:underline"
+                                                                    >
+                                                                        Receipt
+                                                                    </Link>
+                                                                </>
+                                                            )}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            ),
+                                        )}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        )}
                     </div>
 
                     <div className="lg:col-span-1 space-y-6">

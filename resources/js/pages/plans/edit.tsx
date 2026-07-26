@@ -1,4 +1,4 @@
-import { Head, Link, router, useForm } from '@inertiajs/react';
+import { Head, Link, router, useForm, usePage } from '@inertiajs/react';
 import { CopyIcon } from 'lucide-react';
 import type { FormEvent } from 'react';
 import PlanCloneController from '@/actions/App/Http/Controllers/PlanCloneController';
@@ -16,6 +16,8 @@ export default function EditPlan({
     plan: Plan;
     branches: BranchOption[];
 }) {
+    const { gym } = usePage().props;
+    const currency = gym?.currency ?? 'USD';
     const form = useForm<PlanFormData>({
         name: plan.name,
         description: plan.description ?? '',
@@ -23,15 +25,6 @@ export default function EditPlan({
         joining_fee: String(plan.joining_fee),
         duration_value: String(plan.duration_value),
         duration_unit: plan.duration_unit,
-        guest_passes_per_month:
-            plan.access_rules.guest_passes_per_month != null
-                ? String(plan.access_rules.guest_passes_per_month)
-                : '',
-        freeze_days_allowed:
-            plan.access_rules.freeze_days_allowed != null
-                ? String(plan.access_rules.freeze_days_allowed)
-                : '',
-        classes_included: plan.access_rules.classes_included ?? false,
         available_at_all_branches: plan.available_at_all_branches,
         branch_ids: plan.branches?.map((branch) => branch.id) ?? [],
         status: plan.status,
@@ -39,17 +32,6 @@ export default function EditPlan({
 
     function submit(e: FormEvent) {
         e.preventDefault();
-        form.transform((current) => ({
-            ...current,
-            guest_passes_per_month: undefined,
-            freeze_days_allowed: undefined,
-            classes_included: undefined,
-            access_rules: {
-                guest_passes_per_month: current.guest_passes_per_month || null,
-                freeze_days_allowed: current.freeze_days_allowed || null,
-                classes_included: current.classes_included,
-            },
-        }));
         form.put(PlanController.update.url({ plan: plan.id }));
     }
 
@@ -68,7 +50,7 @@ export default function EditPlan({
                             Edit {plan.name}
                         </h1>
                         <p className="text-sm text-muted-foreground">
-                            Update pricing, duration and access rules.
+                            Update pricing, duration and branch availability.
                         </p>
                     </div>
                     <Button variant="outline" onClick={cloneplan} type="button">
@@ -78,7 +60,11 @@ export default function EditPlan({
                 </div>
 
                 <form onSubmit={submit} className="space-y-6">
-                    <PlanForm form={form} branches={branches} />
+                    <PlanForm
+                        form={form}
+                        branches={branches}
+                        currency={currency}
+                    />
 
                     <div className="flex items-center gap-3">
                         <Button type="submit" disabled={form.processing}>

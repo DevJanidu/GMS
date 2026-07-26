@@ -25,7 +25,7 @@ class GymProfileController extends Controller
     public function update(UpdateGymProfileRequest $request): JsonResponse
     {
         $profile = $this->profileFor($request);
-        $data = collect($request->validated())->except('logo')->all();
+        $data = collect($request->validated())->except(['logo', 'currency'])->all();
 
         if ($request->hasFile('logo')) {
             if ($profile->logo_path) {
@@ -36,6 +36,10 @@ class GymProfileController extends Controller
         }
 
         $profile->update($data);
+
+        if ($request->validated('currency')) {
+            $profile->tenant?->update(['currency' => $request->validated('currency')]);
+        }
 
         return ApiResponse::success(
             (new GymProfileResource($profile->load('tenant')))->resolve(),

@@ -1,4 +1,4 @@
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Head, Link, useForm, usePage } from '@inertiajs/react';
 import type { FormEvent } from 'react';
 import PlanController from '@/actions/App/Http/Controllers/PlanController';
 import { Button } from '@/components/ui/button';
@@ -13,6 +13,8 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function CreatePlan({ branches }: { branches: BranchOption[] }) {
+    const { gym } = usePage().props;
+    const currency = gym?.currency ?? 'USD';
     const form = useForm<PlanFormData>({
         name: '',
         description: '',
@@ -20,9 +22,6 @@ export default function CreatePlan({ branches }: { branches: BranchOption[] }) {
         joining_fee: '0',
         duration_value: '1',
         duration_unit: 'months',
-        guest_passes_per_month: '',
-        freeze_days_allowed: '',
-        classes_included: false,
         available_at_all_branches: true,
         branch_ids: [],
         status: 'active',
@@ -30,21 +29,6 @@ export default function CreatePlan({ branches }: { branches: BranchOption[] }) {
 
     function submit(e: FormEvent) {
         e.preventDefault();
-        form.transform(
-            ({
-                guest_passes_per_month,
-                freeze_days_allowed,
-                classes_included,
-                ...rest
-            }) => ({
-                ...rest,
-                access_rules: {
-                    guest_passes_per_month: guest_passes_per_month || null,
-                    freeze_days_allowed: freeze_days_allowed || null,
-                    classes_included,
-                },
-            }),
-        );
         form.post(PlanController.store.url());
     }
 
@@ -58,12 +42,16 @@ export default function CreatePlan({ branches }: { branches: BranchOption[] }) {
                         Create plan
                     </h1>
                     <p className="text-sm text-muted-foreground">
-                        Define pricing, duration and access rules.
+                        Define pricing, duration and branch availability.
                     </p>
                 </div>
 
                 <form onSubmit={submit} className="space-y-6">
-                    <PlanForm form={form} branches={branches} />
+                    <PlanForm
+                        form={form}
+                        branches={branches}
+                        currency={currency}
+                    />
 
                     <div className="flex items-center gap-3">
                         <Button type="submit" disabled={form.processing}>

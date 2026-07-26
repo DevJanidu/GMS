@@ -1,18 +1,11 @@
-import { Head, Link, router } from '@inertiajs/react';
-import {
-    Building2,
-    Clock,
-    CopyIcon,
-    Dumbbell,
-    Gift,
-    PauseCircle,
-    PencilIcon,
-} from 'lucide-react';
+import { Head, Link, router, usePage } from '@inertiajs/react';
+import { Building2, Clock, CopyIcon, PencilIcon } from 'lucide-react';
+import type { ReactNode } from 'react';
 import PlanCloneController from '@/actions/App/Http/Controllers/PlanCloneController';
 import PlanController from '@/actions/App/Http/Controllers/PlanController';
 import PlanStatusController from '@/actions/App/Http/Controllers/PlanStatusController';
 import { DetailRow } from '@/components/detail-row';
-import { Badge } from '@/components/ui/badge';
+import { CurrencyDisplay } from '@/components/shared/currency-display';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -33,6 +26,9 @@ import type { Plan } from '@/modules/plans/types';
 import type { BreadcrumbItem } from '@/types';
 
 export default function ShowPlan({ plan }: { plan: Plan }) {
+    const { gym } = usePage().props;
+    const currency = gym?.currency ?? 'USD';
+
     function toggleStatus() {
         router.patch(
             PlanStatusController.update.url({ plan: plan.id }),
@@ -94,10 +90,23 @@ export default function ShowPlan({ plan }: { plan: Plan }) {
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-3">
-                    <Stat label="Price" value={`$${plan.price.toFixed(2)}`} />
+                    <Stat
+                        label="Price"
+                        value={
+                            <CurrencyDisplay
+                                amount={plan.price}
+                                currency={currency}
+                            />
+                        }
+                    />
                     <Stat
                         label="Joining fee"
-                        value={`$${plan.joining_fee.toFixed(2)}`}
+                        value={
+                            <CurrencyDisplay
+                                amount={plan.joining_fee}
+                                currency={currency}
+                            />
+                        }
                     />
                     <Stat
                         label="Duration"
@@ -141,16 +150,24 @@ export default function ShowPlan({ plan }: { plan: Plan }) {
                                             (entry) => (
                                                 <TableRow key={entry.id}>
                                                     <TableCell>
-                                                        $
-                                                        {entry.price.toFixed(
-                                                            2,
-                                                        )}
+                                                        <CurrencyDisplay
+                                                            amount={
+                                                                entry.price
+                                                            }
+                                                            currency={
+                                                                currency
+                                                            }
+                                                        />
                                                     </TableCell>
                                                     <TableCell>
-                                                        $
-                                                        {entry.joining_fee.toFixed(
-                                                            2,
-                                                        )}
+                                                        <CurrencyDisplay
+                                                            amount={
+                                                                entry.joining_fee
+                                                            }
+                                                            currency={
+                                                                currency
+                                                            }
+                                                        />
                                                     </TableCell>
                                                     <TableCell>
                                                         {entry.effective_from}
@@ -184,55 +201,6 @@ export default function ShowPlan({ plan }: { plan: Plan }) {
                                     label="Duration"
                                     value={`${plan.duration_value} ${plan.duration_unit}`}
                                 />
-                                <DetailRow
-                                    icon={<Gift className="size-4" />}
-                                    label="Guest passes per month"
-                                    value={
-                                        plan.access_rules
-                                            .guest_passes_per_month != null
-                                            ? String(
-                                                  plan.access_rules
-                                                      .guest_passes_per_month,
-                                              )
-                                            : null
-                                    }
-                                />
-                                <DetailRow
-                                    icon={<PauseCircle className="size-4" />}
-                                    label="Freeze days allowed"
-                                    value={
-                                        plan.access_rules
-                                            .freeze_days_allowed != null
-                                            ? String(
-                                                  plan.access_rules
-                                                      .freeze_days_allowed,
-                                              )
-                                            : null
-                                    }
-                                />
-                                <div className="flex items-start gap-3 text-sm">
-                                    <span className="mt-0.5 shrink-0 text-muted-foreground">
-                                        <Dumbbell className="size-4" />
-                                    </span>
-                                    <div className="min-w-0">
-                                        <p className="text-xs text-muted-foreground">
-                                            Classes included
-                                        </p>
-                                        <Badge
-                                            variant={
-                                                plan.access_rules
-                                                    .classes_included
-                                                    ? 'secondary'
-                                                    : 'outline'
-                                            }
-                                        >
-                                            {plan.access_rules
-                                                .classes_included
-                                                ? 'Included'
-                                                : 'Not included'}
-                                        </Badge>
-                                    </div>
-                                </div>
                             </CardContent>
                         </Card>
                     </div>
@@ -242,7 +210,7 @@ export default function ShowPlan({ plan }: { plan: Plan }) {
     );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function Stat({ label, value }: { label: string; value: ReactNode }) {
     return (
         <div className="rounded-xl border p-4">
             <p className="text-xs text-muted-foreground">{label}</p>

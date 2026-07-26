@@ -58,6 +58,12 @@ class MembershipController extends Controller
     {
         $this->authorize('sell', Membership::class);
 
+        $lastCreatedMember = Member::query()
+            ->where('status', 'active')
+            ->where('created_at', '>=', now()->subDay())
+            ->latest('created_at')
+            ->first(['id', 'member_number', 'first_name', 'last_name', 'email']);
+
         return Inertia::render('memberships/create', [
             'members' => Member::query()
                 ->where('status', 'active')
@@ -70,6 +76,12 @@ class MembershipController extends Controller
                     'full_name' => $member->fullName(),
                     'email' => $member->email,
                 ]),
+            'last_created_member' => $lastCreatedMember ? [
+                'id' => $lastCreatedMember->id,
+                'member_number' => $lastCreatedMember->member_number,
+                'full_name' => $lastCreatedMember->fullName(),
+                'email' => $lastCreatedMember->email,
+            ] : null,
             'plans' => Plan::query()
                 ->where('status', 'active')
                 ->orderBy('name')

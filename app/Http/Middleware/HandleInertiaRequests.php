@@ -76,6 +76,7 @@ class HandleInertiaRequests extends Middleware
             'logoUrl' => $profile?->logo_path
                 ? Storage::disk('public')->url($profile->logo_path)
                 : null,
+            'currency' => $user->tenant?->currency ?? 'USD',
         ];
     }
 }

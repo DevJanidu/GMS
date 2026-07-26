@@ -137,7 +137,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:41
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-export const show = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -152,7 +152,7 @@ show.definition = {
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:41
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-show.url = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+show.url = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { notification_rule: args }
     }
@@ -185,7 +185,7 @@ show.url = (args: { notification_rule: string | number | { id: string | number }
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:41
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-show.get = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -194,7 +194,7 @@ show.get = (args: { notification_rule: string | number | { id: string | number }
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:41
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-show.head = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
@@ -204,7 +204,7 @@ show.head = (args: { notification_rule: string | number | { id: string | number 
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:41
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-    const showForm = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const showForm = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: show.url(args, options),
         method: 'get',
     })
@@ -214,7 +214,7 @@ show.head = (args: { notification_rule: string | number | { id: string | number 
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:41
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-        showForm.get = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.get = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, options),
             method: 'get',
         })
@@ -223,7 +223,7 @@ show.head = (args: { notification_rule: string | number | { id: string | number 
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:41
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-        showForm.head = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.head = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -239,7 +239,7 @@ show.head = (args: { notification_rule: string | number | { id: string | number 
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:48
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-export const update = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -254,7 +254,7 @@ update.definition = {
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:48
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-update.url = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+update.url = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { notification_rule: args }
     }
@@ -287,7 +287,7 @@ update.url = (args: { notification_rule: string | number | { id: string | number
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:48
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-update.put = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -296,7 +296,7 @@ update.put = (args: { notification_rule: string | number | { id: string | number
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:48
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-update.patch = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -306,7 +306,7 @@ update.patch = (args: { notification_rule: string | number | { id: string | numb
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:48
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-    const updateForm = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -321,7 +321,7 @@ update.patch = (args: { notification_rule: string | number | { id: string | numb
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:48
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-        updateForm.put = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -335,7 +335,7 @@ update.patch = (args: { notification_rule: string | number | { id: string | numb
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:48
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-        updateForm.patch = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -351,7 +351,7 @@ update.patch = (args: { notification_rule: string | number | { id: string | numb
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:61
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-export const destroy = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -366,7 +366,7 @@ destroy.definition = {
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:61
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-destroy.url = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { notification_rule: args }
     }
@@ -399,7 +399,7 @@ destroy.url = (args: { notification_rule: string | number | { id: string | numbe
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:61
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-destroy.delete = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -409,7 +409,7 @@ destroy.delete = (args: { notification_rule: string | number | { id: string | nu
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:61
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-    const destroyForm = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -424,7 +424,7 @@ destroy.delete = (args: { notification_rule: string | number | { id: string | nu
  * @see app/Modules/Notification/Controllers/NotificationRuleController.php:61
  * @route '/api/v1/notification-rules/{notification_rule}'
  */
-        destroyForm.delete = (args: { notification_rule: string | number | { id: string | number } } | [notification_rule: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { notification_rule: number | { id: number } } | [notification_rule: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',

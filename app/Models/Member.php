@@ -4,6 +4,9 @@ namespace App\Models;
 
 use App\Enums\MemberStatus;
 use App\Models\Concerns\BelongsToTenant;
+use App\Modules\Billing\Models\Invoice;
+use App\Modules\Billing\Models\Payment;
+use App\Modules\Membership\Models\Membership;
 use App\Modules\MemberPortal\Models\MemberPortalAccount;
 use Carbon\CarbonImmutable;
 use Database\Factories\MemberFactory;
@@ -12,6 +15,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Storage;
 
@@ -86,6 +90,30 @@ class Member extends Model
     public function portalAccount(): HasOne
     {
         return $this->hasOne(MemberPortalAccount::class);
+    }
+
+    /**
+     * @return HasMany<Membership, $this>
+     */
+    public function memberships(): HasMany
+    {
+        return $this->hasMany(Membership::class)->latest('sold_at');
+    }
+
+    /**
+     * @return HasMany<Invoice, $this>
+     */
+    public function invoices(): HasMany
+    {
+        return $this->hasMany(Invoice::class);
+    }
+
+    /**
+     * @return HasManyThrough<Payment, Invoice, $this>
+     */
+    public function payments(): HasManyThrough
+    {
+        return $this->hasManyThrough(Payment::class, Invoice::class)->latest('paid_at');
     }
 
     public function fullName(): string
