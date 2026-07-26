@@ -1,5 +1,14 @@
 export type MemberStatus = 'active' | 'inactive' | 'archived';
 
+export type MemberPortalAccountStatus = 'invited' | 'active' | 'suspended';
+
+export type MemberPortalAccountSummary = {
+    status: MemberPortalAccountStatus;
+    invited_at: string | null;
+    activated_at: string | null;
+    last_login_at: string | null;
+};
+
 export type Member = {
     id: number;
     member_number: string;
@@ -19,6 +28,7 @@ export type Member = {
     joined_at: string | null;
     archived_at: string | null;
     branch: { id: number; name: string } | null;
+    portal_account: MemberPortalAccountSummary | null;
     created_at: string;
 };
 

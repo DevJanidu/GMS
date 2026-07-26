@@ -160,7 +160,7 @@ unreadCount.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
  * @see app/Modules/Notification/Controllers/NotificationCenterController.php:29
  * @route '/api/v1/notifications/{notification}/read'
  */
-export const read = (args: { notification: string | { id: string } } | [notification: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+export const read = (args: { notification: string | number | { id: string | number } } | [notification: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: read.url(args, options),
     method: 'patch',
 })
@@ -175,7 +175,7 @@ read.definition = {
  * @see app/Modules/Notification/Controllers/NotificationCenterController.php:29
  * @route '/api/v1/notifications/{notification}/read'
  */
-read.url = (args: { notification: string | { id: string } } | [notification: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions) => {
+read.url = (args: { notification: string | number | { id: string | number } } | [notification: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { notification: args }
     }
@@ -208,7 +208,7 @@ read.url = (args: { notification: string | { id: string } } | [notification: str
  * @see app/Modules/Notification/Controllers/NotificationCenterController.php:29
  * @route '/api/v1/notifications/{notification}/read'
  */
-read.patch = (args: { notification: string | { id: string } } | [notification: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+read.patch = (args: { notification: string | number | { id: string | number } } | [notification: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: read.url(args, options),
     method: 'patch',
 })
@@ -218,7 +218,7 @@ read.patch = (args: { notification: string | { id: string } } | [notification: s
  * @see app/Modules/Notification/Controllers/NotificationCenterController.php:29
  * @route '/api/v1/notifications/{notification}/read'
  */
-    const readForm = (args: { notification: string | { id: string } } | [notification: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const readForm = (args: { notification: string | number | { id: string | number } } | [notification: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: read.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PATCH',
@@ -233,7 +233,7 @@ read.patch = (args: { notification: string | { id: string } } | [notification: s
  * @see app/Modules/Notification/Controllers/NotificationCenterController.php:29
  * @route '/api/v1/notifications/{notification}/read'
  */
-        readForm.patch = (args: { notification: string | { id: string } } | [notification: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        readForm.patch = (args: { notification: string | number | { id: string | number } } | [notification: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: read.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -249,7 +249,7 @@ read.patch = (args: { notification: string | { id: string } } | [notification: s
  * @see app/Modules/Notification/Controllers/NotificationCenterController.php:37
  * @route '/api/v1/notifications/{notification}/unread'
  */
-export const unread = (args: { notification: string | { id: string } } | [notification: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+export const unread = (args: { notification: string | number | { id: string | number } } | [notification: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: unread.url(args, options),
     method: 'patch',
 })
@@ -264,7 +264,7 @@ unread.definition = {
  * @see app/Modules/Notification/Controllers/NotificationCenterController.php:37
  * @route '/api/v1/notifications/{notification}/unread'
  */
-unread.url = (args: { notification: string | { id: string } } | [notification: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions) => {
+unread.url = (args: { notification: string | number | { id: string | number } } | [notification: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { notification: args }
     }
@@ -297,7 +297,7 @@ unread.url = (args: { notification: string | { id: string } } | [notification: s
  * @see app/Modules/Notification/Controllers/NotificationCenterController.php:37
  * @route '/api/v1/notifications/{notification}/unread'
  */
-unread.patch = (args: { notification: string | { id: string } } | [notification: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+unread.patch = (args: { notification: string | number | { id: string | number } } | [notification: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: unread.url(args, options),
     method: 'patch',
 })
@@ -307,7 +307,7 @@ unread.patch = (args: { notification: string | { id: string } } | [notification:
  * @see app/Modules/Notification/Controllers/NotificationCenterController.php:37
  * @route '/api/v1/notifications/{notification}/unread'
  */
-    const unreadForm = (args: { notification: string | { id: string } } | [notification: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const unreadForm = (args: { notification: string | number | { id: string | number } } | [notification: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: unread.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PATCH',
@@ -322,7 +322,7 @@ unread.patch = (args: { notification: string | { id: string } } | [notification:
  * @see app/Modules/Notification/Controllers/NotificationCenterController.php:37
  * @route '/api/v1/notifications/{notification}/unread'
  */
-        unreadForm.patch = (args: { notification: string | { id: string } } | [notification: string | { id: string } ] | string | { id: string }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        unreadForm.patch = (args: { notification: string | number | { id: string | number } } | [notification: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: unread.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',

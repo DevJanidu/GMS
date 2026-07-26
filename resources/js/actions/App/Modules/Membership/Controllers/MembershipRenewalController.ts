@@ -103,7 +103,7 @@ create.head = (args: { membership: number | { id: number } } | [membership: numb
     create.form = createForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::store
- * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:32
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:44
  * @route '/memberships/{membership}/renew'
  */
 export const store = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -118,7 +118,7 @@ store.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::store
- * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:32
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:44
  * @route '/memberships/{membership}/renew'
  */
 store.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -151,7 +151,7 @@ store.url = (args: { membership: number | { id: number } } | [membership: number
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::store
- * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:32
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:44
  * @route '/memberships/{membership}/renew'
  */
 store.post = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -161,7 +161,7 @@ store.post = (args: { membership: number | { id: number } } | [membership: numbe
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::store
- * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:32
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:44
  * @route '/memberships/{membership}/renew'
  */
     const storeForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -171,7 +171,7 @@ store.post = (args: { membership: number | { id: number } } | [membership: numbe
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipRenewalController::store
- * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:32
+ * @see app/Modules/Membership/Controllers/MembershipRenewalController.php:44
  * @route '/memberships/{membership}/renew'
  */
         storeForm.post = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

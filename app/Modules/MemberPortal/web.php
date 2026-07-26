@@ -1,7 +1,16 @@
 <?php
 
+use App\Modules\MemberPortal\Controllers\MemberPortalInvitationController;
 use App\Modules\MemberPortal\Middleware\EnsureMemberPortalAccess;
 use Illuminate\Support\Facades\Route;
+
+// GET and POST share this exact path (no /api/v1 prefix) because a signed
+// URL's signature is bound to one specific path — a link generated for
+// this route wouldn't validate against a differently-prefixed API route.
+Route::get('member-portal/invitations/{user}/accept', [MemberPortalInvitationController::class, 'show'])
+    ->name('member-portal.invitations.accept-page');
+Route::post('member-portal/invitations/{user}/accept', [MemberPortalInvitationController::class, 'accept'])
+    ->name('member-portal.invitations.accept');
 
 Route::middleware(['auth', 'verified', 'tenant', EnsureMemberPortalAccess::class])
     ->prefix('member-portal')

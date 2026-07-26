@@ -505,6 +505,85 @@ update.put = (args: { member: number | { id: number } } | [member: number | { id
         })
     
     update.form = updateForm
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalInviteController::portalInvite
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalInviteController.php:19
+ * @route '/members/{member}/portal-invite'
+ */
+export const portalInvite = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: portalInvite.url(args, options),
+    method: 'post',
+})
+
+portalInvite.definition = {
+    methods: ["post"],
+    url: '/members/{member}/portal-invite',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalInviteController::portalInvite
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalInviteController.php:19
+ * @route '/members/{member}/portal-invite'
+ */
+portalInvite.url = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { member: args }
+    }
+
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { member: args.id }
+        }
+    
+    if (Array.isArray(args)) {
+        args = {
+                    member: args[0],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        member: typeof args.member === 'object'
+                ? args.member.id
+                : args.member,
+                }
+
+    return portalInvite.definition.url
+            .replace('{member}', parsedArgs.member.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalInviteController::portalInvite
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalInviteController.php:19
+ * @route '/members/{member}/portal-invite'
+ */
+portalInvite.post = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: portalInvite.url(args, options),
+    method: 'post',
+})
+
+    /**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalInviteController::portalInvite
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalInviteController.php:19
+ * @route '/members/{member}/portal-invite'
+ */
+    const portalInviteForm = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: portalInvite.url(args, options),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Modules\MemberPortal\Controllers\MemberPortalInviteController::portalInvite
+ * @see app/Modules/MemberPortal/Controllers/MemberPortalInviteController.php:19
+ * @route '/members/{member}/portal-invite'
+ */
+        portalInviteForm.post = (args: { member: number | { id: number } } | [member: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: portalInvite.url(args, options),
+            method: 'post',
+        })
+    
+    portalInvite.form = portalInviteForm
 const members = {
     index: Object.assign(index, index),
 create: Object.assign(create, create),
@@ -514,6 +593,7 @@ edit: Object.assign(edit, edit),
 update: Object.assign(update, update),
 status: Object.assign(status, status),
 documents: Object.assign(documents, documents),
+portalInvite: Object.assign(portalInvite, portalInvite),
 }
 
 export default members

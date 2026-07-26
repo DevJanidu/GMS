@@ -1,5 +1,8 @@
 import type { InertiaFormProps } from '@inertiajs/react';
+import { ImagePlus, X } from 'lucide-react';
+import { useRef } from 'react';
 import InputError from '@/components/input-error';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
@@ -36,6 +39,7 @@ export function MemberForm({
     branches: BranchOption[];
 }) {
     const { data, setData, errors } = form;
+    const photoInputRef = useRef<HTMLInputElement>(null);
 
     return (
         <div className="space-y-6">
@@ -203,15 +207,42 @@ export function MemberForm({
             </div>
 
             <div className="grid gap-2">
-                <Label htmlFor="photo">Photo</Label>
+                <Label>Photo</Label>
+                <div className="flex items-center gap-2">
+                    <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => photoInputRef.current?.click()}
+                    >
+                        <ImagePlus className="size-4" />
+                        Profile Photo
+                    </Button>
+                    {data.photo && (
+                        <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => setData('photo', null)}
+                        >
+                            <X className="size-4" />
+                            Remove
+                        </Button>
+                    )}
+                </div>
                 <Input
                     id="photo"
+                    ref={photoInputRef}
                     type="file"
                     accept="image/*"
+                    className="sr-only!"
                     onChange={(e) =>
                         setData('photo', e.target.files?.[0] ?? null)
                     }
                 />
+                <p className="text-xs text-muted-foreground">
+                    PNG or JPG, up to 4MB.
+                </p>
                 <InputError message={errors.photo} />
             </div>
         </div>

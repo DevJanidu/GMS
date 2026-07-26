@@ -149,3 +149,24 @@ it('removes a staff member', function () {
 
     expect(User::find($staff->id))->toBeNull();
 });
+
+it('serialises a staff member roles as a plain array, not a wrapped collection', function () {
+    // Regression: RoleResource::collection(...) nested inside StaffResource's
+    // own toArray() serializes as {"data": [...]} once JSON-encoded outside
+    // a top-level resource response, but the frontend expects roles to be a
+    // plain array and indexes it directly (roles[0], roles.map(...)).
+    $tenant = Tenant::factory()->create();
+    $roleA = Role::factory()->create(['tenant_id' => $tenant->id]);
+    $roleB = Role::factory()->create(['tenant_id' => $tenant->id]);
+    $staff = User::factory()->create(['tenant_id' => $tenant->id]);
+    $staff->roles()->attach([$roleA->id, $roleB->id]);
+    $manager = $this->userWithPermissions($tenant, ['staff.view']);
+
+    $response = $this->actingAs($manager)->getJson("/api/v1/staff/{$staff->id}");
+
+    $response->assertOk();
+    expect($response->json('data.roles'))->toBeArray();
+    $response->assertJsonCount(2, 'data.roles');
+    expect(collect($response->json('data.roles'))->pluck('id'))
+        ->toContain($roleA->id, $roleB->id);
+});

@@ -21,7 +21,14 @@ class RoleResource extends JsonResource
             'is_system' => $this->is_system,
             'is_custom' => $this->tenant_id !== null,
             'users_count' => $this->whenCounted('users'),
-            'permissions' => PermissionResource::collection($this->whenLoaded('permissions')),
+            // Not PermissionResource::collection(...) — nested inside
+            // another resource's toArray(), it serializes as
+            // {"data": [...]} once it reaches Inertia's response, but the
+            // frontend expects a plain array.
+            'permissions' => $this->whenLoaded('permissions', fn () => $this->permissions
+                ->map(fn ($permission) => (new PermissionResource($permission))->resolve())
+                ->values()
+                ->all()),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

@@ -37,6 +37,7 @@ export type PortalDashboard = {
     outstanding_balance_cents: number;
     attendance_count: number;
     unread_notification_count: number;
+    attendance_trend: { date: string; visits: number }[];
 };
 
 export type PortalQrCard = {

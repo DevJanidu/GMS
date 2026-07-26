@@ -1,5 +1,5 @@
 import { Form, Head } from '@inertiajs/react';
-import { Lock, Mail } from 'lucide-react';
+import { Lock, Mail, TriangleAlert } from 'lucide-react';
 import InputError from '@/components/input-error';
 import PasswordInput from '@/components/password-input';
 import TextLink from '@/components/text-link';
@@ -29,6 +29,13 @@ export default function Login({ status, canResetPassword }: Props) {
                 {({ processing, errors }) => (
                     <>
                         <div className="grid gap-6">
+                            {errors.email && (
+                                <div className="flex items-start gap-3 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+                                    <TriangleAlert className="mt-0.5 size-4 shrink-0" />
+                                    <span>{errors.email}</span>
+                                </div>
+                            )}
+
                             <div className="grid gap-2">
                                 <Label
                                     htmlFor="email"
@@ -50,7 +57,6 @@ export default function Login({ status, canResetPassword }: Props) {
                                         className="h-12 border-white/15 bg-white/5 pl-12 text-base text-white placeholder:text-white/40"
                                     />
                                 </div>
-                                <InputError message={errors.email} />
                             </div>
 
                             <div className="grid gap-2">

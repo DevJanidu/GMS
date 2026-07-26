@@ -35,16 +35,17 @@ export default function MemberPortalNotificationsPage() {
     return (
         <>
             <Head title="Notifications" />
-            <div className="flex flex-wrap items-end justify-between gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
                 <PortalPageHeader
                     title="Notifications"
                     description="Membership, payment and gym updates sent to your account."
                 />
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-between gap-2 sm:justify-end">
                     <UnreadCounter count={unread} />
                     <Button
                         variant="outline"
                         size="sm"
+                        className="min-h-9"
                         disabled={updating || unread === 0}
                         onClick={() =>
                             update(memberPortalApi.markAllNotificationsRead)

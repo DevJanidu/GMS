@@ -145,6 +145,9 @@ export default function MemberPortalProfilePage() {
                                     <Label htmlFor="phone">Phone</Label>
                                     <Input
                                         id="phone"
+                                        type="tel"
+                                        inputMode="tel"
+                                        autoComplete="tel"
                                         value={form.phone ?? ''}
                                         onChange={(event) =>
                                             field('phone', event.target.value)
@@ -174,6 +177,9 @@ export default function MemberPortalProfilePage() {
                                     </Label>
                                     <Input
                                         id="emergency_contact_phone"
+                                        type="tel"
+                                        inputMode="tel"
+                                        autoComplete="tel"
                                         value={
                                             form.emergency_contact_phone ?? ''
                                         }

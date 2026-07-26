@@ -22,6 +22,16 @@ export type ReportResult = {
     };
 };
 
+export type BackendReportExport = {
+    id: string | number;
+    report_key: string;
+    status: 'queued' | 'processing' | 'completed' | 'failed' | 'expired';
+    file_name: string | null;
+    download_url: string | null;
+    expires_at: string | null;
+    failure_reason: string | null;
+};
+
 export const reportsApi = {
     catalogue: () =>
         apiClient.get<ApiSuccess<ReportCatalogueItem[]>>('/reports/catalogue'),
@@ -35,4 +45,11 @@ export const reportsApi = {
         apiClient.get<ApiSuccess<Record<string, unknown>>>(
             `/reports/dashboard/operational${query}`,
         ),
+    createExport: (payload: Record<string, unknown>) =>
+        apiClient.post<ApiSuccess<BackendReportExport>>(
+            '/report-exports',
+            payload,
+        ),
+    getExport: (id: string | number) =>
+        apiClient.get<ApiSuccess<BackendReportExport>>(`/report-exports/${id}`),
 };

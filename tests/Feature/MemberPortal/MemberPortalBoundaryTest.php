@@ -140,14 +140,20 @@ class MemberPortalBoundaryTest extends TestCase
         $member = Member::factory()->for($tenant)->create();
         $this->activePortalAccount($tenant, $user, $member);
 
-        $this->actingAs($user)
+        $response = $this->actingAs($user)
             ->getJson('/api/v1/member-portal/qr-card')
             ->assertOk()
-            ->assertJsonPath('data.status', 'unavailable')
-            ->assertJsonPath('data.qr_payload', null)
-            ->assertJsonPath('data.credential_id', null)
+            ->assertJsonPath('data.status', 'ready')
             ->assertJsonMissingPath('data.token_hash')
             ->assertJsonMissingPath('data.secret');
+
+        // The signed token and public credential id are the safe, intended
+        // payload (that's what the member's QR image encodes and what
+        // front-desk scans) — only the stored hash/signing key must never
+        // appear in the response.
+        $this->assertIsString($response->json('data.qr_payload'));
+        $this->assertIsString($response->json('data.credential_id'));
+        $this->assertStringStartsWith('data:image/svg+xml;base64,', $response->json('data.qr_image_data_url'));
     }
 
     public function test_it_prevents_nested_receipt_idor(): void

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Actions\Fortify\CreateNewUser;
+use App\Actions\Fortify\MemberPortalLoginResponse;
 use App\Actions\Fortify\ResetUserPassword;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
@@ -10,8 +11,9 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
-use Laravel\Fortify\Features;
+use Laravel\Fortify\Contracts\LoginResponse;
 use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -21,7 +23,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(LoginResponse::class, MemberPortalLoginResponse::class);
     }
 
     /**
@@ -83,7 +85,22 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
 
-            return Limit::perMinute(5)->by($throttleKey);
+            // Without a response callback the throttle middleware aborts with
+            // a bare 429 ThrottleRequestsException. Inertia can't render that
+            // into the login page, so the form silently does nothing — and
+            // because the lockout also rejects *correct* credentials, it
+            // looks like login itself is broken. Converting it to a normal
+            // validation error puts the reason (and the wait) on the form.
+            return Limit::perMinute(5)->by($throttleKey)->response(function (Request $request, array $headers) {
+                $seconds = (int) ($headers['Retry-After'] ?? 60);
+
+                throw ValidationException::withMessages([
+                    Fortify::username() => trans('auth.throttle', [
+                        'seconds' => $seconds,
+                        'minutes' => (int) ceil($seconds / 60),
+                    ]),
+                ]);
+            });
         });
 
         RateLimiter::for('passkeys', function (Request $request) {

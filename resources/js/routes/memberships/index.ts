@@ -158,7 +158,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::store
- * @see app/Modules/Membership/Controllers/MembershipController.php:81
+ * @see app/Modules/Membership/Controllers/MembershipController.php:93
  * @route '/memberships'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -173,7 +173,7 @@ store.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::store
- * @see app/Modules/Membership/Controllers/MembershipController.php:81
+ * @see app/Modules/Membership/Controllers/MembershipController.php:93
  * @route '/memberships'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -182,7 +182,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::store
- * @see app/Modules/Membership/Controllers/MembershipController.php:81
+ * @see app/Modules/Membership/Controllers/MembershipController.php:93
  * @route '/memberships'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -192,7 +192,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipController::store
- * @see app/Modules/Membership/Controllers/MembershipController.php:81
+ * @see app/Modules/Membership/Controllers/MembershipController.php:93
  * @route '/memberships'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -202,7 +202,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipController::store
- * @see app/Modules/Membership/Controllers/MembershipController.php:81
+ * @see app/Modules/Membership/Controllers/MembershipController.php:93
  * @route '/memberships'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -213,7 +213,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:125
  * @route '/memberships/{membership}'
  */
 export const show = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -228,7 +228,7 @@ show.definition = {
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:125
  * @route '/memberships/{membership}'
  */
 show.url = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -261,7 +261,7 @@ show.url = (args: { membership: number | { id: number } } | [membership: number 
 
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:125
  * @route '/memberships/{membership}'
  */
 show.get = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -270,7 +270,7 @@ show.get = (args: { membership: number | { id: number } } | [membership: number 
 })
 /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:125
  * @route '/memberships/{membership}'
  */
 show.head = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -280,7 +280,7 @@ show.head = (args: { membership: number | { id: number } } | [membership: number
 
     /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:125
  * @route '/memberships/{membership}'
  */
     const showForm = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -290,7 +290,7 @@ show.head = (args: { membership: number | { id: number } } | [membership: number
 
             /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:125
  * @route '/memberships/{membership}'
  */
         showForm.get = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -299,7 +299,7 @@ show.head = (args: { membership: number | { id: number } } | [membership: number
         })
             /**
 * @see \App\Modules\Membership\Controllers\MembershipController::show
- * @see app/Modules/Membership/Controllers/MembershipController.php:113
+ * @see app/Modules/Membership/Controllers/MembershipController.php:125
  * @route '/memberships/{membership}'
  */
         showForm.head = (args: { membership: number | { id: number } } | [membership: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

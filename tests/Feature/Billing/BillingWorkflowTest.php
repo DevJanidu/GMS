@@ -120,6 +120,30 @@ it('creates an accurately calculated branch-scoped invoice and durable event', f
     expect(BillingEvent::query()->where('event_type', 'InvoiceCreated')->count())->toBe(1);
 });
 
+it('serialises invoice items as a plain array, not a wrapped collection', function () {
+    // Regression: InvoiceItemResource::collection(...) nested inside
+    // InvoiceResource's own toArray() serializes as {"data": [...]} once
+    // JSON-encoded outside a top-level resource response, but the frontend
+    // expects items to be a plain array and indexes it directly.
+    [, $branch, $user] = billingActor(['billing.invoices.create', 'billing.invoices.view']);
+
+    $invoice = createBillingInvoice($this, $user, $branch, [
+        'idempotency_key' => 'invoice-key-items-test',
+        'items' => [
+            ['description' => 'Monthly membership', 'quantity' => 1, 'unit_price_cents' => 5000],
+            ['description' => 'Joining kit', 'quantity' => 1, 'unit_price_cents' => 2000],
+        ],
+    ]);
+
+    $response = $this->actingAs($user)
+        ->withHeader('X-Branch-Id', (string) $branch->id)
+        ->getJson("/api/v1/billing/invoices/{$invoice->id}");
+
+    $response->assertOk();
+    expect($response->json('data.items'))->toBeArray();
+    $response->assertJsonCount(2, 'data.items');
+});
+
 it('makes invoice creation idempotent and rejects reuse with different input', function () {
     [, $branch, $user] = billingActor(['billing.invoices.create']);
     createBillingInvoice($this, $user, $branch);

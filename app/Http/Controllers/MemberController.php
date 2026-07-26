@@ -120,7 +120,7 @@ class MemberController extends Controller
     {
         $this->authorize('view', $member);
 
-        $member->load(['branch', 'documents.uploadedBy']);
+        $member->load(['branch', 'documents.uploadedBy', 'portalAccount']);
 
         return Inertia::render('members/show', [
             'member' => (new MemberResource($member))->resolve(),

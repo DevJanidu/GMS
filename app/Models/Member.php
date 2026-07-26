@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\MemberStatus;
 use App\Models\Concerns\BelongsToTenant;
+use App\Modules\MemberPortal\Models\MemberPortalAccount;
 use Carbon\CarbonImmutable;
 use Database\Factories\MemberFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Storage;
 
 /**
@@ -76,6 +78,14 @@ class Member extends Model
     public function documents(): HasMany
     {
         return $this->hasMany(MemberDocument::class);
+    }
+
+    /**
+     * @return HasOne<MemberPortalAccount, $this>
+     */
+    public function portalAccount(): HasOne
+    {
+        return $this->hasOne(MemberPortalAccount::class);
     }
 
     public function fullName(): string

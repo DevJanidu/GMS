@@ -6,6 +6,7 @@ import { StatusBadge } from '@/components/shared/status-badge';
 import { memberPortalApi } from '../api/member-portal';
 import { PortalPageHeader } from '../components/portal-page-header';
 import { PortalPagination } from '../components/portal-pagination';
+import { PortalRowCard } from '../components/portal-row-card';
 import { PortalState } from '../components/portal-state';
 import { useMemberPortalPage } from '../hooks/use-member-portal-page';
 import type { PortalAttendance } from '../types';
@@ -68,6 +69,37 @@ export default function MemberPortalAttendancePage() {
                                     description="Your check-ins will appear here."
                                 />
                             }
+                            renderMobileRow={(record) => (
+                                <PortalRowCard
+                                    title={new Date(
+                                        record.checked_in_at,
+                                    ).toLocaleString()}
+                                    subtitle={record.branch.name}
+                                    trailing={
+                                        <StatusBadge status={record.status}>
+                                            {record.status.replaceAll(
+                                                '_',
+                                                ' ',
+                                            )}
+                                        </StatusBadge>
+                                    }
+                                    meta={
+                                        <>
+                                            <span className="capitalize">
+                                                {record.source.replaceAll(
+                                                    '_',
+                                                    ' ',
+                                                )}
+                                            </span>
+                                            <span>
+                                                {record.checked_out_at
+                                                    ? `Out ${new Date(record.checked_out_at).toLocaleTimeString()}`
+                                                    : 'Still checked in'}
+                                            </span>
+                                        </>
+                                    }
+                                />
+                            )}
                         />
                         {resource.meta && (
                             <PortalPagination

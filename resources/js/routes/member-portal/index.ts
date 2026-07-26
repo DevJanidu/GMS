@@ -1,4 +1,5 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
+import invitations from './invitations'
 /**
 * @see \Inertia\Controller::__invoke
  * @see vendor/inertiajs/inertia-laravel/src/Controller.php:13
@@ -624,7 +625,8 @@ profile.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     profile.form = profileForm
 const memberPortal = {
-    dashboard: Object.assign(dashboard, dashboard),
+    invitations: Object.assign(invitations, invitations),
+dashboard: Object.assign(dashboard, dashboard),
 qrCard: Object.assign(qrCard, qrCard),
 membership: Object.assign(membership, membership),
 payments: Object.assign(payments, payments),

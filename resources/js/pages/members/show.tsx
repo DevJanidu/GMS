@@ -12,14 +12,19 @@ import {
     StickyNote,
     TrashIcon,
     User as UserIcon,
+    UserCircle,
     VenusAndMars,
 } from 'lucide-react';
+import { useState } from 'react';
 import type { FormEvent } from 'react';
+import { toast } from 'sonner';
 import MemberController from '@/actions/App/Http/Controllers/MemberController';
 import MemberDocumentController from '@/actions/App/Http/Controllers/MemberDocumentController';
 import MemberStatusController from '@/actions/App/Http/Controllers/MemberStatusController';
+import MemberPortalInviteController from '@/actions/App/Modules/MemberPortal/Controllers/MemberPortalInviteController';
 import { DetailRow } from '@/components/detail-row';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -40,6 +45,7 @@ import { MemberStatusBadge } from '@/modules/members/components/member-status-ba
 import type {
     Member,
     MemberDocument,
+    MemberPortalAccountStatus,
     MemberStatus,
 } from '@/modules/members/types';
 import type { BreadcrumbItem } from '@/types';
@@ -63,6 +69,26 @@ export default function ShowMember({
             MemberStatusController.update.url({ member: member.id }),
             { status },
             { preserveScroll: true },
+        );
+    }
+
+    const [invitingToPortal, setInvitingToPortal] = useState(false);
+
+    function inviteToPortal() {
+        setInvitingToPortal(true);
+        router.post(
+            MemberPortalInviteController.store.url({ member: member.id }),
+            {},
+            {
+                preserveScroll: true,
+                onError: (errors) =>
+                    toast.error(
+                        errors.email ??
+                            errors.portal_account ??
+                            'Could not send the portal invitation.',
+                    ),
+                onFinish: () => setInvitingToPortal(false),
+            },
         );
     }
 
@@ -271,7 +297,56 @@ export default function ShowMember({
                         </Card>
                     </div>
 
-                    <div className="lg:col-span-1">
+                    <div className="lg:col-span-1 space-y-6">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle className="flex items-center gap-2">
+                                    <UserCircle className="size-4" />
+                                    Portal access
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-3">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-sm text-muted-foreground">
+                                        Status
+                                    </span>
+                                    <PortalAccountBadge
+                                        status={member.portal_account?.status}
+                                    />
+                                </div>
+                                {member.portal_account?.status ===
+                                    'active' && (
+                                    <p className="text-sm text-muted-foreground">
+                                        This member can sign in to view their
+                                        membership, attendance, receipts, and
+                                        announcements.
+                                    </p>
+                                )}
+                                {!member.email && (
+                                    <p className="text-sm text-muted-foreground">
+                                        Add an email address to invite this
+                                        member to the portal.
+                                    </p>
+                                )}
+                                {member.portal_account?.status !==
+                                    'active' && (
+                                    <Button
+                                        variant="outline"
+                                        className="w-full"
+                                        disabled={
+                                            !member.email || invitingToPortal
+                                        }
+                                        onClick={inviteToPortal}
+                                    >
+                                        {member.portal_account?.status ===
+                                        'invited'
+                                            ? 'Resend invitation'
+                                            : 'Invite to portal'}
+                                    </Button>
+                                )}
+                            </CardContent>
+                        </Card>
+
                         <Card>
                             <CardHeader>
                                 <CardTitle>Details</CardTitle>
@@ -352,3 +427,23 @@ ShowMember.layout = (props: {
         },
     ],
 });
+
+function PortalAccountBadge({
+    status,
+}: {
+    status: MemberPortalAccountStatus | undefined;
+}) {
+    if (!status) {
+        return <Badge variant="secondary">No account</Badge>;
+    }
+
+    if (status === 'active') {
+        return <Badge>Active</Badge>;
+    }
+
+    if (status === 'invited') {
+        return <Badge variant="outline">Invitation sent</Badge>;
+    }
+
+    return <Badge variant="destructive">Suspended</Badge>;
+}

@@ -25,7 +25,19 @@ class MembershipRenewalController extends Controller
             'plans' => Plan::query()
                 ->where('status', 'active')
                 ->orderBy('name')
-                ->get(['id', 'name', 'price', 'joining_fee', 'duration_value', 'duration_unit']),
+                ->get(['id', 'name', 'price', 'joining_fee', 'duration_value', 'duration_unit'])
+                ->map(fn (Plan $plan) => [
+                    'id' => $plan->id,
+                    'name' => $plan->name,
+                    // price/joining_fee are `decimal:2` casts, which Eloquent
+                    // serializes as strings (e.g. "50.00") — the frontend
+                    // calls .toFixed()/arithmetic on these, so they must be
+                    // real numbers here, matching PlanResource's convention.
+                    'price' => (float) $plan->price,
+                    'joining_fee' => (float) $plan->joining_fee,
+                    'duration_value' => $plan->duration_value,
+                    'duration_unit' => $plan->duration_unit->value,
+                ]),
         ]);
     }
 

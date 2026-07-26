@@ -122,6 +122,8 @@ class ReportExportController extends Controller
         $filters = $export->filters ?? [];
         unset($filters['_branch_ids']);
 
+        $ready = $export->status === 'completed';
+
         return [
             'id' => $export->id, 'branch_id' => $export->branch_id,
             'requested_by' => $export->requested_by, 'report_key' => $export->report_key,
@@ -130,6 +132,8 @@ class ReportExportController extends Controller
             'completed_at' => $export->completed_at, 'expires_at' => $export->expires_at,
             'downloaded_at' => $export->downloaded_at, 'failure_reason' => $export->failure_reason,
             'created_at' => $export->created_at,
+            'file_name' => $ready ? $export->report_key.'-'.$export->id.'.csv' : null,
+            'download_url' => $ready ? route('api.report-exports.download', $export) : null,
         ];
     }
 }

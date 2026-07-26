@@ -1,12 +1,26 @@
 import { Head, Link } from '@inertiajs/react';
 import { Bell, CalendarCheck, CreditCard, IdCard } from 'lucide-react';
+import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+    ChartContainer,
+    ChartTooltip,
+    ChartTooltipContent,
+} from '@/components/ui/chart';
+import type { ChartConfig } from '@/components/ui/chart';
 import { memberPortalApi } from '../api/member-portal';
 import { MembershipAlert } from '../components/membership-alert';
 import { PortalMoney } from '../components/money';
 import { PortalPageHeader } from '../components/portal-page-header';
 import { PortalState } from '../components/portal-state';
 import { useMemberPortalResource } from '../hooks/use-member-portal-resource';
+
+const visitsChartConfig = {
+    visits: {
+        label: 'Visits',
+        color: 'var(--portal-accent)',
+    },
+} satisfies ChartConfig;
 
 export default function MemberPortalDashboardPage() {
     const resource = useMemberPortalResource(memberPortalApi.dashboard);
@@ -22,13 +36,13 @@ export default function MemberPortalDashboardPage() {
                 {(dashboard) => (
                     <>
                         <MembershipAlert membership={dashboard.membership} />
-                        <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                        <section className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
                             <Card>
                                 <CardHeader className="flex-row items-center justify-between">
                                     <CardTitle className="text-sm">
                                         Membership
                                     </CardTitle>
-                                    <IdCard className="size-5 text-emerald-600" />
+                                    <IdCard className="size-5 text-portal-accent" />
                                 </CardHeader>
                                 <CardContent>
                                     <p className="text-2xl font-bold">
@@ -37,7 +51,7 @@ export default function MemberPortalDashboardPage() {
                                     </p>
                                     <Link
                                         href="/member-portal/membership"
-                                        className="text-xs text-emerald-700 hover:underline"
+                                        className="text-xs text-portal-accent hover:underline"
                                     >
                                         View membership
                                     </Link>
@@ -92,13 +106,87 @@ export default function MemberPortalDashboardPage() {
                                     </p>
                                     <Link
                                         href="/member-portal/notifications"
-                                        className="text-xs text-emerald-700 hover:underline"
+                                        className="text-xs text-portal-accent hover:underline"
                                     >
                                         View notifications
                                     </Link>
                                 </CardContent>
                             </Card>
                         </section>
+
+                        <Card>
+                            <CardHeader>
+                                <CardTitle className="text-sm">
+                                    Visits, last 14 days
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <ChartContainer
+                                    config={visitsChartConfig}
+                                    className="aspect-auto h-40 w-full sm:h-48"
+                                >
+                                    <AreaChart
+                                        accessibilityLayer
+                                        data={dashboard.attendance_trend}
+                                        margin={{
+                                            top: 8,
+                                            right: 8,
+                                            left: 0,
+                                            bottom: 0,
+                                        }}
+                                    >
+                                        <CartesianGrid vertical={false} />
+                                        <XAxis
+                                            dataKey="date"
+                                            tickLine={false}
+                                            axisLine={false}
+                                            tickMargin={8}
+                                            minTickGap={24}
+                                            tickFormatter={(value: string) =>
+                                                new Date(
+                                                    value,
+                                                ).toLocaleDateString(
+                                                    undefined,
+                                                    {
+                                                        month: 'short',
+                                                        day: 'numeric',
+                                                    },
+                                                )
+                                            }
+                                        />
+                                        <ChartTooltip
+                                            cursor={false}
+                                            content={
+                                                <ChartTooltipContent
+                                                    indicator="line"
+                                                    labelFormatter={(value) =>
+                                                        new Date(
+                                                            String(value),
+                                                        ).toLocaleDateString(
+                                                            undefined,
+                                                            {
+                                                                weekday:
+                                                                    'short',
+                                                                month: 'short',
+                                                                day: 'numeric',
+                                                            },
+                                                        )
+                                                    }
+                                                />
+                                            }
+                                        />
+                                        <Area
+                                            dataKey="visits"
+                                            type="monotone"
+                                            fill="var(--color-visits)"
+                                            fillOpacity={0.2}
+                                            stroke="var(--color-visits)"
+                                            strokeWidth={2}
+                                        />
+                                    </AreaChart>
+                                </ChartContainer>
+                            </CardContent>
+                        </Card>
                     </>
                 )}
             </PortalState>

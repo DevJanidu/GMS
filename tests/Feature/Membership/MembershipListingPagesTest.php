@@ -34,6 +34,25 @@ it('shows the sell-membership create page', function () {
     $response->assertInertia(fn ($page) => $page->component('memberships/create'));
 });
 
+it('serialises plan price and joining fee as numbers on the sell-membership page', function () {
+    // Regression: Plan casts price/joining_fee as `decimal:2`, which Eloquent
+    // serializes as strings. The React page calls .toFixed()/arithmetic on
+    // these values and crashes the whole component if they arrive as
+    // strings instead of numbers.
+    $tenant = Tenant::factory()->create();
+    $user = ownerFor($tenant);
+    Plan::factory()->for($tenant)->create(['price' => 49.99, 'joining_fee' => 10.5]);
+
+    $response = $this->actingAs($user)->get(route('memberships.create'));
+
+    $response->assertOk();
+    $response->assertInertia(fn ($page) => $page
+        ->component('memberships/create')
+        ->where('plans.0.price', 49.99)
+        ->where('plans.0.joining_fee', 10.5)
+    );
+});
+
 it('lists expiring-soon memberships on the renewals page', function () {
     $tenant = Tenant::factory()->create();
     $user = ownerFor($tenant);

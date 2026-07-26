@@ -58,6 +58,27 @@ it('prevents updating a system role', function () {
     $response->assertForbidden();
 });
 
+it('serialises role permissions as a plain array, not a wrapped collection', function () {
+    // Regression: PermissionResource::collection(...) nested inside
+    // RoleResource's own toArray() serializes as {"data": [...]} once
+    // JSON-encoded outside a top-level resource response, but the frontend
+    // expects permissions to be a plain array and indexes it directly.
+    $tenant = Tenant::factory()->create();
+    $permissionA = Permission::factory()->create(['slug' => 'branches.view']);
+    $permissionB = Permission::factory()->create(['slug' => 'branches.update']);
+    $role = Role::factory()->create(['tenant_id' => $tenant->id]);
+    $role->permissions()->attach([$permissionA->id, $permissionB->id]);
+    $user = $this->userWithPermissions($tenant, ['roles.view']);
+
+    $response = $this->actingAs($user)->getJson("/api/v1/roles/{$role->id}");
+
+    $response->assertOk();
+    expect($response->json('data.permissions'))->toBeArray();
+    $response->assertJsonCount(2, 'data.permissions');
+    expect(collect($response->json('data.permissions'))->pluck('id'))
+        ->toContain($permissionA->id, $permissionB->id);
+});
+
 it('prevents deleting a system role', function () {
     $tenant = Tenant::factory()->create();
     $systemRole = Role::factory()->system()->create();

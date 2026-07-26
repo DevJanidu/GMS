@@ -1,6 +1,6 @@
 import { router, usePage } from '@inertiajs/react';
 import { ImagePlus, User as UserIcon } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { toast } from 'sonner';
 import Heading from '@/components/heading';
@@ -41,6 +41,7 @@ export function GymProfileForm() {
     const [errors, setErrors] = useState<Record<string, string[]>>({});
     const [processing, setProcessing] = useState(false);
     const [loadError, setLoadError] = useState(false);
+    const logoInputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         if (!canViewGymProfile) {
@@ -164,18 +165,17 @@ export function GymProfileForm() {
                                     type="button"
                                     variant="outline"
                                     size="sm"
-                                    asChild
+                                    onClick={() => logoInputRef.current?.click()}
                                 >
-                                    <label htmlFor="logo" className="cursor-pointer">
-                                        <ImagePlus className="size-4" />
-                                        Upload logo
-                                    </label>
+                                    <ImagePlus className="size-4" />
+                                    Upload logo
                                 </Button>
                                 <Input
                                     id="logo"
+                                    ref={logoInputRef}
                                     type="file"
                                     accept="image/*"
-                                    className="sr-only"
+                                    className="sr-only!"
                                     onChange={(e) =>
                                         set('logo', e.target.files?.[0] ?? null)
                                     }

@@ -28,7 +28,14 @@ class StaffResource extends JsonResource
             'phone' => $profile?->phone,
             'invited_at' => $profile?->invited_at,
             'activated_at' => $profile?->activated_at,
-            'roles' => RoleResource::collection($this->whenLoaded('roles')),
+            // Not RoleResource::collection(...) — nested inside another
+            // resource's toArray(), it serializes as {"data": [...]} once it
+            // reaches Inertia's response, but the frontend expects a plain
+            // array.
+            'roles' => $this->whenLoaded('roles', fn () => $this->roles
+                ->map(fn ($role) => (new RoleResource($role))->resolve())
+                ->values()
+                ->all()),
             'branches' => $this->whenLoaded('branches', fn () => $this->branches->map(function (Branch $branch) {
                 /** @var Pivot $pivot */
                 $pivot = $branch->getRelation('pivot');

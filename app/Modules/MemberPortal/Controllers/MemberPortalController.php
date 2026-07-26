@@ -45,6 +45,7 @@ class MemberPortalController extends Controller
                 ->sum('balance_due_cents'),
             'attendance_count' => AttendanceRecord::query()->where('member_id', $member->id)->count(),
             'unread_notification_count' => $this->notificationQuery($account)->whereNull('read_at')->count(),
+            'attendance_trend' => $this->attendanceTrend($member->id),
         ]);
     }
 
@@ -202,6 +203,32 @@ class MemberPortalController extends Controller
             ->orderByRaw("case when status in ('active', 'frozen', 'suspended') then 0 else 1 end")
             ->latest('starts_on')
             ->first();
+    }
+
+    /**
+     * @return list<array{date: string, visits: int}>
+     */
+    private function attendanceTrend(int $memberId): array
+    {
+        $since = now()->subDays(13)->startOfDay();
+
+        $counts = AttendanceRecord::query()
+            ->where('member_id', $memberId)
+            ->where('checked_in_at', '>=', $since)
+            ->get(['checked_in_at'])
+            ->groupBy(fn (AttendanceRecord $record) => $record->checked_in_at->toDateString());
+
+        return collect(range(0, 13))
+            ->map(function (int $offset) use ($counts, $since) {
+                $date = $since->copy()->addDays($offset)->toDateString();
+
+                return [
+                    'date' => $date,
+                    'visits' => $counts->get($date)?->count() ?? 0,
+                ];
+            })
+            ->values()
+            ->all();
     }
 
     /** @return Builder<InAppNotification> */

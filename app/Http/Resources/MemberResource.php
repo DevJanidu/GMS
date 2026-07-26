@@ -38,6 +38,12 @@ class MemberResource extends JsonResource
                 'id' => $this->branch->id,
                 'name' => $this->branch->name,
             ]),
+            'portal_account' => $this->whenLoaded('portalAccount', fn () => $this->portalAccount ? [
+                'status' => $this->portalAccount->status,
+                'invited_at' => $this->portalAccount->invited_at?->toIso8601String(),
+                'activated_at' => $this->portalAccount->activated_at?->toIso8601String(),
+                'last_login_at' => $this->portalAccount->last_login_at?->toIso8601String(),
+            ] : null),
             'created_at' => $this->created_at?->toIso8601String(),
         ];
     }

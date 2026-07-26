@@ -21,6 +21,7 @@ export function DataTable<T>({
     error,
     onRetry,
     skeletonRows = 4,
+    renderMobileRow,
 }: {
     columns: DataTableColumn<T>[];
     rows: T[];
@@ -32,6 +33,12 @@ export function DataTable<T>({
     error?: string | null;
     onRetry?: () => void;
     skeletonRows?: number;
+    /**
+     * When provided, rows render as a stacked card list below the `md`
+     * breakpoint instead of the (horizontally-scrolling) table, so
+     * multi-column data stays readable on a phone.
+     */
+    renderMobileRow?: (row: T) => ReactNode;
 }) {
     if (error) {
         return <ErrorState description={error} onRetry={onRetry} />;
@@ -52,59 +59,87 @@ export function DataTable<T>({
     }
 
     return (
-        <div className="overflow-hidden rounded-xl border">
-            <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                    <thead className="bg-muted/60 text-muted-foreground">
-                        <tr>
-                            {columns.map((column) => (
-                                <th
-                                    key={column.key}
-                                    className={cn(
-                                        'px-4 py-3 text-left text-xs font-semibold tracking-wide uppercase',
-                                        column.className,
-                                    )}
-                                >
-                                    {column.header}
-                                </th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y">
-                        {rows.map((row) => {
-                            const href = getRowHref?.(row);
+        <>
+            {renderMobileRow && (
+                <div className="grid gap-3 md:hidden">
+                    {rows.map((row) => {
+                        const href = getRowHref?.(row);
+                        const content = renderMobileRow(row);
 
-                            return (
-                                <tr
-                                    key={getRowKey(row)}
-                                    className="hover:bg-muted/40 transition-colors"
-                                >
-                                    {columns.map((column, index) => (
-                                        <td
-                                            key={column.key}
-                                            className={cn(
-                                                'px-4 py-3',
-                                                column.className,
-                                            )}
-                                        >
-                                            {href && index === 0 ? (
-                                                <Link
-                                                    href={href}
-                                                    className="focus-visible:ring-ring block rounded outline-none focus-visible:ring-2"
-                                                >
-                                                    {column.cell(row)}
-                                                </Link>
-                                            ) : (
-                                                column.cell(row)
-                                            )}
-                                        </td>
-                                    ))}
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                        return href ? (
+                            <Link
+                                key={getRowKey(row)}
+                                href={href}
+                                className="focus-visible:ring-ring block rounded-xl outline-none focus-visible:ring-2"
+                            >
+                                {content}
+                            </Link>
+                        ) : (
+                            <div key={getRowKey(row)}>{content}</div>
+                        );
+                    })}
+                </div>
+            )}
+
+            <div
+                className={cn(
+                    'overflow-hidden rounded-xl border',
+                    renderMobileRow && 'hidden md:block',
+                )}
+            >
+                <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                        <thead className="bg-muted/60 text-muted-foreground">
+                            <tr>
+                                {columns.map((column) => (
+                                    <th
+                                        key={column.key}
+                                        className={cn(
+                                            'px-4 py-3 text-left text-xs font-semibold tracking-wide uppercase',
+                                            column.className,
+                                        )}
+                                    >
+                                        {column.header}
+                                    </th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y">
+                            {rows.map((row) => {
+                                const href = getRowHref?.(row);
+
+                                return (
+                                    <tr
+                                        key={getRowKey(row)}
+                                        className="hover:bg-muted/40 transition-colors"
+                                    >
+                                        {columns.map((column, index) => (
+                                            <td
+                                                key={column.key}
+                                                className={cn(
+                                                    'px-4 py-3',
+                                                    column.className,
+                                                )}
+                                            >
+                                                {href && index === 0 ? (
+                                                    <Link
+                                                        href={href}
+                                                        className="focus-visible:ring-ring block rounded outline-none focus-visible:ring-2"
+                                                    >
+                                                        {column.cell(row)}
+                                                    </Link>
+                                                ) : (
+                                                    column.cell(row)
+                                                )}
+                                            </td>
+                                        ))}
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+        </>
     );
 }

@@ -82,7 +82,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:30
  * @route '/api/v1/notification-deliveries/{notificationDelivery}'
  */
-export const show = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -97,7 +97,7 @@ show.definition = {
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:30
  * @route '/api/v1/notification-deliveries/{notificationDelivery}'
  */
-show.url = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+show.url = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { notificationDelivery: args }
     }
@@ -130,7 +130,7 @@ show.url = (args: { notificationDelivery: number | { id: number } } | [notificat
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:30
  * @route '/api/v1/notification-deliveries/{notificationDelivery}'
  */
-show.get = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -139,7 +139,7 @@ show.get = (args: { notificationDelivery: number | { id: number } } | [notificat
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:30
  * @route '/api/v1/notification-deliveries/{notificationDelivery}'
  */
-show.head = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
@@ -149,7 +149,7 @@ show.head = (args: { notificationDelivery: number | { id: number } } | [notifica
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:30
  * @route '/api/v1/notification-deliveries/{notificationDelivery}'
  */
-    const showForm = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const showForm = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: show.url(args, options),
         method: 'get',
     })
@@ -159,7 +159,7 @@ show.head = (args: { notificationDelivery: number | { id: number } } | [notifica
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:30
  * @route '/api/v1/notification-deliveries/{notificationDelivery}'
  */
-        showForm.get = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.get = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, options),
             method: 'get',
         })
@@ -168,7 +168,7 @@ show.head = (args: { notificationDelivery: number | { id: number } } | [notifica
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:30
  * @route '/api/v1/notification-deliveries/{notificationDelivery}'
  */
-        showForm.head = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.head = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -184,7 +184,7 @@ show.head = (args: { notificationDelivery: number | { id: number } } | [notifica
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:37
  * @route '/api/v1/notification-deliveries/{notificationDelivery}/retry'
  */
-export const retry = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const retry = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: retry.url(args, options),
     method: 'post',
 })
@@ -199,7 +199,7 @@ retry.definition = {
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:37
  * @route '/api/v1/notification-deliveries/{notificationDelivery}/retry'
  */
-retry.url = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+retry.url = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { notificationDelivery: args }
     }
@@ -232,7 +232,7 @@ retry.url = (args: { notificationDelivery: number | { id: number } } | [notifica
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:37
  * @route '/api/v1/notification-deliveries/{notificationDelivery}/retry'
  */
-retry.post = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+retry.post = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: retry.url(args, options),
     method: 'post',
 })
@@ -242,7 +242,7 @@ retry.post = (args: { notificationDelivery: number | { id: number } } | [notific
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:37
  * @route '/api/v1/notification-deliveries/{notificationDelivery}/retry'
  */
-    const retryForm = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const retryForm = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: retry.url(args, options),
         method: 'post',
     })
@@ -252,7 +252,7 @@ retry.post = (args: { notificationDelivery: number | { id: number } } | [notific
  * @see app/Modules/Notification/Controllers/NotificationDeliveryController.php:37
  * @route '/api/v1/notification-deliveries/{notificationDelivery}/retry'
  */
-        retryForm.post = (args: { notificationDelivery: number | { id: number } } | [notificationDelivery: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        retryForm.post = (args: { notificationDelivery: string | number | { id: string | number } } | [notificationDelivery: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: retry.url(args, options),
             method: 'post',
         })

@@ -46,9 +46,22 @@ class InvoiceResource extends JsonResource
             'notes' => $this->notes,
             'voided_at' => $this->voided_at?->toIso8601String(),
             'void_reason' => $this->void_reason,
-            'items' => InvoiceItemResource::collection($this->whenLoaded('items')),
-            'payments' => PaymentResource::collection($this->whenLoaded('payments')),
-            'refunds' => RefundResource::collection($this->whenLoaded('refunds')),
+            // Not XResource::collection(...) — nested inside another
+            // resource's toArray(), each one serializes as {"data": [...]}
+            // once it reaches Inertia's response, but the frontend expects
+            // a plain array.
+            'items' => $this->whenLoaded('items', fn () => $this->items
+                ->map(fn ($item) => (new InvoiceItemResource($item))->resolve())
+                ->values()
+                ->all()),
+            'payments' => $this->whenLoaded('payments', fn () => $this->payments
+                ->map(fn ($payment) => (new PaymentResource($payment))->resolve())
+                ->values()
+                ->all()),
+            'refunds' => $this->whenLoaded('refunds', fn () => $this->refunds
+                ->map(fn ($refund) => (new RefundResource($refund))->resolve())
+                ->values()
+                ->all()),
             'created_at' => $this->created_at?->toIso8601String(),
         ];
     }

@@ -31,7 +31,7 @@ export const reportDefinitions: ReportDefinition[] = [
         description: 'Upcoming and completed membership expiries.',
         category: 'Membership',
         permission: 'reports.membership.view',
-        filters: ['date_range', 'branch', 'plan', 'member_status'],
+        filters: ['date_range', 'branch', 'plan'],
     },
     {
         key: 'daily-attendance',
@@ -39,7 +39,7 @@ export const reportDefinitions: ReportDefinition[] = [
         description: 'Daily check-in and check-out activity.',
         category: 'Attendance',
         permission: 'reports.attendance.view',
-        filters: ['date_range', 'branch', 'plan'],
+        filters: ['date_range', 'branch'],
     },
     {
         key: 'peak-hours',
@@ -55,7 +55,7 @@ export const reportDefinitions: ReportDefinition[] = [
         description: 'Visit frequency and engagement segments.',
         category: 'Attendance',
         permission: 'reports.attendance.view',
-        filters: ['date_range', 'branch', 'plan', 'member_status'],
+        filters: ['date_range', 'branch'],
     },
     {
         key: 'sales',
@@ -79,7 +79,7 @@ export const reportDefinitions: ReportDefinition[] = [
         description: 'Open member balances and ageing.',
         category: 'Financial',
         permission: 'reports.financial.view',
-        filters: ['date_range', 'branch', 'plan'],
+        filters: ['date_range', 'branch'],
     },
     {
         key: 'refunds',

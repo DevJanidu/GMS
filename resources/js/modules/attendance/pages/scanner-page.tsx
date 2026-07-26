@@ -1,4 +1,5 @@
 import { Head } from '@inertiajs/react';
+import jsQR from 'jsqr';
 import {
     Camera,
     CameraOff,
@@ -25,8 +26,35 @@ type BarcodeDetectorConstructor = new (options: {
     formats: string[];
 }) => BarcodeDetectorLike;
 
+/**
+ * The native BarcodeDetector (Shape Detection API) only exists in
+ * Chromium browsers — Safari and Firefox never shipped it. jsQR (pure JS,
+ * decodes from canvas pixel data) is the fallback so scanning still works
+ * on an iPad/iPhone front desk, just a little slower per frame.
+ */
+function detectViaJsQr(
+    video: HTMLVideoElement,
+    canvas: HTMLCanvasElement,
+): { rawValue: string }[] {
+    const context = canvas.getContext('2d', { willReadFrequently: true });
+
+    if (!context || video.videoWidth === 0) {
+        return [];
+    }
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    const frame = context.getImageData(0, 0, canvas.width, canvas.height);
+    const code = jsQR(frame.data, frame.width, frame.height);
+
+    return code ? [{ rawValue: code.data }] : [];
+}
+
 export default function ScannerPage({ branchId }: { branchId: number | null }) {
     const videoRef = useRef<HTMLVideoElement>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
     const streamRef = useRef<MediaStream | null>(null);
     const frameRef = useRef<number | null>(null);
     const detectorRef = useRef<BarcodeDetectorLike | null>(null);
@@ -102,9 +130,9 @@ export default function ScannerPage({ branchId }: { branchId: number | null }) {
     const scanFrame = useCallback(
         async function scanCurrentFrame() {
             const video = videoRef.current;
-            const detector = detectorRef.current;
+            const canvas = canvasRef.current;
 
-            if (!video || !detector || cameraState !== 'scanning') {
+            if (!video || !canvas || cameraState !== 'scanning') {
                 return;
             }
 
@@ -112,7 +140,9 @@ export default function ScannerPage({ branchId }: { branchId: number | null }) {
                 detectingRef.current = true;
 
                 try {
-                    const codes = await detector.detect(video);
+                    const codes = detectorRef.current
+                        ? await detectorRef.current.detect(video)
+                        : detectViaJsQr(video, canvas);
 
                     if (codes[0]?.rawValue) {
                         await submitToken(codes[0].rawValue);
@@ -133,33 +163,57 @@ export default function ScannerPage({ branchId }: { branchId: number | null }) {
         [cameraState, submitToken],
     );
 
+    // Cleanup here only cancels the pending scan frame — it must NOT stop
+    // the media stream. This effect re-runs on every cameraState change
+    // (idle -> requesting -> scanning), and if its cleanup stopped the
+    // stream too, the stream startCamera just opened would be killed the
+    // instant cameraState flipped to 'scanning', immediately bouncing the
+    // UI back to "Camera is stopped."
     useEffect(() => {
         if (cameraState === 'scanning') {
             frameRef.current = requestAnimationFrame(scanFrame);
         }
 
-        return stopCamera;
-    }, [cameraState, scanFrame, stopCamera]);
+        return () => {
+            if (frameRef.current !== null) {
+                cancelAnimationFrame(frameRef.current);
+                frameRef.current = null;
+            }
+        };
+    }, [cameraState, scanFrame]);
+
+    // Only stop the actual camera hardware when the page itself unmounts.
+    useEffect(() => {
+        return () => {
+            streamRef.current?.getTracks().forEach((track) => track.stop());
+            streamRef.current = null;
+        };
+    }, []);
 
     async function startCamera() {
+        if (!navigator.mediaDevices?.getUserMedia) {
+            setCameraState('unsupported');
+
+            return;
+        }
+
+        // Prefer the native BarcodeDetector (Chrome/Edge) when present; it's
+        // faster and runs off-thread. Safari/Firefox fall through to jsQR,
+        // decoded from a canvas each frame in scanCurrentFrame.
         const Detector = (
             window as typeof window & {
                 BarcodeDetector?: BarcodeDetectorConstructor;
             }
         ).BarcodeDetector;
 
-        if (!navigator.mediaDevices?.getUserMedia || !Detector) {
-            setCameraState('unsupported');
-
-            return;
-        }
-
         setResult(null);
         setReason(null);
         setCameraState('requesting');
 
         try {
-            detectorRef.current = new Detector({ formats: ['qr_code'] });
+            detectorRef.current = Detector
+                ? new Detector({ formats: ['qr_code'] })
+                : null;
             const stream = await navigator.mediaDevices.getUserMedia({
                 video: { facingMode: { ideal: 'environment' } },
                 audio: false,
@@ -197,6 +251,7 @@ export default function ScannerPage({ branchId }: { branchId: number | null }) {
                             playsInline
                             aria-label="QR scanner camera"
                         />
+                        <canvas ref={canvasRef} className="hidden" aria-hidden />
                         {cameraState !== 'scanning' && (
                             <div className="absolute inset-0 grid place-items-center text-center text-white">
                                 <div className="space-y-3">

@@ -42,3 +42,6 @@ pnpm-debug.log*
 /.fleet/
 .DS_Store
 Thumbs.db
+
+# Playwright MCP session artifacts (screenshots, snapshots, console logs)
+.playwright-mcp/

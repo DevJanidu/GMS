@@ -22,10 +22,10 @@ export default function MemberPortalQrCardPage() {
                     card.status === 'ready' &&
                     card.qr_image_data_url?.startsWith('data:image/') ? (
                         <Card className="mx-auto w-full max-w-md overflow-hidden">
-                            <CardHeader className="bg-emerald-600 text-white">
+                            <CardHeader className="bg-portal-accent text-portal-accent-foreground">
                                 <CardTitle>Gym membership</CardTitle>
                             </CardHeader>
-                            <CardContent className="flex flex-col items-center gap-4 p-8 text-center">
+                            <CardContent className="flex flex-col items-center gap-4 p-6 text-center sm:p-8">
                                 <img
                                     src={card.qr_image_data_url}
                                     alt="Secure membership QR code"

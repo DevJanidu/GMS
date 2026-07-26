@@ -9,6 +9,32 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
+it('serialises plan price and joining fee as numbers on the renew-membership page', function () {
+    // Regression: Plan casts price/joining_fee as `decimal:2`, which Eloquent
+    // serializes as strings. The React page calls .toFixed()/arithmetic on
+    // these values and crashes the whole component if they arrive as
+    // strings instead of numbers.
+    $tenant = Tenant::factory()->create();
+    $user = ownerFor($tenant);
+    $branch = Branch::factory()->for($tenant)->create();
+    $plan = Plan::factory()->for($tenant)->create(['price' => 49.99, 'joining_fee' => 10.5]);
+
+    $membership = Membership::factory()->for($tenant)->create([
+        'branch_id' => $branch->id,
+        'plan_id' => $plan->id,
+        'status' => MembershipStatus::Active,
+    ]);
+
+    $response = $this->actingAs($user)->get(route('memberships.renew.create', $membership));
+
+    $response->assertOk();
+    $response->assertInertia(fn ($page) => $page
+        ->component('memberships/renew')
+        ->where('plans.0.price', 49.99)
+        ->where('plans.0.joining_fee', 10.5)
+    );
+});
+
 it('renews early without losing already-paid days', function () {
     $tenant = Tenant::factory()->create();
     $user = ownerFor($tenant);

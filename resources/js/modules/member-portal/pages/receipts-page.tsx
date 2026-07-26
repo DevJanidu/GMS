@@ -6,6 +6,7 @@ import { memberPortalApi } from '../api/member-portal';
 import { PortalMoney } from '../components/money';
 import { PortalPageHeader } from '../components/portal-page-header';
 import { PortalPagination } from '../components/portal-pagination';
+import { PortalRowCard } from '../components/portal-row-card';
 import { PortalState } from '../components/portal-state';
 import { useMemberPortalPage } from '../hooks/use-member-portal-page';
 import type { PortalReceipt } from '../types';
@@ -65,6 +66,32 @@ export default function MemberPortalReceiptsPage() {
                                     description="Receipts will appear here after eligible payments."
                                 />
                             }
+                            renderMobileRow={(receipt) => (
+                                <PortalRowCard
+                                    title={receipt.receipt_number}
+                                    subtitle={new Date(
+                                        receipt.generated_at,
+                                    ).toLocaleDateString()}
+                                    trailing={
+                                        receipt.amount_cents === null ? (
+                                            '—'
+                                        ) : (
+                                            <PortalMoney
+                                                cents={receipt.amount_cents}
+                                                currency={receipt.currency}
+                                            />
+                                        )
+                                    }
+                                    meta={
+                                        <span className="capitalize">
+                                            {receipt.method?.replaceAll(
+                                                '_',
+                                                ' ',
+                                            ) ?? '—'}
+                                        </span>
+                                    }
+                                />
+                            )}
                         />
                         {resource.meta && (
                             <PortalPagination

@@ -66,7 +66,17 @@ class MembershipResource extends JsonResource
                 'id' => $this->renewal->id,
                 'starts_on' => $this->renewal->starts_on->toDateString(),
             ] : null),
-            'events' => MembershipEventResource::collection($this->whenLoaded('events')),
+            // Deliberately not MembershipEventResource::collection(...) — a
+            // ResourceCollection nested inside another resource's toArray()
+            // serializes as {"data": [...]} once it reaches Inertia's
+            // response (Inertia never triggers Laravel's top-level-resource
+            // unwrap tracking for values nested inside another resource),
+            // but the frontend expects a plain array and calls .map() on it
+            // directly.
+            'events' => $this->whenLoaded('events', fn () => $this->events
+                ->map(fn ($event) => (new MembershipEventResource($event))->resolve())
+                ->values()
+                ->all()),
             'sold_at' => $this->sold_at?->toIso8601String(),
             'created_at' => $this->created_at?->toIso8601String(),
         ];
