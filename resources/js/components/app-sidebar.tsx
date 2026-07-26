@@ -1,7 +1,10 @@
-import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
+import { Link, usePage } from '@inertiajs/react';
+import {
+    filterNavigationForUser,
+    getModuleNavigation,
+    groupNavigationBySection,
+} from '@/app/navigation';
 import AppLogo from '@/components/app-logo';
-import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
 import {
@@ -12,32 +15,21 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarSeparator,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
-import type { NavItem } from '@/types';
-
-const mainNavItems: NavItem[] = [
-    {
-        title: 'Dashboard',
-        href: dashboard(),
-        icon: LayoutGrid,
-    },
-];
-
-const footerNavItems: NavItem[] = [
-    {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: FolderGit2,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
-    },
-];
 
 export function AppSidebar() {
+    const { auth } = usePage().props;
+    const navigation = filterNavigationForUser(
+        getModuleNavigation(),
+        auth.user,
+    );
+
+    const sections = groupNavigationBySection(navigation);
+    const lastSection = sections[sections.length - 1];
+    const leadingSections = sections.slice(0, -1);
+
     return (
         <Sidebar collapsible="icon" variant="inset">
             <SidebarHeader>
@@ -53,11 +45,26 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={mainNavItems} />
+                {leadingSections.map((group) => (
+                    <NavMain
+                        key={group.section}
+                        items={group.items}
+                        label={group.section}
+                    />
+                ))}
+
+                {lastSection && (
+                    <div className="mt-auto">
+                        <SidebarSeparator className="mx-0" />
+                        <NavMain
+                            items={lastSection.items}
+                            label={lastSection.section}
+                        />
+                    </div>
+                )}
             </SidebarContent>
 
             <SidebarFooter>
-                <NavFooter items={footerNavItems} className="mt-auto" />
                 <NavUser />
             </SidebarFooter>
         </Sidebar>

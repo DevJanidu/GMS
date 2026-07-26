@@ -1,0 +1,255 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - list:
+                - listitem:
+                  - link:
+                    - /url: /dashboard
+                    - generic:
+                      - generic: Pulse GMS
+                      - generic: Gym management
+            - generic:
+              - generic:
+                - generic: Workspace
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /dashboard
+                      - generic: Dashboard
+            - generic:
+              - list:
+                - listitem:
+                  - button [expanded]:
+                    - generic: LA
+                    - generic: Local Admin
+      - main:
+        - generic:
+          - generic:
+            - button:
+              - generic: Toggle sidebar
+            - generic:
+              - navigation:
+                - list:
+                  - listitem:
+                    - link [disabled]: Dashboard
+          - generic:
+            - combobox:
+              - generic: Colombo Central
+            - button
+            - button
+        - main:
+          - generic:
+            - generic:
+              - paragraph: Gym operations
+              - heading [level=1]: Good afternoon, Admin
+              - paragraph: Here’s what’s happening across Pulse Fitness today.
+            - generic:
+              - button: Jul 1 – Jul 23
+          - region:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - paragraph: Active members
+                    - paragraph: 1,248
+                - generic: +8.2% from last month
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - paragraph: New members
+                    - paragraph: "86"
+                - generic: 18 joined this week
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - paragraph: Today's attendance
+                    - paragraph: "312"
+                - generic: 62% of daily average
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - paragraph: Expiring soon
+                    - paragraph: "29"
+                - generic: Within the next 7 days
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - paragraph: Monthly revenue
+                    - paragraph: LKR 2.4M
+                - generic: +12.4% from last month
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - paragraph: Outstanding
+                    - paragraph: LKR 184K
+                - generic: Across 34 invoices
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Revenue overview
+                  - generic: Monthly collections for the last six months
+                - generic: +12.4%
+              - generic:
+                - generic:
+                  - generic:
+                    - list:
+                      - listitem:
+                        - generic: Revenue (LKR millions)
+                    - img:
+                      - generic:
+                        - generic: Feb
+                        - generic: Mar
+                        - generic: Apr
+                        - generic: May
+                        - generic: Jun
+                        - generic: Jul
+                      - generic:
+                        - generic: "0"
+                        - generic: "1"
+                        - generic: "2"
+                        - generic: "3"
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Branch comparison
+                  - generic: Active members by location
+              - generic:
+                - generic:
+                  - generic:
+                    - list:
+                      - listitem:
+                        - generic: Active members
+                    - img:
+                      - generic:
+                        - generic: Colombo
+                        - generic: Kandy
+                        - generic: Galle
+                        - generic: Negombo
+                      - generic:
+                        - generic: "0"
+                        - generic: "200"
+                        - generic: "400"
+                        - generic: "600"
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Recent payments
+                  - generic: Latest payments received across all branches
+                - button: View all
+              - generic:
+                - generic:
+                  - generic:
+                    - table:
+                      - rowgroup:
+                        - row:
+                          - columnheader: Member
+                          - columnheader: Plan
+                          - columnheader: Amount
+                          - columnheader: Status
+                      - rowgroup:
+                        - row:
+                          - cell:
+                            - generic:
+                              - paragraph: Nethmi Perera
+                              - paragraph: INV-1048
+                          - cell: Annual Pro
+                          - cell: LKR 48,000
+                          - cell:
+                            - generic: Paid
+                        - row:
+                          - cell:
+                            - generic:
+                              - paragraph: Dilan Fernando
+                              - paragraph: INV-1047
+                          - cell: Monthly Plus
+                          - cell: LKR 6,500
+                          - cell:
+                            - generic: Paid
+                        - row:
+                          - cell:
+                            - generic:
+                              - paragraph: Amaya Silva
+                              - paragraph: INV-1046
+                          - cell: Quarterly
+                          - cell: LKR 16,500
+                          - cell:
+                            - generic: Pending
+                        - row:
+                          - cell:
+                            - generic:
+                              - paragraph: Ravindu Jayasekara
+                              - paragraph: INV-1045
+                          - cell: Monthly Plus
+                          - cell: LKR 6,500
+                          - cell:
+                            - generic: Paid
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Recent activity
+                  - generic: Latest operational events
+                - button
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - paragraph: New member joined
+                      - paragraph: Nethmi Perera · Annual Pro
+                    - generic: 8 min ago
+                  - generic:
+                    - generic:
+                      - paragraph: Payment received
+                      - paragraph: LKR 6,500 · Dilan Fernando
+                    - generic: 24 min ago
+                  - generic:
+                    - generic:
+                      - paragraph: Membership renewed
+                      - paragraph: Ravindu Jayasekara · Monthly Plus
+                    - generic: 1 hr ago
+                  - generic:
+                    - generic:
+                      - paragraph: Member checked in
+                      - paragraph: Amaya Silva · Colombo Central
+                    - generic: 2 hrs ago
+          - generic:
+            - generic:
+              - generic:
+                - generic: System alerts
+                - generic: Items that may need your attention
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - paragraph: 29 memberships expire soon
+                    - paragraph: Send reminders before the next renewal window.
+                - generic:
+                  - generic:
+                    - paragraph: 34 outstanding invoices
+                    - paragraph: LKR 184,000 is currently pending collection.
+                - generic:
+                  - generic:
+                    - paragraph: All branches operational
+                    - paragraph: No service interruptions reported today.
+    - region "Notifications alt+T"
+  - menu "LA Local Admin" [active] [ref=e407]:
+    - generic [ref=e409]:
+      - generic [ref=e410]: LA
+      - generic [ref=e412]:
+        - generic [ref=e413]: Local Admin
+        - generic [ref=e414]: admin@pulse.test
+    - separator [ref=e415]
+    - group [ref=e416]:
+      - menuitem "Settings" [ref=e417] [cursor=pointer]
+    - separator [ref=e418]
+    - menuitem "Log out" [ref=e419] [cursor=pointer]

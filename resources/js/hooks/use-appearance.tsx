@@ -91,7 +91,10 @@ export function useAppearance(): UseAppearanceReturn {
     const appearance: Appearance = useSyncExternalStore(
         subscribe,
         () => currentAppearance,
-        () => 'system',
+        // SSR has no reliable access to the browser's system preference.
+        // React also uses this fixed value for hydration, then switches to
+        // the localStorage-backed client snapshot immediately afterwards.
+        () => 'light',
     );
 
     const resolvedAppearance: ResolvedAppearance = isDarkMode(appearance)

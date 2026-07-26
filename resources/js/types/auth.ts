@@ -7,12 +7,21 @@ export type User = {
     two_factor_enabled?: boolean;
     created_at: string;
     updated_at: string;
+    permissions?: string[];
+    role?: string;
     [key: string]: unknown;
 };
 
 export type Auth = {
     user: User;
 };
+
+export type GymSummary = {
+    name: string;
+    description: string | null;
+    logoUrl: string | null;
+    currency: string;
+} | null;
 
 /* @chisel-passkeys */
 export type Passkey = {

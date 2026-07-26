@@ -9,11 +9,13 @@ auth.json
 
 # PHP / Laravel dependencies and generated files
 /vendor/
+/vendor-shared/
 /bootstrap/cache/*
 !/bootstrap/cache/.gitignore
 /storage/*.key
 /storage/pail/
 /public/build/
+/public/fonts-manifest.dev.json
 /public/hot
 /public/storage
 
@@ -41,3 +43,8 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
+# Playwright MCP session artifacts (screenshots, snapshots, console logs)
+.playwright-mcp/
+
+# Claude Code worktrees
+/.claude/worktrees/

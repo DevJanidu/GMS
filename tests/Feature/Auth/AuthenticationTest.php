@@ -12,11 +12,18 @@ class AuthenticationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_login_screen_can_be_rendered()
+    public function test_login_screen_is_served_from_the_home_page()
+    {
+        $response = $this->get(route('home'));
+
+        $response->assertOk();
+    }
+
+    public function test_visiting_login_directly_redirects_to_the_home_page()
     {
         $response = $this->get(route('login'));
 
-        $response->assertOk();
+        $response->assertRedirect(route('home'));
     }
 
     public function test_users_can_authenticate_using_the_login_screen()
@@ -76,6 +83,13 @@ class AuthenticationTest extends TestCase
         $this->assertGuest();
     }
 
+    /**
+     * The lockout is surfaced as a validation error on the username field
+     * rather than a bare 429. A raw ThrottleRequestsException can't be
+     * rendered into the Inertia login page, so the form would silently do
+     * nothing — and because the lockout rejects correct credentials too,
+     * that reads as "login is broken" rather than "wait a minute".
+     */
     public function test_users_are_rate_limited()
     {
         $user = User::factory()->create();
@@ -87,6 +101,30 @@ class AuthenticationTest extends TestCase
             'password' => 'wrong-password',
         ]);
 
-        $response->assertTooManyRequests();
+        $response->assertRedirect();
+        $response->assertSessionHasErrors('email');
+
+        $this->assertStringContainsString(
+            'Too many login attempts',
+            session('errors')->get('email')[0],
+        );
+
+        $this->assertGuest();
+    }
+
+    public function test_rate_limited_users_are_rejected_even_with_correct_credentials()
+    {
+        $user = User::factory()->create(['password' => 'correct-password']);
+
+        RateLimiter::increment(md5('login'.implode('|', [$user->email, '127.0.0.1'])), amount: 5);
+
+        $response = $this->post(route('login.store'), [
+            'email' => $user->email,
+            'password' => 'correct-password',
+        ]);
+
+        $response->assertSessionHasErrors('email');
+
+        $this->assertGuest();
     }
 }

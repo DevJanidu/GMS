@@ -1,0 +1,28 @@
+- generic [ref=e2]:
+  - generic [ref=e420]:
+    - banner [ref=e421]:
+      - navigation [ref=e422]:
+        - link "Log in" [ref=e423] [cursor=pointer]:
+          - /url: /login
+        - link "Register" [ref=e424] [cursor=pointer]:
+          - /url: /register
+    - main [ref=e426]:
+      - generic [ref=e427]:
+        - heading "Let's get started" [level=1] [ref=e428]
+        - paragraph [ref=e429]: Laravel has an incredibly rich ecosystem.We suggest starting with the following.
+        - list [ref=e430]:
+          - listitem [ref=e431]:
+            - generic [ref=e435]:
+              - text: Read the
+              - link "Documentation" [ref=e436] [cursor=pointer]:
+                - /url: https://laravel.com/docs
+          - listitem [ref=e440]:
+            - generic [ref=e444]:
+              - text: Watch video tutorials at
+              - link "Laracasts" [ref=e445] [cursor=pointer]:
+                - /url: https://laracasts.com
+        - list [ref=e449]:
+          - listitem [ref=e450]:
+            - link "Deploy now" [ref=e451] [cursor=pointer]:
+              - /url: https://cloud.laravel.com
+  - region "Notifications alt+T"

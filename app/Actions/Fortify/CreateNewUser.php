@@ -4,8 +4,12 @@ namespace App\Actions\Fortify;
 
 use App\Concerns\PasswordValidationRules;
 use App\Concerns\ProfileValidationRules;
+use App\Models\Role;
+use App\Models\Tenant;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers
@@ -13,7 +17,8 @@ class CreateNewUser implements CreatesNewUsers
     use PasswordValidationRules, ProfileValidationRules;
 
     /**
-     * Validate and create a newly registered user.
+     * Validate and create a newly registered user along with the tenant
+     * (gym) they own, since every user must belong to exactly one tenant.
      *
      * @param  array<string, string>  $input
      */
@@ -24,10 +29,26 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => $input['password'],
-        ]);
+        return DB::transaction(function () use ($input) {
+            $tenant = Tenant::create([
+                'name' => $input['name']."'s Gym",
+                'slug' => Str::slug($input['name']).'-'.Str::random(6),
+            ]);
+
+            $user = User::create([
+                'tenant_id' => $tenant->id,
+                'name' => $input['name'],
+                'email' => $input['email'],
+                'password' => $input['password'],
+            ]);
+
+            $ownerRole = Role::query()->whereNull('tenant_id')->where('slug', 'owner')->first();
+
+            if ($ownerRole) {
+                $user->roles()->attach($ownerRole);
+            }
+
+            return $user;
+        });
     }
 }
