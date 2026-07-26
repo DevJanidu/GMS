@@ -63,11 +63,24 @@ class RoleController extends Controller
 
     public function update(UpdateRoleRequest $request, Role $role): JsonResponse
     {
-        $role->fill(array_filter([
-            'name' => $request->string('name')->toString() ?: null,
-            'slug' => $request->filled('slug') ? Str::slug($request->string('slug')->toString()) : null,
-        ]));
-        $role->save();
+        // Belt-and-braces beneath RolePolicy::update: an owner user bypasses
+        // every policy check via Gate::before, so the owner role's own
+        // permissions must be protected here too, or its holder could lock
+        // themselves out with no way back in.
+        if ($role->slug === 'owner') {
+            return ApiResponse::error('The owner role cannot be modified.', 403);
+        }
+
+        // System roles keep their built-in name/slug — only their
+        // permission set can be customized, so silently ignore any
+        // identity changes rather than trusting the client to withhold them.
+        if (! $role->is_system) {
+            $role->fill(array_filter([
+                'name' => $request->string('name')->toString() ?: null,
+                'slug' => $request->filled('slug') ? Str::slug($request->string('slug')->toString()) : null,
+            ]));
+            $role->save();
+        }
 
         if ($request->has('permissions')) {
             $permissionIds = $request->input('permissions', []);
@@ -85,6 +98,12 @@ class RoleController extends Controller
     public function destroy(Request $request, Role $role): JsonResponse
     {
         $this->authorize('delete', $role);
+
+        // Same reasoning as update(): Gate::before lets an owner user bypass
+        // the policy's is_system check, so guard it again here.
+        if ($role->is_system) {
+            return ApiResponse::error('System roles cannot be deleted.', 403);
+        }
 
         $this->auditLogger->log($request->user(), 'role.deleted', $role);
 

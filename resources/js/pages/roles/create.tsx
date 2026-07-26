@@ -16,7 +16,7 @@ export default function RoleCreate() {
         <>
             <Head title="Add role" />
 
-            <div className="max-w-2xl space-y-6">
+            <div className="w-full space-y-6">
                 <Heading
                     title="Add role"
                     description="Create a custom role for your gym"
