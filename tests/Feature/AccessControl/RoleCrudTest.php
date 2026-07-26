@@ -46,16 +46,57 @@ it('creates a custom role with permissions', function () {
     expect($role->is_system)->toBeFalse();
 });
 
-it('prevents updating a system role', function () {
+it('prevents updating the owner role', function () {
     $tenant = Tenant::factory()->create();
-    $systemRole = Role::factory()->system()->create();
+    $ownerRole = Role::factory()->system()->create(['slug' => 'owner']);
     $user = $this->userWithPermissions($tenant, ['roles.update']);
 
-    $response = $this->actingAs($user)->putJson("/api/v1/roles/{$systemRole->id}", [
+    $response = $this->actingAs($user)->putJson("/api/v1/roles/{$ownerRole->id}", [
         'name' => 'Hacked Name',
     ]);
 
     $response->assertForbidden();
+});
+
+it('allows updating permissions on a non-owner system role, but keeps its name fixed', function () {
+    $tenant = Tenant::factory()->create();
+    $systemRole = Role::factory()->system()->create(['name' => 'Manager']);
+    $permission = Permission::factory()->create();
+    $user = $this->userWithPermissions($tenant, ['roles.update']);
+
+    $response = $this->actingAs($user)->putJson("/api/v1/roles/{$systemRole->id}", [
+        'name' => 'Hacked Name',
+        'permissions' => [$permission->id],
+    ]);
+
+    $response->assertOk();
+    expect($systemRole->fresh()->name)->toBe('Manager');
+    expect($systemRole->fresh()->permissions->pluck('id'))->toEqual(collect([$permission->id]));
+});
+
+it('prevents even an owner user from modifying the owner role, despite the Gate::before bypass', function () {
+    $tenant = Tenant::factory()->create();
+    $ownerRole = Role::query()->firstOrCreate(
+        ['tenant_id' => null, 'slug' => 'owner'],
+        ['name' => 'Owner', 'is_system' => true],
+    );
+    $user = $this->ownerUser($tenant);
+
+    $response = $this->actingAs($user)->putJson("/api/v1/roles/{$ownerRole->id}", [
+        'permissions' => [],
+    ]);
+
+    $response->assertForbidden();
+});
+
+it('prevents even an owner user from deleting a system role, despite the Gate::before bypass', function () {
+    $tenant = Tenant::factory()->create();
+    $systemRole = Role::factory()->system()->create();
+    $user = $this->ownerUser($tenant);
+
+    $this->actingAs($user)->deleteJson("/api/v1/roles/{$systemRole->id}")->assertForbidden();
+
+    expect(Role::find($systemRole->id))->not->toBeNull();
 });
 
 it('serialises role permissions as a plain array, not a wrapped collection', function () {

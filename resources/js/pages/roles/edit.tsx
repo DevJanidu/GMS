@@ -28,8 +28,15 @@ export default function RoleEdit({ roleId }: { roleId: number }) {
         <>
             <Head title="Edit role" />
 
-            <div className="max-w-2xl space-y-6">
-                <Heading title="Edit role" />
+            <div className="w-full space-y-6">
+                <Heading
+                    title={role ? `Edit ${role.name}` : 'Edit role'}
+                    description={
+                        role?.is_system
+                            ? 'Built-in role — adjust its permissions below.'
+                            : undefined
+                    }
+                />
 
                 {loadError && (
                     <p className="text-sm text-destructive">
@@ -52,6 +59,7 @@ export default function RoleEdit({ roleId }: { roleId: number }) {
                         }}
                         submitLabel="Save changes"
                         onSubmit={handleSubmit}
+                        nameLocked={role.is_system}
                     />
                 )}
             </div>

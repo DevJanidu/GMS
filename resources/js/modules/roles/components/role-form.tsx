@@ -14,12 +14,14 @@ type RoleFormProps = {
     initialValues?: Partial<RoleFormValues>;
     submitLabel: string;
     onSubmit: (values: RoleFormValues) => Promise<unknown>;
+    nameLocked?: boolean;
 };
 
 export function RoleForm({
     initialValues,
     submitLabel,
     onSubmit,
+    nameLocked = false,
 }: RoleFormProps) {
     const [name, setName] = useState(initialValues?.name ?? '');
     const [selectedPermissions, setSelectedPermissions] = useState<number[]>(
@@ -59,8 +61,15 @@ export function RoleForm({
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    disabled={nameLocked}
                     required
                 />
+                {nameLocked && (
+                    <p className="text-xs text-muted-foreground">
+                        This is a built-in role — its name is fixed, but you
+                        can still customize its permissions below.
+                    </p>
+                )}
                 <InputError message={errors.name?.[0]} />
             </div>
 

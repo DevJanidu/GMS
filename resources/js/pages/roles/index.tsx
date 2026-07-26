@@ -2,6 +2,7 @@ import { Head, Link } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import Heading from '@/components/heading';
+import { ConfirmationDialog } from '@/components/shared/confirmation-dialog';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -20,10 +21,6 @@ export default function RoleIndex() {
     }, []);
 
     async function handleDelete(role: Role) {
-        if (!confirm(`Delete role "${role.name}"?`)) {
-            return;
-        }
-
         try {
             await rolesApi.remove(role.id);
             setRoles(
@@ -106,8 +103,8 @@ export default function RoleIndex() {
                                             {role.users_count ?? 0}
                                         </td>
                                         <td className="p-3 text-right">
-                                            {!role.is_system && (
-                                                <div className="flex justify-end gap-2">
+                                            <div className="flex justify-end gap-2">
+                                                {role.slug !== 'owner' && (
                                                     <Button
                                                         variant="outline"
                                                         size="sm"
@@ -119,17 +116,27 @@ export default function RoleIndex() {
                                                             Edit
                                                         </Link>
                                                     </Button>
-                                                    <Button
-                                                        variant="outline"
-                                                        size="sm"
-                                                        onClick={() =>
+                                                )}
+                                                {!role.is_system && (
+                                                    <ConfirmationDialog
+                                                        trigger={
+                                                            <Button
+                                                                variant="outline"
+                                                                size="sm"
+                                                            >
+                                                                Delete
+                                                            </Button>
+                                                        }
+                                                        title="Delete role"
+                                                        description={`Delete role "${role.name}"? Staff assigned to it will need a new role.`}
+                                                        confirmLabel="Delete"
+                                                        destructive
+                                                        onConfirm={() =>
                                                             handleDelete(role)
                                                         }
-                                                    >
-                                                        Delete
-                                                    </Button>
-                                                </div>
-                                            )}
+                                                    />
+                                                )}
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}
