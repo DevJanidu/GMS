@@ -2,6 +2,7 @@ import { Link, usePage } from '@inertiajs/react';
 import {
     filterNavigationForUser,
     getModuleNavigation,
+    groupNavigationBySection,
 } from '@/app/navigation';
 import AppLogo from '@/components/app-logo';
 import { NavMain } from '@/components/nav-main';
@@ -25,10 +26,9 @@ export function AppSidebar() {
         auth.user,
     );
 
-    const mainItems = navigation.filter((item) => item.group !== 'settings');
-    const settingsItems = navigation.filter(
-        (item) => item.group === 'settings',
-    );
+    const sections = groupNavigationBySection(navigation);
+    const lastSection = sections[sections.length - 1];
+    const leadingSections = sections.slice(0, -1);
 
     return (
         <Sidebar collapsible="icon" variant="inset">
@@ -45,12 +45,23 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={mainItems} />
+                {leadingSections.map((group) => (
+                    <NavMain
+                        key={group.section}
+                        items={group.items}
+                        label={group.section}
+                    />
+                ))}
 
-                <div className="mt-auto">
-                    <SidebarSeparator className="mx-0" />
-                    <NavMain items={settingsItems} label="Settings" />
-                </div>
+                {lastSection && (
+                    <div className="mt-auto">
+                        <SidebarSeparator className="mx-0" />
+                        <NavMain
+                            items={lastSection.items}
+                            label={lastSection.section}
+                        />
+                    </div>
+                )}
             </SidebarContent>
 
             <SidebarFooter>

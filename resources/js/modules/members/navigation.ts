@@ -6,4 +6,6 @@ export const navigation: NavItem = {
     title: 'Members',
     href: MemberController.index.url(),
     icon: UsersIcon,
+    order: 20,
+    group: 'Member Management',
 };

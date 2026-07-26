@@ -6,7 +6,7 @@ export const navigation: ModuleNavigation = {
     href: '/notifications',
     icon: Bell,
     order: 70,
-    group: 'Communication',
+    group: 'Administration',
     children: [
         {
             title: 'Notification Center',

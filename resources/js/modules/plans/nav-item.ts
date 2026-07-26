@@ -3,7 +3,7 @@ import PlanController from '@/actions/App/Http/Controllers/PlanController';
 import type { NavItem } from '@/types';
 
 export const navigation: NavItem = {
-    title: 'Plans',
+    title: 'Membership Plans',
     href: PlanController.index.url(),
     icon: CreditCardIcon,
 };

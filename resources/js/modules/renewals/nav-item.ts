@@ -3,9 +3,8 @@ import RenewalDashboardController from '@/actions/App/Modules/Membership/Control
 import type { NavItem } from '@/types';
 
 export const navigation: NavItem = {
-    title: 'Renewals',
+    title: 'Renewals & Expirations',
     href: RenewalDashboardController.index.url(),
     icon: RefreshCwIcon,
     permission: 'memberships.view',
-    order: 41,
 };
